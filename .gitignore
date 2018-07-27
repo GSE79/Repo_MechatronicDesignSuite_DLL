@@ -1,5 +1,10 @@
-# Visual Studio Output Directories
-MechatronicDesignSuite_DLL/MechatronicDesignSuite_TestGUI/bin/
-MechatronicDesignSuite_DLL/MechatronicDesignSuite_TestGUI/obj/
-MechatronicDesignSuite_DLL/.vs/
-
+###############
+#    folder   #
+###############
+/**/DROP/
+/**/TEMP/
+/**/packages/
+/**/bin/
+/**/obj/
+/**/.vs/
+_site

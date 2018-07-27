@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PCExeSysStatusStrip = new System.Windows.Forms.StatusStrip();
+            this.PCExeSysStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.PCExeSysProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.PCExeSysMenuStrip = new System.Windows.Forms.MenuStrip();
             this.PCExeSysProjectMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PCExeSysStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.PCExeSysGUITimer = new System.Windows.Forms.Timer(this.components);
-            this.PCExeSysProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.PCExeSysStatusStrip.SuspendLayout();
             this.PCExeSysMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +49,17 @@
             this.PCExeSysStatusStrip.Size = new System.Drawing.Size(800, 22);
             this.PCExeSysStatusStrip.TabIndex = 0;
             this.PCExeSysStatusStrip.Text = "statusStrip1";
+            // 
+            // PCExeSysStatusLabel
+            // 
+            this.PCExeSysStatusLabel.Name = "PCExeSysStatusLabel";
+            this.PCExeSysStatusLabel.Size = new System.Drawing.Size(122, 17);
+            this.PCExeSysStatusLabel.Text = "PC ExeSys StatusLabel";
+            // 
+            // PCExeSysProgressBar
+            // 
+            this.PCExeSysProgressBar.Name = "PCExeSysProgressBar";
+            this.PCExeSysProgressBar.Size = new System.Drawing.Size(100, 16);
             // 
             // PCExeSysMenuStrip
             // 
@@ -66,20 +77,9 @@
             this.PCExeSysProjectMenuItem.Size = new System.Drawing.Size(56, 20);
             this.PCExeSysProjectMenuItem.Text = "Project";
             // 
-            // PCExeSysStatusLabel
-            // 
-            this.PCExeSysStatusLabel.Name = "PCExeSysStatusLabel";
-            this.PCExeSysStatusLabel.Size = new System.Drawing.Size(122, 17);
-            this.PCExeSysStatusLabel.Text = "PC ExeSys StatusLabel";
-            // 
             // PCExeSysGUITimer
             // 
             this.PCExeSysGUITimer.Interval = 10;
-            // 
-            // PCExeSysProgressBar
-            // 
-            this.PCExeSysProgressBar.Name = "PCExeSysProgressBar";
-            this.PCExeSysProgressBar.Size = new System.Drawing.Size(100, 16);
             // 
             // MechatronicDesignSuiteForm
             // 
