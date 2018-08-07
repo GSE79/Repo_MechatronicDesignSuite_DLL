@@ -10,45 +10,77 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
+using System.Globalization;
 
 namespace MechatronicDesignSuite_DLL
 {
+    public class MetaDataClassConverter : ExpandableObjectConverter
+    {
+        // functions for property grid expandability
+        public override bool GetPropertiesSupported(ITypeDescriptorContext context)
+        {
+            return base.GetPropertiesSupported(context);
+        }
+        public override bool CanConvertTo(ITypeDescriptorContext context, System.Type destinationType)
+        {
+            if (destinationType == typeof(PCExeSysMetaData))
+                return true;
+
+            return base.CanConvertTo(context, destinationType);
+        }
+        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, System.Type destinationType)
+        {
+            if (destinationType == typeof(System.String) && value is PCExeSysMetaData)
+            {
+
+                PCExeSysMetaData so = (PCExeSysMetaData)value;
+                return "MetaData";
+            }
+            return base.ConvertTo(context, culture, value, destinationType);
+        }
+    }
     [Serializable]
+    [TypeConverterAttribute(typeof(MetaDataClassConverter)), DescriptionAttribute("Expand to see...")]
     public class PCExeSysMetaData
     {
-        [NonSerialized]
-        FileStream MDFileStream;
-        [NonSerialized]
-        BinaryFormatter MDFileFormatter;
-        string executableDirectoryString;
-        string MetaDataPathString;
-        List<string> SysModuleLibraryPathStrings;
-        List<string> SysModuleProjectPathStrings;
-
-        [NonSerialized]
-        PCExeSysMetaData TempSerializationContainer;
-        public PCExeSysMetaData()
+        public static string MetaDataPathString;
+        public List<string> SysModuleLibraryPathStrings { set; get; }
+        public List<string> SysModuleProjectPathStrings { set; get; }
+        public bool TryLoadLastPrj { set; get; } = true;
+        //public static string MetaDataPathString = "";// 
+        public static PCExeSysMetaData generateMetaData(PCExeSysMetaData toBeSaved)
         {
-            executableDirectoryString = Path.GetFullPath(Directory.GetCurrentDirectory());
-            if(Directory.Exists(executableDirectoryString))
+            string executableDirectoryString = Path.GetFullPath(Directory.GetCurrentDirectory());
+            if (Directory.Exists(executableDirectoryString))
             {
                 MetaDataPathString = Path.Combine(executableDirectoryString, "MDSMetaData.md");
                 if (File.Exists(MetaDataPathString))
                 {
-                    MDFileStream = File.OpenRead(MetaDataPathString);
-                    MDFileFormatter = new BinaryFormatter();
-                    TempSerializationContainer = (PCExeSysMetaData)MDFileFormatter.Deserialize(MDFileStream);
+                    FileStream MDFileStream = File.OpenRead(MetaDataPathString);
+                    BinaryFormatter MDFileFormatter = new BinaryFormatter();
+                    PCExeSysMetaData TempDeserializationContainer = (PCExeSysMetaData)MDFileFormatter.Deserialize(MDFileStream);
                     MDFileStream.Close();
+                    return TempDeserializationContainer;
                 }
-                else
+                else if(toBeSaved!=null)
                 {
-                    MDFileStream = File.OpenWrite(MetaDataPathString);
-                    MDFileFormatter = new BinaryFormatter();
-                    MDFileFormatter.Serialize(MDFileStream, this);
+                    FileStream MDFileStream = File.OpenWrite(MetaDataPathString);
+                    BinaryFormatter MDFileFormatter = new BinaryFormatter();
+                    MDFileFormatter.Serialize(MDFileStream, toBeSaved);
                     MDFileStream.Close();
+                    return toBeSaved;
                 }
+                
 
             }
+            return null;
+        }
+
+        public PCExeSysMetaData()
+        {
+
+            
+
         }
         public void AddLibraryPathString(string LibPathStringIn)
         {
@@ -57,13 +89,20 @@ namespace MechatronicDesignSuite_DLL
 
             if (SysModuleLibraryPathStrings.Count == 0)
                 SysModuleLibraryPathStrings.Add(Path.GetFullPath(LibPathStringIn));
-            else
+            else if (!SysModuleLibraryPathStrings.Contains(Path.GetFullPath(LibPathStringIn)))
+            {
+                int IndeX = -1;
+                IndeX = SysModuleLibraryPathStrings.FindIndex(x => x == Path.GetFullPath(LibPathStringIn));
+                if (IndeX >= 0 && IndeX < SysModuleLibraryPathStrings.Count)
+                    SysModuleLibraryPathStrings.RemoveAt(IndeX);
                 SysModuleLibraryPathStrings.Insert(0, Path.GetFullPath(LibPathStringIn));
+            }
 
             if (SysModuleLibraryPathStrings.Count > 10)
                 SysModuleLibraryPathStrings.RemoveAt(10);
 
-            MDFileStream = File.Open(MetaDataPathString, FileMode.Truncate);
+            FileStream MDFileStream = File.Open(MetaDataPathString, FileMode.Truncate);
+            BinaryFormatter MDFileFormatter = new BinaryFormatter();
             MDFileFormatter.Serialize(MDFileStream, this);
             MDFileStream.Close();
         }
@@ -74,13 +113,24 @@ namespace MechatronicDesignSuite_DLL
 
             if (SysModuleProjectPathStrings.Count == 0)
                 SysModuleProjectPathStrings.Add(Path.GetFullPath(ProjPathStringIn));
-            else
+            else if (SysModuleProjectPathStrings.Contains(Path.GetFullPath(ProjPathStringIn)))
+            {
+                int IndeX = -1;
+                IndeX = SysModuleProjectPathStrings.FindIndex(x=>x== Path.GetFullPath(ProjPathStringIn));
+                if (IndeX >= 0 && IndeX < SysModuleProjectPathStrings.Count)
+                    SysModuleProjectPathStrings.RemoveAt(IndeX);
                 SysModuleProjectPathStrings.Insert(0, Path.GetFullPath(ProjPathStringIn));
+            }
+            else
+            {
+                SysModuleProjectPathStrings.Insert(0, Path.GetFullPath(ProjPathStringIn));
+            }
 
             if (SysModuleProjectPathStrings.Count > 10)
                 SysModuleProjectPathStrings.RemoveAt(10);
 
-            MDFileStream = File.Open(MetaDataPathString, FileMode.Truncate);
+            FileStream MDFileStream = File.Open(MetaDataPathString, FileMode.Truncate);
+            BinaryFormatter MDFileFormatter = new BinaryFormatter();
             MDFileFormatter.Serialize(MDFileStream, this);
             MDFileStream.Close();
         }
@@ -150,7 +200,7 @@ namespace MechatronicDesignSuite_DLL
         {
             get { return (imsBGThreadManager)APISysModules[1]; }
         }
-        MechatronicDesignSuiteForm LinkedMDSForm;
+        public MechatronicDesignSuiteForm LinkedMDSForm;
 
         List<Timer> guiTimers = new List<Timer>();
         List<BackgroundWorker> guiBGWorkers = new List<BackgroundWorker>();
@@ -159,6 +209,7 @@ namespace MechatronicDesignSuite_DLL
         List<imsBaseNode> globalNodeList = new List<imsBaseNode>();
         public bool DeSerializingSystem = false;
         public bool DeSerializationRequested = false;
+        public bool EnableMainLoop { set; get; } = true;
         public PCExeSys(MechatronicDesignSuiteForm MDSFormIn)
         {
             if (MDSFormIn != null)
@@ -357,16 +408,20 @@ namespace MechatronicDesignSuite_DLL
         }
         private int MainLoop()
         {
-            if (!DeSerializingSystem)
+            if(EnableMainLoop)
             {
-                foreach (imsSysModuleNode sysModNode in APISysModules)
-                    sysModNode.MainLoop();
+                if (!DeSerializingSystem)
+                {
+                    foreach (imsSysModuleNode sysModNode in APISysModules)
+                        sysModNode.MainLoop();
+                }
+                else if (DeSerializationRequested)
+                {
+                    foreach (imsSysModuleNode sysModNode in APISysModules)
+                        sysModNode.MainLoop();
+                }
             }
-            else if(DeSerializationRequested)
-            {
-                foreach (imsSysModuleNode sysModNode in APISysModules)
-                    sysModNode.MainLoop();
-            }
+            
 
             return 0;
         }
@@ -397,10 +452,11 @@ namespace MechatronicDesignSuite_DLL
 
                 }
                 DeSerializingSystem = false;
+
             }
 
 
-            
+
             return 0;
         }
         private int SimBGThread()
@@ -419,7 +475,10 @@ namespace MechatronicDesignSuite_DLL
                 ExceptionLog.Add(new imsException());
                 ExceptionLog[ExceptionLog.Count - 1].thisException = caughtExcpIn;
                 if (EntryPoint == MainLoop)
+                {
                     ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "MainLoop";
+                    EnableMainLoop = false;
+                }
                 else if (EntryPoint == MainInit)
                     ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "MainInit";
                 else if (EntryPoint == CommsBGThread)
@@ -448,6 +507,11 @@ namespace MechatronicDesignSuite_DLL
                 if (disposing)
                 {
                     // TODO: dispose managed state (managed objects).
+                    int i;
+                    for (i = 0; i < globalNodeList.Count; i++)
+                        globalNodeList[i].Dispose();
+                    for (i = 0; i < APISysModules.Count; i++)
+                        APISysModules[i].Dispose();
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.

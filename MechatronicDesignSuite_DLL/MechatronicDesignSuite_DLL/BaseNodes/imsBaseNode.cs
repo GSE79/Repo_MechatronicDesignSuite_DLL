@@ -12,10 +12,11 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Globalization;
 
 namespace MechatronicDesignSuite_DLL
 {
-    [Serializable]
+    [TypeConverterAttribute(typeof(BaseModelClassConverter)), DescriptionAttribute("Expand to see...")]
     public class imsBaseNode: IDisposable
     {
         [Category("Base Node"),
@@ -74,7 +75,7 @@ namespace MechatronicDesignSuite_DLL
             outNode.Tag = this;
             return outNode;
         }
-
+        
 
         #region iDisposable Interface Requirements
         bool disposed = false;
@@ -152,7 +153,31 @@ namespace MechatronicDesignSuite_DLL
     }
     #endregion
 
+    public class BaseModelClassConverter : ExpandableObjectConverter
+    {
+        // functions for property grid expandability
+        public override bool GetPropertiesSupported(ITypeDescriptorContext context)
+        {
+            return base.GetPropertiesSupported(context);
+        }
+        public override bool CanConvertTo(ITypeDescriptorContext context, System.Type destinationType)
+        {
+            if (destinationType == typeof(imsBaseNode))
+                return true;
 
+            return base.CanConvertTo(context, destinationType);
+        }
+        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value, System.Type destinationType)
+        {
+            if (destinationType == typeof(System.String) && value is imsBaseNode)
+            {
+
+                imsBaseNode so = (imsBaseNode)value;
+                return so.NodeName;
+            }
+            return base.ConvertTo(context, culture, value, destinationType);
+        }
+    }
 
     public class DynamicNodeCreator
     {

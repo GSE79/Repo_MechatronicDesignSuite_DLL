@@ -3,21 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MechatronicDesignSuite_DLL
 {
-    [Serializable]
+
     public class imsProjectModuleNode : imsAPISysModule
     {
-        [NonSerialized]
+        public PCExeSysMetaData MetaDataStructure
+        {
+            set { pcExecutionSystemMetaData = value; }
+            get { return pcExecutionSystemMetaData; }
+        }
         PCExeSysMetaData pcExecutionSystemMetaData;        
         public string ActiveProjectPath { get; set; } = "";
-        [NonSerialized]
+        
         string RequestedProjectPath = "";
         string SaveToProjectPath = "";
+
 
         
         public string ProjectPathRequestedforOpen
@@ -68,16 +76,18 @@ namespace MechatronicDesignSuite_DLL
         }
         public imsProjectModuleNode(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) : base(DeSerializeFormatter, deSerializeFs)
         {
-            //SaveToProjectPath = (string)DeSerializeFormatter.Deserialize(deSerializeFs);
+            pcExecutionSystemMetaData = (PCExeSysMetaData)DeSerializeFormatter.Deserialize(deSerializeFs);
         }
         public override void writeNode2file(BinaryFormatter SerializeFormatter, FileStream SerializeFs)
         {
             base.writeNode2file(SerializeFormatter, SerializeFs);
-            //SerializeFormatter.Serialize(SerializeFs, SaveToProjectPath);
+            SerializeFormatter.Serialize(SerializeFs, pcExecutionSystemMetaData);
         }
         public override void MainInit()
         {
             pcExecutionSystemMetaData = new PCExeSysMetaData();
+            pcExecutionSystemMetaData = PCExeSysMetaData.generateMetaData(pcExecutionSystemMetaData);
+            pcExecutionSystemMetaData.TryLoadLastPrj = true;
         }
         public override void MainLoop()
         {
@@ -85,6 +95,23 @@ namespace MechatronicDesignSuite_DLL
             {
                 // manage active project
 
+                
+            }
+            else if(pcExecutionSystemMetaData != null)
+            {
+                if (pcExecutionSystemMetaData.SysModuleProjectPathStrings != null)
+                {
+                    if (pcExecutionSystemMetaData.SysModuleProjectPathStrings.Count > 0)
+                    {
+                        if (pcExecutionSystemMetaData.TryLoadLastPrj)
+                        {
+                            PCExeSysLink.DeSerializingSystem = true;
+                            PCExeSysLink.DeSerializationRequested = true;
+                            PCExeSysLink.ProjModNodeProperty.ProjectPathRequestedforOpen = Path.GetFullPath(pcExecutionSystemMetaData.SysModuleProjectPathStrings[0]);
+                            pcExecutionSystemMetaData.TryLoadLastPrj = false;
+                        }
+                    }
+                }
                 
             }
 
@@ -96,13 +123,16 @@ namespace MechatronicDesignSuite_DLL
             if (SaveToProjectPath != "")
             {
                 if (File.Exists(SaveToProjectPath))
-                {
-                    // open, truncate, serialize
+                {// open, truncate, serialize
                     PCExeSysLink.SerializePCSystem(SaveToProjectPath);
 
                     ActiveProjectPath = SaveToProjectPath;
+                    pcExecutionSystemMetaData.AddProjectPathString(ActiveProjectPath);
                     SaveToProjectPath = "";
                 }
+                else
+                    SaveToProjectPath = "";
+
             }
 
             // open project from file when requested
@@ -114,7 +144,14 @@ namespace MechatronicDesignSuite_DLL
                     PCExeSysLink.DeserializePCSystem(RequestedProjectPath);
 
                     ActiveProjectPath = RequestedProjectPath;
+                    pcExecutionSystemMetaData.AddProjectPathString(ActiveProjectPath);
                     RequestedProjectPath = "";
+                }
+                else
+                {
+                    RequestedProjectPath = "";
+                    PCExeSysLink.DeSerializingSystem = false;
+                    PCExeSysLink.DeSerializationRequested = false;
                 }
 
             }
