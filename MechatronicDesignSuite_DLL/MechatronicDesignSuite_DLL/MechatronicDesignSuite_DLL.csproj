@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,6 +45,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseForms\ImsBaseForm.cs" />
+    <Compile Include="BaseForms\imsExceptionViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForms\imsExceptionViewer.Designer.cs">
+      <DependentUpon>imsExceptionViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForms\imsProjectExplorer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForms\imsProjectExplorer.Designer.cs">
+      <DependentUpon>imsProjectExplorer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseNodes\imsAPISysModule.cs" />
+    <Compile Include="BaseNodes\imsBaseNode.cs" />
+    <Compile Include="BaseNodes\imsBGThreadManager.cs" />
+    <Compile Include="BaseNodes\imsPCClocksModule.cs" />
+    <Compile Include="BaseNodes\imsProjectModuleNode.cs" />
+    <Compile Include="BaseNodes\imsSysModuleNode.cs" />
+    <Compile Include="BaseNodes\imsValueNode.cs" />
     <Compile Include="PCExeSys.cs" />
     <Compile Include="PCExeSysForm.cs">
       <SubType>Form</SubType>
@@ -54,6 +75,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BaseForms\imsExceptionViewer.resx">
+      <DependentUpon>imsExceptionViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\imsProjectExplorer.resx">
+      <DependentUpon>imsProjectExplorer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PCExeSysForm.resx">
       <DependentUpon>PCExeSysForm.cs</DependentUpon>
     </EmbeddedResource>

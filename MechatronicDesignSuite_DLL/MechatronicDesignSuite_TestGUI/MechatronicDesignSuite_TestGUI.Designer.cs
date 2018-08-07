@@ -28,7 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // MechatronicDesignSuite_TestGUI
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.ClientSize = new System.Drawing.Size(1600, 865);
+            this.Name = "MechatronicDesignSuite_TestGUI";
+            this.Text = "Mechatronic Design Suite - Test GUI";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
