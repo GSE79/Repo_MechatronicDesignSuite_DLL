@@ -46,9 +46,24 @@ namespace MechatronicDesignSuite_DLL
         public static string MetaDataPathString;
         public List<string> SysModuleLibraryPathStrings { set; get; }
         public List<string> SysModuleProjectPathStrings { set; get; }
-        public bool TryLoadLastPrj { set; get; } = true;
+        public bool TryLoadLastPrj { set; get; } = false;
         //public static string MetaDataPathString = "";// 
-        public static PCExeSysMetaData generateMetaData(PCExeSysMetaData toBeSaved)
+        public static void saveMetaData(PCExeSysMetaData toBeSaved)
+        {
+            if (toBeSaved != null)
+            {
+                FileStream MDFileStream = File.Open(MetaDataPathString, FileMode.Truncate);
+                BinaryFormatter MDFileFormatter = new BinaryFormatter();
+                MDFileFormatter.Serialize(MDFileStream, toBeSaved);
+                MDFileStream.Close();
+
+                //FileStream MDFileStream = File.OpenWrite(MetaDataPathString);
+                //BinaryFormatter MDFileFormatter = new BinaryFormatter();
+                //MDFileFormatter.Serialize(MDFileStream, toBeSaved);
+                //MDFileStream.Close();
+            }
+        }
+        public static PCExeSysMetaData generateMetaData()
         {
             string executableDirectoryString = Path.GetFullPath(Directory.GetCurrentDirectory());
             if (Directory.Exists(executableDirectoryString))
@@ -62,14 +77,12 @@ namespace MechatronicDesignSuite_DLL
                     MDFileStream.Close();
                     return TempDeserializationContainer;
                 }
-                else if(toBeSaved!=null)
+                else
                 {
-                    FileStream MDFileStream = File.OpenWrite(MetaDataPathString);
-                    BinaryFormatter MDFileFormatter = new BinaryFormatter();
-                    MDFileFormatter.Serialize(MDFileStream, toBeSaved);
-                    MDFileStream.Close();
-                    return toBeSaved;
+                    return new PCExeSysMetaData();
                 }
+
+                
                 
 
             }
@@ -101,10 +114,7 @@ namespace MechatronicDesignSuite_DLL
             if (SysModuleLibraryPathStrings.Count > 10)
                 SysModuleLibraryPathStrings.RemoveAt(10);
 
-            FileStream MDFileStream = File.Open(MetaDataPathString, FileMode.Truncate);
-            BinaryFormatter MDFileFormatter = new BinaryFormatter();
-            MDFileFormatter.Serialize(MDFileStream, this);
-            MDFileStream.Close();
+            saveMetaData(this);
         }
         public void AddProjectPathString(string ProjPathStringIn)
         {
@@ -129,10 +139,7 @@ namespace MechatronicDesignSuite_DLL
             if (SysModuleProjectPathStrings.Count > 10)
                 SysModuleProjectPathStrings.RemoveAt(10);
 
-            FileStream MDFileStream = File.Open(MetaDataPathString, FileMode.Truncate);
-            BinaryFormatter MDFileFormatter = new BinaryFormatter();
-            MDFileFormatter.Serialize(MDFileStream, this);
-            MDFileStream.Close();
+            saveMetaData(this);
         }
 
     }
@@ -174,7 +181,7 @@ namespace MechatronicDesignSuite_DLL
             return outNode;
         }
     }
-    public class PCExeSys: IDisposable
+    public class PCExeSys : IDisposable
     {
         public BackgroundWorker ExtAppBGWorkerLink
         {
@@ -205,18 +212,79 @@ namespace MechatronicDesignSuite_DLL
         List<Timer> guiTimers = new List<Timer>();
         List<BackgroundWorker> guiBGWorkers = new List<BackgroundWorker>();
         List<imsException> ExceptionLog = new List<imsException>();
+
+        public imsProjectExplorer thisPrjViewer;
+        public imsExceptionViewer thisExcpViewer;
+
+        public PCExeSysMetaData pcExecutionSystemMetaData;
+        public string ActiveProjectPath { get { return activeProjectpath; } set { if (value != "") activeProjectpath = value; } }
+        string activeProjectpath = "";
+
+        string RequestedProjectPath = "";
+        string SaveToProjectPath = "";
+        
+        public string ProjectPathRequestedforOpen
+        {
+            set
+            {
+                if (File.Exists(value))
+                    RequestedProjectPath = value;
+                else if (Directory.Exists(value))
+                    RequestedProjectPath = value;
+            }
+            get { return RequestedProjectPath; }
+        }
+        public string ProjectPathRequestedforSave
+        {
+            set
+            {
+                if (File.Exists(value))
+                    SaveToProjectPath = value;
+                else
+                {
+                    FileStream FS = File.Create(value);
+                    if (FS != null)
+                        FS.Close();
+                    if (File.Exists(value))
+                        SaveToProjectPath = value;
+                }
+            }
+            get { return SaveToProjectPath; }
+        }
+
+        /// <summary>
+        /// Executional Modules of the PC Exe Sys (API Modules)
+        /// </summary>
         public List<imsAPISysModule> APISysModules = new List<imsAPISysModule>();
+        /// <summary>
+        /// Global List of all Nodes that can be serialized and/or deserialized
+        /// </summary>
         List<imsBaseNode> globalNodeList = new List<imsBaseNode>();
-        public bool DeSerializingSystem = false;
-        public bool DeSerializationRequested = false;
+
+
+
+        
         public bool EnableMainLoop { set; get; } = true;
+        public bool EnableExtAppThread { set; get; } = true;
+        public bool EnableCommsThread { set; get; } = true;
+        public bool EnableSimThread { set; get; } = true;
+
+
+        /// <summary>
+        /// The PCExeSys Constructor
+        /// - Intended use: to be called by PCExeSysForm during its construction/instantiation
+        /// - Establishes link between execution system and main PC form
+        /// - Calls maininit function of the execution system
+        /// </summary>
+        /// <param name="MDSFormIn"></param>
         public PCExeSys(MechatronicDesignSuiteForm MDSFormIn)
         {
             if (MDSFormIn != null)
                 LinkedMDSForm = MDSFormIn;
-            CallEntryPointFunction(MainInit);
+            pcExecutionSystemMetaData = PCExeSysMetaData.generateMetaData();
+            InitializeExecutionSystem();
         }
-        
+
         private void AnalyzeMainForm(MechatronicDesignSuiteForm MDSFormIn)
         {
             // loop through all windows form controls           
@@ -244,7 +312,7 @@ namespace MechatronicDesignSuite_DLL
             guiBGWorkers[0].DoWork += new DoWorkEventHandler(CommBGThread_DoWork);
 
             guiBGWorkers.Add(new BackgroundWorker());
-            ExtAppBGWorkerLink.DoWork += new DoWorkEventHandler(ExternalAppThread_DoWork);
+            guiBGWorkers[1].DoWork += new DoWorkEventHandler(ExternalAppThread_DoWork);
 
             guiBGWorkers.Add(new BackgroundWorker());
             guiBGWorkers[2].DoWork += new DoWorkEventHandler(SimThread_DoWork);
@@ -273,6 +341,7 @@ namespace MechatronicDesignSuite_DLL
         {
             CallEntryPointFunction(SimBGThread);
         }
+
         public void SerializePCSystem(string pathString)
         {
             BinaryFormatter SerializeFormatter = new BinaryFormatter();
@@ -293,18 +362,28 @@ namespace MechatronicDesignSuite_DLL
             long startingFP; imsBaseNode tempBaseNode;
             Assembly tempAss = typeof(imsBaseNode).Assembly;
             Type[] tempTypes = tempAss.GetTypes();
+
             List<imsBaseNode> tempGlobalNodeList = new List<imsBaseNode>();
+
             while (DeSerializeFileStream.Position < DeSerializeFileStream.Length)
             {
                 startingFP = DeSerializeFileStream.Position;
                 tempBaseNode = new imsBaseNode(DeSerializeFormatter, DeSerializeFileStream);
+
                 if (tempTypes.Contains(tempBaseNode.NodeType))
                 {
                     DeSerializeFileStream.Position = startingFP;
                     tempGlobalNodeList.Add((imsBaseNode)(Activator.CreateInstance(tempBaseNode.NodeType, cTorParams)));
-                }   
+                }
+                else
+                {
+                    DeSerializeFileStream.Close();
+                    throw (new Exception("Deserialized unknown node type from file"));
+                }
+
+
                 // if the node ids don't line up...
-                if(tempGlobalNodeList[tempGlobalNodeList.Count-1].GlobalNodeID != tempGlobalNodeList.FindIndex(x=>x.GlobalNodeID== tempBaseNode.GlobalNodeID))
+                if (tempGlobalNodeList[tempGlobalNodeList.Count - 1].GlobalNodeID != tempGlobalNodeList.FindIndex(x => x.GlobalNodeID == tempBaseNode.GlobalNodeID))
                 {
                     DeSerializeFileStream.Close();
                     throw (new Exception("DeSerialized Node ID's dont Line Up"));
@@ -312,52 +391,31 @@ namespace MechatronicDesignSuite_DLL
             }
             DeSerializeFileStream.Close();
 
-
-            for (nodeIndex = 0; nodeIndex < globalNodeList.Count; nodeIndex++)
-                globalNodeList[nodeIndex].Dispose();
-
+            APISysModules.Clear();
             globalNodeList.Clear();
 
             foreach (imsBaseNode deSerialNode in tempGlobalNodeList)
+            {
                 globalNodeList.Add(deSerialNode);
 
-            
-            DeSerializingSystem = false;
+                if (typeof(imsAPISysModule).IsInstanceOfType(deSerialNode))
+                {
+                    ((imsAPISysModule)deSerialNode).deSerializeSetAPILinks(this);
+                }
+            }
+
+
         }
         public void PopulateTreeView(TreeView TreeViewIn)
         {
-            if(TreeViewIn.Nodes.Count == 0)
+            TreeViewIn.Nodes.Clear();
+            // Populate Node 0 with ExeSys API Modules
+            if(APISysModules.Count>0)
             {
-                // Populate Node 0 with ExeSys API Modules
-                TreeViewIn.Nodes.Add(new TreeNode("ExeSys API"));
-                foreach(imsAPISysModule apiMod in APISysModules)
-                {
-                    TreeViewIn.Nodes[0].Nodes.Add(apiMod.toNewTreeNode());
-                    if(apiMod.NodeType == typeof(imsProjectModuleNode))
-                    {
-                        TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Text = "Project Settings";
-                    }
-                    else if (apiMod.NodeType == typeof(imsPCClocksModule))
-                    {
-                        TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Text = "Application Timing";
-                    }
-                    else if (apiMod.NodeType == typeof(imsBGThreadManager))
-                    {
-                        TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Text = "BG Thread Manager";
-                    }
-                }
-
-                // Populate Node 1 with Active Project Modules
-                TreeViewIn.Nodes.Add(ProjModNodeProperty.toNewTreeNode());
-                TreeViewIn.Nodes[1].Text = "New Project";
-                //TreeViewIn.Refresh();
-            }
-            else if(ProjModNodeProperty.ActiveProjectPath != "")
-            {
-
-                TreeViewIn.Nodes.Clear();
-                // Populate Node 0 with ExeSys API Modules
-                TreeViewIn.Nodes.Add(new TreeNode("ExeSys API"));
+                if(ActiveProjectPath!="")
+                    TreeViewIn.Nodes.Add(new TreeNode(Path.GetFileNameWithoutExtension(ActiveProjectPath)));
+                else
+                    TreeViewIn.Nodes.Add(new TreeNode(Path.GetFileNameWithoutExtension("New Project File Name")));
                 foreach (imsAPISysModule apiMod in APISysModules)
                 {
                     TreeViewIn.Nodes[0].Nodes.Add(apiMod.toNewTreeNode());
@@ -374,97 +432,286 @@ namespace MechatronicDesignSuite_DLL
                         TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Text = "BG Thread Manager";
                     }
                 }
-
                 // Populate Node 1 with Active Project Modules
                 TreeViewIn.Nodes.Add(ProjModNodeProperty.toNewTreeNode());
             }
+            
+
+            
         }
         public void PopulateExceptionTreeView(TreeView TreeViewIn)
         {
             if (TreeViewIn.Nodes.Count == 0)
             {
-                foreach(imsException excp in ExceptionLog)
+                foreach (imsException excp in ExceptionLog)
                 {
                     TreeViewIn.Nodes.Add(excp.toNewTreeNode());
                     TreeViewIn.Nodes[TreeViewIn.Nodes.Count - 1].ToolTipText = excp.StackTrace;
                 }
             }
         }
-
-        private int MainInit()
+        
+        
+        public int PromptSaveProject2File()
         {
-            InitializeExecutionSystem();
+            SaveFileDialog SaveProjectDialog = new SaveFileDialog();
+            SaveProjectDialog.Title = "Save Project File as (*.imsprj)";
+            SaveProjectDialog.Filter = @"project files|*.imsPrj;";
+            //SaveProjectDialog.CheckPathExists = true;
+            //SaveProjectDialog.CheckFileExists = true;
+            if (pcExecutionSystemMetaData.SysModuleProjectPathStrings != null)
+            {
+                if (pcExecutionSystemMetaData.SysModuleProjectPathStrings.Count > 0)
+                    SaveProjectDialog.InitialDirectory = Path.GetDirectoryName(pcExecutionSystemMetaData.SysModuleProjectPathStrings[0]);
+            }
+            DialogResult theseResults = SaveProjectDialog.ShowDialog();
+            if (theseResults == DialogResult.OK)
+            {
+                if (!File.Exists(SaveProjectDialog.FileName) && SaveProjectDialog.FileName != "")
+                {
+                    FileStream tfs = File.Create(SaveProjectDialog.FileName);
+                    if (tfs != null)
+                    {
+                        ProjectPathRequestedforSave = SaveProjectDialog.FileName;
+                        tfs.Close();
+                    }
+                }
+                else if (File.Exists(SaveProjectDialog.FileName))
+                {
+                    ProjectPathRequestedforSave = SaveProjectDialog.FileName;
+                }
+                ExtAppBGWorkerLink.RunWorkerAsync();
+            }
+            return 0;
+        }
+        public int PromptOpenProjectFile()
+        {
+            OpenFileDialog OpenProjectDialog = new OpenFileDialog();
+            OpenProjectDialog.Title = "Select a Project File to Open (*.imsprj)";
+            OpenProjectDialog.Filter = @"project files|*.imsPrj;";
+            OpenProjectDialog.CheckPathExists = true;
+            OpenProjectDialog.CheckFileExists = true;
+            if (pcExecutionSystemMetaData.SysModuleProjectPathStrings != null)
+            {
+                if (pcExecutionSystemMetaData.SysModuleProjectPathStrings.Count > 0)
+                    OpenProjectDialog.InitialDirectory = Path.GetDirectoryName(pcExecutionSystemMetaData.SysModuleProjectPathStrings[0]);
+            }
+            DialogResult theseResults = OpenProjectDialog.ShowDialog();
+            if (theseResults == DialogResult.OK)
+            {
+                ProjectPathRequestedforOpen = OpenProjectDialog.FileName;
+                CloseProject();
+            }
+            ExtAppBGWorkerLink.RunWorkerAsync();
+            return 0;
+        }
+        /// <summary>
+        /// PromptCloseProjectFile()
+        /// - This Function is called to close the API and User Modules attached to the execution system
+        /// - First the user is prompted to confirm close operation
+        /// - if Confirmed, all modules are disposed of, all lists are cleared
+        /// - if Canceled, no modules are disposed of, no lists are cleared, no action is performed
+        /// </summary>
+        /// <returns></returns>
+        public int PromptCloseProjectFile()
+        {
+            // Prompt user to confirm close operation
+            DialogResult theseResults = MessageBox.Show("Are you sure you want to close the active project?","Close the active project now?",MessageBoxButtons.OKCancel);
+            if(theseResults == DialogResult.OK )
+            {
+                CloseProject();
+
+            }
+
+            return 0;
+        }
+        public int LaunchNewProjectExplorer()
+        {
+            if (thisPrjViewer == null)
+            {
+                thisPrjViewer = new imsProjectExplorer();
+                thisPrjViewer.pCExeSysLink = this;
+                MainLoopProjectCheck();
+            }
+            return 0;
+        }
+        public int LaunchNewExceptionLog()
+        {
+            if(thisExcpViewer==null)
+            {
+                thisExcpViewer = new imsExceptionViewer();
+                thisExcpViewer.pCExeSysLink = this;
+            }
+            
+            return 0;
+        }
+        /// <summary>
+        /// InstantiateNewAPIModules()
+        /// - This function is called to create a new project in the execution system
+        /// </summary>
+        public int InstantiateNewAPIModules()
+        {
+            CloseProject();
 
             APISysModules.Add(new imsPCClocksModule(this, globalNodeList));
             APISysModules.Add(new imsBGThreadManager(this, globalNodeList));
             APISysModules.Add(new imsProjectModuleNode(this, globalNodeList));
 
+            activeProjectpath = Path.Combine(Directory.GetCurrentDirectory(),"NewProjectFile.imsprj");
+
+            CallEntryPointFunction(MainInit);
+
+            return 0;
+        }
+        private void CloseProject()
+        {
+            if (APISysModules.Count != 0)
+            {
+                int i;
+                for (i = APISysModules.Count - 1; i > -1; i--)
+                    APISysModules[i].Dispose();
+                APISysModules.Clear();
+            }
+            activeProjectpath = "";
+        }
+        private void MainLoopProjectCheck()
+        {
+            if (thisPrjViewer != null)
+            {
+                thisPrjViewer.UpatePrjIndicators(activeProjectpath);
+            }
+
+            if (activeProjectpath != "")
+            {
+                // manage active project
+                
+                
+            }
+            else
+            {
+                
+
+                if (pcExecutionSystemMetaData != null)
+                {
+                    if (pcExecutionSystemMetaData.SysModuleProjectPathStrings != null)
+                    {
+                        if (pcExecutionSystemMetaData.SysModuleProjectPathStrings.Count > 0)
+                        {
+                            if (pcExecutionSystemMetaData.TryLoadLastPrj)
+                            {
+                                ProjectPathRequestedforOpen = Path.GetFullPath(pcExecutionSystemMetaData.SysModuleProjectPathStrings[0]);
+                                pcExecutionSystemMetaData.TryLoadLastPrj = false;
+                            }
+                        }
+                    }
+                }
 
 
+            }
+        }
+        private void ExtAppOPenCloseProj()
+        {
+            // save active project when requested
+            if (SaveToProjectPath != "")
+            {
+                if (File.Exists(SaveToProjectPath))
+                {// open, truncate, serialize
+                    SerializePCSystem(SaveToProjectPath);
+
+                    activeProjectpath = SaveToProjectPath;
+                    pcExecutionSystemMetaData.AddProjectPathString(activeProjectpath);
+                    SaveToProjectPath = "";
+                    if (thisPrjViewer != null)
+                        LinkedMDSForm.BeginInvoke(new Action(() => {
+                            thisPrjViewer.updateTreeView();
+                        }));
+                }
+                else
+                    SaveToProjectPath = "";
+
+            }
+
+            // open project from file when requested
+            if (RequestedProjectPath != "")
+            {
+                if (File.Exists(RequestedProjectPath))
+                {
+                    // deserialize
+                    DeserializePCSystem(RequestedProjectPath);
+
+                    activeProjectpath = RequestedProjectPath;
+                    pcExecutionSystemMetaData.AddProjectPathString(activeProjectpath);
+                    RequestedProjectPath = "";
+
+                    if (thisPrjViewer != null)
+                      LinkedMDSForm.BeginInvoke(new Action(() => {
+                          thisPrjViewer.updateTreeView();
+                          MainInit();
+                      }));
+                }
+                else
+                {
+                    RequestedProjectPath = "";
+                }
+
+            }
+        }
+        /// <summary>
+        /// MainInit() is a primary entry point function for the PC exe sys
+        /// - Here the Execution System is Initialized and all modules MainInit() functions are called
+        /// - This code is executed only during initialization of the execution system, initialization of the main form
+        /// </summary>
+        /// <returns></returns>
+        private int MainInit()
+        {
             foreach (imsSysModuleNode sysModNode in APISysModules)
                 sysModNode.MainInit();
-
+            
             return 0;
         }
         private int MainLoop()
         {
-            if(EnableMainLoop)
+            MainLoopProjectCheck();
+
+            if (EnableMainLoop)
             {
-                if (!DeSerializingSystem)
-                {
-                    foreach (imsSysModuleNode sysModNode in APISysModules)
-                        sysModNode.MainLoop();
-                }
-                else if (DeSerializationRequested)
-                {
-                    foreach (imsSysModuleNode sysModNode in APISysModules)
-                        sysModNode.MainLoop();
-                }
-            }
-            
+                foreach (imsSysModuleNode sysModNode in APISysModules)
+                    sysModNode.MainLoop();
+            }           
 
             return 0;
         }
         private int CommsBGThread()
         {
-            
+            if (EnableCommsThread)
+            {
+                //foreach (imsSysModuleNode sysModNode in APISysModules)
+                //    sysModNode.C();
+            }
             return 0;
         }
         private int ExtAppBGThread()
         {
-            if(!DeSerializingSystem)
+            ExtAppOPenCloseProj();
+
+            if (EnableExtAppThread)
             {
                 foreach (imsSysModuleNode sysModNode in APISysModules)
                     sysModNode.ExtAppBGThread();
             }
-            else if (DeSerializationRequested)
-            {
-                DeSerializationRequested = false;
-                foreach (imsSysModuleNode sysModNode in APISysModules)
-                    sysModNode.ExtAppBGThread();
-                APISysModules.Clear();
-                foreach (imsBaseNode deSerialNode in globalNodeList)
-                {
-                    if (typeof(imsAPISysModule).IsInstanceOfType(deSerialNode))
-                        ((imsAPISysModule)deSerialNode).deSerializeSetAPILinks(this);
-                    if (typeof(imsSysModuleNode).IsInstanceOfType(deSerialNode))
-                        ((imsSysModuleNode)deSerialNode).deSerializeLinkNodes(globalNodeList);
-
-                }
-                DeSerializingSystem = false;
-
-            }
-
-
-
             return 0;
         }
         private int SimBGThread()
         {
+            if(EnableSimThread)
+            {
+                //foreach ()
+                //      sysModNode.S();
+            }
             return 0;
         }
 
-        private void CallEntryPointFunction(Func<int> EntryPoint)
+        public void CallEntryPointFunction(Func<int> EntryPoint)
         {
             try
             {
@@ -474,6 +721,7 @@ namespace MechatronicDesignSuite_DLL
             {
                 ExceptionLog.Add(new imsException());
                 ExceptionLog[ExceptionLog.Count - 1].thisException = caughtExcpIn;
+
                 if (EntryPoint == MainLoop)
                 {
                     ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "MainLoop";
@@ -490,6 +738,8 @@ namespace MechatronicDesignSuite_DLL
                 }
                 else if (EntryPoint == SimBGThread)
                     ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "SimBGThread";
+                else
+                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "CallbackFunction";
 
                 LinkedMDSForm.BeginInvoke(new Action(() => {
                     MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception");

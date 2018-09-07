@@ -51,5 +51,10 @@ namespace MechatronicDesignSuite_DLL
             if (tempExcp != null)
                 NodePropertyGrid.SelectedObject = ((imsException)(SelectedNode.Tag));
         }
+
+        private void imsExceptionViewer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            pCExeSysLink.thisExcpViewer = null;
+        }
     }
 }

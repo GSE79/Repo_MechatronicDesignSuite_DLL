@@ -88,12 +88,20 @@ namespace MechatronicDesignSuite_DLL
             SerializeFormatter.Serialize(SerializeFs, ValueIndexList);
             SerializeFormatter.Serialize(SerializeFs, SubSysIndexList);
         }
+        public override void restoreFromFile(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs)
+        {
+            base.restoreFromFile(DeSerializeFormatter, deSerializeFs);
+            ValueIndexList = (List<int>)DeSerializeFormatter.Deserialize(deSerializeFs);
+            SubSysIndexList = (List<int>)DeSerializeFormatter.Deserialize(deSerializeFs);
+        }
+
         public virtual void deSerializeLinkNodes(List<imsBaseNode> gNodeList)
         {
             if(ValueIndexList.Count > 0)
             {
                 if (sysValues == null)
                     sysValues = new List<imsValueNode>();
+                sysValues.Clear();
                 foreach (int vindex in ValueIndexList)
                 {
                     if (vindex < gNodeList.Count)
@@ -106,6 +114,7 @@ namespace MechatronicDesignSuite_DLL
             {
                 if (subSystems == null)
                     subSystems = new List<imsSysModuleNode>();
+                subSystems.Clear();
                 foreach (int sindex in SubSysIndexList)
                 {
                     if (sindex < gNodeList.Count)

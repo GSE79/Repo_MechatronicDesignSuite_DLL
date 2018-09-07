@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.NodePropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.ExceptionTreeview = new System.Windows.Forms.TreeView();
+            this.NodePropertyGrid = new System.Windows.Forms.PropertyGrid();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,14 +55,6 @@
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 3;
             // 
-            // NodePropertyGrid
-            // 
-            this.NodePropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.NodePropertyGrid.Location = new System.Drawing.Point(0, 0);
-            this.NodePropertyGrid.Name = "NodePropertyGrid";
-            this.NodePropertyGrid.Size = new System.Drawing.Size(1117, 1341);
-            this.NodePropertyGrid.TabIndex = 0;
-            // 
             // ExceptionTreeview
             // 
             this.ExceptionTreeview.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -72,6 +64,14 @@
             this.ExceptionTreeview.TabIndex = 3;
             this.ExceptionTreeview.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ExceptionTreeview_MouseDoubleClick);
             // 
+            // NodePropertyGrid
+            // 
+            this.NodePropertyGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NodePropertyGrid.Location = new System.Drawing.Point(0, 0);
+            this.NodePropertyGrid.Name = "NodePropertyGrid";
+            this.NodePropertyGrid.Size = new System.Drawing.Size(1117, 1341);
+            this.NodePropertyGrid.TabIndex = 0;
+            // 
             // imsExceptionViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -80,6 +80,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Name = "imsExceptionViewer";
             this.Text = "imsExceptionViewer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.imsExceptionViewer_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

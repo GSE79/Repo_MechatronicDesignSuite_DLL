@@ -30,9 +30,6 @@
         {
             this.PCExeSysMenuStrip = new System.Windows.Forms.MenuStrip();
             this.PCExeSysProjectMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewProjectExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewExceptionLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PCExeSysStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,42 +47,18 @@
             this.PCExeSysMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.PCExeSysMenuStrip.Name = "PCExeSysMenuStrip";
             this.PCExeSysMenuStrip.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
-            this.PCExeSysMenuStrip.Size = new System.Drawing.Size(1600, 44);
+            this.PCExeSysMenuStrip.Size = new System.Drawing.Size(1600, 46);
             this.PCExeSysMenuStrip.TabIndex = 1;
             this.PCExeSysMenuStrip.Text = "menuStrip1";
             // 
             // PCExeSysProjectMenuItem
             // 
             this.PCExeSysProjectMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openProjectToolStripMenuItem,
-            this.closeProjectToolStripMenuItem,
-            this.saveProjectToolStripMenuItem,
             this.viewProjectExplorerToolStripMenuItem,
             this.viewExceptionLogToolStripMenuItem});
             this.PCExeSysProjectMenuItem.Name = "PCExeSysProjectMenuItem";
-            this.PCExeSysProjectMenuItem.Size = new System.Drawing.Size(100, 36);
+            this.PCExeSysProjectMenuItem.Size = new System.Drawing.Size(100, 38);
             this.PCExeSysProjectMenuItem.Text = "Project";
-            // 
-            // openProjectToolStripMenuItem
-            // 
-            this.openProjectToolStripMenuItem.Name = "openProjectToolStripMenuItem";
-            this.openProjectToolStripMenuItem.Size = new System.Drawing.Size(337, 38);
-            this.openProjectToolStripMenuItem.Text = "open project";
-            this.openProjectToolStripMenuItem.Click += new System.EventHandler(this.openProjectToolStripMenuItem_Click);
-            // 
-            // closeProjectToolStripMenuItem
-            // 
-            this.closeProjectToolStripMenuItem.Name = "closeProjectToolStripMenuItem";
-            this.closeProjectToolStripMenuItem.Size = new System.Drawing.Size(337, 38);
-            this.closeProjectToolStripMenuItem.Text = "close project";
-            this.closeProjectToolStripMenuItem.Click += new System.EventHandler(this.closeProjectToolStripMenuItem_Click);
-            // 
-            // saveProjectToolStripMenuItem
-            // 
-            this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(337, 38);
-            this.saveProjectToolStripMenuItem.Text = "save project";
-            this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.saveProjectToolStripMenuItem_Click);
             // 
             // viewProjectExplorerToolStripMenuItem
             // 
@@ -146,15 +119,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolStripMenuItem PCExeSysProjectMenuItem;
         protected System.Windows.Forms.MenuStrip PCExeSysMenuStrip;
-        private System.Windows.Forms.ToolStripStatusLabel PCExeSysStatusLabel;
-        protected System.Windows.Forms.ToolStripProgressBar PCExeSysProgressBar;
         protected System.Windows.Forms.StatusStrip PCExeSysStatusStrip;
-        private System.Windows.Forms.ToolStripMenuItem openProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewProjectExplorerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewExceptionLogToolStripMenuItem;
+        public System.Windows.Forms.ToolStripStatusLabel PCExeSysStatusLabel;
+        public System.Windows.Forms.ToolStripProgressBar PCExeSysProgressBar;
+        public System.Windows.Forms.ToolStripMenuItem PCExeSysProjectMenuItem;
     }
 }

@@ -57,8 +57,7 @@ namespace MechatronicDesignSuite_DLL
         {
             nodeType = (Type)DeSerializeFormatter.Deserialize(deSerializeFs);
             nodeGlobalID = (int)DeSerializeFormatter.Deserialize(deSerializeFs);
-            nodeName = (string)DeSerializeFormatter.Deserialize(deSerializeFs);
-            ;
+            nodeName = (string)DeSerializeFormatter.Deserialize(deSerializeFs);    
         }
         public virtual void writeNode2file(BinaryFormatter SerializeFormatter, FileStream SerializeFs)
         {
@@ -66,7 +65,20 @@ namespace MechatronicDesignSuite_DLL
             SerializeFormatter.Serialize(SerializeFs, nodeGlobalID);
             SerializeFormatter.Serialize(SerializeFs, nodeName);
         }
-        
+        public virtual void restoreFromFile(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs)
+        {
+            Type deSerialType = (Type)DeSerializeFormatter.Deserialize(deSerializeFs);
+
+            if (deSerialType == nodeType)
+                nodeType = deSerialType;
+            else
+                throw (new Exception("Attempeted to restore from wrong node type"));
+
+            nodeGlobalID = (int)DeSerializeFormatter.Deserialize(deSerializeFs);
+            nodeName = (string)DeSerializeFormatter.Deserialize(deSerializeFs);
+        }
+
+
         public virtual TreeNode toNewTreeNode()
         {
             TreeNode outNode = new TreeNode(nodeName);
