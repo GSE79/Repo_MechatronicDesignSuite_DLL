@@ -12,9 +12,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MechatronicDesignSuite_DLL
 {
-
     public class imsProjectModuleNode : imsAPISysModule
     {
+        public bool ExecuteProjectModules { set; get; } = false;
         public imsProjectModuleNode(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
             nodeType = typeof(imsProjectModuleNode);
@@ -31,19 +31,71 @@ namespace MechatronicDesignSuite_DLL
         {
 
         }
+        public void AddSysModuletoProject(imsSysModuleNode SysModule2Add)
+        {
+            ExecuteProjectModules = false;
+
+            if (this.subSystems == null)
+                subSystems = new List<imsSysModuleNode>();
+            else
+                subSystems.Add(SysModule2Add);
+
+            SysModule2Add.MainInit();
+
+            ExecuteProjectModules = true;
+            
+        }
         public override void MainInit()
         {
-            
+            int sysIndex;
+            // if there is an active project...
+            // if there sysModule of the MainGUIApplication Type...
+            // Call submodule enrty point
+            if(this.subSystems!=null&& ExecuteProjectModules)
+            {
+                if(subSystems.Count>0)
+                {
+                    for(sysIndex=0;sysIndex< subSystems.Count;sysIndex++)
+                    {
+                        subSystems[sysIndex].MainInit();
+                    }
+                }
+            }
         }
         public override void MainLoop()
         {
-            
+            int sysIndex;
+            // if there is an active project...
+            // if there sysModule of the MainGUIApplication Type...
+            // Call submodule enrty point
+            if (this.subSystems != null && ExecuteProjectModules)
+            {
+                if (subSystems.Count > 0)
+                {
+                    for (sysIndex = 0; sysIndex < subSystems.Count; sysIndex++)
+                    {
+                        subSystems[sysIndex].MainLoop();
+                    }
+                }
+            }
 
         }
         public override void ExtAppBGThread()
         {
-            
+            int sysIndex;
+            // if there is an active project...
+            // if there sysModule of the MainGUIApplication Type...
+            // Call submodule enrty point
+            if (this.subSystems != null && ExecuteProjectModules)
+            {
+                if (subSystems.Count > 0)
+                {
+                    for (sysIndex = 0; sysIndex < subSystems.Count; sysIndex++)
+                    {
+                        subSystems[sysIndex].ExtAppBGThread();
+                    }
+                }
+            }
         }
-
     }
 }

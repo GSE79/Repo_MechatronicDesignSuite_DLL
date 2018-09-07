@@ -37,7 +37,6 @@
             this.Name = "MechatronicDesignSuite_TestGUI";
             this.Text = "Mechatronic Design Suite - Test GUI";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

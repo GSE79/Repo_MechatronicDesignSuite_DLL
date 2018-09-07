@@ -13,18 +13,16 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MechatronicDesignSuite_DLL
 {
-    [Serializable]
     public class imsSysModuleNode : imsBaseNode
     {
-        [NonSerialized,Category("System Module"),Description("An ordered list of all value nodes of the system module.")]
-        List<imsValueNode> sysValues;
-        [NonSerialized, Category("System Module"), Description("An ordered list of all sub system nodes of the system module.")]
-        List<imsSysModuleNode> subSystems;
+        [Category("System Module"), Description("An ordered list of all value nodes of the system module.")]
+        public List<imsValueNode> sysValues { set; get; }
+        [Category("System Module"), Description("An ordered list of all sub system nodes of the system module.")]
+        public List<imsSysModuleNode> subSystems { set; get; }
 
         List<int> ValueIndexList;
         List<int> SubSysIndexList;
 
-        [OnSerializing]
         private void SetValuesOnSerializing(StreamingContext context)
         {
             SetValuesOnSerializing();
@@ -58,18 +56,6 @@ namespace MechatronicDesignSuite_DLL
                     SubSysIndexList = new List<int>();
             }
         }
-        //[OnDeserialized]
-        //private void SetValuesOnDeSerializing()
-        //{
-        //    if(ValueIndexList!=null)
-        //    {
-        //        if (sysValues == null)
-        //            sysValues = new List<imsValueNode>();
-        //        sysValues.Clear();
-        //        foreach (uint globalIndex in ValueIndexList)
-        //            sysValues.Add();
-        //    }
-        //}
 
         public imsSysModuleNode(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {

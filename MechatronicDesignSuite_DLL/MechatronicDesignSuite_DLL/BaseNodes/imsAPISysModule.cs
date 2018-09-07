@@ -9,10 +9,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MechatronicDesignSuite_DLL
 {
-    [Serializable]
     public class imsAPISysModule:imsSysModuleNode
     {
-        [NonSerialized]
         protected PCExeSys PCExeSysLink;
         public imsAPISysModule(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {

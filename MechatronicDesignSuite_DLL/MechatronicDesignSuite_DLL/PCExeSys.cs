@@ -201,7 +201,11 @@ namespace MechatronicDesignSuite_DLL
         public imsProjectModuleNode ProjModNodeProperty
         {
             set {; }
-            get { return (imsProjectModuleNode)APISysModules[2]; }
+            get { if(APISysModules!=null)
+                    if (APISysModules.Count>2)
+                        return (imsProjectModuleNode)APISysModules[2];
+                return null;
+            }
         }
         public imsBGThreadManager BGManagerNode
         {
@@ -259,9 +263,11 @@ namespace MechatronicDesignSuite_DLL
         /// <summary>
         /// Global List of all Nodes that can be serialized and/or deserialized
         /// </summary>
-        List<imsBaseNode> globalNodeList = new List<imsBaseNode>();
-
-
+        public List<imsBaseNode> globalNodeList = new List<imsBaseNode>();
+        /// <summary>
+        /// List of imported dll assemblies from which modules can be instantied/deserialized
+        /// </summary>
+        List<Assembly> importedDLLs = new List<Assembly>();
 
         
         public bool EnableMainLoop { set; get; } = true;
@@ -283,6 +289,43 @@ namespace MechatronicDesignSuite_DLL
                 LinkedMDSForm = MDSFormIn;
             pcExecutionSystemMetaData = PCExeSysMetaData.generateMetaData();
             InitializeExecutionSystem();
+            ToolStripDropDownButton ExeSysMenuItems = null;
+            foreach (Control ctr in LinkedMDSForm.Controls)
+            {
+                if(ctr.GetType()==typeof(MenuStrip))
+                {
+                    LinkedMDSForm.MainMenuStrip = (MenuStrip)ctr;
+                    ExeSysMenuItems = new ToolStripDropDownButton("PCExeSys");
+                    LinkedMDSForm.MainMenuStrip.Items.Add(ExeSysMenuItems);
+                    ExeSysMenuItems.DropDownItems.Add("Project Explorer", null, viewProjectExplorerToolStripMenuItem_Click);
+                    ExeSysMenuItems.DropDownItems.Add("Exception Log", null, viewExceptionLogToolStripMenuItem_Click);
+                    LinkedMDSForm.MainMenuStrip.Parent = LinkedMDSForm;
+                    LinkedMDSForm.MainMenuStrip.Visible = true;
+                    LinkedMDSForm.MainMenuStrip.Show();
+                }
+                else if(ctr.GetType()==typeof(ToolStrip))
+                {
+                    ExeSysMenuItems = new ToolStripDropDownButton("PCExeSys");
+                    ((ToolStrip)ctr).Items.Add(ExeSysMenuItems);
+                    ExeSysMenuItems.DropDownItems.Add("Project Explorer", null, viewProjectExplorerToolStripMenuItem_Click);
+                    ExeSysMenuItems.DropDownItems.Add("Exception Log", null, viewExceptionLogToolStripMenuItem_Click);
+                    ((ToolStrip)ctr).Parent = LinkedMDSForm;
+                    ((ToolStrip)ctr).Visible = true;
+                    ((ToolStrip)ctr).Show();
+                }
+            }
+            if(ExeSysMenuItems==null)
+            {
+                LinkedMDSForm.MainMenuStrip = new MenuStrip();
+                LinkedMDSForm.MainMenuStrip.Dock = DockStyle.Top;
+                ExeSysMenuItems = new ToolStripDropDownButton("PCExeSys");
+                LinkedMDSForm.MainMenuStrip.Items.Add(ExeSysMenuItems);
+                ExeSysMenuItems.DropDownItems.Add("Project Explorer", null, viewProjectExplorerToolStripMenuItem_Click);
+                ExeSysMenuItems.DropDownItems.Add("Exception Log", null, viewExceptionLogToolStripMenuItem_Click);
+                LinkedMDSForm.MainMenuStrip.Parent = LinkedMDSForm;
+                LinkedMDSForm.MainMenuStrip.Visible = true;
+                LinkedMDSForm.MainMenuStrip.Show();
+            }
         }
 
         private void AnalyzeMainForm(MechatronicDesignSuiteForm MDSFormIn)
@@ -323,6 +366,7 @@ namespace MechatronicDesignSuite_DLL
                 bgWorker.WorkerReportsProgress = true;
             }
 
+            importedDLLs.Add(typeof(imsBaseNode).Assembly);
         }
 
         private void GUITimer_Tick(object sender, EventArgs e)
@@ -342,6 +386,10 @@ namespace MechatronicDesignSuite_DLL
             CallEntryPointFunction(SimBGThread);
         }
 
+        public void AddDlltoProject(Assembly ModuleAssembly)
+        {
+            importedDLLs.Add(ModuleAssembly);
+        }
         public void SerializePCSystem(string pathString)
         {
             BinaryFormatter SerializeFormatter = new BinaryFormatter();
@@ -360,9 +408,14 @@ namespace MechatronicDesignSuite_DLL
             FileStream DeSerializeFileStream = new FileStream(pathString, FileMode.Open);
             object[] cTorParams = new object[] { DeSerializeFormatter, DeSerializeFileStream };
             long startingFP; imsBaseNode tempBaseNode;
-            Assembly tempAss = typeof(imsBaseNode).Assembly;
-            Type[] tempTypes = tempAss.GetTypes();
-
+            List<Type> AllTypes = new List<Type>();
+            foreach (Assembly tempAss in importedDLLs)
+            {
+                foreach(Type tempType in tempAss.GetTypes())
+                {
+                    AllTypes.Add(tempType);
+                }
+            }
             List<imsBaseNode> tempGlobalNodeList = new List<imsBaseNode>();
 
             while (DeSerializeFileStream.Position < DeSerializeFileStream.Length)
@@ -370,7 +423,7 @@ namespace MechatronicDesignSuite_DLL
                 startingFP = DeSerializeFileStream.Position;
                 tempBaseNode = new imsBaseNode(DeSerializeFormatter, DeSerializeFileStream);
 
-                if (tempTypes.Contains(tempBaseNode.NodeType))
+                if (AllTypes.Contains(tempBaseNode.NodeType))
                 {
                     DeSerializeFileStream.Position = startingFP;
                     tempGlobalNodeList.Add((imsBaseNode)(Activator.CreateInstance(tempBaseNode.NodeType, cTorParams)));
@@ -401,6 +454,13 @@ namespace MechatronicDesignSuite_DLL
                 if (typeof(imsAPISysModule).IsInstanceOfType(deSerialNode))
                 {
                     ((imsAPISysModule)deSerialNode).deSerializeSetAPILinks(this);
+                }
+            }
+            foreach (imsBaseNode deSerialNode in tempGlobalNodeList)
+            {
+                if (typeof(imsSysModuleNode).IsInstanceOfType(deSerialNode))
+                {
+                    ((imsSysModuleNode)deSerialNode).deSerializeLinkNodes(globalNodeList);
                 }
             }
 
@@ -450,8 +510,15 @@ namespace MechatronicDesignSuite_DLL
                 }
             }
         }
-        
-        
+
+        private void viewProjectExplorerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CallEntryPointFunction(LaunchNewProjectExplorer);
+        }
+        private void viewExceptionLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CallEntryPointFunction(LaunchNewExceptionLog);
+        }
         public int PromptSaveProject2File()
         {
             SaveFileDialog SaveProjectDialog = new SaveFileDialog();

@@ -10,9 +10,10 @@ namespace MechatronicDesignSuite_TestGUI
 {
     public partial class MechatronicDesignSuite_TestGUI : MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm
     {
-        public MechatronicDesignSuite_TestGUI()
+        public MechatronicDesignSuite_TestGUI():base()
         {
             InitializeComponent();
+            sysModuleExeSys = new MechatronicDesignSuite_DLL.PCExeSys(this);
         }
     }
 }

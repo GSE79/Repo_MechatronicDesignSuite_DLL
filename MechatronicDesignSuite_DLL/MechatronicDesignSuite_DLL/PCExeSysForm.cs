@@ -22,25 +22,16 @@ namespace MechatronicDesignSuite_DLL
         /// <summary>
         /// 
         /// </summary>
-        private PCExeSys sysModuleExeSys;
+        public PCExeSys sysModuleExeSys;
         /// <summary>
         /// 
         /// </summary>
         public MechatronicDesignSuiteForm()
         {
-            InitializeComponent();
-            sysModuleExeSys = new PCExeSys(this);
+            InitializeComponent();            
         }
 
-        private void viewProjectExplorerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sysModuleExeSys.CallEntryPointFunction(sysModuleExeSys.LaunchNewProjectExplorer);           
-        }        
         
-        private void viewExceptionLogToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            sysModuleExeSys.CallEntryPointFunction(sysModuleExeSys.LaunchNewExceptionLog);
-        }
 
     }
 }
