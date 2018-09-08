@@ -476,12 +476,14 @@ namespace MechatronicDesignSuite_DLL
                     TreeViewIn.Nodes.Add(new TreeNode(Path.GetFileNameWithoutExtension(ActiveProjectPath)));
                 else
                     TreeViewIn.Nodes.Add(new TreeNode(Path.GetFileNameWithoutExtension("New Project File Name")));
+
                 foreach (imsAPISysModule apiMod in APISysModules)
                 {
                     TreeViewIn.Nodes[0].Nodes.Add(apiMod.toNewTreeNode());
                     if (apiMod.NodeType == typeof(imsProjectModuleNode))
                     {
                         TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Text = "Project Settings";
+                        TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Nodes.Clear();
                     }
                     else if (apiMod.NodeType == typeof(imsPCClocksModule))
                     {
@@ -495,9 +497,10 @@ namespace MechatronicDesignSuite_DLL
                 // Populate Node 1 with Active Project Modules
                 TreeViewIn.Nodes.Add(ProjModNodeProperty.toNewTreeNode());
             }
-            
+            TreeViewIn.Refresh();
 
-            
+
+
         }
         public void PopulateExceptionTreeView(TreeView TreeViewIn)
         {

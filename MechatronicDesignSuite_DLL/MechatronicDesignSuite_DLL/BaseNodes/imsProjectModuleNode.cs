@@ -37,8 +37,8 @@ namespace MechatronicDesignSuite_DLL
 
             if (this.subSystems == null)
                 subSystems = new List<imsSysModuleNode>();
-            else
-                subSystems.Add(SysModule2Add);
+            
+            subSystems.Add(SysModule2Add);
 
             SysModule2Add.MainInit();
 
@@ -97,5 +97,16 @@ namespace MechatronicDesignSuite_DLL
                 }
             }
         }
+        //public override TreeNode toNewTreeNode()
+        //{
+        //    TreeNode outNode = base.toNewTreeNode();
+        //    if (sysValues != null)
+        //        foreach (imsValueNode valNode in sysValues)
+        //            outNode.Nodes.Add(valNode.toNewTreeNode());
+        //    if (subSystems != null)
+        //        foreach (imsSysModuleNode sysNode in subSystems)
+        //            outNode.Nodes.Add(sysNode.toNewTreeNode());
+        //    return outNode;
+        //}
     }
 }

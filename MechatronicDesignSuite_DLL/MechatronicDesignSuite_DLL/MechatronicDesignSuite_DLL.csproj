@@ -100,7 +100,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>COPY "$(TargetPath)" "$(SolutionDir)MechatronicDesignSuite_TestGUI\$(TargetFileName)"</PostBuildEvent>
+    <PostBuildEvent>COPY "$(TargetPath)" "$(ProjectDir)..\MechatronicDesignSuite_TestGUI\$(TargetFileName)"
+
+</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\docfx.console.2.36.2\build\docfx.console.targets" Condition="Exists('..\packages\docfx.console.2.36.2\build\docfx.console.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
