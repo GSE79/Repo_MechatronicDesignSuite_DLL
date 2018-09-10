@@ -356,6 +356,7 @@ namespace MechatronicDesignSuite_DLL
 
             guiBGWorkers.Add(new BackgroundWorker());
             guiBGWorkers[1].DoWork += new DoWorkEventHandler(ExternalAppThread_DoWork);
+  
 
             guiBGWorkers.Add(new BackgroundWorker());
             guiBGWorkers[2].DoWork += new DoWorkEventHandler(SimThread_DoWork);
