@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace MechatronicDesignSuite_DLL
 {
@@ -42,6 +43,26 @@ namespace MechatronicDesignSuite_DLL
             if (tempNode != null)
                 NodePropertyGrid.SelectedObject = ((imsBaseNode)(SelectedNode.Tag));
         }
+        private void LibraryTreeView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            TreeNode SelectedNode = LibraryTreeView.GetNodeAt(e.Location);
+
+            if(typeof(Assembly).IsInstanceOfType(SelectedNode.Tag))
+            {
+                Assembly tempNode = ((Assembly)(SelectedNode.Tag));
+                if (tempNode != null)
+                    NodePropertyGrid.SelectedObject = ((Assembly)(SelectedNode.Tag));
+            }
+
+            
+
+            else if(typeof(Type).IsInstanceOfType(SelectedNode.Tag))
+            {
+                Type tempType = ((Type)(SelectedNode.Tag));
+                if(tempType != null)
+                    NodePropertyGrid.SelectedObject = ((Type)(SelectedNode.Tag));
+            }
+        }
         public void updateTreeView()
         {
             if (pCExeSysLink == null)
@@ -51,6 +72,9 @@ namespace MechatronicDesignSuite_DLL
                 ProjectTreeView.ShowNodeToolTips = true;
                 ProjectTreeView.Nodes.Clear();
                 pCExeSysLink.PopulateTreeView(ProjectTreeView);
+
+                LibraryTreeView.ShowNodeToolTips = true;
+                pCExeSysLink.PopulateLibraryTreeView(LibraryTreeView);
             }
         }
         public void UpatePrjIndicators(string pathString)

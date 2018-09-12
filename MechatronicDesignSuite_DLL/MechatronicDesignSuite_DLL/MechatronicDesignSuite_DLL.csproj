@@ -63,6 +63,7 @@
     <Compile Include="BaseNodes\imsBGThreadManager.cs" />
     <Compile Include="BaseNodes\imsPCClocksModule.cs" />
     <Compile Include="BaseNodes\imsProjectModuleNode.cs" />
+    <Compile Include="BaseNodes\imsStaticGUIModule.cs" />
     <Compile Include="BaseNodes\imsSysModuleNode.cs" />
     <Compile Include="BaseNodes\imsValueNode.cs" />
     <Compile Include="PCExeSys.cs" />

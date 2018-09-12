@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+
 /// <summary>
 /// The MechatronicDesignSuite Library is compiled to a DLL and ..
 /// </summary>
@@ -23,6 +24,10 @@ namespace MechatronicDesignSuite_DLL
         /// 
         /// </summary>
         public PCExeSys sysModuleExeSys;
+        /// <summary>
+        /// 
+        /// </summary>
+        public imsStaticGUIModule StaticExeModule { set; get; }
         /// <summary>
         /// 
         /// </summary>

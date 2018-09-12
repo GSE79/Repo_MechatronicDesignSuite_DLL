@@ -193,6 +193,7 @@ namespace MechatronicDesignSuite_DLL
             set {; }
             get { return guiTimers[0]; }
         }
+                
         public List<BackgroundWorker> BGWorkersList
         {
             set {; }
@@ -267,7 +268,7 @@ namespace MechatronicDesignSuite_DLL
         /// <summary>
         /// List of imported dll assemblies from which modules can be instantied/deserialized
         /// </summary>
-        List<Assembly> importedDLLs = new List<Assembly>();
+        protected List<Assembly> importedDLLs = new List<Assembly>();
 
         
         public bool EnableMainLoop { set; get; } = true;
@@ -369,6 +370,13 @@ namespace MechatronicDesignSuite_DLL
 
             importedDLLs.Add(typeof(imsBaseNode).Assembly);
         }
+        public void InstantiateNewMainFormStaticGUIModule(Assembly AssIn, imsSysModuleNode FSFormModIn, int MainLoopInterval)
+        {
+            InstantiateNewAPIModules();
+            AddDlltoProject(AssIn);
+            ProjModNodeProperty.AddSysModuletoProject(FSFormModIn);
+            GUITimerLink.Interval = MainLoopInterval;
+        }
 
         private void GUITimer_Tick(object sender, EventArgs e)
         {
@@ -390,6 +398,7 @@ namespace MechatronicDesignSuite_DLL
         public void AddDlltoProject(Assembly ModuleAssembly)
         {
             importedDLLs.Add(ModuleAssembly);
+            
         }
         public void SerializePCSystem(string pathString)
         {
@@ -511,6 +520,24 @@ namespace MechatronicDesignSuite_DLL
                 {
                     TreeViewIn.Nodes.Add(excp.toNewTreeNode());
                     TreeViewIn.Nodes[TreeViewIn.Nodes.Count - 1].ToolTipText = excp.StackTrace;
+                }
+            }
+        }
+        public void PopulateLibraryTreeView(TreeView TreeViewIn)
+        {
+            TreeViewIn.Nodes.Clear();
+            foreach(Assembly AssLooper in importedDLLs)
+            {
+                TreeViewIn.Nodes.Add(string.Concat(AssLooper.GetName().Name, " ", AssLooper.GetName().Version.ToString()));
+                TreeViewIn.Nodes[TreeViewIn.Nodes.Count - 1].Tag = AssLooper;
+                foreach (Type AssType in AssLooper.ExportedTypes)
+                {
+                    if(typeof(imsSysModuleNode).IsAssignableFrom(AssType))
+                    {
+                        TreeViewIn.Nodes[TreeViewIn.Nodes.Count - 1].Nodes.Add(AssType.Name);
+                        TreeViewIn.Nodes[TreeViewIn.Nodes.Count - 1].Nodes[TreeViewIn.Nodes[TreeViewIn.Nodes.Count - 1].Nodes.Count - 1].Tag = AssType;
+                    }
+                    
                 }
             }
         }
