@@ -23,6 +23,9 @@ namespace MechatronicDesignSuite_DLL
         List<int> ValueIndexList;
         List<int> SubSysIndexList;
 
+        [Category("System Module"), Description("An optional graphical interface form for this system module.")]
+        public ImsBaseForm sysModForm { set; get; } = null;
+
         private void SetValuesOnSerializing(StreamingContext context)
         {
             SetValuesOnSerializing();
