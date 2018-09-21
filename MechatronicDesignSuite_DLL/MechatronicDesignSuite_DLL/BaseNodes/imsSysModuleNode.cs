@@ -26,6 +26,9 @@ namespace MechatronicDesignSuite_DLL
         [Category("System Module"), Description("An optional graphical interface form for this system module.")]
         public ImsBaseForm sysModForm { set; get; } = null;
 
+        [Category("System Module"), Description("Indication that MainInit() Code should (re)Execute")]
+        public bool isInitialized { set; get; } = false;
+
         private void SetValuesOnSerializing(StreamingContext context)
         {
             SetValuesOnSerializing();
@@ -117,7 +120,7 @@ namespace MechatronicDesignSuite_DLL
         }
         public virtual void MainInit()
         {
-
+            isInitialized = true;
         }
         public virtual void MainLoop()
         {

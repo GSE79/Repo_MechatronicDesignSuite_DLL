@@ -45,6 +45,7 @@ namespace MechatronicDesignSuite_DLL
         protected string nodeName = null; 
         protected Type nodeType = null;
         protected int nodeGlobalID;
+        protected List<imsBaseNode> globalNodeListLink;
 
         public imsBaseNode(List<imsBaseNode> globalNodeListIn)
         {
@@ -52,6 +53,7 @@ namespace MechatronicDesignSuite_DLL
             nodeName = "Base Node";
             nodeGlobalID = globalNodeListIn.Count;
             globalNodeListIn.Add(this);
+            globalNodeListLink = globalNodeListIn;
         }
         public imsBaseNode(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs)
         {
@@ -93,7 +95,7 @@ namespace MechatronicDesignSuite_DLL
         bool disposed = false;
         protected virtual void ReleaseManagedResources()
         {
-            
+            globalNodeListLink.Remove(this);
         }
         protected virtual void ReleaseUnManagedResources()
         {

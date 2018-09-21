@@ -9,18 +9,12 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MechatronicDesignSuite_DLL
 {
-    [Serializable]
     class imsPCClocksModule : imsAPISysModule
     {
-        [NonSerialized]
         DateTime InitializationSystemTime = DateTime.Now;
-        [NonSerialized]
         DateTime MainLoopSystemTime, LastMainLoopTime;
-        [NonSerialized]
         TimeSpan MainLoopDuration;
-        [NonSerialized]
         DateTime ExtAppStartTime, LastExtAppStartTime;
-        [NonSerialized]
         TimeSpan ExtAppDuration;
 
         public int MainLoopCycleTime
@@ -52,7 +46,7 @@ namespace MechatronicDesignSuite_DLL
             LastMainLoopTime = InitializationSystemTime;
             if (PCExeSysLink != null)
                 PCExeSysLink.GUITimerLink.Start();
-
+            isInitialized = true;
         }
         public override void MainLoop()
         {

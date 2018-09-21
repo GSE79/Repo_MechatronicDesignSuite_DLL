@@ -64,6 +64,7 @@ namespace MechatronicDesignSuite_DLL
                     }
                 }
             }
+            isInitialized = true;
         }
         public override void MainLoop()
         {

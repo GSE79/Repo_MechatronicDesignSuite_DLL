@@ -183,6 +183,12 @@ namespace MechatronicDesignSuite_DLL
     }
     public class PCExeSys : IDisposable
     {
+
+        #region PC Execution System Properties
+        public BackgroundWorker CommThreadBGWorkerLink
+        {
+            get { return guiBGWorkers[0]; }
+        }
         public BackgroundWorker ExtAppBGWorkerLink
         {
             set {; }
@@ -193,7 +199,7 @@ namespace MechatronicDesignSuite_DLL
             set {; }
             get { return guiTimers[0]; }
         }
-                
+
         public List<BackgroundWorker> BGWorkersList
         {
             set {; }
@@ -202,8 +208,10 @@ namespace MechatronicDesignSuite_DLL
         public imsProjectModuleNode ProjModNodeProperty
         {
             set {; }
-            get { if(APISysModules!=null)
-                    if (APISysModules.Count>2)
+            get
+            {
+                if (APISysModules != null)
+                    if (APISysModules.Count > 2)
                         return (imsProjectModuleNode)APISysModules[2];
                 return null;
             }
@@ -212,6 +220,13 @@ namespace MechatronicDesignSuite_DLL
         {
             get { return (imsBGThreadManager)APISysModules[1]; }
         }
+        public bool EnableMainLoop { set; get; } = true;
+        public bool EnableExtAppThread { set; get; } = true;
+        public bool EnableCommsThread { set; get; } = true;
+        public bool EnableSimThread { set; get; } = true;
+        #endregion
+
+        #region PC Execution System Fields
         public MechatronicDesignSuiteForm LinkedMDSForm;
 
         List<Timer> guiTimers = new List<Timer>();
@@ -269,14 +284,9 @@ namespace MechatronicDesignSuite_DLL
         /// List of imported dll assemblies from which modules can be instantied/deserialized
         /// </summary>
         protected List<Assembly> importedDLLs = new List<Assembly>();
+        #endregion
 
         
-        public bool EnableMainLoop { set; get; } = true;
-        public bool EnableExtAppThread { set; get; } = true;
-        public bool EnableCommsThread { set; get; } = true;
-        public bool EnableSimThread { set; get; } = true;
-
-
         /// <summary>
         /// The PCExeSys Constructor
         /// - Intended use: to be called by PCExeSysForm during its construction/instantiation
@@ -377,7 +387,76 @@ namespace MechatronicDesignSuite_DLL
             ProjModNodeProperty.AddSysModuletoProject(FSFormModIn);
             GUITimerLink.Interval = MainLoopInterval;
         }
+        
 
+
+        #region PC Execution System Main Entry Point Callbacks
+        /// <summary>
+        /// MainInit() is a primary entry point function for the PC exe sys
+        /// - Here the Execution System is Initialized and all modules MainInit() functions are called
+        /// - This code is executed only during initialization of the execution system, initialization of the main form
+        /// </summary>
+        /// <returns></returns>
+        private int MainInit()
+        {
+            foreach (imsSysModuleNode sysModNode in APISysModules)
+                if(!sysModNode.isInitialized)
+                    sysModNode.MainInit();
+
+            return 0;
+        }
+        private int MainLoop()
+        {
+            MainLoopProjectCheck();
+
+            if (EnableMainLoop)
+            {
+                foreach (imsSysModuleNode sysModNode in APISysModules)
+                    if(sysModNode.isInitialized)
+                        sysModNode.MainLoop();
+            }
+
+            return 0;
+        }
+        private int CommsBGThread()
+        {
+            if (EnableCommsThread)
+            {
+                foreach (imsSysModuleNode sysModNode in APISysModules)
+                {
+                    if (sysModNode.isInitialized)
+                    {
+                        if (typeof(imsCyclicPacketCommSystem).IsAssignableFrom(sysModNode.GetType()))
+                        {
+                            ((imsCyclicPacketCommSystem)sysModNode).CommThreadExe();
+                        }
+                    }
+                        
+                }
+            }
+            return 0;
+        }
+        private int ExtAppBGThread()
+        {
+            ExtAppOPenCloseProj();
+
+            if (EnableExtAppThread)
+            {
+                foreach (imsSysModuleNode sysModNode in APISysModules)
+                    if(sysModNode.isInitialized)
+                        sysModNode.ExtAppBGThread();
+            }
+            return 0;
+        }
+        private int SimBGThread()
+        {
+            if (EnableSimThread)
+            {
+                //foreach ()
+                //      sysModNode.S();
+            }
+            return 0;
+        }
         private void GUITimer_Tick(object sender, EventArgs e)
         {
             CallEntryPointFunction(MainLoop);
@@ -394,6 +473,45 @@ namespace MechatronicDesignSuite_DLL
         {
             CallEntryPointFunction(SimBGThread);
         }
+        public void CallEntryPointFunction(Func<int> EntryPoint)
+        {
+            try
+            {
+                EntryPoint();
+            }
+            catch (Exception caughtExcpIn)
+            {
+                ExceptionLog.Add(new imsException());
+                ExceptionLog[ExceptionLog.Count - 1].thisException = caughtExcpIn;
+
+                if (EntryPoint == MainLoop)
+                {
+                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "MainLoop";
+                    EnableMainLoop = false;
+                }
+                else if (EntryPoint == MainInit)
+                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "MainInit";
+                else if (EntryPoint == CommsBGThread)
+                {
+                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "CommsBGThread";
+                    BGManagerNode.StopBGWorker(ExceptionLog[ExceptionLog.Count - 1].ThreadIDString);
+                }
+                else if (EntryPoint == ExtAppBGThread)
+                {
+                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "ExtAppBGThread";
+                    BGManagerNode.StopBGWorker(ExceptionLog[ExceptionLog.Count - 1].ThreadIDString);
+                }
+                else if (EntryPoint == SimBGThread)
+                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "SimBGThread";
+                else
+                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "CallbackFunction";
+
+                LinkedMDSForm.BeginInvoke(new Action(() => {
+                    MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception");
+                }));
+            }
+        }
+        #endregion
 
         public void AddDlltoProject(Assembly ModuleAssembly)
         {
@@ -661,6 +779,11 @@ namespace MechatronicDesignSuite_DLL
 
             return 0;
         }
+        public void AddAPIMod2ExeSys(imsCyclicPacketCommSystem commSys2Add)
+        {
+            APISysModules.Add(commSys2Add);
+            CallEntryPointFunction(MainInit);
+        }
         private void CloseProject()
         {
             if (APISysModules.Count != 0)
@@ -754,96 +877,7 @@ namespace MechatronicDesignSuite_DLL
 
             }
         }
-        /// <summary>
-        /// MainInit() is a primary entry point function for the PC exe sys
-        /// - Here the Execution System is Initialized and all modules MainInit() functions are called
-        /// - This code is executed only during initialization of the execution system, initialization of the main form
-        /// </summary>
-        /// <returns></returns>
-        private int MainInit()
-        {
-            foreach (imsSysModuleNode sysModNode in APISysModules)
-                sysModNode.MainInit();
-            
-            return 0;
-        }
-        private int MainLoop()
-        {
-            MainLoopProjectCheck();
-
-            if (EnableMainLoop)
-            {
-                foreach (imsSysModuleNode sysModNode in APISysModules)
-                    sysModNode.MainLoop();
-            }           
-
-            return 0;
-        }
-        private int CommsBGThread()
-        {
-            if (EnableCommsThread)
-            {
-                //foreach (imsSysModuleNode sysModNode in APISysModules)
-                //    sysModNode.C();
-            }
-            return 0;
-        }
-        private int ExtAppBGThread()
-        {
-            ExtAppOPenCloseProj();
-
-            if (EnableExtAppThread)
-            {
-                foreach (imsSysModuleNode sysModNode in APISysModules)
-                    sysModNode.ExtAppBGThread();
-            }
-            return 0;
-        }
-        private int SimBGThread()
-        {
-            if(EnableSimThread)
-            {
-                //foreach ()
-                //      sysModNode.S();
-            }
-            return 0;
-        }
-
-        public void CallEntryPointFunction(Func<int> EntryPoint)
-        {
-            try
-            {
-                EntryPoint();
-            }
-            catch (Exception caughtExcpIn)
-            {
-                ExceptionLog.Add(new imsException());
-                ExceptionLog[ExceptionLog.Count - 1].thisException = caughtExcpIn;
-
-                if (EntryPoint == MainLoop)
-                {
-                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "MainLoop";
-                    EnableMainLoop = false;
-                }
-                else if (EntryPoint == MainInit)
-                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "MainInit";
-                else if (EntryPoint == CommsBGThread)
-                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "CommsBGThread";
-                else if (EntryPoint == ExtAppBGThread)
-                {
-                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "ExtAppBGThread";
-                    BGManagerNode.StopBGWorker(ExceptionLog[ExceptionLog.Count - 1].ThreadIDString);
-                }
-                else if (EntryPoint == SimBGThread)
-                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "SimBGThread";
-                else
-                    ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "CallbackFunction";
-
-                LinkedMDSForm.BeginInvoke(new Action(() => {
-                    MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception");
-                }));
-            }
-        }
+        
 
         #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls

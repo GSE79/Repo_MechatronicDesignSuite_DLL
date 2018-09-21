@@ -12,15 +12,24 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MechatronicDesignSuite_DLL
 {
-    [Serializable]
     public class imsBGThreadManager: imsAPISysModule
     {
+        #region System Properties
         public bool EnableExtAppBGWorker
         {
             set { if (value == true) DisableExtAppBGWorker = false; }
             get { return !DisableExtAppBGWorker; }
         }
         bool DisableExtAppBGWorker = false;
+        public bool EnableCommsBGWorker
+        {
+            set { if (value == true) DisableCommsBGWorker = false; }
+            get { return !DisableCommsBGWorker; }
+        }
+        bool DisableCommsBGWorker = false;
+        #endregion
+
+        #region System Constructors
         public imsBGThreadManager(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
             nodeType = typeof(imsBGThreadManager);
@@ -38,39 +47,58 @@ namespace MechatronicDesignSuite_DLL
         {
 
         }
-        public void StopBGWorker(string ThreadIDString)
-        {
-            if(ThreadIDString == "ExtAppBGThread")
-            {
-                DisableExtAppBGWorker = true;
-            }
-        }
-        public override void MainInit()
-        {
-            
-        }
-        
+        #endregion
+
+        #region System Entry Points
+
         public override void MainLoop()
         {
-            foreach(BackgroundWorker BGWorker in PCExeSysLink.BGWorkersList)
+            foreach (BackgroundWorker BGWorker in PCExeSysLink.BGWorkersList)
             {
-                if(BGWorker == PCExeSysLink.ExtAppBGWorkerLink)
+                if (BGWorker == PCExeSysLink.ExtAppBGWorkerLink)
                 {
-                    if(BGWorker.IsBusy)
+                    if (BGWorker.IsBusy)
                     {
 
                     }
                     else
                     {
-                        if(!DisableExtAppBGWorker)
+                        if (!DisableExtAppBGWorker)
+                            BGWorker.RunWorkerAsync();
+                    }
+                }
+                else if (BGWorker == PCExeSysLink.CommThreadBGWorkerLink)
+                {
+                    if (BGWorker.IsBusy)
+                    {
+
+                    }
+                    else
+                    {
+                        if (!DisableCommsBGWorker)
                             BGWorker.RunWorkerAsync();
                     }
                 }
             }
         }
-        public override void ExtAppBGThread()
-        {
+        #endregion
 
+        #region System Methods
+        public void StopBGWorker(string ThreadIDString)
+        {
+            if (ThreadIDString == "ExtAppBGThread")
+            {
+                DisableExtAppBGWorker = true;
+            }
+            else if(ThreadIDString == "CommsBGThread")
+            {
+                DisableCommsBGWorker = true;
+            }
         }
+
+
+        #endregion
+
+        
     }
 }
