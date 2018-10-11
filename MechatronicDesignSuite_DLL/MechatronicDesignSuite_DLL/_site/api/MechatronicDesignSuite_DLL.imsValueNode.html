@@ -1,0 +1,904 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class imsValueNode
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class imsValueNode
+   ">
+    <meta name="generator" content="docfx 2.36.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="MechatronicDesignSuite_DLL.imsValueNode">
+  
+  
+  <h1 id="MechatronicDesignSuite_DLL_imsValueNode" data-uid="MechatronicDesignSuite_DLL.imsValueNode" class="text-break">Class imsValueNode
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html">imsBaseNode</a></div>
+    <div class="level2"><span class="xref">imsValueNode</span></div>
+      <div class="level3"><a class="xref" href="MechatronicDesignSuite_DLL.imsSerialParamData.html">imsSerialParamData</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_NodeName">imsBaseNode.NodeName</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_NodeType">imsBaseNode.NodeType</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_GlobalNodeID">imsBaseNode.GlobalNodeID</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_nodeName">imsBaseNode.nodeName</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_nodeType">imsBaseNode.nodeType</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_nodeGlobalID">imsBaseNode.nodeGlobalID</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_globalNodeListLink">imsBaseNode.globalNodeListLink</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_writeNode2file_System_Runtime_Serialization_Formatters_Binary_BinaryFormatter_System_IO_FileStream_">imsBaseNode.writeNode2file(BinaryFormatter, FileStream)</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_restoreFromFile_System_Runtime_Serialization_Formatters_Binary_BinaryFormatter_System_IO_FileStream_">imsBaseNode.restoreFromFile(BinaryFormatter, FileStream)</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_toNewTreeNode">imsBaseNode.toNewTreeNode()</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_ReleaseManagedResources">imsBaseNode.ReleaseManagedResources()</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_ReleaseUnManagedResources">imsBaseNode.ReleaseUnManagedResources()</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_Dispose">imsBaseNode.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html#MechatronicDesignSuite_DLL_imsBaseNode_Dispose_System_Boolean_">imsBaseNode.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="MechatronicDesignSuite_DLL.html">MechatronicDesignSuite_DLL</a></h6>
+  <h6><strong>Assembly</strong>: MechatronicDesignSuite_DLL.dll</h6>
+  <h5 id="MechatronicDesignSuite_DLL_imsValueNode_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class imsValueNode : imsBaseNode, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode__ctor_System_Collections_Generic_List_MechatronicDesignSuite_DLL_imsBaseNode__System_String_System_Type_System_Int32_.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.%23ctor(System.Collections.Generic.List%7BMechatronicDesignSuite_DLL.imsBaseNode%7D%2CSystem.String%2CSystem.Type%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L67">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode__ctor_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.#ctor*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode__ctor_System_Collections_Generic_List_MechatronicDesignSuite_DLL_imsBaseNode__System_String_System_Type_System_Int32_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.#ctor(System.Collections.Generic.List{MechatronicDesignSuite_DLL.imsBaseNode},System.String,System.Type,System.Int32)">imsValueNode(List&lt;imsBaseNode&gt;, String, Type, Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public imsValueNode(List&lt;imsBaseNode&gt; globalNodeListIn, string nameString, Type DataTypeIn, int ArrayLengthIn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="MechatronicDesignSuite_DLL.imsBaseNode.html">imsBaseNode</a>&gt;</td>
+        <td><span class="parametername">globalNodeListIn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">nameString</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td><span class="parametername">DataTypeIn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">ArrayLengthIn</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode__ctor_System_Runtime_Serialization_Formatters_Binary_BinaryFormatter_System_IO_FileStream_.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.%23ctor(System.Runtime.Serialization.Formatters.Binary.BinaryFormatter%2CSystem.IO.FileStream)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L104">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode__ctor_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.#ctor*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode__ctor_System_Runtime_Serialization_Formatters_Binary_BinaryFormatter_System_IO_FileStream_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.#ctor(System.Runtime.Serialization.Formatters.Binary.BinaryFormatter,System.IO.FileStream)">imsValueNode(BinaryFormatter, FileStream)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public imsValueNode(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.Formatters.Binary.BinaryFormatter</span></td>
+        <td><span class="parametername">DeSerializeFormatter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.IO.FileStream</span></td>
+        <td><span class="parametername">deSerializeFs</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_byteValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.byteValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L30">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_byteValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.byteValues">byteValues</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;byte&gt; byteValues</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_charValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.charValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L29">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_charValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.charValues">charValues</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;char&gt; charValues</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Char</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_doubleValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.doubleValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L39">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_doubleValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.doubleValues">doubleValues</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;double&gt; doubleValues</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_floatValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.floatValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L38">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_floatValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.floatValues">floatValues</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;float&gt; floatValues</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Single</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_intValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.intValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L36">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_intValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.intValues">intValues</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;int&gt; intValues</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_latchTimes.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.latchTimes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L41">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_latchTimes" data-uid="MechatronicDesignSuite_DLL.imsValueNode.latchTimes">latchTimes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;DateTime&gt; latchTimes</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.DateTime</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_shortValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.shortValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L33">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_shortValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.shortValues">shortValues</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;short&gt; shortValues</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Int16</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_uintValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.uintValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L35">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_uintValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.uintValues">uintValues</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;uint&gt; uintValues</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.UInt32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_ushortValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.ushortValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L32">View Source</a>
+  </span>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_ushortValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.ushortValues">ushortValues</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected List&lt;ushort&gt; ushortValues</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.UInt16</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_ArrayLength.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.ArrayLength%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L18">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_ArrayLength_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.ArrayLength*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_ArrayLength" data-uid="MechatronicDesignSuite_DLL.imsValueNode.ArrayLength">ArrayLength</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ArrayLength { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_byteValue.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.byteValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L21">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_byteValue_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.byteValue*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_byteValue" data-uid="MechatronicDesignSuite_DLL.imsValueNode.byteValue">byteValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte byteValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_charValue.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.charValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L20">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_charValue_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.charValue*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_charValue" data-uid="MechatronicDesignSuite_DLL.imsValueNode.charValue">charValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public char charValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_DataSize.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.DataSize%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L19">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_DataSize_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.DataSize*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_DataSize" data-uid="MechatronicDesignSuite_DLL.imsValueNode.DataSize">DataSize</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int DataSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_DataType.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.DataType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L17">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_DataType_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.DataType*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_DataType" data-uid="MechatronicDesignSuite_DLL.imsValueNode.DataType">DataType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type DataType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_doubleValue.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.doubleValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L27">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_doubleValue_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.doubleValue*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_doubleValue" data-uid="MechatronicDesignSuite_DLL.imsValueNode.doubleValue">doubleValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double doubleValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_floatValue.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.floatValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L26">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_floatValue_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.floatValue*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_floatValue" data-uid="MechatronicDesignSuite_DLL.imsValueNode.floatValue">floatValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public float floatValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Single</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_intValue.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.intValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L25">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_intValue_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.intValue*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_intValue" data-uid="MechatronicDesignSuite_DLL.imsValueNode.intValue">intValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int intValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_shortValue.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.shortValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L23">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_shortValue_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.shortValue*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_shortValue" data-uid="MechatronicDesignSuite_DLL.imsValueNode.shortValue">shortValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public short shortValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_uintValue.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.uintValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L24">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_uintValue_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.uintValue*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_uintValue" data-uid="MechatronicDesignSuite_DLL.imsValueNode.uintValue">uintValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public uint uintValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_ushortValue.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.ushortValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L22">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_ushortValue_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.ushortValue*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_ushortValue" data-uid="MechatronicDesignSuite_DLL.imsValueNode.ushortValue">ushortValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ushort ushortValue { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt16</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode_clearValues.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode.clearValues%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L43">View Source</a>
+  </span>
+  <a id="MechatronicDesignSuite_DLL_imsValueNode_clearValues_" data-uid="MechatronicDesignSuite_DLL.imsValueNode.clearValues*"></a>
+  <h4 id="MechatronicDesignSuite_DLL_imsValueNode_clearValues" data-uid="MechatronicDesignSuite_DLL.imsValueNode.clearValues">clearValues()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void clearValues()</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/new/master/apiSpec/new?filename=MechatronicDesignSuite_DLL_imsValueNode.md&amp;value=---%0Auid%3A%20MechatronicDesignSuite_DLL.imsValueNode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/GSE79/Repo_MechatronicDesignSuite_DLL/blob/master/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/BaseNodes/imsValueNode.cs/#L15" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

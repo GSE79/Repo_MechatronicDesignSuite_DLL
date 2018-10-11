@@ -1,0 +1,393 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/InMechaSol/Repo_MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "8bJmIGC8gOzxhfXyTHjLpw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "EnK/rh7iEbP+GhRUDAflHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "xVlQaX7Tk85omoiWv3O+Ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "94T9rBayiVTpCfJezhj00w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.BaseModelClassConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.BaseModelClassConverter.html",
+          "hash": "rLO8UJ6VSTM0ptEPyl4FTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.DynamicNodeCreator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.DynamicNodeCreator.html",
+          "hash": "CA9/3Z4+4O3qonp7AQBmYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsAPISysModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsAPISysModule.html",
+          "hash": "jNLMmY9aRC7x3W0LlW+AyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsBGThreadManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsBGThreadManager.html",
+          "hash": "a1rBd4MSdw06v2O1xkO/qQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html",
+          "hash": "jFO4nZMKj9xnNy29pWSscQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html",
+          "hash": "3CSskNJ0D3NZ9sH+cc+0fQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.html",
+          "hash": "u8wcyHWPzRAK5uU5psFPoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html",
+          "hash": "4saLkReVREXmIqRBZmRRCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsStaticGUIModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsStaticGUIModule.html",
+          "hash": "DzZhPKoK1jkxihjEm2fibQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html",
+          "hash": "SxmQR74emhSbuIbwij3YZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html",
+          "hash": "g5e1/zRdKizlvrVakiQP2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseNodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.html",
+          "hash": "IylsDm0y7DivRlZ0/FgP2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.ImsBaseForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.ImsBaseForm.html",
+          "hash": "VpxsXxyd6I2hQrxWOWdfYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.html",
+          "hash": "PEdyGt9gEa5tYEn8n+sdGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.MetaDataClassConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.MetaDataClassConverter.html",
+          "hash": "FC/XR+ZhsFD1Ra/nh+Y0mw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.PCExeSys.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.PCExeSys.html",
+          "hash": "pVTwv8729W4urg9ynFn7qQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.PCExeSysMetaData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.PCExeSysMetaData.html",
+          "hash": "I7Ur0O3Xt7MzLwLqBKQVZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.SPpacketConverter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.SPpacketConverter.html",
+          "hash": "xYGMC/9emaAcJPiSwXHW7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.SerialParameterPacket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.SerialParameterPacket.html",
+          "hash": "rUtzgSFBPPeJFt9Uo7LgxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.imsException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.imsException.html",
+          "hash": "+oXi6R6tO31F/K+ogu97rA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.imsExceptionViewer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.imsExceptionViewer.html",
+          "hash": "/6QxYSuEUYqkAcE7jdq2Cg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.imsProjectExplorer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.imsProjectExplorer.html",
+          "hash": "KbJn6P9MfK63Sr43e8z9Xg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.html",
+          "hash": "PtU25B2LJLKhYIxDWaaoDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "qGVLHs4oczmEgVU4xuOktw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "frPdeW5hGroGiyexwMQIhg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Disable incremental build by force rebuild option.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
