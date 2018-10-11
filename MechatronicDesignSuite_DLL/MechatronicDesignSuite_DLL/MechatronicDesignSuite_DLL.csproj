@@ -58,14 +58,14 @@
     <Compile Include="BaseForms\imsProjectExplorer.Designer.cs">
       <DependentUpon>imsProjectExplorer.cs</DependentUpon>
     </Compile>
-    <Compile Include="BaseNodes\imsAPISysModule.cs" />
+    <Compile Include="BaseNodes\SystemNodes\imsAPISysModule.cs" />
     <Compile Include="BaseNodes\imsBaseNode.cs" />
-    <Compile Include="BaseNodes\imsBGThreadManager.cs" />
-    <Compile Include="BaseNodes\imsCyclicPacketCommSystem.cs" />
-    <Compile Include="BaseNodes\imsPCClocksModule.cs" />
-    <Compile Include="BaseNodes\imsProjectModuleNode.cs" />
-    <Compile Include="BaseNodes\imsSerialParamData.cs" />
-    <Compile Include="BaseNodes\imsStaticGUIModule.cs" />
+    <Compile Include="BaseNodes\SystemNodes\APIModules\imsBGThreadManager.cs" />
+    <Compile Include="BaseNodes\SystemNodes\APIModules\imsCyclicPacketCommSystem.cs" />
+    <Compile Include="BaseNodes\SystemNodes\APIModules\imsPCClocksModule.cs" />
+    <Compile Include="BaseNodes\SystemNodes\APIModules\imsProjectModuleNode.cs" />
+    <Compile Include="BaseNodes\ValueNodes\imsSerialParamData.cs" />
+    <Compile Include="BaseNodes\SystemNodes\imsStaticGUIModule.cs" />
     <Compile Include="BaseNodes\imsSysModuleNode.cs" />
     <Compile Include="BaseNodes\imsValueNode.cs" />
     <Compile Include="BaseTypes\SerialParameterPacket.cs" />

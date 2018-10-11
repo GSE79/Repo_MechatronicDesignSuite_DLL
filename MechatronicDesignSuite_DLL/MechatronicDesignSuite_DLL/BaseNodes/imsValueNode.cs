@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 
-namespace MechatronicDesignSuite_DLL
+namespace MechatronicDesignSuite_DLL.BaseNodes
 {
 
     public class imsValueNode : imsBaseNode
@@ -18,7 +18,7 @@ namespace MechatronicDesignSuite_DLL
         public int ArrayLength { get; } = 0;
         public int DataSize {get;} = 0;
         public char charValue { get { return charValues[charValues.Count - 1]; } set { charValues[charValues.Count - 1] = value; } }
-        public byte byteValue { get { return byteValues[byteValues.Count - 1]; } set { byteValues[byteValues.Count - 1] = value; } }
+        public byte byteValue { get { if (byteValues.Count > 0) return byteValues[byteValues.Count - 1]; else return 0x00; } set { if (byteValues.Count > 0) byteValues[byteValues.Count - 1] = value; } }
         public ushort ushortValue { get { return ushortValues[ushortValues.Count - 1]; } set { ushortValues[ushortValues.Count - 1] = value; } }
         public short shortValue { get { return shortValues[shortValues.Count - 1]; } set { shortValues[shortValues.Count - 1] = value; } }
         public uint uintValue { get { return uintValues[uintValues.Count - 1]; } set {uintValues [uintValues.Count - 1] = value; } }
@@ -70,7 +70,14 @@ namespace MechatronicDesignSuite_DLL
             nodeName = nameString;
             DataType = DataTypeIn;
             ArrayLength = ArrayLengthIn;
-            DataSize = ArrayLength*Marshal.SizeOf(DataType);
+
+            //FileStream deSerializeFs = new FileStream();
+            //BinaryFormatter DeSerializeFormatter = new BinaryFormatter();
+
+            if (ArrayLength == 0)
+                DataSize = (Marshal.SizeOf(DataTypeIn));
+            else
+                DataSize = ArrayLength *  (Marshal.SizeOf(DataTypeIn));
 
             if (DataType == typeof(char))
                 charValues = new List<char>();

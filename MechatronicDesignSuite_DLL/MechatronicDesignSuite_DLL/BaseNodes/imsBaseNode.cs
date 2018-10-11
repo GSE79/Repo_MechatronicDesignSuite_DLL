@@ -14,7 +14,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Globalization;
 
-namespace MechatronicDesignSuite_DLL
+namespace MechatronicDesignSuite_DLL.BaseNodes
 {
     [TypeConverterAttribute(typeof(BaseModelClassConverter)), DescriptionAttribute("Expand to see...")]
     public class imsBaseNode: IDisposable

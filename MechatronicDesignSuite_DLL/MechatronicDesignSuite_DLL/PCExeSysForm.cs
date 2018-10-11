@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using MechatronicDesignSuite_DLL.BaseNodes;
 
 /// <summary>
 /// The MechatronicDesignSuite Library is compiled to a DLL and ..

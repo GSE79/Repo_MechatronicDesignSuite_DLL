@@ -13,7 +13,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using MechatronicDesignSuite_DLL;
 
-namespace MechatronicDesignSuite_DLL
+namespace MechatronicDesignSuite_DLL.BaseNodes
 {
     public class imsProjectModuleNode : imsAPISysModule
     {

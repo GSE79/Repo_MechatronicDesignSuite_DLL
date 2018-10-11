@@ -11,6 +11,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
 using System.Globalization;
+using MechatronicDesignSuite_DLL.BaseNodes;
 
 namespace MechatronicDesignSuite_DLL
 {

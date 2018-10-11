@@ -7,7 +7,7 @@ using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace MechatronicDesignSuite_DLL
+namespace MechatronicDesignSuite_DLL.BaseNodes
 {
     public class imsAPISysModule:imsSysModuleNode
     {

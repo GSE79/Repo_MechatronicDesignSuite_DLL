@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
+using MechatronicDesignSuite_DLL.BaseNodes;
 
 namespace MechatronicDesignSuite_DLL
 {

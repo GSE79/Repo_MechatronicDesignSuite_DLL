@@ -10,6 +10,7 @@ using System.Reflection.Emit;
 using System.Globalization;
 using System.Windows.Forms;
 using System.ComponentModel;
+using MechatronicDesignSuite_DLL.BaseNodes;
 
 namespace MechatronicDesignSuite_DLL
 {
