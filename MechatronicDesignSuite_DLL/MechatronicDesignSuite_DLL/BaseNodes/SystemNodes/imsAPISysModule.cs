@@ -12,15 +12,18 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
     public class imsAPISysModule:imsSysModuleNode
     {
         protected PCExeSys PCExeSysLink;
+
+
+
         public imsAPISysModule(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(imsAPISysModule);
-            nodeName = "API Module Node";
+            NodeType = typeof(imsAPISysModule);
+            NodeName = "API Module Node";
         }
         public imsAPISysModule(PCExeSys PCExeSysIn, List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(imsAPISysModule);
-            nodeName = "API Module Node";
+            NodeType = typeof(imsAPISysModule);
+            NodeName = "API Module Node";
             if (PCExeSysIn != null)
                 PCExeSysLink = PCExeSysIn;
         }

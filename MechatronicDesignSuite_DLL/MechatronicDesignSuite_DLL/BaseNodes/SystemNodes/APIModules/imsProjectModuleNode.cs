@@ -10,30 +10,55 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
-using System.Windows.Forms;
 using MechatronicDesignSuite_DLL;
 
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
     public class imsProjectModuleNode : imsAPISysModule
     {
-        public bool ExecuteProjectModules { set; get; } = false;
+        /// <summary>
+        /// ExecuteProjectModules
+        /// </summary>
+        protected bool ExecuteProjectModules = false;
+        [Category("Project Module Node"), Description("Indication for Execution System to Execute Project Modules")]
+        public bool getExecuteProjectModules { get { return ExecuteProjectModules; } }
+        [Category("Project Module Node"), Description("Indication for Execution System to Execute Project Modules")]
+        public bool setExecuteProjectModules { get { return ExecuteProjectModules; } set { ExecuteProjectModules = value; } }
+
+        /// <summary>
+        /// imsProjectModuleNode()
+        /// </summary>
+        /// <param name="globalNodeListIn"></param>
         public imsProjectModuleNode(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(imsProjectModuleNode);
-            nodeName = "ProjectModule Node";
+            NodeType = typeof(imsProjectModuleNode);
+            NodeName = "ProjectModule Node";
         }
+        /// <summary>
+        /// imsProjectModuleNode()
+        /// </summary>
+        /// <param name="PCExeSysIn"></param>
+        /// <param name="globalNodeListIn"></param>
         public imsProjectModuleNode(PCExeSys PCExeSysIn, List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(imsProjectModuleNode);
-            nodeName = "ProjectModule Node";
+            NodeType = typeof(imsProjectModuleNode);
+            NodeName = "ProjectModule Node";
             if (PCExeSysIn != null)
                 PCExeSysLink = PCExeSysIn;
         }
+        /// <summary>
+        /// imsProjectModuleNode()
+        /// </summary>
+        /// <param name="DeSerializeFormatter"></param>
+        /// <param name="deSerializeFs"></param>
         public imsProjectModuleNode(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) : base(DeSerializeFormatter, deSerializeFs)
         {
 
         }
+        /// <summary>
+        /// AddSysModuletoProject()
+        /// </summary>
+        /// <param name="SysModule2Add"></param>
         public void AddSysModuletoProject(imsSysModuleNode SysModule2Add)
         {
             ExecuteProjectModules = false;
@@ -48,6 +73,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             ExecuteProjectModules = true;
             
         }
+
+        /// <summary>
+        /// MainInit()
+        /// </summary>
         public override void MainInit()
         {
             int sysIndex;
@@ -66,6 +95,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
             isInitialized = true;
         }
+
+        /// <summary>
+        /// MainLoop()
+        /// </summary>
         public override void MainLoop()
         {
             int sysIndex;
@@ -84,6 +117,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
 
         }
+
+        /// <summary>
+        /// ExtBGAppThread()
+        /// </summary>
         public override void ExtAppBGThread()
         {
             int sysIndex;

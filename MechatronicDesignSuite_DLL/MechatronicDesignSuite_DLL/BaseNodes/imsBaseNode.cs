@@ -16,76 +16,105 @@ using System.Globalization;
 
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
+    /// <summary>
+    /// imsBaseNode : IDisposable
+    /// </summary>
     [TypeConverterAttribute(typeof(BaseModelClassConverter)), DescriptionAttribute("Expand to see...")]
     public class imsBaseNode: IDisposable
     {
-        [Category("Base Node"),
-        Description("Name of Node")]
-        public string NodeName
-        {
-            set {nodeName = value; }
-            get {return nodeName; }
-        }
+        /// <summary>
+        /// NodeName
+        /// </summary>
+        protected string NodeName = "base node";
+        [Category("Base Node"), Description("Name of Node")]
+        public string getNodeName {get {return NodeName; }  }
+        [Category("Base Node"), Description("Name of Node")]
+        public string setNodeName { set { NodeName = value; } get { return NodeName; } }
 
-        [Category("Base Node"),
-        Description("Type of Node")]
-        public Type NodeType
-        {
-            //set {; }
-            get {return nodeType; }
-        }
+        /// <summary>
+        /// NodeType
+        /// </summary>
+        protected Type NodeType = typeof(imsBaseNode);
+        [Category("Base Node"), Description("Type of Node")]
+        public Type getNodeType { get { return NodeType; } }
+        [Category("Base Node"), Description("Type of Node")]
+        public Type setNodeType { get { return NodeType; } set { NodeType = value; } }
 
+        /// <summary>
+        /// GlobalNodeID
+        /// </summary>
+        protected int GlobalNodeID;
         [Category("Base Node"), Description("List Index of node in global node list")]
-        public int GlobalNodeID
-        {
-            //set {; }
-            get { return nodeGlobalID; }
-        }
+        public int getGlobalNodeID { get { return GlobalNodeID; } }
+        [Category("Base Node"), Description("List Index of node in global node list")]
+        public int setGlobalNodeID { get { return GlobalNodeID; } set { GlobalNodeID = value; } }
 
-        protected string nodeName = null; 
-        protected Type nodeType = null;
-        protected int nodeGlobalID;
+        /// <summary>
+        /// globalNodeListLink
+        /// </summary>
         protected List<imsBaseNode> globalNodeListLink;
 
+        /// <summary>
+        /// imsBaseNode()
+        /// </summary>
+        /// <param name="globalNodeListIn"></param>
         public imsBaseNode(List<imsBaseNode> globalNodeListIn)
         {
-            nodeType = typeof(imsBaseNode);
-            nodeName = "Base Node";
-            nodeGlobalID = globalNodeListIn.Count;
+            NodeType = typeof(imsBaseNode);
+            NodeName = "Base Node";
+            GlobalNodeID = globalNodeListIn.Count;
             globalNodeListIn.Add(this);
             globalNodeListLink = globalNodeListIn;
         }
+        /// <summary>
+        /// imsBaseNode()
+        /// </summary>
+        /// <param name="DeSerializeFormatter"></param>
+        /// <param name="deSerializeFs"></param>
         public imsBaseNode(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs)
         {
-            nodeType = (Type)DeSerializeFormatter.Deserialize(deSerializeFs);
-            nodeGlobalID = (int)DeSerializeFormatter.Deserialize(deSerializeFs);
-            nodeName = (string)DeSerializeFormatter.Deserialize(deSerializeFs);    
+            NodeType = (Type)DeSerializeFormatter.Deserialize(deSerializeFs);
+            GlobalNodeID = (int)DeSerializeFormatter.Deserialize(deSerializeFs);
+            NodeName = (string)DeSerializeFormatter.Deserialize(deSerializeFs);    
         }
+        /// <summary>
+        /// writeNode2File()
+        /// </summary>
+        /// <param name="SerializeFormatter"></param>
+        /// <param name="SerializeFs"></param>
         public virtual void writeNode2file(BinaryFormatter SerializeFormatter, FileStream SerializeFs)
         {
-            SerializeFormatter.Serialize(SerializeFs, nodeType);
-            SerializeFormatter.Serialize(SerializeFs, nodeGlobalID);
-            SerializeFormatter.Serialize(SerializeFs, nodeName);
+            SerializeFormatter.Serialize(SerializeFs, NodeType);
+            SerializeFormatter.Serialize(SerializeFs, GlobalNodeID);
+            SerializeFormatter.Serialize(SerializeFs, NodeName);
         }
+        /// <summary>
+        /// restoreFromFile()
+        /// </summary>
+        /// <param name="DeSerializeFormatter"></param>
+        /// <param name="deSerializeFs"></param>
         public virtual void restoreFromFile(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs)
         {
             Type deSerialType = (Type)DeSerializeFormatter.Deserialize(deSerializeFs);
 
-            if (deSerialType == nodeType)
-                nodeType = deSerialType;
+            if (deSerialType == NodeType)
+                NodeType = deSerialType;
             else
                 throw (new Exception("Attempeted to restore from wrong node type"));
 
-            nodeGlobalID = (int)DeSerializeFormatter.Deserialize(deSerializeFs);
-            nodeName = (string)DeSerializeFormatter.Deserialize(deSerializeFs);
+            GlobalNodeID = (int)DeSerializeFormatter.Deserialize(deSerializeFs);
+            NodeName = (string)DeSerializeFormatter.Deserialize(deSerializeFs);
         }
 
-
+        /// <summary>
+        /// toNewTreeNode()
+        /// </summary>
+        /// <returns></returns>
         public virtual TreeNode toNewTreeNode()
         {
-            TreeNode outNode = new TreeNode(nodeName);
-            outNode.Name = nodeName;
-            outNode.ToolTipText = nodeName + "\n" + nodeGlobalID.ToString() + "\n\n" + nodeType.ToString();
+            TreeNode outNode = new TreeNode(NodeName);
+            outNode.Name = NodeName;
+            outNode.ToolTipText = NodeName + "\n" + GlobalNodeID.ToString() + "\n\n" + NodeType.ToString();
             outNode.Tag = this;
             return outNode;
         }
@@ -167,6 +196,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
     }
     #endregion
 
+    /// <summary>
+    /// BaseModelClassConverter
+    /// </summary>
     public class BaseModelClassConverter : ExpandableObjectConverter
     {
         // functions for property grid expandability
@@ -187,12 +219,15 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             {
 
                 imsBaseNode so = (imsBaseNode)value;
-                return so.NodeName;
+                return so.getNodeName;
             }
             return base.ConvertTo(context, culture, value, destinationType);
         }
     }
 
+    /// <summary>
+    /// DynamicNodeCreator
+    /// </summary>
     public class DynamicNodeCreator
     {
         delegate imsBaseNode CtorInvoker();

@@ -4,24 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
     public class imsSerialParamData : imsValueNode
     {
-        public List<byte> SerialDataIn { get; } = new List<byte>();
-        public List<byte> SerialDataOut { get; } = new List<byte>();
-        public int PacketDataOffset { set;  get; } = -1;
+        protected List<byte> SerialDataIn = new List<byte>();
+        [Category("Serial Data"), Description("The serial data in - convert to to data type")]
+        public List<byte> getSerialDataIn { get { return SerialDataIn; } }
+        [Category("Serial Data"), Description("The serial data in - convert to to data type")]
+        public List<byte> setSerialDataIn { get { return SerialDataIn; } set { SerialDataIn = value; } }
+
+        protected List<byte> SerialDataOut = new List<byte>();
+        [Category("Serial Data"), Description("The serial data out - converted from data type")]
+        public List<byte> getSerialDataOut { get { return SerialDataOut; }  }
+        [Category("Serial Data"), Description("The serial data out - converted from data type")]
+        public List<byte> setSerialDataOut { get { return SerialDataOut; } set { SerialDataOut = value; } }
+
+        protected int PacketDataOffset = -1;
+        [Category("Serial Data"), Description("The serial data offset - within its serial packet")]
+        public int getPacketDataOffset { get { return PacketDataOffset; } }
+        [Category("Serial Data"), Description("The serial data offset - within its serial packet")]
+        public int setPacketDataOffset { get { return PacketDataOffset; } set { PacketDataOffset = value; } }
 
         int ByteIdx;
 
         public imsSerialParamData(List<imsBaseNode> globalNodeListIn, string nameString, Type DataTypeIn, int arrayLength) : base(globalNodeListIn, nameString, DataTypeIn, arrayLength)
         {
-            nodeType = typeof(imsSerialParamData);
+            NodeType = typeof(imsSerialParamData);
         }
         public imsSerialParamData(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) : base(DeSerializeFormatter, deSerializeFs)
         {
@@ -43,59 +62,56 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         }
         public void updateFromSerialData(bool logDataFlag, DateTime RxTime)
         {
-            if (DataType == typeof(char)) {
-                if (charValues.Count > 0 && !logDataFlag)
-                    charValue = BitConverter.ToChar(SerialDataIn.ToArray(), 0);
-                else
-                    charValues.Add(BitConverter.ToChar(SerialDataIn.ToArray(), 0)); }
+            if (DataType == typeof(char))
+            {
+                charValue = BitConverter.ToChar(SerialDataIn.ToArray(), 0);
+
+                if (logDataFlag)
+                    charValues.Add(charValue);
+            }
             else if (DataType == typeof(byte))
             {
-                if (byteValues.Count > 0 && !logDataFlag)
-                    byteValue = SerialDataIn[0];
-                else
-                    byteValues.Add(SerialDataIn[0]);
+                byteValue = SerialDataIn[0];
+
+                if (logDataFlag)
+                    byteValues.Add(byteValue);
             }
             else if (DataType == typeof(ushort))
             {
-                if (ushortValues.Count > 0 && !logDataFlag)
-                    ushortValue = BitConverter.ToUInt16(SerialDataIn.ToArray(), 0);
-                else
-                    ushortValues.Add(BitConverter.ToUInt16(SerialDataIn.ToArray(), 0));
+                ushortValue = BitConverter.ToUInt16(SerialDataIn.ToArray(), 0);
+
+                if (logDataFlag)
+                    ushortValues.Add(ushortValue);
             }
             else if (DataType == typeof(short))
             {
-                if (shortValues.Count > 0 && !logDataFlag)
-                    shortValue = BitConverter.ToInt16(SerialDataIn.ToArray(), 0);
-                else
-                    shortValues.Add(BitConverter.ToInt16(SerialDataIn.ToArray(), 0));
+                shortValue = BitConverter.ToInt16(SerialDataIn.ToArray(), 0);
+                if (logDataFlag)
+                   shortValues.Add(shortValue);
             }
             else if (DataType == typeof(uint))
             {
-                if (uintValues.Count > 0 && !logDataFlag)
-                    uintValue = BitConverter.ToUInt32(SerialDataIn.ToArray(), 0);
-                else
-                    uintValues.Add(BitConverter.ToUInt32(SerialDataIn.ToArray(), 0));
+                uintValue = BitConverter.ToUInt32(SerialDataIn.ToArray(), 0);
+                if (logDataFlag)
+                   uintValues.Add(uintValue);
             }
             else if (DataType == typeof(int))
             {
-                if (intValues.Count > 0 && !logDataFlag)
-                    intValue = BitConverter.ToInt32(SerialDataIn.ToArray(), 0);
-                else
-                    intValues.Add(BitConverter.ToInt32(SerialDataIn.ToArray(), 0));
+                intValue = BitConverter.ToInt32(SerialDataIn.ToArray(), 0);
+                if (logDataFlag)
+                    intValues.Add(intValue);
             }
             else if (DataType == typeof(float))
             {
-                if (floatValues.Count > 0 && !logDataFlag)
-                    floatValue = BitConverter.ToSingle(SerialDataIn.ToArray(), 0);
-                else
-                    floatValues.Add(BitConverter.ToSingle(SerialDataIn.ToArray(), 0));
+                floatValue = BitConverter.ToSingle(SerialDataIn.ToArray(), 0);
+                if (logDataFlag)
+                    floatValues.Add(floatValue);
             }
             else if (DataType == typeof(double))
             {
+                doubleValue = BitConverter.ToUInt32(SerialDataIn.ToArray(), 0);
                 if (doubleValues.Count > 0 && !logDataFlag)
-                    doubleValue = BitConverter.ToUInt32(SerialDataIn.ToArray(), 0);
-                else
-                    doubleValues.Add(BitConverter.ToUInt32(SerialDataIn.ToArray(), 0));
+                    doubleValues.Add(doubleValue);
             }
             else
                 throw new Exception("Attempted to update (from serial data) an Un-Supported Value Node Data Type");

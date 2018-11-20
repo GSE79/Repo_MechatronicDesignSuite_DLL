@@ -15,12 +15,14 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
     public class imsBGThreadManager: imsAPISysModule
     {
         #region System Properties
+        [Category("BG Thread Manager"), Description("Flag to Enable the External Application Background Worker Thread")]
         public bool EnableExtAppBGWorker
         {
             set { if (value == true) DisableExtAppBGWorker = false; }
             get { return !DisableExtAppBGWorker; }
         }
         bool DisableExtAppBGWorker = false;
+        [Category("BG Thread Manager"),Description("Flag to Enable Communication Background Worker Thread")]
         public bool EnableCommsBGWorker
         {
             set { if (value == true) DisableCommsBGWorker = false; }
@@ -32,13 +34,13 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         #region System Constructors
         public imsBGThreadManager(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(imsBGThreadManager);
-            nodeName = "BG Thread Manager Module Node";
+            NodeType = typeof(imsBGThreadManager);
+            NodeName = "BG Thread Manager Module Node";
         }
         public imsBGThreadManager(PCExeSys PCExeSysIn, List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(imsBGThreadManager);
-            nodeName = "BG Thread Manager Module Node";
+            NodeType = typeof(imsBGThreadManager);
+            NodeName = "BG Thread Manager Module Node";
             if (PCExeSysIn != null)
                 PCExeSysLink = PCExeSysIn;
 

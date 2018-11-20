@@ -4,42 +4,170 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
-
+    /// <summary>
+    /// imsValueNode : imsBaseNode
+    /// </summary>
     public class imsValueNode : imsBaseNode
     {
-        public Type DataType { get; } = typeof(byte);
-        public int ArrayLength { get; } = 0;
-        public int DataSize {get;} = 0;
-        public char charValue { get { return charValues[charValues.Count - 1]; } set { charValues[charValues.Count - 1] = value; } }
-        public byte byteValue { get { if (byteValues.Count > 0) return byteValues[byteValues.Count - 1]; else return 0x00; } set { if (byteValues.Count > 0) byteValues[byteValues.Count - 1] = value; } }
-        public ushort ushortValue { get { return ushortValues[ushortValues.Count - 1]; } set { ushortValues[ushortValues.Count - 1] = value; } }
-        public short shortValue { get { return shortValues[shortValues.Count - 1]; } set { shortValues[shortValues.Count - 1] = value; } }
-        public uint uintValue { get { return uintValues[uintValues.Count - 1]; } set {uintValues [uintValues.Count - 1] = value; } }
-        public int intValue { get { return intValues[intValues.Count - 1]; } set { intValues[intValues.Count - 1] = value; } }
-        public float floatValue { get { return floatValues[floatValues.Count - 1]; } set { floatValues[floatValues.Count - 1] = value; } }
-        public double doubleValue { get { return doubleValues[doubleValues.Count - 1]; } set { doubleValues[doubleValues.Count - 1] = value; } }
+        /// <summary>
+        /// Data Type - 
+        /// </summary>
+        protected Type DataType = typeof(byte);
+        [Category("Value Node"), Description("The .NET datatype of this instance")]
+        public Type getDataType { get { return DataType; } }
+        [Category("Value Node"), Description("The .NET datatype of this instance")]
+        public Type setDataType { get { return DataType; } set { DataType = value; } }
 
+        /// <summary>
+        /// ArrayLength
+        /// </summary>
+        protected int ArrayLength = 0;
+        [Category("Value Node"), Description("The number elements of this data type in the array")]
+        public int  getArrayLength {get{return ArrayLength;} }
+        [Category("Value Node"), Description("The number elements of this data type in the array")]
+        public int setArrayLength { get { return ArrayLength; } set { ArrayLength = value; } }
+
+        /// <summary>
+        /// DataSize
+        /// </summary>
+        protected int DataSize = 0;
+        [Category("Value Node"), Description("The size, in bytes, of the data type * number of elements in array")]
+        public int getDataSize { get { return DataSize; } }
+        [Category("Value Node"), Description("The size, in bytes, of the data type * number of elements in array")]
+        public int setDataSize { get { return DataSize; } set { DataSize = value; } }
+
+        /// <summary>
+        /// charValue
+        /// </summary>
+        protected char charValue;
         protected List<char> charValues;
+        [Category("datatype: char"), Description("The .NET char datatype representation")]
+        public char getcharValue { get { return charValue; } }
+        [Category("datatype: char"), Description("The .NET char datatype representation")]
+        public char setcharValue { get { return charValue; } set { charValue = value; } }
+        [Category("datatype: char"), Description("The .NET char datatype representation")]
+        public List<char> getcharValues { get { return charValues; } }
+        [Category("datatype: char"), Description("The .NET char datatype representation")]
+        public List<char> setcharValues { get { return charValues; } set { charValues = value; } }
+
+        /// <summary>
+        /// byteValue
+        /// </summary>
+        protected byte byteValue;
         protected List<byte> byteValues;
+        [Category("datatype: byte"), Description("The .NET byte datatype representation")]
+        public byte getbyteValue { get { return byteValue; } }
+        [Category("datatype: byte"), Description("The .NET byte datatype representation")]
+        public byte setbyteValue { get { return byteValue; } set { byteValue = value; } }
+        [Category("datatype: byte"), Description("The .NET byte datatype representation")]
+        public List<byte> getbyteValues { get { return byteValues; } }
+        [Category("datatype: byte"), Description("The .NET byte datatype representation")]
+        public List<byte> setbyteValues { get { return byteValues; } set { byteValues = value; } }
 
+        /// <summary>
+        /// ushortValue
+        /// </summary>
+        protected ushort ushortValue;
         protected List<ushort> ushortValues;
+        [Category("datatype: ushort"), Description("The .NET char ushort representation")]
+        public ushort getushortValue { get { return ushortValue; } }
+        [Category("datatype: ushort"), Description("The .NET char ushort representation")]
+        public ushort setushortValue{ get { return ushortValue; } set { ushortValue = value; } }
+        [Category("datatype: ushort"), Description("The .NET char ushort representation")]
+        public List<ushort> getushortValues { get { return ushortValues; } }
+        [Category("datatype: ushort"), Description("The .NET char ushort representation")]
+        public List<ushort> setushortValues { get { return ushortValues; } set { ushortValues = value; } }
+
+        /// <summary>
+        /// shortValue
+        /// </summary>
+        protected short shortValue;
         protected List<short> shortValues;
+        [Category("datatype: short"), Description("The .NET char short representation")]
+        public short getshortValue { get { return shortValue; } }
+        [Category("datatype: short"), Description("The .NET char short representation")]
+        public short setshortValue { get { return shortValue; } set { shortValue = value; } }
+        [Category("datatype: short"), Description("The .NET char short representation")]
+        public List<short> getshortValues { get { return shortValues; } }
+        [Category("datatype: short"), Description("The .NET char short representation")]
+        public List<short> setshortValues { get { return shortValues; } set { shortValues = value; } }
 
+        /// <summary>
+        /// uintValue
+        /// </summary>
+        protected uint uintValue;
         protected List<uint> uintValues;
+        [Category("datatype: uint"), Description("The .NET uint representation")]
+        public uint getuintValue { get { return uintValue; } }
+        [Category("datatype: uint"), Description("The .NET uint representation")]
+        public uint setuintValue { get { return uintValue; } set { uintValue = value; } }
+        [Category("datatype: uint"), Description("The .NET uint representation")]
+        public List<uint> getuintValues { get { return uintValues; } }
+        [Category("datatype: uint"), Description("The .NET uint representation")]
+        public List<uint> setuintValues { get { return uintValues; } set { uintValues = value; } }
+
+        /// <summary>
+        /// intValue
+        /// </summary>
+        protected int intValue;
         protected List<int> intValues;
+        [Category("datatype: int"), Description("The .NET int representation")]
+        public int getintValue { get { return intValue; } }
+        [Category("datatype: int"), Description("The .NET int representation")]
+        public int setintValue { get { return intValue; } set { intValue = value; } }
+        [Category("datatype: int"), Description("The .NET int representation")]
+        public List<int> getintValues { get { return intValues; } }
+        [Category("datatype: int"), Description("The .NET int representation")]
+        public List<int> setintValues { get { return intValues; } set { intValues = value; } }
 
+        /// <summary>
+        /// floatValue
+        /// </summary>
+        protected float floatValue;
         protected List<float> floatValues;
-        protected List<double> doubleValues;
+        [Category("datatype: float"), Description("The .NET float representation")]
+        public float getfloatValue { get { return floatValue; } }
+        [Category("datatype: float"), Description("The .NET float representation")]
+        public float setfloatValue { get { return floatValue; } set { floatValue = value; } }
+        [Category("datatype: float"), Description("The .NET float representation")]
+        public List<float> getfloatValues { get { return floatValues; } }
+        [Category("datatype: float"), Description("The .NET float representation")]
+        public List<float> setfloatValues { get { return floatValues; } set { floatValues = value; } }
 
+        /// <summary>
+        /// doubleValue
+        /// </summary>
+        protected double doubleValue;
+        protected List<double> doubleValues;
+        [Category("datatype: double"), Description("The .NET double representation")]
+        public double getdoubleValue { get { return doubleValue; } }
+        [Category("datatype: double"), Description("The .NET double representation")]
+        public double setfdoubleValue { get { return doubleValue; } set { doubleValue = value; } }
+        [Category("datatype: double"), Description("The .NET double representation")]
+        public List<double> getdoubleValues { get { return doubleValues; } }
+        [Category("datatype: double"), Description("The .NET double representation")]
+        public List<double> setdoubleValues { get { return doubleValues; } set { doubleValues = value; } }
+
+        /// <summary>
+        /// latchTimes
+        /// </summary>
         protected List<DateTime> latchTimes;
 
+        /// <summary>
+        /// clearValues()
+        /// </summary>
         public void clearValues()
         {
             if (DataType == typeof(char))
@@ -64,17 +192,24 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             latchTimes.Clear();
         }
 
+        /// <summary>
+        /// imsValueNode()
+        /// </summary>
+        /// <param name="globalNodeListIn"></param>
+        /// <param name="nameString"></param>
+        /// <param name="DataTypeIn"></param>
+        /// <param name="ArrayLengthIn"></param>
         public imsValueNode(List<imsBaseNode> globalNodeListIn, string nameString, Type DataTypeIn, int ArrayLengthIn) :base(globalNodeListIn)
         {
-            nodeType = typeof(imsValueNode);
-            nodeName = nameString;
+            NodeType = typeof(imsValueNode);
+            NodeName = nameString;
             DataType = DataTypeIn;
             ArrayLength = ArrayLengthIn;
 
             //FileStream deSerializeFs = new FileStream();
             //BinaryFormatter DeSerializeFormatter = new BinaryFormatter();
 
-            if (ArrayLength == 0)
+            if (ArrayLength <= 0)
                 DataSize = (Marshal.SizeOf(DataTypeIn));
             else
                 DataSize = ArrayLength *  (Marshal.SizeOf(DataTypeIn));
@@ -100,7 +235,11 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
             latchTimes = new List<DateTime>();
         }
-
+        /// <summary>
+        /// imsValueNode()
+        /// </summary>
+        /// <param name="DeSerializeFormatter"></param>
+        /// <param name="deSerializeFs"></param>
         public imsValueNode(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) :base(DeSerializeFormatter, deSerializeFs)
         {
 

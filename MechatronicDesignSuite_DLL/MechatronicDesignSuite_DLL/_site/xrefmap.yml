@@ -196,17 +196,49 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.Finalize
   nameWithType: imsBaseNode.Finalize
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getGlobalNodeID
+  name: getGlobalNodeID
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_getGlobalNodeID
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getGlobalNodeID
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getGlobalNodeID
+  nameWithType: imsBaseNode.getGlobalNodeID
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getGlobalNodeID*
+  name: getGlobalNodeID
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_getGlobalNodeID_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getGlobalNodeID
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getGlobalNodeID
+  nameWithType: imsBaseNode.getGlobalNodeID
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeName
+  name: getNodeName
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_getNodeName
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeName
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeName
+  nameWithType: imsBaseNode.getNodeName
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeName*
+  name: getNodeName
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_getNodeName_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeName
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeName
+  nameWithType: imsBaseNode.getNodeName
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeType
+  name: getNodeType
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_getNodeType
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeType
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeType
+  nameWithType: imsBaseNode.getNodeType
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeType*
+  name: getNodeType
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_getNodeType_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeType
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.getNodeType
+  nameWithType: imsBaseNode.getNodeType
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.GlobalNodeID
   name: GlobalNodeID
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_GlobalNodeID
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.GlobalNodeID
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.GlobalNodeID
-  nameWithType: imsBaseNode.GlobalNodeID
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.GlobalNodeID*
-  name: GlobalNodeID
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_GlobalNodeID_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.GlobalNodeID
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.GlobalNodeID
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.GlobalNodeID
   nameWithType: imsBaseNode.GlobalNodeID
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.globalNodeListLink
@@ -215,48 +247,16 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.globalNodeListLink
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.globalNodeListLink
   nameWithType: imsBaseNode.globalNodeListLink
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeGlobalID
-  name: nodeGlobalID
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_nodeGlobalID
-  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeGlobalID
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeGlobalID
-  nameWithType: imsBaseNode.nodeGlobalID
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeName
-  name: nodeName
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_nodeName
-  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeName
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeName
-  nameWithType: imsBaseNode.nodeName
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeName
   name: NodeName
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_NodeName
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeName
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeName
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeName
   nameWithType: imsBaseNode.NodeName
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeName*
-  name: NodeName
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_NodeName_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeName
-  isSpec: "True"
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeName
-  nameWithType: imsBaseNode.NodeName
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeType
-  name: nodeType
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_nodeType
-  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeType
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.nodeType
-  nameWithType: imsBaseNode.nodeType
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeType
   name: NodeType
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_NodeType
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeType
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeType
-  nameWithType: imsBaseNode.NodeType
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeType*
-  name: NodeType
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_NodeType_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeType
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeType
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.NodeType
   nameWithType: imsBaseNode.NodeType
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.ReleaseManagedResources
@@ -298,6 +298,45 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.restoreFromFile
   nameWithType: imsBaseNode.restoreFromFile
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setGlobalNodeID
+  name: setGlobalNodeID
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_setGlobalNodeID
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setGlobalNodeID
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setGlobalNodeID
+  nameWithType: imsBaseNode.setGlobalNodeID
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setGlobalNodeID*
+  name: setGlobalNodeID
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_setGlobalNodeID_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setGlobalNodeID
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setGlobalNodeID
+  nameWithType: imsBaseNode.setGlobalNodeID
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeName
+  name: setNodeName
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_setNodeName
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeName
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeName
+  nameWithType: imsBaseNode.setNodeName
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeName*
+  name: setNodeName
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_setNodeName_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeName
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeName
+  nameWithType: imsBaseNode.setNodeName
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeType
+  name: setNodeType
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_setNodeType
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeType
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeType
+  nameWithType: imsBaseNode.setNodeType
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeType*
+  name: setNodeType
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_setNodeType_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeType
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.setNodeType
+  nameWithType: imsBaseNode.setNodeType
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.toNewTreeNode
   name: toNewTreeNode()
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode_toNewTreeNode
@@ -482,27 +521,13 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ClearLoggedData
   name: ClearLoggedData
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_ClearLoggedData
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ClearLoggedData
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ClearLoggedData
-  nameWithType: imsCyclicPacketCommSystem.ClearLoggedData
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ClearLoggedData*
-  name: ClearLoggedData
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_ClearLoggedData_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ClearLoggedData
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ClearLoggedData
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ClearLoggedData
   nameWithType: imsCyclicPacketCommSystem.ClearLoggedData
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommLoopCounter
   name: CommLoopCounter
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_CommLoopCounter
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommLoopCounter
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommLoopCounter
-  nameWithType: imsCyclicPacketCommSystem.CommLoopCounter
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommLoopCounter*
-  name: CommLoopCounter
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_CommLoopCounter_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommLoopCounter
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommLoopCounter
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommLoopCounter
   nameWithType: imsCyclicPacketCommSystem.CommLoopCounter
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommThreadExe
@@ -521,27 +546,130 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.DeviceConnected
   name: DeviceConnected
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_DeviceConnected
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.DeviceConnected
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.DeviceConnected
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.DeviceConnected
   nameWithType: imsCyclicPacketCommSystem.DeviceConnected
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.DeviceConnected*
-  name: DeviceConnected
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_DeviceConnected_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.DeviceConnected
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getClearLoggedData
+  name: getClearLoggedData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getClearLoggedData
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getClearLoggedData
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getClearLoggedData
+  nameWithType: imsCyclicPacketCommSystem.getClearLoggedData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getClearLoggedData*
+  name: getClearLoggedData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getClearLoggedData_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getClearLoggedData
   isSpec: "True"
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.DeviceConnected
-  nameWithType: imsCyclicPacketCommSystem.DeviceConnected
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getClearLoggedData
+  nameWithType: imsCyclicPacketCommSystem.getClearLoggedData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getCommLoopCounter
+  name: getCommLoopCounter
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getCommLoopCounter
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getCommLoopCounter
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getCommLoopCounter
+  nameWithType: imsCyclicPacketCommSystem.getCommLoopCounter
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getCommLoopCounter*
+  name: getCommLoopCounter
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getCommLoopCounter_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getCommLoopCounter
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getCommLoopCounter
+  nameWithType: imsCyclicPacketCommSystem.getCommLoopCounter
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getDeviceConnected
+  name: getDeviceConnected
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getDeviceConnected
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getDeviceConnected
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getDeviceConnected
+  nameWithType: imsCyclicPacketCommSystem.getDeviceConnected
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getDeviceConnected*
+  name: getDeviceConnected
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getDeviceConnected_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getDeviceConnected
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getDeviceConnected
+  nameWithType: imsCyclicPacketCommSystem.getDeviceConnected
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getLogData
+  name: getLogData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getLogData
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getLogData
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getLogData
+  nameWithType: imsCyclicPacketCommSystem.getLogData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getLogData*
+  name: getLogData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getLogData_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getLogData
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getLogData
+  nameWithType: imsCyclicPacketCommSystem.getLogData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketBuffer
+  name: getRxPacketBuffer
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getRxPacketBuffer
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketBuffer
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketBuffer
+  nameWithType: imsCyclicPacketCommSystem.getRxPacketBuffer
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketBuffer*
+  name: getRxPacketBuffer
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getRxPacketBuffer_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketBuffer
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketBuffer
+  nameWithType: imsCyclicPacketCommSystem.getRxPacketBuffer
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketTimes
+  name: getRxPacketTimes
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getRxPacketTimes
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketTimes
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketTimes
+  nameWithType: imsCyclicPacketCommSystem.getRxPacketTimes
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketTimes*
+  name: getRxPacketTimes
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getRxPacketTimes_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketTimes
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketTimes
+  nameWithType: imsCyclicPacketCommSystem.getRxPacketTimes
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getSleepTime
+  name: getSleepTime
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getSleepTime
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getSleepTime
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getSleepTime
+  nameWithType: imsCyclicPacketCommSystem.getSleepTime
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getSleepTime*
+  name: getSleepTime
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getSleepTime_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getSleepTime
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getSleepTime
+  nameWithType: imsCyclicPacketCommSystem.getSleepTime
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getStaticSPDPackets
+  name: getStaticSPDPackets
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getStaticSPDPackets
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getStaticSPDPackets
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getStaticSPDPackets
+  nameWithType: imsCyclicPacketCommSystem.getStaticSPDPackets
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getStaticSPDPackets*
+  name: getStaticSPDPackets
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getStaticSPDPackets_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getStaticSPDPackets
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getStaticSPDPackets
+  nameWithType: imsCyclicPacketCommSystem.getStaticSPDPackets
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getWriteFirst
+  name: getWriteFirst
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getWriteFirst
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getWriteFirst
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getWriteFirst
+  nameWithType: imsCyclicPacketCommSystem.getWriteFirst
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getWriteFirst*
+  name: getWriteFirst
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getWriteFirst_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getWriteFirst
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getWriteFirst
+  nameWithType: imsCyclicPacketCommSystem.getWriteFirst
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.LogData
   name: LogData
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_LogData
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.LogData
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.LogData
-  nameWithType: imsCyclicPacketCommSystem.LogData
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.LogData*
-  name: LogData
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_LogData_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.LogData
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.LogData
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.LogData
   nameWithType: imsCyclicPacketCommSystem.LogData
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.MainLoop
@@ -573,53 +701,142 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer
   name: RxPacketBuffer
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_RxPacketBuffer
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer
-  nameWithType: imsCyclicPacketCommSystem.RxPacketBuffer
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer*
-  name: RxPacketBuffer
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_RxPacketBuffer_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer
   nameWithType: imsCyclicPacketCommSystem.RxPacketBuffer
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketTimes
   name: RxPacketTimes
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_RxPacketTimes
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketTimes
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketTimes
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketTimes
   nameWithType: imsCyclicPacketCommSystem.RxPacketTimes
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketTimes*
-  name: RxPacketTimes
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_RxPacketTimes_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketTimes
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setClearLoggedData
+  name: setClearLoggedData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setClearLoggedData
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setClearLoggedData
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setClearLoggedData
+  nameWithType: imsCyclicPacketCommSystem.setClearLoggedData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setClearLoggedData*
+  name: setClearLoggedData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setClearLoggedData_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setClearLoggedData
   isSpec: "True"
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketTimes
-  nameWithType: imsCyclicPacketCommSystem.RxPacketTimes
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setClearLoggedData
+  nameWithType: imsCyclicPacketCommSystem.setClearLoggedData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setCommLoopCounter
+  name: setCommLoopCounter
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setCommLoopCounter
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setCommLoopCounter
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setCommLoopCounter
+  nameWithType: imsCyclicPacketCommSystem.setCommLoopCounter
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setCommLoopCounter*
+  name: setCommLoopCounter
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setCommLoopCounter_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setCommLoopCounter
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setCommLoopCounter
+  nameWithType: imsCyclicPacketCommSystem.setCommLoopCounter
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setDeviceConnected
+  name: setDeviceConnected
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setDeviceConnected
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setDeviceConnected
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setDeviceConnected
+  nameWithType: imsCyclicPacketCommSystem.setDeviceConnected
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setDeviceConnected*
+  name: setDeviceConnected
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setDeviceConnected_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setDeviceConnected
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setDeviceConnected
+  nameWithType: imsCyclicPacketCommSystem.setDeviceConnected
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setLogData
+  name: setLogData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setLogData
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setLogData
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setLogData
+  nameWithType: imsCyclicPacketCommSystem.setLogData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setLogData*
+  name: setLogData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setLogData_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setLogData
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setLogData
+  nameWithType: imsCyclicPacketCommSystem.setLogData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketBuffer
+  name: setRxPacketBuffer
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setRxPacketBuffer
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketBuffer
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketBuffer
+  nameWithType: imsCyclicPacketCommSystem.setRxPacketBuffer
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketBuffer*
+  name: setRxPacketBuffer
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setRxPacketBuffer_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketBuffer
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketBuffer
+  nameWithType: imsCyclicPacketCommSystem.setRxPacketBuffer
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketTimes
+  name: setRxPacketTimes
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setRxPacketTimes
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketTimes
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketTimes
+  nameWithType: imsCyclicPacketCommSystem.setRxPacketTimes
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketTimes*
+  name: setRxPacketTimes
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setRxPacketTimes_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketTimes
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setRxPacketTimes
+  nameWithType: imsCyclicPacketCommSystem.setRxPacketTimes
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setSleepTime
+  name: setSleepTime
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setSleepTime
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setSleepTime
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setSleepTime
+  nameWithType: imsCyclicPacketCommSystem.setSleepTime
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setSleepTime*
+  name: setSleepTime
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setSleepTime_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setSleepTime
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setSleepTime
+  nameWithType: imsCyclicPacketCommSystem.setSleepTime
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setStaticSPDPackets
+  name: setStaticSPDPackets
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setStaticSPDPackets
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setStaticSPDPackets
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setStaticSPDPackets
+  nameWithType: imsCyclicPacketCommSystem.setStaticSPDPackets
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setStaticSPDPackets*
+  name: setStaticSPDPackets
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setStaticSPDPackets_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setStaticSPDPackets
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setStaticSPDPackets
+  nameWithType: imsCyclicPacketCommSystem.setStaticSPDPackets
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setWriteFirst
+  name: setWriteFirst
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setWriteFirst
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setWriteFirst
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setWriteFirst
+  nameWithType: imsCyclicPacketCommSystem.setWriteFirst
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setWriteFirst*
+  name: setWriteFirst
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setWriteFirst_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setWriteFirst
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setWriteFirst
+  nameWithType: imsCyclicPacketCommSystem.setWriteFirst
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.SleepTime
   name: SleepTime
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_SleepTime
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.SleepTime
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.SleepTime
-  nameWithType: imsCyclicPacketCommSystem.SleepTime
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.SleepTime*
-  name: SleepTime
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_SleepTime_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.SleepTime
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.SleepTime
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.SleepTime
   nameWithType: imsCyclicPacketCommSystem.SleepTime
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.StaticSPDPackets
   name: StaticSPDPackets
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_StaticSPDPackets
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.StaticSPDPackets
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.StaticSPDPackets
-  nameWithType: imsCyclicPacketCommSystem.StaticSPDPackets
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.StaticSPDPackets*
-  name: StaticSPDPackets
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_StaticSPDPackets_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.StaticSPDPackets
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.StaticSPDPackets
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.StaticSPDPackets
   nameWithType: imsCyclicPacketCommSystem.StaticSPDPackets
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.TxPacketSelection
@@ -638,14 +855,7 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteFirst
   name: WriteFirst
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_WriteFirst
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteFirst
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteFirst
-  nameWithType: imsCyclicPacketCommSystem.WriteFirst
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteFirst*
-  name: WriteFirst
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_WriteFirst_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteFirst
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteFirst
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteFirst
   nameWithType: imsCyclicPacketCommSystem.WriteFirst
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteSerialPacket
@@ -714,14 +924,7 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExecuteProjectModules
   name: ExecuteProjectModules
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsProjectModuleNode_ExecuteProjectModules
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExecuteProjectModules
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExecuteProjectModules
-  nameWithType: imsProjectModuleNode.ExecuteProjectModules
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExecuteProjectModules*
-  name: ExecuteProjectModules
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsProjectModuleNode_ExecuteProjectModules_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExecuteProjectModules
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExecuteProjectModules
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExecuteProjectModules
   nameWithType: imsProjectModuleNode.ExecuteProjectModules
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExtAppBGThread
@@ -737,6 +940,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.ExtAppBGThread
   nameWithType: imsProjectModuleNode.ExtAppBGThread
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.getExecuteProjectModules
+  name: getExecuteProjectModules
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsProjectModuleNode_getExecuteProjectModules
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.getExecuteProjectModules
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.getExecuteProjectModules
+  nameWithType: imsProjectModuleNode.getExecuteProjectModules
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.getExecuteProjectModules*
+  name: getExecuteProjectModules
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsProjectModuleNode_getExecuteProjectModules_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.getExecuteProjectModules
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.getExecuteProjectModules
+  nameWithType: imsProjectModuleNode.getExecuteProjectModules
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.MainInit
   name: MainInit()
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsProjectModuleNode_MainInit
@@ -763,6 +979,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.MainLoop
   nameWithType: imsProjectModuleNode.MainLoop
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.setExecuteProjectModules
+  name: setExecuteProjectModules
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsProjectModuleNode_setExecuteProjectModules
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.setExecuteProjectModules
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.setExecuteProjectModules
+  nameWithType: imsProjectModuleNode.setExecuteProjectModules
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.setExecuteProjectModules*
+  name: setExecuteProjectModules
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsProjectModuleNode_setExecuteProjectModules_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.setExecuteProjectModules
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsProjectModuleNode.setExecuteProjectModules
+  nameWithType: imsProjectModuleNode.setExecuteProjectModules
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData
   name: imsSerialParamData
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html
@@ -807,45 +1036,102 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.AccumulatePackDataOffset
   nameWithType: imsSerialParamData.AccumulatePackDataOffset
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getPacketDataOffset
+  name: getPacketDataOffset
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_getPacketDataOffset
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getPacketDataOffset
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getPacketDataOffset
+  nameWithType: imsSerialParamData.getPacketDataOffset
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getPacketDataOffset*
+  name: getPacketDataOffset
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_getPacketDataOffset_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getPacketDataOffset
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getPacketDataOffset
+  nameWithType: imsSerialParamData.getPacketDataOffset
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataIn
+  name: getSerialDataIn
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_getSerialDataIn
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataIn
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataIn
+  nameWithType: imsSerialParamData.getSerialDataIn
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataIn*
+  name: getSerialDataIn
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_getSerialDataIn_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataIn
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataIn
+  nameWithType: imsSerialParamData.getSerialDataIn
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataOut
+  name: getSerialDataOut
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_getSerialDataOut
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataOut
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataOut
+  nameWithType: imsSerialParamData.getSerialDataOut
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataOut*
+  name: getSerialDataOut
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_getSerialDataOut_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataOut
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.getSerialDataOut
+  nameWithType: imsSerialParamData.getSerialDataOut
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.PacketDataOffset
   name: PacketDataOffset
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_PacketDataOffset
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.PacketDataOffset
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.PacketDataOffset
-  nameWithType: imsSerialParamData.PacketDataOffset
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.PacketDataOffset*
-  name: PacketDataOffset
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_PacketDataOffset_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.PacketDataOffset
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.PacketDataOffset
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.PacketDataOffset
   nameWithType: imsSerialParamData.PacketDataOffset
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataIn
   name: SerialDataIn
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_SerialDataIn
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataIn
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataIn
-  nameWithType: imsSerialParamData.SerialDataIn
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataIn*
-  name: SerialDataIn
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_SerialDataIn_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataIn
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataIn
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataIn
   nameWithType: imsSerialParamData.SerialDataIn
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataOut
   name: SerialDataOut
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_SerialDataOut
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataOut
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataOut
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataOut
   nameWithType: imsSerialParamData.SerialDataOut
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataOut*
-  name: SerialDataOut
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_SerialDataOut_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataOut
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setPacketDataOffset
+  name: setPacketDataOffset
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_setPacketDataOffset
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setPacketDataOffset
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setPacketDataOffset
+  nameWithType: imsSerialParamData.setPacketDataOffset
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setPacketDataOffset*
+  name: setPacketDataOffset
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_setPacketDataOffset_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setPacketDataOffset
   isSpec: "True"
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.SerialDataOut
-  nameWithType: imsSerialParamData.SerialDataOut
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setPacketDataOffset
+  nameWithType: imsSerialParamData.setPacketDataOffset
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataIn
+  name: setSerialDataIn
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_setSerialDataIn
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataIn
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataIn
+  nameWithType: imsSerialParamData.setSerialDataIn
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataIn*
+  name: setSerialDataIn
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_setSerialDataIn_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataIn
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataIn
+  nameWithType: imsSerialParamData.setSerialDataIn
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataOut
+  name: setSerialDataOut
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_setSerialDataOut
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataOut
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataOut
+  nameWithType: imsSerialParamData.setSerialDataOut
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataOut*
+  name: setSerialDataOut
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_setSerialDataOut_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataOut
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.setSerialDataOut
+  nameWithType: imsSerialParamData.setSerialDataOut
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.updateFromSerialData(System.Boolean,System.DateTime)
   name: updateFromSerialData(Boolean, DateTime)
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html#MechatronicDesignSuite_DLL_BaseNodes_imsSerialParamData_updateFromSerialData_System_Boolean_System_DateTime_
@@ -975,17 +1261,49 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.ExtAppBGThread
   nameWithType: imsSysModuleNode.ExtAppBGThread
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getisInitialized
+  name: getisInitialized
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_getisInitialized
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getisInitialized
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getisInitialized
+  nameWithType: imsSysModuleNode.getisInitialized
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getisInitialized*
+  name: getisInitialized
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_getisInitialized_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getisInitialized
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getisInitialized
+  nameWithType: imsSysModuleNode.getisInitialized
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsubSystems
+  name: getsubSystems
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_getsubSystems
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsubSystems
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsubSystems
+  nameWithType: imsSysModuleNode.getsubSystems
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsubSystems*
+  name: getsubSystems
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_getsubSystems_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsubSystems
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsubSystems
+  nameWithType: imsSysModuleNode.getsubSystems
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsysValues
+  name: getsysValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_getsysValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsysValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsysValues
+  nameWithType: imsSysModuleNode.getsysValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsysValues*
+  name: getsysValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_getsysValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsysValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.getsysValues
+  nameWithType: imsSysModuleNode.getsysValues
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.isInitialized
   name: isInitialized
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_isInitialized
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.isInitialized
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.isInitialized
-  nameWithType: imsSysModuleNode.isInitialized
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.isInitialized*
-  name: isInitialized
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_isInitialized_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.isInitialized
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.isInitialized
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.isInitialized
   nameWithType: imsSysModuleNode.isInitialized
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.MainInit
@@ -1027,17 +1345,49 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.restoreFromFile
   nameWithType: imsSysModuleNode.restoreFromFile
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setisInitialized
+  name: setisInitialized
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_setisInitialized
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setisInitialized
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setisInitialized
+  nameWithType: imsSysModuleNode.setisInitialized
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setisInitialized*
+  name: setisInitialized
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_setisInitialized_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setisInitialized
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setisInitialized
+  nameWithType: imsSysModuleNode.setisInitialized
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsubSystems
+  name: setsubSystems
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_setsubSystems
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsubSystems
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsubSystems
+  nameWithType: imsSysModuleNode.setsubSystems
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsubSystems*
+  name: setsubSystems
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_setsubSystems_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsubSystems
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsubSystems
+  nameWithType: imsSysModuleNode.setsubSystems
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsysValues
+  name: setsysValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_setsysValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsysValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsysValues
+  nameWithType: imsSysModuleNode.setsysValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsysValues*
+  name: setsysValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_setsysValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsysValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.setsysValues
+  nameWithType: imsSysModuleNode.setsysValues
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.subSystems
   name: subSystems
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_subSystems
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.subSystems
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.subSystems
-  nameWithType: imsSysModuleNode.subSystems
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.subSystems*
-  name: subSystems
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_subSystems_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.subSystems
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.subSystems
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.subSystems
   nameWithType: imsSysModuleNode.subSystems
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.sysModForm
@@ -1056,14 +1406,7 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.sysValues
   name: sysValues
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_sysValues
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.sysValues
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.sysValues
-  nameWithType: imsSysModuleNode.sysValues
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.sysValues*
-  name: sysValues
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsSysModuleNode_sysValues_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.sysValues
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.sysValues
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.sysValues
   nameWithType: imsSysModuleNode.sysValues
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsSysModuleNode.toNewTreeNode
@@ -1123,27 +1466,13 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ArrayLength
   name: ArrayLength
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ArrayLength
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ArrayLength
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ArrayLength
-  nameWithType: imsValueNode.ArrayLength
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ArrayLength*
-  name: ArrayLength
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ArrayLength_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ArrayLength
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ArrayLength
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ArrayLength
   nameWithType: imsValueNode.ArrayLength
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.byteValue
   name: byteValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_byteValue
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.byteValue
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.byteValue
-  nameWithType: imsValueNode.byteValue
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.byteValue*
-  name: byteValue
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_byteValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.byteValue
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.byteValue
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.byteValue
   nameWithType: imsValueNode.byteValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.byteValues
@@ -1155,14 +1484,7 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValue
   name: charValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_charValue
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValue
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValue
-  nameWithType: imsValueNode.charValue
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValue*
-  name: charValue
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_charValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValue
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValue
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValue
   nameWithType: imsValueNode.charValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValues
@@ -1187,40 +1509,19 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataSize
   name: DataSize
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_DataSize
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataSize
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataSize
-  nameWithType: imsValueNode.DataSize
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataSize*
-  name: DataSize
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_DataSize_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataSize
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataSize
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataSize
   nameWithType: imsValueNode.DataSize
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataType
   name: DataType
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_DataType
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataType
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataType
-  nameWithType: imsValueNode.DataType
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataType*
-  name: DataType
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_DataType_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataType
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataType
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.DataType
   nameWithType: imsValueNode.DataType
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.doubleValue
   name: doubleValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_doubleValue
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.doubleValue
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.doubleValue
-  nameWithType: imsValueNode.doubleValue
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.doubleValue*
-  name: doubleValue
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_doubleValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.doubleValue
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.doubleValue
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.doubleValue
   nameWithType: imsValueNode.doubleValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.doubleValues
@@ -1232,14 +1533,7 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValue
   name: floatValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_floatValue
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValue
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValue
-  nameWithType: imsValueNode.floatValue
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValue*
-  name: floatValue
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_floatValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValue
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValue
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValue
   nameWithType: imsValueNode.floatValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValues
@@ -1248,17 +1542,257 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValues
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.floatValues
   nameWithType: imsValueNode.floatValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getArrayLength
+  name: getArrayLength
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getArrayLength
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getArrayLength
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getArrayLength
+  nameWithType: imsValueNode.getArrayLength
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getArrayLength*
+  name: getArrayLength
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getArrayLength_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getArrayLength
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getArrayLength
+  nameWithType: imsValueNode.getArrayLength
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValue
+  name: getbyteValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getbyteValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValue
+  nameWithType: imsValueNode.getbyteValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValue*
+  name: getbyteValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getbyteValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValue
+  nameWithType: imsValueNode.getbyteValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValues
+  name: getbyteValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getbyteValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValues
+  nameWithType: imsValueNode.getbyteValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValues*
+  name: getbyteValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getbyteValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getbyteValues
+  nameWithType: imsValueNode.getbyteValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValue
+  name: getcharValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getcharValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValue
+  nameWithType: imsValueNode.getcharValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValue*
+  name: getcharValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getcharValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValue
+  nameWithType: imsValueNode.getcharValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValues
+  name: getcharValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getcharValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValues
+  nameWithType: imsValueNode.getcharValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValues*
+  name: getcharValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getcharValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getcharValues
+  nameWithType: imsValueNode.getcharValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataSize
+  name: getDataSize
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getDataSize
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataSize
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataSize
+  nameWithType: imsValueNode.getDataSize
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataSize*
+  name: getDataSize
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getDataSize_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataSize
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataSize
+  nameWithType: imsValueNode.getDataSize
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataType
+  name: getDataType
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getDataType
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataType
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataType
+  nameWithType: imsValueNode.getDataType
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataType*
+  name: getDataType
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getDataType_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataType
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getDataType
+  nameWithType: imsValueNode.getDataType
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValue
+  name: getdoubleValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getdoubleValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValue
+  nameWithType: imsValueNode.getdoubleValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValue*
+  name: getdoubleValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getdoubleValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValue
+  nameWithType: imsValueNode.getdoubleValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValues
+  name: getdoubleValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getdoubleValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValues
+  nameWithType: imsValueNode.getdoubleValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValues*
+  name: getdoubleValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getdoubleValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getdoubleValues
+  nameWithType: imsValueNode.getdoubleValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValue
+  name: getfloatValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getfloatValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValue
+  nameWithType: imsValueNode.getfloatValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValue*
+  name: getfloatValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getfloatValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValue
+  nameWithType: imsValueNode.getfloatValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValues
+  name: getfloatValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getfloatValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValues
+  nameWithType: imsValueNode.getfloatValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValues*
+  name: getfloatValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getfloatValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getfloatValues
+  nameWithType: imsValueNode.getfloatValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValue
+  name: getintValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getintValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValue
+  nameWithType: imsValueNode.getintValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValue*
+  name: getintValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getintValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValue
+  nameWithType: imsValueNode.getintValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValues
+  name: getintValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getintValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValues
+  nameWithType: imsValueNode.getintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValues*
+  name: getintValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getintValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getintValues
+  nameWithType: imsValueNode.getintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValue
+  name: getshortValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getshortValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValue
+  nameWithType: imsValueNode.getshortValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValue*
+  name: getshortValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getshortValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValue
+  nameWithType: imsValueNode.getshortValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValues
+  name: getshortValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getshortValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValues
+  nameWithType: imsValueNode.getshortValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValues*
+  name: getshortValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getshortValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValues
+  nameWithType: imsValueNode.getshortValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValue
+  name: getuintValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getuintValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValue
+  nameWithType: imsValueNode.getuintValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValue*
+  name: getuintValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getuintValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValue
+  nameWithType: imsValueNode.getuintValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValues
+  name: getuintValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getuintValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValues
+  nameWithType: imsValueNode.getuintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValues*
+  name: getuintValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getuintValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getuintValues
+  nameWithType: imsValueNode.getuintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValue
+  name: getushortValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getushortValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValue
+  nameWithType: imsValueNode.getushortValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValue*
+  name: getushortValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getushortValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValue
+  nameWithType: imsValueNode.getushortValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValues
+  name: getushortValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getushortValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValues
+  nameWithType: imsValueNode.getushortValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValues*
+  name: getushortValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getushortValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValues
+  nameWithType: imsValueNode.getushortValues
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValue
   name: intValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_intValue
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValue
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValue
-  nameWithType: imsValueNode.intValue
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValue*
-  name: intValue
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_intValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValue
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValue
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValue
   nameWithType: imsValueNode.intValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValues
@@ -1273,17 +1807,257 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.latchTimes
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.latchTimes
   nameWithType: imsValueNode.latchTimes
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setArrayLength
+  name: setArrayLength
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setArrayLength
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setArrayLength
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setArrayLength
+  nameWithType: imsValueNode.setArrayLength
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setArrayLength*
+  name: setArrayLength
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setArrayLength_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setArrayLength
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setArrayLength
+  nameWithType: imsValueNode.setArrayLength
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValue
+  name: setbyteValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setbyteValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValue
+  nameWithType: imsValueNode.setbyteValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValue*
+  name: setbyteValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setbyteValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValue
+  nameWithType: imsValueNode.setbyteValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValues
+  name: setbyteValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setbyteValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValues
+  nameWithType: imsValueNode.setbyteValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValues*
+  name: setbyteValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setbyteValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setbyteValues
+  nameWithType: imsValueNode.setbyteValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValue
+  name: setcharValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setcharValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValue
+  nameWithType: imsValueNode.setcharValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValue*
+  name: setcharValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setcharValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValue
+  nameWithType: imsValueNode.setcharValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValues
+  name: setcharValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setcharValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValues
+  nameWithType: imsValueNode.setcharValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValues*
+  name: setcharValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setcharValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setcharValues
+  nameWithType: imsValueNode.setcharValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataSize
+  name: setDataSize
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setDataSize
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataSize
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataSize
+  nameWithType: imsValueNode.setDataSize
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataSize*
+  name: setDataSize
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setDataSize_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataSize
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataSize
+  nameWithType: imsValueNode.setDataSize
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataType
+  name: setDataType
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setDataType
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataType
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataType
+  nameWithType: imsValueNode.setDataType
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataType*
+  name: setDataType
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setDataType_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataType
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setDataType
+  nameWithType: imsValueNode.setDataType
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setdoubleValues
+  name: setdoubleValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setdoubleValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setdoubleValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setdoubleValues
+  nameWithType: imsValueNode.setdoubleValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setdoubleValues*
+  name: setdoubleValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setdoubleValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setdoubleValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setdoubleValues
+  nameWithType: imsValueNode.setdoubleValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfdoubleValue
+  name: setfdoubleValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setfdoubleValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfdoubleValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfdoubleValue
+  nameWithType: imsValueNode.setfdoubleValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfdoubleValue*
+  name: setfdoubleValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setfdoubleValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfdoubleValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfdoubleValue
+  nameWithType: imsValueNode.setfdoubleValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValue
+  name: setfloatValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setfloatValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValue
+  nameWithType: imsValueNode.setfloatValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValue*
+  name: setfloatValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setfloatValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValue
+  nameWithType: imsValueNode.setfloatValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValues
+  name: setfloatValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setfloatValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValues
+  nameWithType: imsValueNode.setfloatValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValues*
+  name: setfloatValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setfloatValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setfloatValues
+  nameWithType: imsValueNode.setfloatValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValue
+  name: setintValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setintValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValue
+  nameWithType: imsValueNode.setintValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValue*
+  name: setintValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setintValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValue
+  nameWithType: imsValueNode.setintValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValues
+  name: setintValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setintValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValues
+  nameWithType: imsValueNode.setintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValues*
+  name: setintValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setintValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setintValues
+  nameWithType: imsValueNode.setintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValue
+  name: setshortValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setshortValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValue
+  nameWithType: imsValueNode.setshortValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValue*
+  name: setshortValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setshortValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValue
+  nameWithType: imsValueNode.setshortValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValues
+  name: setshortValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setshortValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValues
+  nameWithType: imsValueNode.setshortValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValues*
+  name: setshortValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setshortValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setshortValues
+  nameWithType: imsValueNode.setshortValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValue
+  name: setuintValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setuintValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValue
+  nameWithType: imsValueNode.setuintValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValue*
+  name: setuintValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setuintValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValue
+  nameWithType: imsValueNode.setuintValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValues
+  name: setuintValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setuintValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValues
+  nameWithType: imsValueNode.setuintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValues*
+  name: setuintValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setuintValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setuintValues
+  nameWithType: imsValueNode.setuintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValue
+  name: setushortValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setushortValue
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValue
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValue
+  nameWithType: imsValueNode.setushortValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValue*
+  name: setushortValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setushortValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValue
+  nameWithType: imsValueNode.setushortValue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValues
+  name: setushortValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setushortValues
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValues
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValues
+  nameWithType: imsValueNode.setushortValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValues*
+  name: setushortValues
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setushortValues_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValues
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setushortValues
+  nameWithType: imsValueNode.setushortValues
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValue
   name: shortValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_shortValue
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValue
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValue
-  nameWithType: imsValueNode.shortValue
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValue*
-  name: shortValue
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_shortValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValue
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValue
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValue
   nameWithType: imsValueNode.shortValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValues
@@ -1295,14 +2069,7 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValue
   name: uintValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_uintValue
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValue
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValue
-  nameWithType: imsValueNode.uintValue
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValue*
-  name: uintValue
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_uintValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValue
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValue
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValue
   nameWithType: imsValueNode.uintValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValues
@@ -1314,14 +2081,7 @@ references:
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue
   name: ushortValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ushortValue
-  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue
-  nameWithType: imsValueNode.ushortValue
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue*
-  name: ushortValue
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ushortValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue
-  isSpec: "True"
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue
   nameWithType: imsValueNode.ushortValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValues

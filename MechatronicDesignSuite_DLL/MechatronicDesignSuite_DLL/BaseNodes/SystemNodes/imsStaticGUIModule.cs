@@ -17,16 +17,16 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         /// </summary>
         public imsStaticGUIModule(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(MechatronicDesignSuiteForm);
-            nodeName = "Static GUI Module";
+            NodeType = typeof(MechatronicDesignSuiteForm);
+            NodeName = "Static GUI Module";
         }
         /// <summary>
         /// 
         /// </summary>
         public imsStaticGUIModule(List<imsBaseNode> globalNodeListIn, MechatronicDesignSuiteForm GuiForm) : base(globalNodeListIn)
         {
-            nodeType = typeof(MechatronicDesignSuiteForm);
-            nodeName = "Static GUI Module";
+            NodeType = typeof(MechatronicDesignSuiteForm);
+            NodeName = "Static GUI Module";
             guiLink = GuiForm;
             guiLink.StaticExeModule = this;
         }

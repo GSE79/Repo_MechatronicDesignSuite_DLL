@@ -401,7 +401,7 @@ namespace MechatronicDesignSuite_DLL
         private int MainInit()
         {
             foreach (imsSysModuleNode sysModNode in APISysModules)
-                if(!sysModNode.isInitialized)
+                if(!sysModNode.getisInitialized)
                     sysModNode.MainInit();
 
             return 0;
@@ -413,7 +413,7 @@ namespace MechatronicDesignSuite_DLL
             if (EnableMainLoop)
             {
                 foreach (imsSysModuleNode sysModNode in APISysModules)
-                    if(sysModNode.isInitialized)
+                    if(sysModNode.getisInitialized)
                         sysModNode.MainLoop();
             }
 
@@ -425,7 +425,7 @@ namespace MechatronicDesignSuite_DLL
             {
                 foreach (imsSysModuleNode sysModNode in APISysModules)
                 {
-                    if (sysModNode.isInitialized)
+                    if (sysModNode.getisInitialized)
                     {
                         if (typeof(imsCyclicPacketCommSystem).IsAssignableFrom(sysModNode.GetType()))
                         {
@@ -444,7 +444,7 @@ namespace MechatronicDesignSuite_DLL
             if (EnableExtAppThread)
             {
                 foreach (imsSysModuleNode sysModNode in APISysModules)
-                    if(sysModNode.isInitialized)
+                    if(sysModNode.getisInitialized)
                         sysModNode.ExtAppBGThread();
             }
             return 0;
@@ -552,10 +552,10 @@ namespace MechatronicDesignSuite_DLL
                 startingFP = DeSerializeFileStream.Position;
                 tempBaseNode = new imsBaseNode(DeSerializeFormatter, DeSerializeFileStream);
 
-                if (AllTypes.Contains(tempBaseNode.NodeType))
+                if (AllTypes.Contains(tempBaseNode.getNodeType))
                 {
                     DeSerializeFileStream.Position = startingFP;
-                    tempGlobalNodeList.Add((imsBaseNode)(Activator.CreateInstance(tempBaseNode.NodeType, cTorParams)));
+                    tempGlobalNodeList.Add((imsBaseNode)(Activator.CreateInstance(tempBaseNode.getNodeType, cTorParams)));
                 }
                 else
                 {
@@ -565,7 +565,7 @@ namespace MechatronicDesignSuite_DLL
 
 
                 // if the node ids don't line up...
-                if (tempGlobalNodeList[tempGlobalNodeList.Count - 1].GlobalNodeID != tempGlobalNodeList.FindIndex(x => x.GlobalNodeID == tempBaseNode.GlobalNodeID))
+                if (tempGlobalNodeList[tempGlobalNodeList.Count - 1].getGlobalNodeID != tempGlobalNodeList.FindIndex(x => x.getGlobalNodeID == tempBaseNode.getGlobalNodeID))
                 {
                     DeSerializeFileStream.Close();
                     throw (new Exception("DeSerialized Node ID's dont Line Up"));
@@ -609,16 +609,16 @@ namespace MechatronicDesignSuite_DLL
                 foreach (imsAPISysModule apiMod in APISysModules)
                 {
                     TreeViewIn.Nodes[0].Nodes.Add(apiMod.toNewTreeNode());
-                    if (apiMod.NodeType == typeof(imsProjectModuleNode))
+                    if (apiMod.getNodeType == typeof(imsProjectModuleNode))
                     {
                         TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Text = "Project Settings";
                         TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Nodes.Clear();
                     }
-                    else if (apiMod.NodeType == typeof(imsPCClocksModule))
+                    else if (apiMod.getNodeType == typeof(imsPCClocksModule))
                     {
                         TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Text = "Application Timing";
                     }
-                    else if (apiMod.NodeType == typeof(imsBGThreadManager))
+                    else if (apiMod.getNodeType == typeof(imsBGThreadManager))
                     {
                         TreeViewIn.Nodes[0].Nodes[TreeViewIn.Nodes[0].Nodes.Count - 1].Text = "BG Thread Manager";
                     }

@@ -6,21 +6,76 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+
 
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
     public class imsCyclicPacketCommSystem : imsAPISysModule
     {
         #region System Properties
-        public List<SerialParameterPacket> StaticSPDPackets { set; get; } = new List<SerialParameterPacket>();
-        public bool WriteFirst { set; get; } = false;
-        public bool DeviceConnected { set; get; } = false;
-        public List<byte[]> RxPacketBuffer { set; get; } = new List<byte[]>();
-        public List<DateTime> RxPacketTimes { set; get; } = new List<DateTime>();
-        public int CommLoopCounter { set; get; } = 0;
-        public int SleepTime { set; get; } = 5;
-        public bool LogData { set; get; } = false;
-        public bool ClearLoggedData { set; get; } = false;
+        protected List<SerialParameterPacket> StaticSPDPackets = new List<SerialParameterPacket>();
+        [Category("Cyclic Packet Comms System "), Description("Static Defined Packet Structures of Serial Parameter Data Nodes")]
+        public List<SerialParameterPacket> getStaticSPDPackets { get { return StaticSPDPackets; } }
+        [Category("Cyclic Packet Comms System "), Description("Static Defined Packet Structures of Serial Parameter Data Nodes")]
+        public List<SerialParameterPacket> setStaticSPDPackets { get { return StaticSPDPackets; } set { StaticSPDPackets = value; } }
+
+        protected bool WriteFirst = false;
+        [Category("Cyclic Packet Comms System "), Description("Indication to Communication Controller to initiate communication channel with a write() before attempting to read()")]
+        public bool getWriteFirst { get { return WriteFirst; } }
+        [Category("Cyclic Packet Comms System "), Description("Indication to Communication Controller to initiate communication channel with a write() before attempting to read()")]
+        public bool setWriteFirst { get { return WriteFirst; } set { WriteFirst = value; } }
+
+
+        protected bool DeviceConnected = false;
+        [Category("Cyclic Packet Comms System "), Description("Indication to Communication Controller that a device is connect and it is clear to call read()/write() functions")]
+        public bool getDeviceConnected { get { return DeviceConnected; } }
+        [Category("Cyclic Packet Comms System "), Description("Indication to Communication Controller that a device is connect and it is clear to call read()/write() functions")]
+        public bool setDeviceConnected { get { return DeviceConnected; } set { DeviceConnected = value; } }
+
+        protected List<byte[]> RxPacketBuffer = new List<byte[]>();
+        [Category("Cyclic Packet Comms System "), Description("The Dynamic Data Buffer populated by the read() function")]
+        public List<byte[]> getRxPacketBuffer { get { return RxPacketBuffer; } }
+        [Category("Cyclic Packet Comms System "), Description("The Dynamic Data Buffer populated by the read() function")]
+        public List<byte[]> setRxPacketBuffer { get { return RxPacketBuffer; } set { RxPacketBuffer = value; } }
+
+        protected List<DateTime> RxPacketTimes = new List<DateTime>();
+        [Category("Cyclic Packet Comms System "), Description("The Dynamic Data Buffer Capture Times")]
+        public List<DateTime> getRxPacketTimes { get { return RxPacketTimes; } }
+        [Category("Cyclic Packet Comms System "), Description("The Dynamic Data Buffer Capture Times")]
+        public List<DateTime> setRxPacketTimes { get { return RxPacketTimes; } set { RxPacketTimes = value; } }
+
+
+        protected int CommLoopCounter = 0;
+        [Category("Cyclic Packet Comms System "), Description("Running Counter of Communication Loop Iterations while Device Connected")]
+        public int getCommLoopCounter { get { return CommLoopCounter; }  }
+        [Category("Cyclic Packet Comms System "), Description("Running Counter of Communication Loop Iterations while Device Connected")]
+        public int setCommLoopCounter { get { return CommLoopCounter; } set { CommLoopCounter = value; } }
+
+
+
+        protected int SleepTime = 5;
+        [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
+        public int getSleepTime { get { return SleepTime; } }
+        [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
+        public int setSleepTime { set { SleepTime = value; } get { return SleepTime; } }
+        
+        protected bool LogData = false;
+        [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
+        public bool getLogData { get { return LogData; } }
+        [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
+        public bool setLogData { set { LogData = value; } get { return LogData; } }
+
+        protected bool ClearLoggedData = false;
+        [Category("Cyclic Packet Comms System "), Description("trigger to clear all logged data from RAM buffers")]
+        public bool getClearLoggedData { get { return ClearLoggedData; } }
+        [Category("Cyclic Packet Comms System "), Description("trigger to clear all logged data from RAM buffers")]
+        public bool setClearLoggedData { set { ClearLoggedData = value; } get { return ClearLoggedData; } }
+
+
 
         #region System Feilds (not exposed to property grid/explorer)
         int RxPckIndx, ParsePckIndx, ClearPckIdx;
@@ -31,8 +86,8 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         #region System Constructors
         public imsCyclicPacketCommSystem(List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(imsCyclicPacketCommSystem);
-            nodeName = "Cyclic Packet Comm System";
+            NodeType = typeof(imsCyclicPacketCommSystem);
+            NodeName = "Cyclic Packet Comm System";
         }
         public imsCyclicPacketCommSystem(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) : base(DeSerializeFormatter, deSerializeFs)
         {
@@ -40,8 +95,8 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         }
         public imsCyclicPacketCommSystem(PCExeSys PCExeSysIn, List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
-            nodeType = typeof(imsCyclicPacketCommSystem);
-            nodeName = "Cyclic Packet Comm System";
+            NodeType = typeof(imsCyclicPacketCommSystem);
+            NodeName = "Cyclic Packet Comm System";
             if (PCExeSysIn != null)
                 PCExeSysLink = PCExeSysIn;
         }
@@ -60,16 +115,25 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 }
                 ClearLoggedData = false;
             }
-            if(RxPacketBuffer.Count > 0)
+            if(RxPacketBuffer.Count > 0 && RxPacketTimes.Count > 0)
             {
-                for(RxPckIndx=0; RxPckIndx<RxPacketBuffer.Count; RxPckIndx++)
+                RxPckIndx = 0;
+
+                while (RxPacketBuffer.Count > 0)
                 {
-                    ParsePckIndx = StaticSPDPackets.FindIndex(x => x.PacketID == RxPacketBuffer[RxPckIndx][0]);
-                    if (ParsePckIndx > -1 && ParsePckIndx < RxPacketBuffer[RxPckIndx].Length)
+                    if (RxPacketBuffer[RxPckIndx].Length > 0)
                     {
-                        StaticSPDPackets[ParsePckIndx].ParsePacket(RxPacketBuffer[RxPckIndx], LogData, RxPacketTimes[RxPckIndx]);
-                    }                    
+                        ParsePckIndx = StaticSPDPackets.FindIndex(x => x.PacketID == RxPacketBuffer[RxPckIndx][0]);
+
+                        if (ParsePckIndx > -1 && ParsePckIndx < RxPacketBuffer[RxPckIndx].Length)
+                        {
+                            StaticSPDPackets[ParsePckIndx].ParsePacket(RxPacketBuffer[RxPckIndx], LogData, RxPacketTimes[RxPckIndx]);
+                            RxPacketBuffer.RemoveAt(RxPckIndx);
+                            RxPacketTimes.RemoveAt(RxPckIndx);
+                        }
+                    }
                 }
+
             }
             if(DeviceConnected && !devConnectedHistory)
             {
