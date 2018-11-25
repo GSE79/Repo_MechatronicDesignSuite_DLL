@@ -17,6 +17,12 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
     public class imsCyclicPacketCommSystem : imsAPISysModule
     {
         #region System Properties
+        protected int GUILinkUPdateModulo = 10;
+        [Category("Cyclic Packet Comms System "), Description("Trigger to update GUI links in this module cycle of the mainloop")]
+        public int getGUILinkUPdateModulo { get { return GUILinkUPdateModulo; } }
+        [Category("Cyclic Packet Comms System "), Description("Trigger to update GUI links in this module cycle of the mainloop")]
+        public int setGUILinkUPdateModulo { get { return GUILinkUPdateModulo; } set { GUILinkUPdateModulo = value; } }
+
         protected List<SerialParameterPacket> StaticSPDPackets = new List<SerialParameterPacket>();
         [Category("Cyclic Packet Comms System "), Description("Static Defined Packet Structures of Serial Parameter Data Nodes")]
         public List<SerialParameterPacket> getStaticSPDPackets { get { return StaticSPDPackets; } }
@@ -57,7 +63,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
 
 
-        protected int SleepTime = 5;
+        protected int SleepTime = 1000;
         [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
         public int getSleepTime { get { return SleepTime; } }
         [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
@@ -144,6 +150,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 // Destroy Static Packets?
             }
             devConnectedHistory = DeviceConnected;
+            UpdateStaticGUILinks();
         }
         /// <summary>
         /// 
@@ -202,10 +209,32 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
 
         }
+        public virtual void UpdateStaticGUILinks()
+        {
+            if(CommLoopCounter % GUILinkUPdateModulo == 0)
+            {
+                foreach(SerialParameterPacket SPDPacket in StaticSPDPackets)
+                {
+                    foreach(imsSerialParamData SPD in SPDPacket.PacketSPDs)
+                    {
+                        SPD.updateGUILINKS();
+                    }
+                }
+            }
+        }
         public void AddPacket2Buffer(byte[] PacketIn)
         {
             RxPacketBuffer.Add(PacketIn);
             RxPacketTimes.Add(DateTime.Now);
+        }
+        public imsSerialParamData getMatchingSPD(int packIDin, string SPDName, Type DataTypeIn, int arrayLenIn)
+        {
+            if (StaticSPDPackets.Count > 0)
+            {
+                return StaticSPDPackets.Find(x => x.PacketID == packIDin).PacketSPDs.Find(x=> ((x.getNodeName == SPDName) && (x.getDataType == DataTypeIn) && (x.getArrayLength == arrayLenIn)));
+            }
+            else
+                return null;
         }
     }
 

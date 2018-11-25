@@ -165,6 +165,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         /// </summary>
         protected List<DateTime> latchTimes;
 
+        protected bool newData = false;
+        protected bool holdRefresh = false;
+
         /// <summary>
         /// clearValues()
         /// </summary>
@@ -191,6 +194,160 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
             latchTimes.Clear();
         }
+
+        public class GUIValueLinks
+        {
+            public Control StaticLinkedGUIField;
+            public string UnitsString;
+            public float scalar;
+            public string formatstring;
+            public bool readOnly;
+            public GUIValueLinks(Control GUIFieldIn, string unitsstringin, float scalarin, string formatstringin, bool readOnlyIn)
+            {
+                StaticLinkedGUIField = GUIFieldIn;
+                UnitsString = unitsstringin;
+                scalar = scalarin;
+                formatstring = formatstringin;
+                readOnly = readOnlyIn;
+            }
+        }
+
+        protected List<GUIValueLinks> StaticGUILinks = new List<GUIValueLinks>();
+        public void addStaticGUILink2SPD(Control GUIFieldIn, string unitsstringin, float scalarin, string formatstringin, bool readOnlyIn)
+        {
+            StaticGUILinks.Add(new GUIValueLinks(GUIFieldIn, unitsstringin, scalarin, formatstringin, readOnlyIn));
+
+            if (typeof(TextBox).IsInstanceOfType(GUIFieldIn))
+            {
+                ((TextBox)(GUIFieldIn)).Text = NodeName + " " + unitsstringin;
+                if(typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && GUIFieldIn.Dock == DockStyle.Fill)
+                {
+                    ((GroupBox)(GUIFieldIn.Parent)).Text = NodeName + " " + unitsstringin;
+                }
+            }
+            else if (typeof(System.Windows.Forms.Label).IsInstanceOfType(GUIFieldIn))
+            {
+                ((System.Windows.Forms.Label)(GUIFieldIn)).Text = NodeName + " " + unitsstringin;
+                if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && GUIFieldIn.Dock == DockStyle.Fill)
+                {
+                    ((GroupBox)(GUIFieldIn.Parent)).Text = NodeName + " " + unitsstringin;
+                }
+            }
+        }
+        public void clearStaticGUILinks()
+        {
+            StaticGUILinks.Clear();
+        }
+        public void updateGUILINKS()
+        {
+            if(newData && !holdRefresh)
+            {
+                foreach (GUIValueLinks GUILink in StaticGUILinks)
+                {
+                    if (typeof(TextBox).IsInstanceOfType(GUILink.StaticLinkedGUIField))
+                    {
+                        ((TextBox)(GUILink.StaticLinkedGUIField)).Text = ToValueString(GUILink);
+                    }
+                    else if (typeof(System.Windows.Forms.Label).IsInstanceOfType(GUILink.StaticLinkedGUIField))
+                    {
+                        ((System.Windows.Forms.Label)(GUILink.StaticLinkedGUIField)).Text = ToValueString(GUILink);
+                    }
+                }
+                newData = false;
+            }
+            
+            
+        }
+        public string toNameString(GUIValueLinks LinkIn)
+        {
+            return NodeName + " " + LinkIn.UnitsString;
+        }
+        public string ToValueString(GUIValueLinks LinkIn)
+        {
+            if (DataType == typeof(byte))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return "0x" + ((byte)(LinkIn.scalar*byteValue)).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return string.Concat("0b", (Convert.ToString((byte)(LinkIn.scalar * byteValue), 2)).PadLeft(8, '0'));
+                else
+                    return ((byte)(byteValue * LinkIn.scalar)).ToString(LinkIn.formatstring);
+            }
+                
+            else if (DataType == typeof(char))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return "0x" + ((byte)(LinkIn.scalar*charValue)).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return string.Concat("0b", (Convert.ToString(((char)(charValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return ((char)(charValue * LinkIn.scalar)).ToString();
+            }
+                
+            else if (DataType == typeof(ushort))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return "0x" + ((ushort)(LinkIn.scalar * ushortValue)).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return string.Concat("0b", (Convert.ToString(((ushort)(ushortValue*LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return ((ushort)(ushortValue * LinkIn.scalar)).ToString(LinkIn.formatstring);
+            }
+                
+            else if (DataType == typeof(short))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return "0x" + ((short)(LinkIn.scalar * shortValue)).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return string.Concat("0b", (Convert.ToString(((short)(shortValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return (shortValue * LinkIn.scalar).ToString(LinkIn.formatstring);
+            }
+                
+            else if (DataType == typeof(uint))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return "0x" + ((uint)(LinkIn.scalar * uintValue)).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return string.Concat("0b", (Convert.ToString(((uint)(uintValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return(uintValue * LinkIn.scalar).ToString(LinkIn.formatstring);
+            }
+                
+            else if (DataType == typeof(int))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return "0x" + ((int)(LinkIn.scalar * intValue)).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return string.Concat("0b", (Convert.ToString(((int)(intValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return (intValue * LinkIn.scalar).ToString(LinkIn.formatstring);
+            }
+                
+            else if (DataType == typeof(float))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return (floatValue * LinkIn.scalar).ToString();// "0x" + (LinkIn.scalar * floatValue).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return (floatValue * LinkIn.scalar).ToString();//string.Concat("0b", (Convert.ToString(((floatValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return (floatValue * LinkIn.scalar).ToString();
+            }
+                
+            else if (DataType == typeof(double))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return (doubleValue * LinkIn.scalar).ToString();//"0x" + (LinkIn.scalar * doubleValue).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return (doubleValue * LinkIn.scalar).ToString();//string.Concat("0b", (Convert.ToString(((doubleValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return (doubleValue * LinkIn.scalar).ToString();
+            }
+                
+
+            return "";
+        }
+        
 
         /// <summary>
         /// imsValueNode()
@@ -245,7 +402,6 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
         }
 
-        
 
     }
 }

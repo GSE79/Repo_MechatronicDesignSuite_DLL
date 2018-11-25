@@ -588,6 +588,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getDeviceConnected
   nameWithType: imsCyclicPacketCommSystem.getDeviceConnected
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getGUILinkUPdateModulo
+  name: getGUILinkUPdateModulo
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getGUILinkUPdateModulo
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getGUILinkUPdateModulo
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getGUILinkUPdateModulo
+  nameWithType: imsCyclicPacketCommSystem.getGUILinkUPdateModulo
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getGUILinkUPdateModulo*
+  name: getGUILinkUPdateModulo
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getGUILinkUPdateModulo_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getGUILinkUPdateModulo
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getGUILinkUPdateModulo
+  nameWithType: imsCyclicPacketCommSystem.getGUILinkUPdateModulo
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getLogData
   name: getLogData
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getLogData
@@ -601,6 +614,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getLogData
   nameWithType: imsCyclicPacketCommSystem.getLogData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getMatchingSPD(System.Int32,System.String,System.Type,System.Int32)
+  name: getMatchingSPD(Int32, String, Type, Int32)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getMatchingSPD_System_Int32_System_String_System_Type_System_Int32_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getMatchingSPD(System.Int32,System.String,System.Type,System.Int32)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getMatchingSPD(System.Int32, System.String, System.Type, System.Int32)
+  nameWithType: imsCyclicPacketCommSystem.getMatchingSPD(Int32, String, Type, Int32)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getMatchingSPD*
+  name: getMatchingSPD
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getMatchingSPD_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getMatchingSPD
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getMatchingSPD
+  nameWithType: imsCyclicPacketCommSystem.getMatchingSPD
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getRxPacketBuffer
   name: getRxPacketBuffer
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_getRxPacketBuffer
@@ -666,6 +692,12 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.getWriteFirst
   nameWithType: imsCyclicPacketCommSystem.getWriteFirst
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.GUILinkUPdateModulo
+  name: GUILinkUPdateModulo
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_GUILinkUPdateModulo
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.GUILinkUPdateModulo
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.GUILinkUPdateModulo
+  nameWithType: imsCyclicPacketCommSystem.GUILinkUPdateModulo
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.LogData
   name: LogData
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_LogData
@@ -749,6 +781,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setDeviceConnected
   nameWithType: imsCyclicPacketCommSystem.setDeviceConnected
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setGUILinkUPdateModulo
+  name: setGUILinkUPdateModulo
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setGUILinkUPdateModulo
+  commentId: P:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setGUILinkUPdateModulo
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setGUILinkUPdateModulo
+  nameWithType: imsCyclicPacketCommSystem.setGUILinkUPdateModulo
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setGUILinkUPdateModulo*
+  name: setGUILinkUPdateModulo
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setGUILinkUPdateModulo_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setGUILinkUPdateModulo
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setGUILinkUPdateModulo
+  nameWithType: imsCyclicPacketCommSystem.setGUILinkUPdateModulo
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.setLogData
   name: setLogData
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_setLogData
@@ -852,6 +897,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.TxPacketSelection
   nameWithType: imsCyclicPacketCommSystem.TxPacketSelection
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.UpdateStaticGUILinks
+  name: UpdateStaticGUILinks()
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_UpdateStaticGUILinks
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.UpdateStaticGUILinks
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.UpdateStaticGUILinks()
+  nameWithType: imsCyclicPacketCommSystem.UpdateStaticGUILinks()
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.UpdateStaticGUILinks*
+  name: UpdateStaticGUILinks
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_UpdateStaticGUILinks_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.UpdateStaticGUILinks
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.UpdateStaticGUILinks
+  nameWithType: imsCyclicPacketCommSystem.UpdateStaticGUILinks
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.WriteFirst
   name: WriteFirst
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_WriteFirst
@@ -1463,6 +1521,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.imsValueNode
   nameWithType: imsValueNode.imsValueNode
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.addStaticGUILink2SPD(System.Windows.Forms.Control,System.String,System.Single,System.String,System.Boolean)
+  name: addStaticGUILink2SPD(Control, String, Single, String, Boolean)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_addStaticGUILink2SPD_System_Windows_Forms_Control_System_String_System_Single_System_String_System_Boolean_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.addStaticGUILink2SPD(System.Windows.Forms.Control,System.String,System.Single,System.String,System.Boolean)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.addStaticGUILink2SPD(System.Windows.Forms.Control, System.String, System.Single, System.String, System.Boolean)
+  nameWithType: imsValueNode.addStaticGUILink2SPD(Control, String, Single, String, Boolean)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.addStaticGUILink2SPD*
+  name: addStaticGUILink2SPD
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_addStaticGUILink2SPD_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.addStaticGUILink2SPD
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.addStaticGUILink2SPD
+  nameWithType: imsValueNode.addStaticGUILink2SPD
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ArrayLength
   name: ArrayLength
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ArrayLength
@@ -1493,6 +1564,19 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValues
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.charValues
   nameWithType: imsValueNode.charValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.clearStaticGUILinks
+  name: clearStaticGUILinks()
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_clearStaticGUILinks
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.clearStaticGUILinks
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.clearStaticGUILinks()
+  nameWithType: imsValueNode.clearStaticGUILinks()
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.clearStaticGUILinks*
+  name: clearStaticGUILinks
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_clearStaticGUILinks_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.clearStaticGUILinks
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.clearStaticGUILinks
+  nameWithType: imsValueNode.clearStaticGUILinks
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.clearValues
   name: clearValues()
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_clearValues
@@ -1789,6 +1873,61 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getushortValues
   nameWithType: imsValueNode.getushortValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks
+  name: imsValueNode.GUIValueLinks
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html
+  commentId: T:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks
+  nameWithType: imsValueNode.GUIValueLinks
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.#ctor(System.Windows.Forms.Control,System.String,System.Single,System.String,System.Boolean)
+  name: GUIValueLinks(Control, String, Single, String, Boolean)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks__ctor_System_Windows_Forms_Control_System_String_System_Single_System_String_System_Boolean_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.#ctor(System.Windows.Forms.Control,System.String,System.Single,System.String,System.Boolean)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.GUIValueLinks(System.Windows.Forms.Control, System.String, System.Single, System.String, System.Boolean)
+  nameWithType: imsValueNode.GUIValueLinks.GUIValueLinks(Control, String, Single, String, Boolean)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.#ctor*
+  name: GUIValueLinks
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks__ctor_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.#ctor
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.GUIValueLinks
+  nameWithType: imsValueNode.GUIValueLinks.GUIValueLinks
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.formatstring
+  name: formatstring
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks_formatstring
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.formatstring
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.formatstring
+  nameWithType: imsValueNode.GUIValueLinks.formatstring
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.readOnly
+  name: readOnly
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks_readOnly
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.readOnly
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.readOnly
+  nameWithType: imsValueNode.GUIValueLinks.readOnly
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.scalar
+  name: scalar
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks_scalar
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.scalar
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.scalar
+  nameWithType: imsValueNode.GUIValueLinks.scalar
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.StaticLinkedGUIField
+  name: StaticLinkedGUIField
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks_StaticLinkedGUIField
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.StaticLinkedGUIField
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.StaticLinkedGUIField
+  nameWithType: imsValueNode.GUIValueLinks.StaticLinkedGUIField
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.UnitsString
+  name: UnitsString
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks_UnitsString
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.UnitsString
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.UnitsString
+  nameWithType: imsValueNode.GUIValueLinks.UnitsString
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.holdRefresh
+  name: holdRefresh
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_holdRefresh
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.holdRefresh
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.holdRefresh
+  nameWithType: imsValueNode.holdRefresh
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.intValue
   name: intValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_intValue
@@ -1807,6 +1946,12 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.latchTimes
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.latchTimes
   nameWithType: imsValueNode.latchTimes
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.newData
+  name: newData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_newData
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.newData
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.newData
+  nameWithType: imsValueNode.newData
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.setArrayLength
   name: setArrayLength
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_setArrayLength
@@ -2066,6 +2211,38 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValues
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.shortValues
   nameWithType: imsValueNode.shortValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.StaticGUILinks
+  name: StaticGUILinks
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_StaticGUILinks
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.StaticGUILinks
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.StaticGUILinks
+  nameWithType: imsValueNode.StaticGUILinks
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.toNameString(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks)
+  name: toNameString(imsValueNode.GUIValueLinks)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_toNameString_MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.toNameString(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.toNameString(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks)
+  nameWithType: imsValueNode.toNameString(imsValueNode.GUIValueLinks)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.toNameString*
+  name: toNameString
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_toNameString_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.toNameString
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.toNameString
+  nameWithType: imsValueNode.toNameString
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToValueString(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks)
+  name: ToValueString(imsValueNode.GUIValueLinks)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ToValueString_MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_GUIValueLinks_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToValueString(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToValueString(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks)
+  nameWithType: imsValueNode.ToValueString(imsValueNode.GUIValueLinks)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToValueString*
+  name: ToValueString
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ToValueString_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToValueString
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToValueString
+  nameWithType: imsValueNode.ToValueString
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValue
   name: uintValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_uintValue
@@ -2078,6 +2255,19 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValues
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.uintValues
   nameWithType: imsValueNode.uintValues
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.updateGUILINKS
+  name: updateGUILINKS()
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_updateGUILINKS
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.updateGUILINKS
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.updateGUILINKS()
+  nameWithType: imsValueNode.updateGUILINKS()
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.updateGUILINKS*
+  name: updateGUILINKS
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_updateGUILINKS_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.updateGUILINKS
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.updateGUILINKS
+  nameWithType: imsValueNode.updateGUILINKS
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue
   name: ushortValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ushortValue

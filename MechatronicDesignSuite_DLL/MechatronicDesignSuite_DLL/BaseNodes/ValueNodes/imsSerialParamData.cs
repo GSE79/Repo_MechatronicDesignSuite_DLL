@@ -53,7 +53,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 SerialDataIn.Add(PacketSerialDataIn[ByteIdx]);
 
             updateFromSerialData(LogDataFlag, RxTime);
-
+            newData = true;
         }
         public void AccumulatePackDataOffset(ref int pDoff)
         {
@@ -64,7 +64,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
             if (DataType == typeof(char))
             {
-                charValue = BitConverter.ToChar(SerialDataIn.ToArray(), 0);
+                charValue = (char)SerialDataIn[0];// BitConverter.ToChar(SerialDataIn.ToArray(), 0);
 
                 if (logDataFlag)
                     charValues.Add(charValue);
@@ -109,13 +109,15 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
             else if (DataType == typeof(double))
             {
-                doubleValue = BitConverter.ToUInt32(SerialDataIn.ToArray(), 0);
-                if (doubleValues.Count > 0 && !logDataFlag)
+                doubleValue = BitConverter.ToDouble(SerialDataIn.ToArray(), 0);
+                if (logDataFlag)
                     doubleValues.Add(doubleValue);
             }
             else
                 throw new Exception("Attempted to update (from serial data) an Un-Supported Value Node Data Type");
 
         }
+
+        
     }
 }
