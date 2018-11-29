@@ -12,7 +12,7 @@
           "hash": "8bJmIGC8gOzxhfXyTHjLpw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -24,7 +24,7 @@
           "hash": "EnK/rh7iEbP+GhRUDAflHA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -48,7 +48,7 @@
           "hash": "94T9rBayiVTpCfJezhj00w=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -60,7 +60,7 @@
           "hash": "+iSl364L5O/Q+Pglfda9bQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -72,7 +72,7 @@
           "hash": "jlSUOJiC3YQMlDbf6K4qSA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -108,7 +108,7 @@
           "hash": "QCloHbi2ImbvYp+4BySPCg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html",
-          "hash": "zyp8dWRfd2OihHaaRmtr0g=="
+          "hash": "inVepnmyTZtBrGGwYweK5Q=="
         }
       },
       "is_incremental": false,
@@ -141,10 +141,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsSerialParamData.html",
-          "hash": "SIc/OF/RwVamZL+w69LLOg=="
+          "hash": "AgBwrL2hURISLsOb/3Wvmg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -156,7 +156,7 @@
           "hash": "6xAfZcfn/4ztQ5RIk3wYBw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -168,7 +168,7 @@
           "hash": "fTPs3pT5VrYK1xC3oaW6vA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -177,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.GUIValueLinks.html",
-          "hash": "l8jGnjJ526uoCejAAisAPQ=="
+          "hash": "TUhvh9mFvEwzVezUhTpj8Q=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -189,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html",
-          "hash": "UM11m6JPi2Iv97l8XQX7ig=="
+          "hash": "Ktb4DMGMdcslk5L/6pbhOw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -202,6 +202,78 @@
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.BaseNodes.html",
           "hash": "i+rcoXZuCg3+lVWyPlAO5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseTypes.SerialParameterPacketHeader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseTypes.SerialParameterPacketHeader.html",
+          "hash": "dtupfWHJs0rWjuJSMXQZ1w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.BaseTypes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.BaseTypes.html",
+          "hash": "+xV+qSfN6/gY0W2KfZ8jiQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.Crc16.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.Crc16.html",
+          "hash": "YkPJ8EqKQ9ZZwUCyyAmaJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.CsvFileReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.CsvFileReader.html",
+          "hash": "BpxwcTi3fTeyc8iJ4FK8mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.CsvFileWriter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.CsvFileWriter.html",
+          "hash": "8Kwe+fh9uODRVd1OChDsuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/MechatronicDesignSuite_DLL.CsvRow.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/MechatronicDesignSuite_DLL.CsvRow.html",
+          "hash": "J0iwIQOJStXZ/ulZyeGwag=="
         }
       },
       "is_incremental": false,
@@ -240,7 +312,7 @@
           "hash": "FC/XR+ZhsFD1Ra/nh+Y0mw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -249,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.PCExeSys.html",
-          "hash": "pVTwv8729W4urg9ynFn7qQ=="
+          "hash": "WXu81SExwln89rYtDZYcDA=="
         }
       },
       "is_incremental": false,
@@ -264,7 +336,7 @@
           "hash": "I7Ur0O3Xt7MzLwLqBKQVZA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -273,10 +345,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.SPpacketConverter.html",
-          "hash": "xYGMC/9emaAcJPiSwXHW7A=="
+          "hash": "byw1hVgzHij2MRVVaogazw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -285,10 +357,10 @@
       "output": {
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.SerialParameterPacket.html",
-          "hash": "rUtzgSFBPPeJFt9Uo7LgxA=="
+          "hash": "GwT2/4xwh0YeKJ1QWkrtew=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -300,7 +372,7 @@
           "hash": "+oXi6R6tO31F/K+ogu97rA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -333,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/MechatronicDesignSuite_DLL.html",
-          "hash": "PtU25B2LJLKhYIxDWaaoDw=="
+          "hash": "KbJv6H2ox+4OmSlhnCvRwA=="
         }
       },
       "is_incremental": false,
@@ -345,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "pTe29mV7TZ4TUE92UANYZA=="
+          "hash": "QF8XPKNLwmL2btBZ1yTwDA=="
         }
       },
       "is_incremental": false,
@@ -367,30 +439,29 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Disable incremental build by force rebuild option.",
+        "can_incremental": true,
         "incrementalPhase": "build"
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build"
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build"
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
           "incrementalPhase": "build"
         }
       }
     },
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot support incremental post processing, the reason is: it's disabled.",
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
         "incrementalPhase": "postProcessing"
       },
       "processors": {}

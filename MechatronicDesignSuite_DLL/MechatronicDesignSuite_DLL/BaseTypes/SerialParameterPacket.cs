@@ -11,19 +11,19 @@ using System.Globalization;
 using System.Windows.Forms;
 using System.ComponentModel;
 using MechatronicDesignSuite_DLL.BaseNodes;
+using MechatronicDesignSuite_DLL.BaseTypes;
 
 namespace MechatronicDesignSuite_DLL
 {
     [TypeConverter(typeof(SPpacketConverter))]
     public class SerialParameterPacket : IDisposable
     {
-        public int PacketID { get; }
         public string PackDescription { set; get; } = "New Serial Packet";
+        public int PackID { set; get; }
         public List<imsSerialParamData> PacketSPDs { get; } = new List<imsSerialParamData>();
         public SerialParameterPacket(string PacketDescription, int PacketIDin, List<imsBaseNode> globalNodeListIn)
         {
-            PacketID = PacketIDin;
-            PacketSPDs.Add(new imsSerialParamData(globalNodeListIn, "Header.PackID", typeof(byte), 0));
+            PackID = PacketIDin;
             PackDescription = PacketDescription;
         }
         public void ParsePacket(byte [] PacketSerialDataIn, bool LogDataFlag, DateTime RxTime)
@@ -45,6 +45,7 @@ namespace MechatronicDesignSuite_DLL
             foreach (imsSerialParamData SPD in PacketSPDs)
                 SPD.clearValues();
         }
+
         #region iDisposable Interface Requirements
         bool disposed = false;
         protected virtual void ReleaseManagedResources()

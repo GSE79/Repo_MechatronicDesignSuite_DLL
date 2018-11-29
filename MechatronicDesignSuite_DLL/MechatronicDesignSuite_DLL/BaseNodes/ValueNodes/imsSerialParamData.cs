@@ -13,6 +13,7 @@ using System.Data;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using MechatronicDesignSuite_DLL.BaseTypes;
 
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
@@ -26,7 +27,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
         protected List<byte> SerialDataOut = new List<byte>();
         [Category("Serial Data"), Description("The serial data out - converted from data type")]
-        public List<byte> getSerialDataOut { get { return SerialDataOut; }  }
+        public List<byte> getSerialDataOut { get { return SerialDataOut; } }
         [Category("Serial Data"), Description("The serial data out - converted from data type")]
         public List<byte> setSerialDataOut { get { return SerialDataOut; } set { SerialDataOut = value; } }
 
@@ -38,13 +39,25 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
         int ByteIdx;
 
+        protected imsCyclicPacketCommSystem cyclicCommsSysLink;
+        public imsCyclicPacketCommSystem setcyclicCommSysLink {set{ cyclicCommsSysLink = value; } get { return cyclicCommsSysLink; } }
+        protected SerialParameterPacketHeader txPackHeader = new SerialParameterPacketHeader();
+
         public imsSerialParamData(List<imsBaseNode> globalNodeListIn, string nameString, Type DataTypeIn, int arrayLength) : base(globalNodeListIn, nameString, DataTypeIn, arrayLength)
         {
             NodeType = typeof(imsSerialParamData);
+
+          
         }
         public imsSerialParamData(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) : base(DeSerializeFormatter, deSerializeFs)
         {
 
+        }
+        public void setTxPacket(int packIDin)
+        {
+            txPackHeader.PacketID = (uint)packIDin;
+            txPackHeader.PacketType = 1u;
+            txPackHeader.DataOffset = (uint)PacketDataOffset;
         }
         public void UpdateValue(ref byte[] PacketSerialDataIn, bool LogDataFlag, DateTime RxTime)
         {
@@ -59,6 +72,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
             PacketDataOffset = pDoff;
             pDoff += DataSize;
+            txPackHeader.DataOffset = (uint)PacketDataOffset;
         }
         public void updateFromSerialData(bool logDataFlag, DateTime RxTime)
         {
@@ -118,6 +132,64 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
         }
 
+        public void packageToSerialData()
+        {
+            SerialDataOut.Clear();
+            SerialDataOut.Capacity = DataSize;
+
+            if(DataType == typeof(byte))
+            {
+                SerialDataOut = (BitConverter.GetBytes(byteValue)).ToList();
+                while (SerialDataOut.Count > 1)
+                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+            }
+            else if (DataType == typeof(char))
+            {
+                SerialDataOut = (BitConverter.GetBytes(charValue)).ToList();
+                while (SerialDataOut.Count > 1)
+                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+            }
+            else if (DataType == typeof(ushort))
+            {
+                SerialDataOut = (BitConverter.GetBytes(ushortValue)).ToList();
+                while (SerialDataOut.Count > 2)
+                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+            }
+            else if (DataType == typeof(short))
+            {
+                SerialDataOut = (BitConverter.GetBytes(shortValue)).ToList();
+                while (SerialDataOut.Count > 2)
+                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+            }
+            else if (DataType == typeof(uint))
+            {
+                SerialDataOut = (BitConverter.GetBytes(uintValue)).ToList();
+                while (SerialDataOut.Count > 4)
+                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+            }
+            else if (DataType == typeof(int))
+            {
+                SerialDataOut = (BitConverter.GetBytes(intValue)).ToList();
+                while (SerialDataOut.Count > 4)
+                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+            }
+            else if (DataType == typeof(float))
+            {
+                SerialDataOut = (BitConverter.GetBytes(floatValue)).ToList();
+                while (SerialDataOut.Count > 4)
+                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+            }
+            else if (DataType == typeof(double))
+            {
+                SerialDataOut = (BitConverter.GetBytes(doubleValue)).ToList();
+                while (SerialDataOut.Count > 8)
+                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+            }
+
+            // Flag, Call, or otherwise Initiate Queing of Write Packet for this SPD
+            cyclicCommsSysLink.AddTxPack2TXQueue(txPackHeader, SerialDataOut);
+
+        }
         
     }
 }

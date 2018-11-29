@@ -69,6 +69,7 @@
     <Compile Include="BaseNodes\imsSysModuleNode.cs" />
     <Compile Include="BaseNodes\imsValueNode.cs" />
     <Compile Include="BaseTypes\SerialParameterPacket.cs" />
+    <Compile Include="BaseTypes\SerialParameterPacketHeader.cs" />
     <Compile Include="PCExeSys.cs" />
     <Compile Include="PCExeSysForm.cs">
       <SubType>Form</SubType>

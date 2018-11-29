@@ -508,7 +508,13 @@ namespace MechatronicDesignSuite_DLL
                     ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "CallbackFunction";
 
                 LinkedMDSForm.BeginInvoke(new Action(() => {
-                    MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception");
+                    DialogResult dsults =  MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception");
+                    if(dsults == DialogResult.OK)
+                    {
+                        if (EntryPoint == MainLoop && !EnableMainLoop)
+                            EnableMainLoop = true;
+
+                    }
                 }));
             }
         }
@@ -921,4 +927,195 @@ namespace MechatronicDesignSuite_DLL
         #endregion
 
     }
+
+    public class Crc16
+    {
+        const ushort polynomial = 0x8408;
+        ushort[] table = new ushort[256];
+
+        public ushort ComputeChecksum(byte[] bytes)
+        {
+            ushort crc = 0;
+            for (int i = 0; i < bytes.Length; ++i)
+            {
+                byte index = (byte)(crc ^ bytes[i]);
+                crc = (ushort)((crc >> 8) ^ table[index]);
+            }
+            return crc;
+        }
+
+        public byte[] ComputeChecksumBytes(byte[] bytes)
+        {
+            ushort crc = ComputeChecksum(bytes);
+            return BitConverter.GetBytes(crc);
+        }
+
+        public Crc16()
+        {
+            ushort value;
+            ushort temp;
+            for (ushort i = 0; i < table.Length; ++i)
+            {
+                value = 0;
+                temp = i;
+                for (byte j = 0; j < 8; ++j)
+                {
+                    if (((value ^ temp) & 0x0001) != 0)
+                    {
+                        value = (ushort)((value >> 1) ^ polynomial);
+                    }
+                    else
+                    {
+                        value >>= 1;
+                    }
+                    temp >>= 1;
+                }
+                table[i] = value;
+            }
+        }
+    }
+
+    #region // CSV Read / Write Classes
+    /// <summary>
+    /// Class to store one CSV row
+    /// </summary>
+    public class CsvRow : List<string>
+    {
+        public string LineText { get; set; }
+    }
+
+    /// <summary>
+    /// Class to write data to a CSV file
+    /// </summary>
+    public class CsvFileWriter : StreamWriter
+    {
+        public CsvFileWriter(Stream stream)
+            : base(stream)
+        {
+        }
+
+        public CsvFileWriter(string filename)
+            : base(filename)
+        {
+        }
+
+        /// <summary>
+        /// Writes a single row to a CSV file.
+        /// </summary>
+        /// <param name="row">The row to be written</param>
+        public void WriteRow(CsvRow row)
+        {
+            StringBuilder builder = new StringBuilder();
+            bool firstColumn = true;
+            foreach (string value in row)
+            {
+                // Add separator if this isn't the first value
+                if (!firstColumn)
+                    builder.Append(',');
+                // Implement special handling for values that contain comma or quote
+                // Enclose in quotes and double up any double quotes
+                if (value.IndexOfAny(new char[] { '"', ',' }) != -1)
+                    builder.AppendFormat("\"{0}\"", value.Replace("\"", "\"\""));
+                else
+                    builder.Append(value);
+                firstColumn = false;
+            }
+            row.LineText = builder.ToString();
+            WriteLine(row.LineText);
+        }
+    }
+
+    /// <summary>
+    /// Class to read data from a CSV file
+    /// </summary>
+    public class CsvFileReader : StreamReader
+    {
+        public CsvFileReader(Stream stream)
+            : base(stream)
+        {
+        }
+
+        public CsvFileReader(string filename)
+            : base(filename)
+        {
+        }
+
+        /// <summary>
+        /// Reads a row of data from a CSV file
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
+        public bool ReadRow(CsvRow row)
+        {
+            row.LineText = ReadLine();
+            if (String.IsNullOrEmpty(row.LineText))
+                return false;
+
+            int pos = 0;
+            int rows = 0;
+
+            while (pos < row.LineText.Length)
+            {
+                string value;
+
+                // Special handling for quoted field
+                if (row.LineText[pos] == '"')
+                {
+                    // Skip initial quote
+                    pos++;
+
+                    // Parse quoted value
+                    int start = pos;
+                    while (pos < row.LineText.Length)
+                    {
+                        // Test for quote character
+                        if (row.LineText[pos] == '"')
+                        {
+                            // Found one
+                            pos++;
+
+                            // If two quotes together, keep one
+                            // Otherwise, indicates end of value
+                            if (pos >= row.LineText.Length || row.LineText[pos] != '"')
+                            {
+                                pos--;
+                                break;
+                            }
+                        }
+                        pos++;
+                    }
+                    value = row.LineText.Substring(start, pos - start);
+                    value = value.Replace("\"\"", "\"");
+                }
+                else
+                {
+                    // Parse unquoted value
+                    int start = pos;
+                    while (pos < row.LineText.Length && row.LineText[pos] != ',')
+                        pos++;
+                    value = row.LineText.Substring(start, pos - start);
+                }
+
+                // Add field to list
+                if (rows < row.Count)
+                    row[rows] = value;
+                else
+                    row.Add(value);
+                rows++;
+
+                // Eat up to and including next comma
+                while (pos < row.LineText.Length && row.LineText[pos] != ',')
+                    pos++;
+                if (pos < row.LineText.Length)
+                    pos++;
+            }
+            // Delete any unused items
+            while (row.Count > rows)
+                row.RemoveAt(rows);
+
+            // Return true if any columns read
+            return (row.Count > 0);
+        }
+    }
+    #endregion
 }
