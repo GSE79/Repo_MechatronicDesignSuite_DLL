@@ -19,8 +19,21 @@ namespace MechatronicDesignSuite_DLL
     /// <summary>
     /// This is the main execution system form of the Mechatronic Design Suite and ...
     /// </summary>
-    public partial class MechatronicDesignSuiteForm : Form
+    public partial class MechatronicDesignSuiteForm : Form, ImsBaseForm
     {
+        public PCExeSys pCExeSysLink
+        {
+            set
+            {
+                if (value != null)
+                {
+                    sysModuleExeSys = value;
+                }
+                else
+                    throw (new Exception("Attempted Null Link of pcexesys"));
+            }
+            get { return sysModuleExeSys; }
+        }
         /// <summary>
         /// 
         /// </summary>

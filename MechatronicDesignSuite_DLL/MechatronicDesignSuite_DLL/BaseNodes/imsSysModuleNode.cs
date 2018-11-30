@@ -42,8 +42,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         /// <summary>
         /// sysModForm
         /// </summary>
-        [Category("System Module"), Description("An optional graphical interface form for this system module.")]
-        public ImsBaseForm sysModForm { set; get; } = null;
+        [Category("System Module"), Description("An list of optional graphical interface forms for this system module.")]
+        public List<ImsBaseForm> sysModFormList { get { return sysModForms; } }
+        protected List<ImsBaseForm> sysModForms = new List<ImsBaseForm>();
 
         /// <summary>
         /// isInitialized

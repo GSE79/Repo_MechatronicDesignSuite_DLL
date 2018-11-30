@@ -11,7 +11,22 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using MechatronicDesignSuite_DLL.BaseTypes;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Reflection;
+using System.Reflection.Emit;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using MechatronicDesignSuite_DLL.BaseTypes;
 
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
@@ -96,6 +111,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         protected int mainLoopCounter = 0;
 
 
+
+        public DateTime TimeAtStartLogging { get {return timeAtStartLogging; } }
+        DateTime timeAtStartLogging;
+
         #region System Feilds (not exposed to property grid/explorer)
         int RxPckIndx, ParsePckIndx, ClearPckIdx;
         bool devConnectedHistory = false;
@@ -176,6 +195,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             if(DeviceConnected && !devConnectedHistory)
             {
                 // Build Static Packets on Connection?
+
+                // Capture Connection Time
+                timeAtStartLogging = DateTime.Now;
             }
             else if(!DeviceConnected && devConnectedHistory)
             {
@@ -193,9 +215,28 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             {
                 if (RxPacketBuffer.Count > 0 && (CommLoopCounter % 10 == 0) && !RxPackBufferLocked)
                 {
-                    RxPacketBuffer.RemoveAll(x => x.Length < 4);
-                    if (RxPacketBuffer.Count > 0)
-                        RxPacketBuffer.RemoveAll(x => (x[0] == 0xff && x[1] == 0xff && x[2] == 0xff && x[3] == 0xff));
+                    bool finishedRemovals = false;
+                    int firstindextoRemove = -1;
+                    int secondindextoRemove = -1;
+                    while (RxPacketBuffer.Count > 0 && !finishedRemovals)
+                    {
+                        firstindextoRemove = RxPacketBuffer.FindIndex(x => x.Length < 4);
+                        if(firstindextoRemove > -1)
+                        {
+                            RxPacketBuffer.RemoveAt(firstindextoRemove);
+                            RxPacketTimes.RemoveAt(firstindextoRemove);
+                        }
+
+                        secondindextoRemove = RxPacketBuffer.FindIndex(x => (x[0] == 0xff && x[1] == 0xff && x[2] == 0xff && x[3] == 0xff));
+                        if (secondindextoRemove > -1)
+                        {
+                            RxPacketBuffer.RemoveAt(secondindextoRemove);
+                            RxPacketTimes.RemoveAt(secondindextoRemove);
+                        }
+
+                        if (firstindextoRemove == -1 && secondindextoRemove == -1)
+                            finishedRemovals = true;
+                    }
                 }
 
                 if (WriteFirst)

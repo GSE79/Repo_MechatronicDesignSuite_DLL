@@ -46,8 +46,6 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         public imsSerialParamData(List<imsBaseNode> globalNodeListIn, string nameString, Type DataTypeIn, int arrayLength) : base(globalNodeListIn, nameString, DataTypeIn, arrayLength)
         {
             NodeType = typeof(imsSerialParamData);
-
-          
         }
         public imsSerialParamData(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) : base(DeSerializeFormatter, deSerializeFs)
         {
@@ -123,12 +121,15 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
             else if (DataType == typeof(double))
             {
-                doubleValue = BitConverter.ToDouble(SerialDataIn.ToArray(), 0);
+                setdoubleValue = BitConverter.ToDouble(SerialDataIn.ToArray(), 0);
                 if (logDataFlag)
-                    doubleValues.Add(doubleValue);
+                    doubleValues.Add(setdoubleValue);
             }
             else
                 throw new Exception("Attempted to update (from serial data) an Un-Supported Value Node Data Type");
+
+            if (logDataFlag)
+                latchTimes.Add((RxTime-cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
 
         }
 
@@ -181,7 +182,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
             else if (DataType == typeof(double))
             {
-                SerialDataOut = (BitConverter.GetBytes(doubleValue)).ToList();
+                SerialDataOut = (BitConverter.GetBytes(setdoubleValue)).ToList();
                 while (SerialDataOut.Count > 8)
                     SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
             }

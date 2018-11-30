@@ -13,6 +13,7 @@ using System.Data;
 using System.Drawing;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using MechatronicDesignSuite_DLL.BaseTypes;
 
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
@@ -35,7 +36,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         /// </summary>
         protected int ArrayLength = 0;
         [Category("Value Node"), Description("The number elements of this data type in the array")]
-        public int  getArrayLength {get{return ArrayLength;} }
+        public int getArrayLength { get { return ArrayLength; } }
         [Category("Value Node"), Description("The number elements of this data type in the array")]
         public int setArrayLength { get { return ArrayLength; } set { ArrayLength = value; } }
 
@@ -84,7 +85,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         [Category("datatype: ushort"), Description("The .NET char ushort representation")]
         public ushort getushortValue { get { return ushortValue; } }
         [Category("datatype: ushort"), Description("The .NET char ushort representation")]
-        public ushort setushortValue{ get { return ushortValue; } set { ushortValue = value; } }
+        public ushort setushortValue { get { return ushortValue; } set { ushortValue = value; } }
         [Category("datatype: ushort"), Description("The .NET char ushort representation")]
         public List<ushort> getushortValues { get { return ushortValues; } }
         [Category("datatype: ushort"), Description("The .NET char ushort representation")]
@@ -154,7 +155,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         [Category("datatype: double"), Description("The .NET double representation")]
         public double getdoubleValue { get { return doubleValue; } }
         [Category("datatype: double"), Description("The .NET double representation")]
-        public double setfdoubleValue { get { return doubleValue; } set { doubleValue = value; } }
+        public double setdoubleValue { get { return doubleValue; } set { doubleValue = value; } }
         [Category("datatype: double"), Description("The .NET double representation")]
         public List<double> getdoubleValues { get { return doubleValues; } }
         [Category("datatype: double"), Description("The .NET double representation")]
@@ -163,9 +164,12 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         /// <summary>
         /// latchTimes
         /// </summary>
-        protected List<DateTime> latchTimes;
+        protected List<double> latchTimes;
+        public List<double> LatchTimes { set { latchTimes = value; } get { return latchTimes; } }
 
         protected bool newData = false;
+
+        public bool HoldRefresh {set{holdRefresh = value; } get {return holdRefresh;} }
         protected bool holdRefresh = false;
 
         /// <summary>
@@ -195,349 +199,13 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             latchTimes.Clear();
         }
 
-        public class GUIValueLinks
-        {
-            public Control StaticLinkedGUIField;
-            public string UnitsString;
-            public float scalar;
-            public string formatstring;
-            public bool readOnly;
-            public imsValueNode vNodeLink;
-            public ToolTip GroupBoxToolTip = new ToolTip();
-
-            public GUIValueLinks(imsValueNode vNodeLinkIn, Control GUIFieldIn, string unitsstringin, float scalarin, string formatstringin, bool readOnlyIn)
-            {
-                StaticLinkedGUIField = GUIFieldIn;
-                vNodeLink = vNodeLinkIn;                
-                UnitsString = unitsstringin;
-                scalar = scalarin;
-                formatstring = formatstringin;
-                readOnly = readOnlyIn;
-
-                if (typeof(TextBox).IsInstanceOfType(GUIFieldIn))
-                {
-                    ((TextBox)(GUIFieldIn)).Text = vNodeLink.NodeName + " " + unitsstringin;
-                    //StaticLinkedGUIField.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_MouseDown);
-                    StaticLinkedGUIField.Enter += new EventHandler(textBox_Enter);
-                    StaticLinkedGUIField.Leave += new EventHandler(textbox_Leave);
-                    ((TextBox)(GUIFieldIn)).KeyPress += new KeyPressEventHandler(textbox_Keypress);
-                    ((TextBox)(GUIFieldIn)).ReadOnly = readOnlyIn;
-
-                    if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && GUIFieldIn.Dock == DockStyle.Fill)
-                    {
-                        ((GroupBox)(GUIFieldIn.Parent)).Text = vNodeLink.NodeName + " " + unitsstringin;
-                        ((GroupBox)(GUIFieldIn.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
-                        ((GroupBox)(GUIFieldIn.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
-
-                    }
-
-                }
-                else if (typeof(System.Windows.Forms.Label).IsInstanceOfType(GUIFieldIn))
-                {
-                    ((System.Windows.Forms.Label)(GUIFieldIn)).Text = vNodeLink.NodeName + " " + unitsstringin;
-
-                    if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && GUIFieldIn.Dock == DockStyle.Fill)
-                    {
-                        ((GroupBox)(GUIFieldIn.Parent)).Text = vNodeLink.NodeName + " " + unitsstringin;
-                        ((GroupBox)(GUIFieldIn.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
-                        ((GroupBox)(GUIFieldIn.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
-
-                    }
-
-                }
-                else if (typeof(ComboBox).IsInstanceOfType(GUIFieldIn))
-                {
-                    ((ComboBox)(GUIFieldIn)).Text = vNodeLink.NodeName + " " + unitsstringin;
-                    //StaticLinkedGUIField.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_MouseDown);
-                    StaticLinkedGUIField.Enter += new EventHandler(textBox_Enter);
-                    StaticLinkedGUIField.Leave += new EventHandler(textbox_Leave);
-                    ((ComboBox)(GUIFieldIn)).KeyPress += new KeyPressEventHandler(comboBox_KeyPress);
-                    ((ComboBox)(GUIFieldIn)).DropDown += new EventHandler(comboBox_DropDown);
-
-                    if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && GUIFieldIn.Dock == DockStyle.Fill)
-                    {
-                        ((GroupBox)(GUIFieldIn.Parent)).Text = vNodeLink.NodeName + " " + unitsstringin;
-                        ((GroupBox)(GUIFieldIn.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
-                        ((GroupBox)(GUIFieldIn.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
-
-                    }
-
-                }
-            }
-            public void textbox_Keypress(object sender, KeyPressEventArgs e)
-            {
-                if (e.KeyChar == (char)Keys.Enter)
-                {
-                    e.Handled = true;
-                    if(!readOnly)
-                        getValuefromTextbox((TextBox)sender);
-
-                    //// Make sure its been read once prior to writing
-                    //if (this.ByteOffset > 3)
-                    //{
-                    //    // Initialize Common Variables
-                    //    TxSerialPacketHeader WriteHeader;
-
-                    //    // Get bytes from text string
-                    //    getDataBytesFromText(((TextBox)sender).Text);
-
-                    //    // Package Headers
-                    //    WriteHeader = new TxSerialPacketHeader();
-                    //    WriteHeader.MsgID = this.MessageID;
-                    //    WriteHeader.MsgType = this.WriteDType;
-                    //    WriteHeader.SMOffset = (byte)(this.ByteOffset - 4);
-                    //    WriteHeader.ArrayData = new List<byte>();
-                    //    if (this.SPDParamInputs.DataType == typeof(byte[]))
-                    //    {
-                    //        WriteHeader.Byte0 = 0x00;
-                    //        WriteHeader.Byte1 = 0x00;
-                    //        WriteHeader.Byte2 = 0x00;
-                    //        WriteHeader.Byte3 = 0x00;
-                    //        if (SerialDataOut.Count > 0)
-                    //            WriteHeader.Byte0 = SerialDataOut[0];
-                    //        if (SerialDataOut.Count > 1)
-                    //            WriteHeader.Byte1 = SerialDataOut[1];
-                    //        if (SerialDataOut.Count > 2)
-                    //            WriteHeader.Byte2 = SerialDataOut[2];
-                    //        if (SerialDataOut.Count > 3)
-                    //            WriteHeader.Byte3 = SerialDataOut[3];
-                    //        if (SerialDataOut.Count > 4)
-                    //            for (int i = 0; i < SerialDataOut.Count - 4; i++)
-                    //                WriteHeader.ArrayData.Add(SerialDataOut[4 + i]);
-                    //    }
-                    //    else
-                    //    {
-                    //        WriteHeader.Byte0 = SerialDataOut[0];
-                    //        if (WriteHeader.MsgType == NGPOCconstants.DTYPE_WRITE16 || WriteHeader.MsgType == NGPOCconstants.DTYPE_WRITE32)
-                    //            WriteHeader.Byte1 = SerialDataOut[1];
-                    //        if (WriteHeader.MsgType == NGPOCconstants.DTYPE_WRITE32)
-                    //        {
-                    //            WriteHeader.Byte2 = SerialDataOut[2];
-                    //            WriteHeader.Byte3 = SerialDataOut[3];
-                    //        }
-                    //    }
-
-
-
-                    //    this.AddtoCMDQue(WriteHeader);
-
-                    //}
-                    textbox_Leave(null, null);
-                }
-                else
-                    vNodeLink.holdRefresh = true;
-
-            }
-            public void comboBox_KeyPress(object sender, KeyPressEventArgs e)
-            {
-                if (e.KeyChar == (char)Keys.Enter)
-                {
-                    e.Handled = true;
-                    if (!readOnly)
-                        getValuefromComboBox((ComboBox)sender);
-                    // Make sure its been read once prior to writing
-                    //if (this.ByteOffset > 3)
-                    //{
-                    //    // Initialize Common Variables
-                    //    TxSerialPacketHeader WriteHeader;
-
-                        //    // Get bytes from text string
-
-                        //    if (this.SPDParamInputs.name == "Alarm Details")
-                        //    {
-                        //        getDataBytesFromText(((ushort)((AlarmCodes)(Enum.Parse(typeof(AlarmCodes), ((ComboBox)this.GUILinks.guiField).SelectedValue.ToString())))).ToString());
-                        //    }
-                        //    else
-                        //        getDataBytesFromText(((ComboBox)this.GUILinks.guiField).SelectedIndex.ToString());
-
-                        //    // Package Headers
-                        //    WriteHeader = new TxSerialPacketHeader();
-                        //    WriteHeader.MsgID = this.MessageID;
-                        //    WriteHeader.MsgType = this.WriteDType;
-                        //    WriteHeader.SMOffset = (byte)(this.ByteOffset - 4);
-
-                        //    WriteHeader.Byte0 = SerialDataOut[0];
-                        //    if (WriteHeader.MsgType == NGPOCconstants.DTYPE_WRITE16 || WriteHeader.MsgType == NGPOCconstants.DTYPE_WRITE32)
-                        //        WriteHeader.Byte1 = SerialDataOut[1];
-                        //    if (WriteHeader.MsgType == NGPOCconstants.DTYPE_WRITE32)
-                        //    {
-                        //        WriteHeader.Byte2 = SerialDataOut[2];
-                        //        WriteHeader.Byte3 = SerialDataOut[3];
-                        //    }
-
-                        //    this.AddtoCMDQue(WriteHeader);
-
-                        //}
-                    textbox_Leave(null, null);
-                }
-                else
-                    vNodeLink.holdRefresh = true;
-
-
-            }
-            private void comboBox_DropDown(object sender, EventArgs e)
-            {
-                vNodeLink.holdRefresh = true;
-            }
-            private void textBox_MouseDown(object sender, MouseEventArgs e)
-            {
-                if (e.Button == MouseButtons.Left)
-                {
-                    DragDropEffects RetEffects = StaticLinkedGUIField.DoDragDrop(this, DragDropEffects.Link);
-                }
-
-
-            }
-            public void GroupBox_MouseHover(object sender, EventArgs e)
-            {
-                string toolTipText = string.Concat(
-                            vNodeLink.NodeName,
-                            " ", UnitsString,
-                            "\n  GuiFeild: ", StaticLinkedGUIField.Name,
-                            "\n  DataType: ", vNodeLink.DataType.ToString(),
-                            "\n  Size: ", vNodeLink.getDataSize.ToString(), " (bytes)",
-                            "\n  Scalar: ", scalar.ToString(),
-                            "\n  Format String: ", formatstring );
-
-                if (typeof(imsSerialParamData).IsInstanceOfType(vNodeLink))
-                {
-                    imsSerialParamData thisSPD = (imsSerialParamData)vNodeLink;
-                    string Sin = "", Sout = "";
-                    int i = 0;
-
-                    if (thisSPD.getSerialDataIn != null)
-                        for (i = thisSPD.getSerialDataIn.Count - 1; i >= 0; i--)
-                            Sin += thisSPD.getSerialDataIn[i].ToString("X2");
-                    if (thisSPD.getSerialDataOut != null)
-                        for (i = thisSPD.getSerialDataOut.Count - 1; i >= 0; i--)
-                            Sout += thisSPD.getSerialDataOut[i].ToString("X2");
-                    toolTipText = string.Concat(toolTipText,
-                                "\n\nSerial Data In: 0x", Sin,
-                                "\nSerial Data Out: 0x", Sout);
-                }
-
-
-
-
-                GroupBoxToolTip.AutoPopDelay = 32000;
-                GroupBoxToolTip.SetToolTip(((GroupBox)(sender)), toolTipText);
-                            
-
-            }
-            private void textBox_Enter(object sender, EventArgs e)
-            {
-                vNodeLink.holdRefresh = true;
-            }
-            public void textbox_Leave(object sender, EventArgs e)
-            {
-                vNodeLink.holdRefresh = false;
-            }
-            public void getValuefromTextbox(TextBox tbIn)
-            {
-                float tempFloat;
-
-                if (vNodeLink.DataType == typeof(byte))
-                {
-                    if (float.TryParse(tbIn.Text, out tempFloat))
-                        vNodeLink.byteValue = (byte)(tempFloat / scalar);                                            
-                }
-                else if (vNodeLink.DataType == typeof(char))
-                {
-                    char tempChar;
-                    if (char.TryParse(tbIn.Text, out tempChar))
-                        vNodeLink.charValue = (char)(tempChar / scalar);
-                    else if(float.TryParse(tbIn.Text, out tempFloat))
-                        vNodeLink.charValue = (char)(tempFloat / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(ushort))
-                {
-                    if (float.TryParse(tbIn.Text, out tempFloat))
-                        vNodeLink.ushortValue = (ushort)(tempFloat / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(short))
-                {
-                    if (float.TryParse(tbIn.Text, out tempFloat))
-                        vNodeLink.shortValue = (short)(tempFloat / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(uint))
-                {
-                    if (float.TryParse(tbIn.Text, out tempFloat))
-                        vNodeLink.uintValue = (uint)(tempFloat / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(int))
-                {
-                    if (float.TryParse(tbIn.Text, out tempFloat))
-                        vNodeLink.intValue = (int)(tempFloat / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(float))
-                {
-                    if (float.TryParse(tbIn.Text, out tempFloat))
-                        vNodeLink.floatValue = (tempFloat / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(double))
-                {
-                    double tempDouble;
-                    if (double.TryParse(tbIn.Text, out tempDouble))
-                        vNodeLink.doubleValue = (tempDouble / scalar);
-                }
-
-                if(typeof(imsSerialParamData).IsInstanceOfType(vNodeLink))
-                {
-                    ((imsSerialParamData)(vNodeLink)).packageToSerialData();
-                }
-
-            }
-            public void getValuefromComboBox(ComboBox cbIn)
-            {
-                float tempFloat;
-
-                if (vNodeLink.DataType == typeof(byte))
-                {
-                    vNodeLink.byteValue = (byte)(cbIn.SelectedIndex / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(char))
-                {
-                    vNodeLink.charValue = (char)(cbIn.SelectedIndex / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(ushort))
-                {
-                    vNodeLink.ushortValue = (ushort)(cbIn.SelectedIndex / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(short))
-                {
-                    vNodeLink.shortValue = (short)(cbIn.SelectedIndex / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(uint))
-                {
-                    vNodeLink.uintValue = (uint)(cbIn.SelectedIndex / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(int))
-                {
-                    vNodeLink.intValue = (int)(cbIn.SelectedIndex / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(float))
-                {
-                    vNodeLink.floatValue = (cbIn.SelectedIndex / scalar);
-                }
-                else if (vNodeLink.DataType == typeof(double))
-                {
-                    vNodeLink.doubleValue = (cbIn.SelectedIndex / scalar);
-                }
-
-                if (typeof(imsSerialParamData).IsInstanceOfType(vNodeLink))
-                {
-                    ((imsSerialParamData)(vNodeLink)).packageToSerialData();
-                }
-            }
-        }
-
         protected List<GUIValueLinks> StaticGUILinks = new List<GUIValueLinks>();
+        public List<GUIValueLinks> getStaticGUILinks { get { return StaticGUILinks; } }
         public void addStaticGUILink2SPD(Control GUIFieldIn, string unitsstringin, float scalarin, string formatstringin, bool readOnlyIn)
         {
             StaticGUILinks.Add(new GUIValueLinks(this, GUIFieldIn, unitsstringin, scalarin, formatstringin, readOnlyIn));
         }
-
-
+        
         public void clearStaticGUILinks()
         {
             StaticGUILinks.Clear();
@@ -651,11 +319,11 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             else if (DataType == typeof(double))
             {
                 if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
-                    return (doubleValue * LinkIn.scalar).ToString();//"0x" + (LinkIn.scalar * doubleValue).ToString("X2");
+                    return (setdoubleValue * LinkIn.scalar).ToString();//"0x" + (LinkIn.scalar * doubleValue).ToString("X2");
                 else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
-                    return (doubleValue * LinkIn.scalar).ToString();//string.Concat("0b", (Convert.ToString(((doubleValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                    return (setdoubleValue * LinkIn.scalar).ToString();//string.Concat("0b", (Convert.ToString(((doubleValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
                 else
-                    return (doubleValue * LinkIn.scalar).ToString();
+                    return (setdoubleValue * LinkIn.scalar).ToString();
             }
                 
 
@@ -700,9 +368,56 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
             else if (DataType == typeof(double))
             {
-                return ((int)(doubleValue * LinkIn.scalar));
+                return ((int)(setdoubleValue * LinkIn.scalar));
             }
             return 0;
+        }
+        public double ToPlotDouble(GUIValueLinks LinkIn)
+        {
+            if (DataType == typeof(byte))
+            {
+                return ((byte)(byteValue * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(char))
+            {
+                return ((char)(charValue * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(ushort))
+            {
+                return ((ushort)(ushortValue * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(short))
+            {
+                return ((short)(shortValue * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(uint))
+            {
+                return (int)((uint)(uintValue * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(int))
+            {
+                return ((int)(intValue * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(float))
+            {
+                return ((int)(floatValue * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(double))
+            {
+                return ((int)(setdoubleValue * LinkIn.scalar));
+            }
+            return 0;
+        }
+        public int getLength()
+        {
+            return latchTimes.Count;
         }
 
         /// <summary>
@@ -746,7 +461,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             else
                 throw new Exception("Attempted to instantiate an Un-Supported Value Node Data Type");
 
-            latchTimes = new List<DateTime>();
+            latchTimes = new List<double>();
         }
         /// <summary>
         /// imsValueNode()

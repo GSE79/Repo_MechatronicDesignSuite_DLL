@@ -192,28 +192,34 @@ namespace MechatronicDesignSuite_DLL
         }
         public BackgroundWorker ExtAppBGWorkerLink
         {
-            set {; }
             get { return guiBGWorkers[1]; }
         }
         public Timer GUITimerLink
         {
-            set {; }
             get { return guiTimers[0]; }
         }
 
         public List<BackgroundWorker> BGWorkersList
         {
-            set {; }
             get { return guiBGWorkers; }
         }
         public imsProjectModuleNode ProjModNodeProperty
         {
-            set {; }
             get
             {
                 if (APISysModules != null)
                     if (APISysModules.Count > 2)
                         return (imsProjectModuleNode)APISysModules[2];
+                return null;
+            }
+        }
+        public imsPlotModule PlotModuleProperty
+        {
+            get
+            {
+                if (APISysModules != null)
+                    if (APISysModules.Count > 3)
+                        return (imsPlotModule)APISysModules[3];
                 return null;
             }
         }
@@ -311,6 +317,7 @@ namespace MechatronicDesignSuite_DLL
                     LinkedMDSForm.MainMenuStrip.Items.Add(ExeSysMenuItems);
                     ExeSysMenuItems.DropDownItems.Add("Project Explorer", null, viewProjectExplorerToolStripMenuItem_Click);
                     ExeSysMenuItems.DropDownItems.Add("Exception Log", null, viewExceptionLogToolStripMenuItem_Click);
+                    ExeSysMenuItems.DropDownItems.Add("Open New Plot Pane", null, viewPlotPaneMenuItem_Click);
                     LinkedMDSForm.MainMenuStrip.Parent = LinkedMDSForm;
                     LinkedMDSForm.MainMenuStrip.Visible = true;
                     LinkedMDSForm.MainMenuStrip.Show();
@@ -321,6 +328,7 @@ namespace MechatronicDesignSuite_DLL
                     ((ToolStrip)ctr).Items.Add(ExeSysMenuItems);
                     ExeSysMenuItems.DropDownItems.Add("Project Explorer", null, viewProjectExplorerToolStripMenuItem_Click);
                     ExeSysMenuItems.DropDownItems.Add("Exception Log", null, viewExceptionLogToolStripMenuItem_Click);
+                    ExeSysMenuItems.DropDownItems.Add("Open New Plot Pane", null, viewPlotPaneMenuItem_Click);
                     ((ToolStrip)ctr).Parent = LinkedMDSForm;
                     ((ToolStrip)ctr).Visible = true;
                     ((ToolStrip)ctr).Show();
@@ -334,6 +342,7 @@ namespace MechatronicDesignSuite_DLL
                 LinkedMDSForm.MainMenuStrip.Items.Add(ExeSysMenuItems);
                 ExeSysMenuItems.DropDownItems.Add("Project Explorer", null, viewProjectExplorerToolStripMenuItem_Click);
                 ExeSysMenuItems.DropDownItems.Add("Exception Log", null, viewExceptionLogToolStripMenuItem_Click);
+                ExeSysMenuItems.DropDownItems.Add("Open New Plot Pane", null, viewPlotPaneMenuItem_Click);
                 LinkedMDSForm.MainMenuStrip.Parent = LinkedMDSForm;
                 LinkedMDSForm.MainMenuStrip.Visible = true;
                 LinkedMDSForm.MainMenuStrip.Show();
@@ -675,6 +684,10 @@ namespace MechatronicDesignSuite_DLL
         {
             CallEntryPointFunction(LaunchNewExceptionLog);
         }
+        private void viewPlotPaneMenuItem_Click(object sender, EventArgs e)
+        {
+            CallEntryPointFunction(LaunchNewPlotPane);
+        }
         public int PromptSaveProject2File()
         {
             SaveFileDialog SaveProjectDialog = new SaveFileDialog();
@@ -768,6 +781,12 @@ namespace MechatronicDesignSuite_DLL
             
             return 0;
         }
+        public int LaunchNewPlotPane()
+        {
+            PlotModuleProperty.sysModFormList.Add(new imsPlotPane());
+            (PlotModuleProperty.sysModFormList[PlotModuleProperty.sysModFormList.Count-1]).pCExeSysLink = this;
+            return 0;
+        }
         /// <summary>
         /// InstantiateNewAPIModules()
         /// - This function is called to create a new project in the execution system
@@ -779,6 +798,7 @@ namespace MechatronicDesignSuite_DLL
             APISysModules.Add(new imsPCClocksModule(this, globalNodeList));
             APISysModules.Add(new imsBGThreadManager(this, globalNodeList));
             APISysModules.Add(new imsProjectModuleNode(this, globalNodeList));
+            APISysModules.Add(new imsPlotModule(this, globalNodeList));
 
             activeProjectpath = Path.Combine(Directory.GetCurrentDirectory(),"NewProjectFile.imsprj");
 
@@ -786,9 +806,9 @@ namespace MechatronicDesignSuite_DLL
 
             return 0;
         }
-        public void AddAPIMod2ExeSys(imsCyclicPacketCommSystem commSys2Add)
+        public void AddAPIMod2ExeSys(imsAPISysModule Sys2Add)
         {
-            APISysModules.Add(commSys2Add);
+            APISysModules.Add(Sys2Add);
             CallEntryPointFunction(MainInit);
         }
         private void CloseProject()
