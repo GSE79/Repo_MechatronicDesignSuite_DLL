@@ -33,7 +33,6 @@ namespace MechatronicDesignSuite_DLL
         PCExeSys pcexesys;
 
         List<imsValueNode> plotParamReference = new List<imsValueNode>();
-        public List<double> GlobalTimeArray;
         public double plotWindow = 60;
         double xMax;
         ToolTip PlotToolTip = new ToolTip();
@@ -63,12 +62,52 @@ namespace MechatronicDesignSuite_DLL
           
         }
 
+        public imsPlotPane(TabPage plotTabPage)
+        {
+            InitializeComponent();
+
+            this.splitContainer2.Parent = plotTabPage;
+            this.splitContainer2.Visible = true;
+            Text = "Plot Pane";
+            ZedgraphControl1.GraphPane.Title.IsVisible = false;
+
+            ZedgraphControl1.GraphPane.XAxis.Title.Text = "Time (sec)";
+            ZedgraphControl1.GraphPane.YAxis.Title.Text = "Y1 Axis";
+            ZedgraphControl1.GraphPane.YAxis.MinorGrid.IsVisible = false;
+            ZedgraphControl1.GraphPane.YAxis.MajorGrid.IsVisible = false;
+
+            ZedgraphControl1.GraphPane.Legend.IsVisible = true;
+
+            ZedgraphControl1.GraphPane.Y2Axis.IsVisible = true;
+            ZedgraphControl1.GraphPane.Y2Axis.Title.Text = "Y2 Axis";
+            ZedgraphControl1.GraphPane.Y2Axis.MajorGrid.IsVisible = false;
+            ZedgraphControl1.GraphPane.Y2Axis.MinorGrid.IsVisible = false;
+            this.Visible = false;
+
+            
+
+            
+
+        }
+
         private void ZedgraphControl1_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Link;
         }
         public void DropParam(GUIValueLinks GUIVlinkIN, int axisSelect)
         {
+            // show initial setting for plot window
+            if (treeView1.Nodes[0].Nodes.Count > 0)
+            {
+                treeView1.Nodes[0].Nodes[0].Text = plotWindow.ToString();
+            }
+            else
+            {
+                treeView1.Nodes[0].Nodes.Add(plotWindow.ToString());
+            }
+            
+
+
             // Initialize some temporary variables
             string NodeName = "";
             int totalCount = 0;
@@ -77,7 +116,7 @@ namespace MechatronicDesignSuite_DLL
             NodeName = GUIVlinkIN.vNodeLink.getNodeName;
 
             // Capture total count of nodes in tree
-            totalCount = treeView1.Nodes[0].Nodes.Count + treeView1.Nodes[1].Nodes.Count;
+            totalCount = treeView1.Nodes[1].Nodes.Count + treeView1.Nodes[2].Nodes.Count;
 
             // Limit the total count to 0-8, Limit one of each name key, to prevent duplicates, no exact name matches!!
             // Otherwise, process the drop...
@@ -112,7 +151,7 @@ namespace MechatronicDesignSuite_DLL
                     {
                         treeView1.Nodes[axisSelect].Nodes[treeView1.Nodes[axisSelect].Nodes.Count - 1].ForeColor = c;
                         ZedgraphControl1.GraphPane.AddCurve(NodeName, new PointPairList(), c, SymbolType.None);
-                        if (axisSelect > 0)
+                        if (axisSelect > 1)
                             ZedgraphControl1.GraphPane.CurveList[this.ZedgraphControl1.GraphPane.CurveList.Count - 1].IsY2Axis = true;
                         break;
                     }
@@ -139,19 +178,19 @@ namespace MechatronicDesignSuite_DLL
 
             // Analyze drop location according to window geometry, and select Y1 vs Y2
             if (e == null && sender == null)
-                axisSelect = 0;
+                axisSelect = 1;
             else if (e == null && sender != null)
                 axisSelect = 1;
             else if (e.X == 0 && e.Y == 0)
             {
-                axisSelect = 0;
+                axisSelect = 1;
             }
             else if (e.X == 1 && e.Y == 1)
-                axisSelect = 1;
+                axisSelect = 2;
             else if (e.X <= ZedgraphControl1.ParentForm.Location.X + ZedgraphControl1.Parent.Location.X + ZedgraphControl1.Size.Width / 2)
-                axisSelect = 0;
-            else
                 axisSelect = 1;
+            else
+                axisSelect = 2;
 
             if(((GUIValueLinks)e.Data.GetData(typeof(GUIValueLinks))) != null)
             {
@@ -197,6 +236,7 @@ namespace MechatronicDesignSuite_DLL
 
             if (ZedgraphControl1.GraphPane.CurveList.Count > 0)
             {
+
                 bool onePointAdded = false;
                 int curveIndex = 0;
                 int firstIndex = 0;
@@ -243,7 +283,7 @@ namespace MechatronicDesignSuite_DLL
 
         public void clearPlotValues()
         {
-
+            
             foreach (CurveItem curve in ZedgraphControl1.GraphPane.CurveList)
                 curve.Clear();
 
@@ -270,96 +310,55 @@ namespace MechatronicDesignSuite_DLL
 
         }
 
-        public void setWindowValue(ToolStripTextBox tbox)
-        {
-            Double temp;
-            try
-            {
-                temp = Convert.ToDouble(tbox.Text);
-                if (temp > 0.05 && temp < 86401.05)
-                {
-                    plotWindow = temp;
-                }
-                else
-                    throw new Exception();
-            }
-            catch
-            {
-                MessageBox.Show("Value must be greater than 0.05 second and less than 24 hours (86401.05 sec)", "Invalid Window Input!");
-            }
-            tbox.Text = plotWindow.ToString("0.0");
 
 
-        }
-        public void getWindowValue(ToolStripTextBox tbox)
-        {
-
-            tbox.Text = plotWindow.ToString("0.0");
-
-
-        }
+      
 
         private void PlotPropsTreeView_MouseClick(object sender, MouseEventArgs e)
         {
+            // the curve is tagged with the guivalue link
+            // the node is tagged with the curve
+            // the plotparameterreference it the value node linked by the guivalue link
 
             treeView1.SelectedNode = treeView1.GetNodeAt(e.X, e.Y);
 
             if (e.Button == MouseButtons.Right)
             {
-
-                //if (!((CurveItem)treeView1.SelectedNode.Tag).IsY2Axis)// Y1 Axis
-                //    Y1Units.Remove(((SerialParameterData)(((CurveItem)treeView1.SelectedNode.Tag).Tag)).SPDParamInputs.units);
-                //else// Y2 Axis
-                //    Y2Units.Remove(((SerialParameterData)(((CurveItem)treeView1.SelectedNode.Tag).Tag)).SPDParamInputs.units);
-
-                //plotParamReference.Remove(((SerialParameterData)(((CurveItem)treeView1.SelectedNode.Tag).Tag)));
-                //ZedgraphControl1.GraphPane.CurveList.Remove(((CurveItem)treeView1.SelectedNode.Tag));
-                treeView1.Nodes.Remove(treeView1.SelectedNode);
-
-                treeView1.ExpandAll();
-
-
-
-
-
-                // Update Y axis titles with units from serial parameters
-                ZedgraphControl1.GraphPane.YAxis.Title.Text = "Y1 ";
-                ZedgraphControl1.GraphPane.Y2Axis.Title.Text = "Y2 ";
-                if (ZedgraphControl1.GraphPane.CurveList.Count > 0)
-                    foreach (CurveItem CI in ZedgraphControl1.GraphPane.CurveList)
-                    {
-                        //if (!CI.IsY2Axis)// Y1 Axis
-                        //{
-                        //    if (!Y1Units.Contains(((SerialParameterData)CI.Tag).SPDParamInputs.units))
-                        //        Y1Units.Add(((SerialParameterData)CI.Tag).SPDParamInputs.units);
-                        //}
-                        //else // Y2 Axis
-                        //{
-                        //    if (!Y2Units.Contains(((SerialParameterData)CI.Tag).SPDParamInputs.units))
-                        //        Y2Units.Add(((SerialParameterData)CI.Tag).SPDParamInputs.units);
-                        //}
-                    }
-                else
+                if(treeView1.SelectedNode.Parent != null && treeView1.SelectedNode != treeView1.Nodes[0].Nodes[0])
                 {
-                    Y1Units.Clear();
-                    Y2Units.Clear();
-                }
-                foreach (string str in Y1Units)
-                    ZedgraphControl1.GraphPane.YAxis.Title.Text += (str + " ");
-                foreach (string str in Y2Units)
-                    ZedgraphControl1.GraphPane.Y2Axis.Title.Text += (str + " ");
+                    if (!((CurveItem)treeView1.SelectedNode.Tag).IsY2Axis)// Y1 Axis
+                        Y1Units.Remove(((GUIValueLinks)(((CurveItem)treeView1.SelectedNode.Tag).Tag)).UnitsString);
+                    else// Y2 Axis
+                        Y2Units.Remove(((GUIValueLinks)(((CurveItem)treeView1.SelectedNode.Tag).Tag)).UnitsString);
 
-                ZedgraphControl1.Refresh();
+                    plotParamReference.Remove((((GUIValueLinks)(((CurveItem)treeView1.SelectedNode.Tag).Tag)).vNodeLink));
+                    ZedgraphControl1.GraphPane.CurveList.Remove(((CurveItem)treeView1.SelectedNode.Tag));
+                    treeView1.Nodes.Remove(treeView1.SelectedNode);
+
+                    treeView1.ExpandAll();
+
+                    // Update Y axis titles with units from serial parameters
+                    updateAxisUnitsText();
+
+                    ZedgraphControl1.Refresh();
+                }
+                //else if(treeView1.SelectedNode == treeView1.Nodes[0].Nodes[0])
+                //{
+                //    treeView1.SelectedNode.BeginEdit();
+                    
+                //}
             }
             if (e.Button == MouseButtons.Left)
             {
-
-                foreach (LineItem curve in this.ZedgraphControl1.GraphPane.CurveList)
+                if (treeView1.SelectedNode.Parent != null && treeView1.SelectedNode != treeView1.Nodes[0].Nodes[0])
                 {
-                    curve.Line.Width = 1.0F;
+                    foreach (LineItem curve in this.ZedgraphControl1.GraphPane.CurveList)
+                    {
+                        curve.Line.Width = 1.0F;
+                    }
+                    if (((LineItem)(treeView1.SelectedNode.Tag)) != null)
+                        ((LineItem)(treeView1.SelectedNode.Tag)).Line.Width = 3.0F;
                 }
-                if (((LineItem)(treeView1.SelectedNode.Tag)) != null)
-                    ((LineItem)(treeView1.SelectedNode.Tag)).Line.Width = 2.0F;
             }
         }
 
@@ -376,6 +375,57 @@ namespace MechatronicDesignSuite_DLL
                 theseBytes += ((ulong)curve.Points.Count * 16);
 
             return theseBytes;
+
+        }
+
+        private void imsPlotPane_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            pCExeSysLink.PlotModuleProperty.sysModFormList.Remove(this);
+        }
+
+        private void ZedgraphControl1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
+        private void treeView1_BeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            if (e.Node != treeView1.Nodes[0].Nodes[0])
+                e.CancelEdit = true;
+            
+        }
+
+        private void treeView1_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            double tempD;
+            if (double.TryParse(e.Label, out tempD))
+            {
+                if (tempD > 0)
+                {
+                    plotWindow = tempD;
+                    // show initial setting for plot window
+                    if (treeView1.Nodes[0].Nodes.Count > 0)
+                    {
+                        treeView1.Nodes[0].Nodes[0].Text = plotWindow.ToString();
+                    }
+                    else
+                    {
+                        treeView1.Nodes[0].Nodes.Add(plotWindow.ToString());
+                    }
+                    //updateAxisUnitsText();
+                    return;
+                }
+                else
+                    e.CancelEdit = true;
+            }
+            else
+                e.CancelEdit = true;
+
+
+            
+
+
 
         }
     }

@@ -376,42 +376,42 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
             if (DataType == typeof(byte))
             {
-                return ((byte)(byteValue * LinkIn.scalar));
+                return (((double)byteValue * LinkIn.scalar));
             }
 
             else if (DataType == typeof(char))
             {
-                return ((char)(charValue * LinkIn.scalar));
+                return (((double)charValue * LinkIn.scalar));
             }
 
             else if (DataType == typeof(ushort))
             {
-                return ((ushort)(ushortValue * LinkIn.scalar));
+                return (((double)ushortValue * LinkIn.scalar));
             }
 
             else if (DataType == typeof(short))
             {
-                return ((short)(shortValue * LinkIn.scalar));
+                return (((double)shortValue * LinkIn.scalar));
             }
 
             else if (DataType == typeof(uint))
             {
-                return (int)((uint)(uintValue * LinkIn.scalar));
+                return (((double)uintValue * LinkIn.scalar));
             }
 
             else if (DataType == typeof(int))
             {
-                return ((int)(intValue * LinkIn.scalar));
+                return (((double)intValue * LinkIn.scalar));
             }
 
             else if (DataType == typeof(float))
             {
-                return ((int)(floatValue * LinkIn.scalar));
+                return (((double)floatValue * LinkIn.scalar));
             }
 
             else if (DataType == typeof(double))
             {
-                return ((int)(setdoubleValue * LinkIn.scalar));
+                return ((setdoubleValue * LinkIn.scalar));
             }
             return 0;
         }

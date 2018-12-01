@@ -32,14 +32,15 @@ namespace MechatronicDesignSuite_DLL
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Y Axis 1 (Left)");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Y Axis 2 (Right)");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Plot Window (sec)");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Y Axis 1 (Left)");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Y Axis 2 (Right)");
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.ZedgraphControl1 = new ZedGraph.ZedGraphControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.ZedgraphControl1 = new ZedGraph.ZedGraphControl();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -69,29 +70,6 @@ namespace MechatronicDesignSuite_DLL
             this.splitContainer2.SplitterWidth = 10;
             this.splitContainer2.TabIndex = 1;
             // 
-            // ZedgraphControl1
-            // 
-            this.ZedgraphControl1.AllowDrop = true;
-            this.ZedgraphControl1.BackColor = System.Drawing.Color.Silver;
-            this.ZedgraphControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ZedgraphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ZedgraphControl1.IsShowHScrollBar = true;
-            this.ZedgraphControl1.Location = new System.Drawing.Point(0, 0);
-            this.ZedgraphControl1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.ZedgraphControl1.Name = "ZedgraphControl1";
-            this.ZedgraphControl1.ScrollGrace = 0D;
-            this.ZedgraphControl1.ScrollMaxX = 0D;
-            this.ZedgraphControl1.ScrollMaxY = 0D;
-            this.ZedgraphControl1.ScrollMaxY2 = 0D;
-            this.ZedgraphControl1.ScrollMinX = 0D;
-            this.ZedgraphControl1.ScrollMinY = 0D;
-            this.ZedgraphControl1.ScrollMinY2 = 0D;
-            this.ZedgraphControl1.Size = new System.Drawing.Size(885, 432);
-            this.ZedgraphControl1.TabIndex = 3;
-            this.ZedgraphControl1.DragDrop += new System.Windows.Forms.DragEventHandler(this.ZedgraphControl1_DragDrop);
-            this.ZedgraphControl1.DragEnter += new System.Windows.Forms.DragEventHandler(this.ZedgraphControl1_DragEnter);
-            this.ZedgraphControl1.MouseHover += new System.EventHandler(this.ZedgraphControl1_MouseHover);
-            // 
             // tabControl1
             // 
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Right;
@@ -116,6 +94,30 @@ namespace MechatronicDesignSuite_DLL
             this.tabPage1.Text = "Plot Signals";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.LabelEdit = true;
+            this.treeView1.Location = new System.Drawing.Point(3, 3);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "Node0";
+            treeNode1.Text = "Plot Window (sec)";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "Y Axis 1 (Left)";
+            treeNode3.Name = "Node1";
+            treeNode3.Text = "Y Axis 2 (Right)";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            this.treeView1.ShowNodeToolTips = true;
+            this.treeView1.Size = new System.Drawing.Size(196, 418);
+            this.treeView1.TabIndex = 2;
+            this.treeView1.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeView1_BeforeLabelEdit);
+            this.treeView1.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeView1_AfterLabelEdit);
+            this.treeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PlotPropsTreeView_MouseClick);
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 4);
@@ -126,22 +128,29 @@ namespace MechatronicDesignSuite_DLL
             this.tabPage2.Text = "Available Signals";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // treeView1
+            // ZedgraphControl1
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(3, 3);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "Y Axis 1 (Left)";
-            treeNode2.Name = "Node1";
-            treeNode2.Text = "Y Axis 2 (Right)";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            this.treeView1.ShowNodeToolTips = true;
-            this.treeView1.Size = new System.Drawing.Size(196, 418);
-            this.treeView1.TabIndex = 2;
+            this.ZedgraphControl1.AllowDrop = true;
+            this.ZedgraphControl1.BackColor = System.Drawing.Color.Silver;
+            this.ZedgraphControl1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ZedgraphControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ZedgraphControl1.IsShowHScrollBar = true;
+            this.ZedgraphControl1.Location = new System.Drawing.Point(0, 0);
+            this.ZedgraphControl1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.ZedgraphControl1.Name = "ZedgraphControl1";
+            this.ZedgraphControl1.ScrollGrace = 0D;
+            this.ZedgraphControl1.ScrollMaxX = 0D;
+            this.ZedgraphControl1.ScrollMaxY = 0D;
+            this.ZedgraphControl1.ScrollMaxY2 = 0D;
+            this.ZedgraphControl1.ScrollMinX = 0D;
+            this.ZedgraphControl1.ScrollMinY = 0D;
+            this.ZedgraphControl1.ScrollMinY2 = 0D;
+            this.ZedgraphControl1.Size = new System.Drawing.Size(885, 432);
+            this.ZedgraphControl1.TabIndex = 3;
+            this.ZedgraphControl1.Load += new System.EventHandler(this.ZedgraphControl1_Load);
+            this.ZedgraphControl1.DragDrop += new System.Windows.Forms.DragEventHandler(this.ZedgraphControl1_DragDrop);
+            this.ZedgraphControl1.DragEnter += new System.Windows.Forms.DragEventHandler(this.ZedgraphControl1_DragEnter);
+            this.ZedgraphControl1.MouseHover += new System.EventHandler(this.ZedgraphControl1_MouseHover);
             // 
             // imsPlotPane
             // 
@@ -149,11 +158,12 @@ namespace MechatronicDesignSuite_DLL
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 434);
             this.Controls.Add(this.splitContainer2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "imsPlotPane";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Form2";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.imsPlotPane_FormClosing);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();

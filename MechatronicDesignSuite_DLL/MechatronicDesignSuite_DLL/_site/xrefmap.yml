@@ -3083,6 +3083,12 @@ references:
   commentId: M:MechatronicDesignSuite_DLL.imsPlotPane.#ctor
   fullName: MechatronicDesignSuite_DLL.imsPlotPane.imsPlotPane()
   nameWithType: imsPlotPane.imsPlotPane()
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.#ctor(System.Windows.Forms.TabPage)
+  name: imsPlotPane(TabPage)
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane__ctor_System_Windows_Forms_TabPage_
+  commentId: M:MechatronicDesignSuite_DLL.imsPlotPane.#ctor(System.Windows.Forms.TabPage)
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.imsPlotPane(System.Windows.Forms.TabPage)
+  nameWithType: imsPlotPane.imsPlotPane(TabPage)
 - uid: MechatronicDesignSuite_DLL.imsPlotPane.#ctor*
   name: imsPlotPane
   href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane__ctor_
@@ -3155,25 +3161,6 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.imsPlotPane.getBytes
   nameWithType: imsPlotPane.getBytes
-- uid: MechatronicDesignSuite_DLL.imsPlotPane.getWindowValue(System.Windows.Forms.ToolStripTextBox)
-  name: getWindowValue(ToolStripTextBox)
-  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_getWindowValue_System_Windows_Forms_ToolStripTextBox_
-  commentId: M:MechatronicDesignSuite_DLL.imsPlotPane.getWindowValue(System.Windows.Forms.ToolStripTextBox)
-  fullName: MechatronicDesignSuite_DLL.imsPlotPane.getWindowValue(System.Windows.Forms.ToolStripTextBox)
-  nameWithType: imsPlotPane.getWindowValue(ToolStripTextBox)
-- uid: MechatronicDesignSuite_DLL.imsPlotPane.getWindowValue*
-  name: getWindowValue
-  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_getWindowValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.imsPlotPane.getWindowValue
-  isSpec: "True"
-  fullName: MechatronicDesignSuite_DLL.imsPlotPane.getWindowValue
-  nameWithType: imsPlotPane.getWindowValue
-- uid: MechatronicDesignSuite_DLL.imsPlotPane.GlobalTimeArray
-  name: GlobalTimeArray
-  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_GlobalTimeArray
-  commentId: F:MechatronicDesignSuite_DLL.imsPlotPane.GlobalTimeArray
-  fullName: MechatronicDesignSuite_DLL.imsPlotPane.GlobalTimeArray
-  nameWithType: imsPlotPane.GlobalTimeArray
 - uid: MechatronicDesignSuite_DLL.imsPlotPane.pCExeSysLink
   name: pCExeSysLink
   href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_pCExeSysLink
@@ -3206,19 +3193,6 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.imsPlotPane.plotWindow
   fullName: MechatronicDesignSuite_DLL.imsPlotPane.plotWindow
   nameWithType: imsPlotPane.plotWindow
-- uid: MechatronicDesignSuite_DLL.imsPlotPane.setWindowValue(System.Windows.Forms.ToolStripTextBox)
-  name: setWindowValue(ToolStripTextBox)
-  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_setWindowValue_System_Windows_Forms_ToolStripTextBox_
-  commentId: M:MechatronicDesignSuite_DLL.imsPlotPane.setWindowValue(System.Windows.Forms.ToolStripTextBox)
-  fullName: MechatronicDesignSuite_DLL.imsPlotPane.setWindowValue(System.Windows.Forms.ToolStripTextBox)
-  nameWithType: imsPlotPane.setWindowValue(ToolStripTextBox)
-- uid: MechatronicDesignSuite_DLL.imsPlotPane.setWindowValue*
-  name: setWindowValue
-  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_setWindowValue_
-  commentId: Overload:MechatronicDesignSuite_DLL.imsPlotPane.setWindowValue
-  isSpec: "True"
-  fullName: MechatronicDesignSuite_DLL.imsPlotPane.setWindowValue
-  nameWithType: imsPlotPane.setWindowValue
 - uid: MechatronicDesignSuite_DLL.imsPlotPane.ZedgraphControl1
   name: ZedgraphControl1
   href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_ZedgraphControl1
