@@ -83,11 +83,6 @@ namespace MechatronicDesignSuite_DLL
             ZedgraphControl1.GraphPane.Y2Axis.MajorGrid.IsVisible = false;
             ZedgraphControl1.GraphPane.Y2Axis.MinorGrid.IsVisible = false;
             this.Visible = false;
-
-            
-
-            
-
         }
 
         private void ZedgraphControl1_DragEnter(object sender, DragEventArgs e)

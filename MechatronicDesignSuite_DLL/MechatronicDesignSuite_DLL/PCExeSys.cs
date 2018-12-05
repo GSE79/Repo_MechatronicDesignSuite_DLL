@@ -517,7 +517,7 @@ namespace MechatronicDesignSuite_DLL
                     ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "CallbackFunction";
 
                 LinkedMDSForm.BeginInvoke(new Action(() => {
-                    DialogResult dsults =  MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception");
+                    DialogResult dsults =  MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception", MessageBoxButtons.OKCancel);
                     if(dsults == DialogResult.OK)
                     {
                         if (EntryPoint == MainLoop && !EnableMainLoop)

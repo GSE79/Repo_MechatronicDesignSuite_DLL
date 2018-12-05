@@ -765,6 +765,19 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.mainLoopCounter
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.mainLoopCounter
   nameWithType: imsCyclicPacketCommSystem.mainLoopCounter
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ParsePacketData
+  name: ParsePacketData()
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_ParsePacketData
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ParsePacketData
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ParsePacketData()
+  nameWithType: imsCyclicPacketCommSystem.ParsePacketData()
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ParsePacketData*
+  name: ParsePacketData
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_ParsePacketData_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ParsePacketData
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ParsePacketData
+  nameWithType: imsCyclicPacketCommSystem.ParsePacketData
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ReadSerialData
   name: ReadSerialData()
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_ReadSerialData

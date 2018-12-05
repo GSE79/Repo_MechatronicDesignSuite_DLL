@@ -143,42 +143,49 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
 
 
-            if(RxPacketBuffer.Count > 0 && RxPacketTimes.Count > 0)
-            {
-                RxPackBufferLocked = true;
-                for (RxPckIndx = 0; RxPckIndx < RxPacketBuffer.Count; RxPckIndx++)
-                {
-                    // 1) mark rxbuffered bytes as "for removal/disposal"
-                    // 2) transfer bytes stripped of header from rxbufferred to new shorter byte []
+            //if(RxPacketBuffer.Count > 0 && RxPacketTimes.Count > 0)
+            //{
+            //    RxPackBufferLocked = true;
+            //    for (RxPckIndx = 0; RxPckIndx < RxPacketBuffer.Count; RxPckIndx++)
+            //    {
+            //        // 1) mark rxbuffered bytes as "for removal/disposal"
+            //        // 2) transfer bytes stripped of header from rxbufferred to new shorter byte []
 
-                    if (RxPacketBuffer[RxPckIndx].Length > 3)
-                    {
-                        // ***needs to work with variable header data sizes*** //
-                        if (RxPacketBuffer[RxPckIndx][0] != 0xff || RxPacketBuffer[RxPckIndx][1] != 0xff ||
-                            RxPacketBuffer[RxPckIndx][2] != 0xff || RxPacketBuffer[RxPckIndx][3] != 0xff)
-                        {
-                            // ***needs to work with variable header data sizes*** //
-                            RxPacketBuffer[RxPckIndx][0] = 0xff;
-                            RxPacketBuffer[RxPckIndx][1] = 0xff;
-                            RxPacketBuffer[RxPckIndx][2] = 0xff;
-                            RxPacketBuffer[RxPckIndx][3] = 0xff;
+            //        if (RxPacketBuffer[RxPckIndx].Length > 3)
+            //        {
+            //            // ***needs to work with variable header data sizes*** //
+            //            if (RxPacketBuffer[RxPckIndx][0] != 0xff || RxPacketBuffer[RxPckIndx][1] != 0xff ||
+            //                RxPacketBuffer[RxPckIndx][2] != 0xff || RxPacketBuffer[RxPckIndx][3] != 0xff)
+            //            {
+            //                byte tempIDIndex = RxPacketBuffer[RxPckIndx][0]; 
+                            
 
-                            if (ParsePckIndx > -1 && ParsePckIndx < RxPacketBuffer[RxPckIndx].Length)
-                            {
-                                List<byte> tempBytes = new List<byte>(RxPacketBuffer[RxPckIndx]);
+            //                // ***needs to work with variable header data sizes*** //
+            //                RxPacketBuffer[RxPckIndx][0] = 0xff;
+            //                RxPacketBuffer[RxPckIndx][1] = 0xff;
+            //                RxPacketBuffer[RxPckIndx][2] = 0xff;
+            //                RxPacketBuffer[RxPckIndx][3] = 0xff;
 
-                                // ***needs to work with variable header data sizes*** //
-                                tempBytes.RemoveRange(0, 4);
+            //                ParsePckIndx = StaticSPDPackets.FindIndex(x => x.PackID == tempIDIndex);
 
-                                // header should be stripped, spd data only, no header bytes
-                                StaticSPDPackets[ParsePckIndx].ParsePacket(tempBytes.ToArray(), LogData, RxPacketTimes[RxPckIndx]);
+            //                if (ParsePckIndx > -1 && ParsePckIndx < RxPacketBuffer[RxPckIndx].Length)
+            //                {
+            //                    List<byte> tempBytes = new List<byte>(RxPacketBuffer[RxPckIndx]);
 
-                            }
-                        }
-                    }
-                }
-                RxPackBufferLocked = false;
-            }
+            //                    // ***needs to work with variable header data sizes*** //
+            //                    tempBytes.RemoveRange(0, 4);
+
+            //                    // header should be stripped, spd data only, no header bytes
+            //                    StaticSPDPackets[ParsePckIndx].ParsePacket(tempBytes.ToArray(), LogData, RxPacketTimes[RxPckIndx]);
+
+            //                }
+            //            }
+            //        }
+            //    }
+            //    RxPackBufferLocked = false;
+            //}
+
+
             if(DeviceConnected && !devConnectedHistory)
             {
                 // Build Static Packets on Connection?
@@ -193,6 +200,30 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             devConnectedHistory = DeviceConnected;
             UpdateStaticGUILinks();
         }
+        protected virtual void ParsePacketData()
+        {
+            for (RxPckIndx = 0; RxPckIndx < RxPacketBuffer.Count; RxPckIndx++)
+            {
+                if (RxPacketBuffer[RxPckIndx].Length > 3)
+                {
+                    ParsePckIndx = StaticSPDPackets.FindIndex(x => x.PackID == RxPacketBuffer[RxPckIndx][0]);
+
+                    if (ParsePckIndx > -1 && ParsePckIndx < RxPacketBuffer[RxPckIndx].Length)
+                    {
+                        List<byte> tempBytes = new List<byte>(RxPacketBuffer[RxPckIndx]);
+
+                        // ***needs to work with variable header data sizes*** //
+                        tempBytes.RemoveRange(0, 4);
+
+                        // header should be stripped, spd data only, no header bytes
+                        StaticSPDPackets[ParsePckIndx].ParsePacket(tempBytes.ToArray(), LogData, RxPacketTimes[RxPckIndx]);
+
+                    }
+                }
+            }
+            RxPacketBuffer.Clear();
+            setRxPacketTimes.Clear();
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -200,31 +231,31 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
             while (DeviceConnected)
             {
-                if (RxPacketBuffer.Count > 0 && (CommLoopCounter % 10 == 0) && !RxPackBufferLocked)
-                {
-                    bool finishedRemovals = false;
-                    int firstindextoRemove = -1;
-                    int secondindextoRemove = -1;
-                    while (RxPacketBuffer.Count > 0 && !finishedRemovals)
-                    {
-                        firstindextoRemove = RxPacketBuffer.FindIndex(x => x.Length < 4);
-                        if(firstindextoRemove > -1)
-                        {
-                            RxPacketBuffer.RemoveAt(firstindextoRemove);
-                            RxPacketTimes.RemoveAt(firstindextoRemove);
-                        }
+                //if (RxPacketBuffer.Count > 0 && (CommLoopCounter % 10 == 0) && !RxPackBufferLocked)
+                //{
+                //    bool finishedRemovals = false;
+                //    int firstindextoRemove = -1;
+                //    int secondindextoRemove = -1;
+                //    while (RxPacketBuffer.Count > 0 && !finishedRemovals)
+                //    {
+                //        firstindextoRemove = RxPacketBuffer.FindIndex(x => x.Length < 4);
+                //        if(firstindextoRemove > -1)
+                //        {
+                //            RxPacketBuffer.RemoveAt(firstindextoRemove);
+                //            RxPacketTimes.RemoveAt(firstindextoRemove);
+                //        }
 
-                        secondindextoRemove = RxPacketBuffer.FindIndex(x => (x[0] == 0xff && x[1] == 0xff && x[2] == 0xff && x[3] == 0xff));
-                        if (secondindextoRemove > -1)
-                        {
-                            RxPacketBuffer.RemoveAt(secondindextoRemove);
-                            RxPacketTimes.RemoveAt(secondindextoRemove);
-                        }
+                //        secondindextoRemove = RxPacketBuffer.FindIndex(x => (x[0] == 0xff && x[1] == 0xff && x[2] == 0xff && x[3] == 0xff));
+                //        if (secondindextoRemove > -1)
+                //        {
+                //            RxPacketBuffer.RemoveAt(secondindextoRemove);
+                //            RxPacketTimes.RemoveAt(secondindextoRemove);
+                //        }
 
-                        if (firstindextoRemove == -1 && secondindextoRemove == -1)
-                            finishedRemovals = true;
-                    }
-                }
+                //        if (firstindextoRemove == -1 && secondindextoRemove == -1)
+                //            finishedRemovals = true;
+                //    }
+                //}
 
                 if (WriteFirst)
                 {
@@ -239,6 +270,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                     // Read
                     ReadSerialData();
 
+                    // Parse New Data
+                    ParsePacketData();
+
                 }
                 else
                 {
@@ -246,6 +280,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
                     // Read
                     ReadSerialData();
+
+                    // Parse New Data
+                    ParsePacketData();
 
                     // Tx Packet Selection
                     TxPacketSelection();
@@ -328,7 +365,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                     List<byte> tempBuffer = new List<byte>();
 
                     tempBuffer.AddRange(txHeaderIn.HDR2ByteArray());
-                    tempBuffer.AddRange(SerialDataOut_in);
+                    if(SerialDataOut_in!=null)
+                        if(SerialDataOut_in.Count>0)
+                            tempBuffer.AddRange(SerialDataOut_in);
 
                     TxPacketQueue.Add(tempBuffer.ToArray());
                 }
