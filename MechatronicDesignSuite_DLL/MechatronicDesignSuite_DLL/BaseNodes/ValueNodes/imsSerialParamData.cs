@@ -76,10 +76,21 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
             if (DataType == typeof(char))
             {
-                charValue = (char)SerialDataIn[0];// BitConverter.ToChar(SerialDataIn.ToArray(), 0);
 
-                if (logDataFlag)
-                    charValues.Add(charValue);
+                if (ArrayLength > 1)
+                {
+                    charValues.Clear();
+                    foreach (byte b in SerialDataIn)
+                        charValues.Add((char)b);
+                    charValue = charValues[charValues.Count-1];
+                }
+                else
+                {
+                    charValue = (char)SerialDataIn[0];// BitConverter.ToChar(SerialDataIn.ToArray(), 0);
+
+                    if (logDataFlag)
+                        charValues.Add(charValue);
+                }                   
             }
             else if (DataType == typeof(byte))
             {
@@ -146,9 +157,18 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
             else if (DataType == typeof(char))
             {
-                SerialDataOut = (BitConverter.GetBytes(charValue)).ToList();
-                while (SerialDataOut.Count > 1)
-                    SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+                if(ArrayLength>1)
+                {
+                    foreach (char c in charValues)
+                        SerialDataOut.Add((byte)c);
+                }
+                else
+                {
+                    SerialDataOut = (BitConverter.GetBytes(charValue)).ToList();
+                    while (SerialDataOut.Count > 1)
+                        SerialDataOut.RemoveAt(SerialDataOut.Count - 1);
+                }
+                
             }
             else if (DataType == typeof(ushort))
             {

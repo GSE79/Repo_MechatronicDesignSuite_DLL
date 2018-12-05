@@ -236,6 +236,7 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
                         " ", UnitsString,
                         "\n  GuiFeild: ", StaticLinkedGUIField.Name,
                         "\n  DataType: ", vNodeLink.getDataType.ToString(),
+                        "\n  ArrayLength: ", vNodeLink.getArrayLength.ToString(),
                         "\n  Size: ", vNodeLink.getDataSize.ToString(), " (bytes)",
                         "\n  Scalar: ", scalar.ToString(),
                         "\n  Format String: ", formatstring);
@@ -284,11 +285,20 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
             }
             else if (vNodeLink.getDataType == typeof(char))
             {
-                char tempChar;
-                if (char.TryParse(tbIn.Text, out tempChar))
-                    vNodeLink.setcharValue = (char)(tempChar / scalar);
-                else if (float.TryParse(tbIn.Text, out tempFloat))
-                    vNodeLink.setcharValue = (char)(tempFloat / scalar);
+                if(vNodeLink.getArrayLength>1)
+                {
+                    vNodeLink.getcharValues.Clear();
+                    foreach (char c in tbIn.Text)
+                        vNodeLink.getcharValues.Add(c);
+                }
+                else
+                {
+                    char tempChar;
+                    if (char.TryParse(tbIn.Text, out tempChar))
+                        vNodeLink.setcharValue = (char)(tempChar / scalar);
+                    else if (float.TryParse(tbIn.Text, out tempFloat))
+                        vNodeLink.setcharValue = (char)(tempFloat / scalar);
+                }
             }
             else if (vNodeLink.getDataType == typeof(ushort))
             {

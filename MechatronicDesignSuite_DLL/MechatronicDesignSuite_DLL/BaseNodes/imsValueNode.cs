@@ -258,12 +258,23 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 
             else if (DataType == typeof(char))
             {
-                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
-                    return "0x" + ((byte)(LinkIn.scalar*charValue)).ToString("X2");
-                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
-                    return string.Concat("0b", (Convert.ToString(((char)(charValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                if(ArrayLength>1)
+                {
+                    string outString = "";
+                    foreach (char c in charValues)
+                        outString = string.Concat(outString, c);
+                    return outString;
+                }
                 else
-                    return ((char)(charValue * LinkIn.scalar)).ToString();
+                {
+                    if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                        return "0x" + ((byte)(LinkIn.scalar * charValue)).ToString("X2");
+                    else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                        return string.Concat("0b", (Convert.ToString(((char)(charValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                    else
+                        return ((char)(charValue * LinkIn.scalar)).ToString();
+                }
+                
             }
                 
             else if (DataType == typeof(ushort))
@@ -437,7 +448,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             //FileStream deSerializeFs = new FileStream();
             //BinaryFormatter DeSerializeFormatter = new BinaryFormatter();
 
-            if (ArrayLength <= 0)
+            if (ArrayLength < 2)
                 DataSize = (Marshal.SizeOf(DataTypeIn));
             else
                 DataSize = ArrayLength *  (Marshal.SizeOf(DataTypeIn));
