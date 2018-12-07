@@ -19,6 +19,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         [Category("Plot Module System"), Description("Modulo value of MainLoop() cycles on which to trigger plot updates")]
         public uint PlotUpdateModulo {get{ return plotUpdateModulo;} set { plotUpdateModulo = value; } }
         uint plotUpdateModulo = 10;
+        
         uint mainLoopModuloCounter = 0;
         public override void MainLoop()
         {

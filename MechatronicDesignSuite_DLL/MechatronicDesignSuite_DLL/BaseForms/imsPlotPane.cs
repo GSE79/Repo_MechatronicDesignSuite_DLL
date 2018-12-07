@@ -32,6 +32,7 @@ namespace MechatronicDesignSuite_DLL
         }
         PCExeSys pcexesys;
 
+        public List<imsValueNode> getPlotParamRefs {get{ return plotParamReference; } }
         List<imsValueNode> plotParamReference = new List<imsValueNode>();
         public double plotWindow = 60;
         double xMax;

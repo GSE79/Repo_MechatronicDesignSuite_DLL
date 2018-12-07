@@ -521,6 +521,22 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.AddTxPack2TXQueue
   nameWithType: imsCyclicPacketCommSystem.AddTxPack2TXQueue
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic(MechatronicDesignSuite_DLL.BaseTypes.SerialParameterPacketHeader,System.Collections.Generic.List{System.Byte})
+  name: AddTxPack2TXQueueNoStatic(SerialParameterPacketHeader, List<Byte>)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_AddTxPack2TXQueueNoStatic_MechatronicDesignSuite_DLL_BaseTypes_SerialParameterPacketHeader_System_Collections_Generic_List_System_Byte__
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic(MechatronicDesignSuite_DLL.BaseTypes.SerialParameterPacketHeader,System.Collections.Generic.List{System.Byte})
+  name.vb: AddTxPack2TXQueueNoStatic(SerialParameterPacketHeader, List(Of Byte))
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic(MechatronicDesignSuite_DLL.BaseTypes.SerialParameterPacketHeader, System.Collections.Generic.List<System.Byte>)
+  fullName.vb: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic(MechatronicDesignSuite_DLL.BaseTypes.SerialParameterPacketHeader, System.Collections.Generic.List(Of System.Byte))
+  nameWithType: imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic(SerialParameterPacketHeader, List<Byte>)
+  nameWithType.vb: imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic(SerialParameterPacketHeader, List(Of Byte))
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic*
+  name: AddTxPack2TXQueueNoStatic
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_AddTxPack2TXQueueNoStatic_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic
+  nameWithType: imsCyclicPacketCommSystem.AddTxPack2TXQueueNoStatic
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.BuildStaticPackets
   name: BuildStaticPackets()
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_BuildStaticPackets
@@ -3174,6 +3190,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.imsPlotPane.getBytes
   nameWithType: imsPlotPane.getBytes
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.getPlotParamRefs
+  name: getPlotParamRefs
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_getPlotParamRefs
+  commentId: P:MechatronicDesignSuite_DLL.imsPlotPane.getPlotParamRefs
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.getPlotParamRefs
+  nameWithType: imsPlotPane.getPlotParamRefs
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.getPlotParamRefs*
+  name: getPlotParamRefs
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_getPlotParamRefs_
+  commentId: Overload:MechatronicDesignSuite_DLL.imsPlotPane.getPlotParamRefs
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.getPlotParamRefs
+  nameWithType: imsPlotPane.getPlotParamRefs
 - uid: MechatronicDesignSuite_DLL.imsPlotPane.pCExeSysLink
   name: pCExeSysLink
   href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_pCExeSysLink

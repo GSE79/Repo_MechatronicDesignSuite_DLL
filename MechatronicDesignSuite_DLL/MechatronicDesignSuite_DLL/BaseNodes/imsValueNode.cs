@@ -244,8 +244,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
             return NodeName + " " + LinkIn.UnitsString;
         }
+
         public string ToValueString(GUIValueLinks LinkIn)
         {
+            int i;
             if (DataType == typeof(byte))
             {
                 if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
@@ -260,9 +262,12 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             {
                 if(ArrayLength>1)
                 {
+                    List<char> tempStringChars = new List<char>();
+                    tempStringChars.AddRange(charValues);
                     string outString = "";
-                    foreach (char c in charValues)
-                        outString = string.Concat(outString, c);
+                    for(i=0; i< tempStringChars.Count; i++)
+                        outString = string.Concat(outString, tempStringChars[i]);
+                        
                     return outString;
                 }
                 else

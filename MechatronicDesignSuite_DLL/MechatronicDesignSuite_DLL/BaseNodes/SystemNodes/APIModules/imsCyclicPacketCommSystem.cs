@@ -81,7 +81,17 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
         public bool getLogData { get { return LogData; } }
         [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
-        public bool setLogData { set { LogData = value; } get { return LogData; } }
+        public bool setLogData {
+            set {
+
+                if(value && !LogData)
+                {
+                    if (RxPacketTimes.Count == 0)
+                        timeAtStartLogging = DateTime.Now;
+                }
+
+                LogData = value; }
+            get { return LogData; } }
 
         protected bool ClearLoggedData = false;
         [Category("Cyclic Packet Comms System "), Description("trigger to clear all logged data from RAM buffers")]
@@ -101,7 +111,6 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
         public DateTime TimeAtStartLogging { get {return timeAtStartLogging; } }
         DateTime timeAtStartLogging;
-
         #region System Feilds (not exposed to property grid/explorer)
         int RxPckIndx, ParsePckIndx, ClearPckIdx;
         bool devConnectedHistory = false;
@@ -141,57 +150,14 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 }
                 ClearLoggedData = false;
             }
-
-
-            //if(RxPacketBuffer.Count > 0 && RxPacketTimes.Count > 0)
-            //{
-            //    RxPackBufferLocked = true;
-            //    for (RxPckIndx = 0; RxPckIndx < RxPacketBuffer.Count; RxPckIndx++)
-            //    {
-            //        // 1) mark rxbuffered bytes as "for removal/disposal"
-            //        // 2) transfer bytes stripped of header from rxbufferred to new shorter byte []
-
-            //        if (RxPacketBuffer[RxPckIndx].Length > 3)
-            //        {
-            //            // ***needs to work with variable header data sizes*** //
-            //            if (RxPacketBuffer[RxPckIndx][0] != 0xff || RxPacketBuffer[RxPckIndx][1] != 0xff ||
-            //                RxPacketBuffer[RxPckIndx][2] != 0xff || RxPacketBuffer[RxPckIndx][3] != 0xff)
-            //            {
-            //                byte tempIDIndex = RxPacketBuffer[RxPckIndx][0]; 
-                            
-
-            //                // ***needs to work with variable header data sizes*** //
-            //                RxPacketBuffer[RxPckIndx][0] = 0xff;
-            //                RxPacketBuffer[RxPckIndx][1] = 0xff;
-            //                RxPacketBuffer[RxPckIndx][2] = 0xff;
-            //                RxPacketBuffer[RxPckIndx][3] = 0xff;
-
-            //                ParsePckIndx = StaticSPDPackets.FindIndex(x => x.PackID == tempIDIndex);
-
-            //                if (ParsePckIndx > -1 && ParsePckIndx < RxPacketBuffer[RxPckIndx].Length)
-            //                {
-            //                    List<byte> tempBytes = new List<byte>(RxPacketBuffer[RxPckIndx]);
-
-            //                    // ***needs to work with variable header data sizes*** //
-            //                    tempBytes.RemoveRange(0, 4);
-
-            //                    // header should be stripped, spd data only, no header bytes
-            //                    StaticSPDPackets[ParsePckIndx].ParsePacket(tempBytes.ToArray(), LogData, RxPacketTimes[RxPckIndx]);
-
-            //                }
-            //            }
-            //        }
-            //    }
-            //    RxPackBufferLocked = false;
-            //}
-
+            
 
             if(DeviceConnected && !devConnectedHistory)
             {
                 // Build Static Packets on Connection?
 
                 // Capture Connection Time
-                timeAtStartLogging = DateTime.Now;
+                
             }
             else if(!DeviceConnected && devConnectedHistory)
             {
@@ -362,18 +328,21 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 SerialParameterPacket tempPacket = StaticSPDPackets.Find(x => x.PackID == txHeaderIn.PacketID);
                 if (tempPacket != null)
                 {
-                    List<byte> tempBuffer = new List<byte>();
-
-                    tempBuffer.AddRange(txHeaderIn.HDR2ByteArray());
-                    if(SerialDataOut_in!=null)
-                        if(SerialDataOut_in.Count>0)
-                            tempBuffer.AddRange(SerialDataOut_in);
-
-                    TxPacketQueue.Add(tempBuffer.ToArray());
+                    AddTxPack2TXQueueNoStatic(txHeaderIn, SerialDataOut_in);
                 }
             }
         }
+        public void AddTxPack2TXQueueNoStatic(SerialParameterPacketHeader txHeaderIn, List<byte> SerialDataOut_in)
+        {
+            List<byte> tempBuffer = new List<byte>();
 
+            tempBuffer.AddRange(txHeaderIn.HDR2ByteArray());
+            if (SerialDataOut_in != null)
+                if (SerialDataOut_in.Count > 0)
+                    tempBuffer.AddRange(SerialDataOut_in);
+
+            TxPacketQueue.Add(tempBuffer.ToArray());
+        }
     }
 
 
