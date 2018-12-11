@@ -168,6 +168,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         public List<double> LatchTimes { set { latchTimes = value; } get { return latchTimes; } }
 
         protected bool newData = false;
+        public bool setnewData { get { return newData; }set { newData = value; } }
 
         public bool HoldRefresh {set{holdRefresh = value; } get {return holdRefresh;} }
         protected bool holdRefresh = false;

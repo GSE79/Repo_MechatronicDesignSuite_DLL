@@ -32,6 +32,11 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         [Category("Cyclic Packet Comms System "), Description("Static Defined Packet Structures of Serial Parameter Data Nodes")]
         public List<SerialParameterPacket> setStaticSPDPackets { get { return StaticSPDPackets; } set { StaticSPDPackets = value; } }
 
+        protected List<imsValueNode> LinkedValueNodes = new List<imsValueNode>();
+        [Category("Cyclic Packet Comms System "), Description("Linked Value Nodes not automatically updated by Comm. System")]
+        public List<imsValueNode> getLinkedValueNodes { get{return LinkedValueNodes; } }
+
+
         protected bool WriteFirst = false;
         [Category("Cyclic Packet Comms System "), Description("Indication to Communication Controller to initiate communication channel with a write() before attempting to read()")]
         public bool getWriteFirst { get { return WriteFirst; } }
@@ -68,8 +73,6 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         public int getCommLoopCounter { get { return CommLoopCounter; }  }
         [Category("Cyclic Packet Comms System "), Description("Running Counter of Communication Loop Iterations while Device Connected")]
         public int setCommLoopCounter { get { return CommLoopCounter; } set { CommLoopCounter = value; } }
-
-
 
         protected int SleepTime = 1000;
         [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
@@ -184,11 +187,17 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                         // header should be stripped, spd data only, no header bytes
                         StaticSPDPackets[ParsePckIndx].ParsePacket(tempBytes.ToArray(), LogData, RxPacketTimes[RxPckIndx]);
 
+                        // custom post parse actions
+                        CustomPostParse(StaticSPDPackets[ParsePckIndx].PackID);
                     }
                 }
             }
             RxPacketBuffer.Clear();
             setRxPacketTimes.Clear();
+        }
+        protected virtual void CustomPostParse(int PackIDin)
+        {
+            ;
         }
         /// <summary>
         /// 
@@ -281,6 +290,12 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
 
         }
+        public SerialParameterPacket AddNewStaticPacket(string PacketNameString, byte PacketIDbyte, List<imsBaseNode> globalNodeListLinkIn)
+        {
+            StaticSPDPackets.Add(new SerialParameterPacket(PacketNameString, PacketIDbyte, globalNodeListLinkIn));
+
+            return StaticSPDPackets[StaticSPDPackets.Count - 1];
+        }
         public virtual void UpdateStaticGUILinks()
         {            
             if(mainLoopCounter++ % GUILinkUPdateModulo == 0)
@@ -292,6 +307,8 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                         SPD.updateGUILINKS();
                     }
                 }
+                foreach (imsValueNode vNOde in LinkedValueNodes)
+                    vNOde.updateGUILINKS();
             }
         }
         public void AddPacket2Buffer(byte[] PacketIn)
@@ -320,6 +337,15 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
             else
                 return null;
+        }
+        public imsValueNode getLinkedvNode(string vNodeName, Type DataTypeIn, int arrayLenIn)
+        {
+            imsValueNode tempvNode = LinkedValueNodes.Find(x => ((x.getNodeName == vNodeName) && (x.getDataType == DataTypeIn) && (x.getArrayLength == arrayLenIn)));
+            if (tempvNode != null)
+            {
+                ;
+            }
+            return tempvNode;
         }
         public void AddTxPack2TXQueue(SerialParameterPacketHeader txHeaderIn, List<byte> SerialDataOut_in)
         {
