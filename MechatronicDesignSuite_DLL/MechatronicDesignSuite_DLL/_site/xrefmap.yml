@@ -4201,6 +4201,12 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.Finalize
   nameWithType: SerialParameterPacket.Finalize
+- uid: MechatronicDesignSuite_DLL.SerialParameterPacket.HoldParsing
+  name: HoldParsing
+  href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket_HoldParsing
+  commentId: F:MechatronicDesignSuite_DLL.SerialParameterPacket.HoldParsing
+  fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.HoldParsing
+  nameWithType: SerialParameterPacket.HoldParsing
 - uid: MechatronicDesignSuite_DLL.SerialParameterPacket.PackDescription
   name: PackDescription
   href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket_PackDescription

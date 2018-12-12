@@ -20,6 +20,7 @@ namespace MechatronicDesignSuite_DLL
     {
         public string PackDescription { set; get; } = "New Serial Packet";
         public int PackID { set; get; }
+        public bool HoldParsing = false;
         public List<imsSerialParamData> PacketSPDs { get; } = new List<imsSerialParamData>();
         public SerialParameterPacket(string PacketDescription, int PacketIDin, List<imsBaseNode> globalNodeListIn)
         {
@@ -28,10 +29,14 @@ namespace MechatronicDesignSuite_DLL
         }
         public void ParsePacket(byte [] PacketSerialDataIn, bool LogDataFlag, DateTime RxTime)
         {
-            foreach(imsSerialParamData SPD in PacketSPDs)
+            if(!HoldParsing)
             {
-                SPD.UpdateValue(ref PacketSerialDataIn, LogDataFlag, RxTime);
+                foreach (imsSerialParamData SPD in PacketSPDs)
+                {
+                    SPD.UpdateValue(ref PacketSerialDataIn, LogDataFlag, RxTime);
+                }
             }
+            
         }
         public void AddSPD2Packet(imsSerialParamData spdIn)
         {
