@@ -22,6 +22,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
     /// </summary>
     public class imsValueNode : imsBaseNode
     {
+        #region Value Node Properties
+        protected List<GUIValueLinks> StaticGUILinks = new List<GUIValueLinks>();
+        public List<GUIValueLinks> getStaticGUILinks { get { return StaticGUILinks; } }
         /// <summary>
         /// Data Type - 
         /// </summary>
@@ -172,6 +175,64 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
         public bool HoldRefresh {set{holdRefresh = value; } get {return holdRefresh;} }
         protected bool holdRefresh = false;
+        #endregion
+
+        #region Value Node Constructors
+        /// <summary>
+        /// imsValueNode()
+        /// </summary>
+        /// <param name="globalNodeListIn"></param>
+        /// <param name="nameString"></param>
+        /// <param name="DataTypeIn"></param>
+        /// <param name="ArrayLengthIn"></param>
+        public imsValueNode(List<imsBaseNode> globalNodeListIn, string nameString, Type DataTypeIn, int ArrayLengthIn) : base(globalNodeListIn)
+        {
+            NodeType = typeof(imsValueNode);
+            NodeName = nameString;
+            DataType = DataTypeIn;
+            ArrayLength = ArrayLengthIn;
+
+            //FileStream deSerializeFs = new FileStream();
+            //BinaryFormatter DeSerializeFormatter = new BinaryFormatter();
+
+            if (ArrayLength < 2)
+                DataSize = (Marshal.SizeOf(DataTypeIn));
+            else
+                DataSize = ArrayLength * (Marshal.SizeOf(DataTypeIn));
+
+            if (DataType == typeof(char))
+                charValues = new List<char>();
+            else if (DataType == typeof(byte))
+                byteValues = new List<byte>();
+            else if (DataType == typeof(ushort))
+                ushortValues = new List<ushort>();
+            else if (DataType == typeof(short))
+                shortValues = new List<short>();
+            else if (DataType == typeof(uint))
+                uintValues = new List<uint>();
+            else if (DataType == typeof(int))
+                intValues = new List<int>();
+            else if (DataType == typeof(float))
+                floatValues = new List<float>();
+            else if (DataType == typeof(double))
+                doubleValues = new List<double>();
+            else
+                throw new Exception("Attempted to instantiate an Un-Supported Value Node Data Type");
+
+            latchTimes = new List<double>();
+        }
+        /// <summary>
+        /// imsValueNode()
+        /// </summary>
+        /// <param name="DeSerializeFormatter"></param>
+        /// <param name="deSerializeFs"></param>
+        public imsValueNode(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) : base(DeSerializeFormatter, deSerializeFs)
+        {
+
+        }
+        #endregion
+
+
 
         /// <summary>
         /// clearValues()
@@ -199,14 +260,110 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
             latchTimes.Clear();
         }
+        public void UpdateValue(object newValue, bool LogDataFlag, double TotalSecondsLatchTime)
+        {
+            if (DataType == typeof(char))
+            {
+                if (ArrayLength > 1)
+                {
+                    charValues.Clear();
+                    foreach(byte b in (char[])newValue)
+                        charValues.Add((char)b);
+                    charValue = charValues[charValues.Count - 1];
+                }
+                else
+                {
+                    charValue = (char)newValue;
+                }
+            }
+            else if (DataType == typeof(byte))
+            {
+                byteValue = (byte)newValue;
+            }
+            else if (DataType == typeof(ushort))
+            {
+                ushortValue = (ushort)newValue;
+            }
+            else if (DataType == typeof(short))
+            {
+                shortValue = (short)newValue;
+            }
+            else if (DataType == typeof(uint))
+            {
+                uintValue = (uint)newValue;
+            }
+            else if (DataType == typeof(int))
+            {
+                intValue = (int)newValue;
+            }
+            else if (DataType == typeof(float))
+            {
+                floatValue = (float)newValue;
+            }
+            else if (DataType == typeof(double))
+            {
+                setdoubleValue = (double)newValue;
+            }
+            else
+                throw new Exception("Attempted to update an Un-Supported Value Node Data Type");
 
-        protected List<GUIValueLinks> StaticGUILinks = new List<GUIValueLinks>();
-        public List<GUIValueLinks> getStaticGUILinks { get { return StaticGUILinks; } }
+            if (LogDataFlag)
+                logValue(TotalSecondsLatchTime);
+
+            newData = true;
+        }
+        public void logValue(double TotalSecondsLatchTime)
+        {
+            if (DataType == typeof(char))
+            {
+
+                if (ArrayLength > 1)
+                {
+                    // how to handle array data?
+                }
+                else
+                {
+                    charValues.Add(charValue);
+                }
+            }
+            else if (DataType == typeof(byte))
+            {
+                byteValues.Add(byteValue);
+            }
+            else if (DataType == typeof(ushort))
+            {
+                ushortValues.Add(ushortValue);
+            }
+            else if (DataType == typeof(short))
+            {
+                shortValues.Add(shortValue);
+            }
+            else if (DataType == typeof(uint))
+            {
+                uintValues.Add(uintValue);
+            }
+            else if (DataType == typeof(int))
+            {
+                intValues.Add(intValue);
+            }
+            else if (DataType == typeof(float))
+            {
+                floatValues.Add(floatValue);
+            }
+            else if (DataType == typeof(double))
+            {
+                doubleValues.Add(setdoubleValue);
+            }
+            else
+                throw new Exception("Attempted to log data of an Un-Supported Value Node Data Type");
+
+            latchTimes.Add(TotalSecondsLatchTime);
+        }
+        
         public void addStaticGUILink2SPD(Control GUIFieldIn, string unitsstringin, float scalarin, string formatstringin, bool readOnlyIn)
         {
             StaticGUILinks.Add(new GUIValueLinks(this, GUIFieldIn, unitsstringin, scalarin, formatstringin, readOnlyIn));
-        }
-        
+        }        
         public void clearStaticGUILinks()
         {
             StaticGUILinks.Clear();
@@ -234,6 +391,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                         else
                             ((ComboBox)(GUILink.StaticLinkedGUIField)).Text = ToValueString(GUILink);
 
+
                     }
                 }
                 newData = false;
@@ -241,11 +399,11 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             
             
         }
+
         public string toNameString(GUIValueLinks LinkIn)
         {
             return NodeName + " " + LinkIn.UnitsString;
         }
-
         public string ToValueString(GUIValueLinks LinkIn)
         {
             int i;
@@ -432,63 +590,18 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
             return 0;
         }
+
+
         public int getLength()
         {
             return latchTimes.Count;
         }
-
-        /// <summary>
-        /// imsValueNode()
-        /// </summary>
-        /// <param name="globalNodeListIn"></param>
-        /// <param name="nameString"></param>
-        /// <param name="DataTypeIn"></param>
-        /// <param name="ArrayLengthIn"></param>
-        public imsValueNode(List<imsBaseNode> globalNodeListIn, string nameString, Type DataTypeIn, int ArrayLengthIn) :base(globalNodeListIn)
+        public int getLoggedDataSize()
         {
-            NodeType = typeof(imsValueNode);
-            NodeName = nameString;
-            DataType = DataTypeIn;
-            ArrayLength = ArrayLengthIn;
-
-            //FileStream deSerializeFs = new FileStream();
-            //BinaryFormatter DeSerializeFormatter = new BinaryFormatter();
-
-            if (ArrayLength < 2)
-                DataSize = (Marshal.SizeOf(DataTypeIn));
-            else
-                DataSize = ArrayLength *  (Marshal.SizeOf(DataTypeIn));
-
-            if (DataType == typeof(char))
-                charValues = new List<char>();
-            else if (DataType == typeof(byte))
-                byteValues = new List<byte>();
-            else if (DataType == typeof(ushort))
-                ushortValues = new List<ushort>();
-            else if (DataType == typeof(short))
-                shortValues = new List<short>();
-            else if (DataType == typeof(uint))
-                uintValues = new List<uint>();
-            else if (DataType == typeof(int))
-                intValues = new List<int>();
-            else if (DataType == typeof(float))
-                floatValues = new List<float>();
-            else if (DataType == typeof(double))
-                doubleValues = new List<double>();
-            else
-                throw new Exception("Attempted to instantiate an Un-Supported Value Node Data Type");
-
-            latchTimes = new List<double>();
+            return latchTimes.Count * (8 + DataSize); 
         }
-        /// <summary>
-        /// imsValueNode()
-        /// </summary>
-        /// <param name="DeSerializeFormatter"></param>
-        /// <param name="deSerializeFs"></param>
-        public imsValueNode(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) :base(DeSerializeFormatter, deSerializeFs)
-        {
 
-        }
+
 
 
     }

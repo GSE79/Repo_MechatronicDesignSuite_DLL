@@ -188,14 +188,14 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                         StaticSPDPackets[ParsePckIndx].ParsePacket(tempBytes.ToArray(), LogData, RxPacketTimes[RxPckIndx]);
 
                         // custom post parse actions
-                        CustomPostParse(StaticSPDPackets[ParsePckIndx].PackID);
+                        CustomPostParse(StaticSPDPackets[ParsePckIndx].PackID, LogData, RxPacketTimes[RxPckIndx]);
                     }
                 }
             }
             RxPacketBuffer.Clear();
             setRxPacketTimes.Clear();
         }
-        protected virtual void CustomPostParse(int PackIDin)
+        protected virtual void CustomPostParse(int PackIDin, bool LogData, DateTime RxPacketTime)
         {
             ;
         }

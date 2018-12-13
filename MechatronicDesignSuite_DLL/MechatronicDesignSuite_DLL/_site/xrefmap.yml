@@ -591,12 +591,12 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CommThreadExe
   nameWithType: imsCyclicPacketCommSystem.CommThreadExe
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CustomPostParse(System.Int32)
-  name: CustomPostParse(Int32)
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_CustomPostParse_System_Int32_
-  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CustomPostParse(System.Int32)
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CustomPostParse(System.Int32)
-  nameWithType: imsCyclicPacketCommSystem.CustomPostParse(Int32)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CustomPostParse(System.Int32,System.Boolean,System.DateTime)
+  name: CustomPostParse(Int32, Boolean, DateTime)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_CustomPostParse_System_Int32_System_Boolean_System_DateTime_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CustomPostParse(System.Int32,System.Boolean,System.DateTime)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CustomPostParse(System.Int32, System.Boolean, System.DateTime)
+  nameWithType: imsCyclicPacketCommSystem.CustomPostParse(Int32, Boolean, DateTime)
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.CustomPostParse*
   name: CustomPostParse
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_CustomPostParse_
@@ -2117,6 +2117,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getLength
   nameWithType: imsValueNode.getLength
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getLoggedDataSize
+  name: getLoggedDataSize()
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getLoggedDataSize
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getLoggedDataSize
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getLoggedDataSize()
+  nameWithType: imsValueNode.getLoggedDataSize()
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getLoggedDataSize*
+  name: getLoggedDataSize
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getLoggedDataSize_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getLoggedDataSize
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getLoggedDataSize
+  nameWithType: imsValueNode.getLoggedDataSize
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.getshortValue
   name: getshortValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_getshortValue
@@ -2258,6 +2271,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.LatchTimes
   nameWithType: imsValueNode.LatchTimes
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.logValue(System.Double)
+  name: logValue(Double)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_logValue_System_Double_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.logValue(System.Double)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.logValue(System.Double)
+  nameWithType: imsValueNode.logValue(Double)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.logValue*
+  name: logValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_logValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.logValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.logValue
+  nameWithType: imsValueNode.logValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.newData
   name: newData
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_newData
@@ -2619,6 +2645,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.updateGUILINKS
   nameWithType: imsValueNode.updateGUILINKS
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.UpdateValue(System.Object,System.Boolean,System.Double)
+  name: UpdateValue(Object, Boolean, Double)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_UpdateValue_System_Object_System_Boolean_System_Double_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.UpdateValue(System.Object,System.Boolean,System.Double)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.UpdateValue(System.Object, System.Boolean, System.Double)
+  nameWithType: imsValueNode.UpdateValue(Object, Boolean, Double)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.UpdateValue*
+  name: UpdateValue
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_UpdateValue_
+  commentId: Overload:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.UpdateValue
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.UpdateValue
+  nameWithType: imsValueNode.UpdateValue
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ushortValue
   name: ushortValue
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ushortValue

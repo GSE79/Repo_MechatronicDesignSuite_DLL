@@ -72,75 +72,62 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             pDoff += DataSize;
             txPackHeader.DataOffset = (uint)PacketDataOffset;
         }
+        
         public void updateFromSerialData(bool logDataFlag, DateTime RxTime)
         {
             if (DataType == typeof(char))
             {
-
                 if (ArrayLength > 1)
                 {
-                    charValues.Clear();
+                    List<char> tempList = new List<char>();
                     foreach (byte b in SerialDataIn)
-                        charValues.Add((char)b);
-                    charValue = charValues[charValues.Count-1];
+                        tempList.Add((char)b);
+                    char[] tempCharArray = tempList.ToArray();
+                    base.UpdateValue(tempCharArray, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
                 }
                 else
                 {
-                    charValue = (char)SerialDataIn[0];// BitConverter.ToChar(SerialDataIn.ToArray(), 0);
-
-                    if (logDataFlag)
-                        charValues.Add(charValue);
+                    char tempChar = (char)SerialDataIn[0];
+                    base.UpdateValue(tempChar, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
                 }                   
             }
             else if (DataType == typeof(byte))
             {
-                byteValue = SerialDataIn[0];
-
-                if (logDataFlag)
-                    byteValues.Add(byteValue);
+                byte tempByte = SerialDataIn[0];
+                base.UpdateValue(tempByte, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
             }
             else if (DataType == typeof(ushort))
             {
-                ushortValue = BitConverter.ToUInt16(SerialDataIn.ToArray(), 0);
-
-                if (logDataFlag)
-                    ushortValues.Add(ushortValue);
+                ushort tempUshort = BitConverter.ToUInt16(SerialDataIn.ToArray(), 0);
+                base.UpdateValue(tempUshort, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
             }
             else if (DataType == typeof(short))
             {
-                shortValue = BitConverter.ToInt16(SerialDataIn.ToArray(), 0);
-                if (logDataFlag)
-                   shortValues.Add(shortValue);
+                short tempShort = BitConverter.ToInt16(SerialDataIn.ToArray(), 0);
+                base.UpdateValue(tempShort, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
             }
             else if (DataType == typeof(uint))
             {
-                uintValue = BitConverter.ToUInt32(SerialDataIn.ToArray(), 0);
-                if (logDataFlag)
-                   uintValues.Add(uintValue);
+                uint tempUint = BitConverter.ToUInt32(SerialDataIn.ToArray(), 0);
+                base.UpdateValue(tempUint, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
             }
             else if (DataType == typeof(int))
             {
-                intValue = BitConverter.ToInt32(SerialDataIn.ToArray(), 0);
-                if (logDataFlag)
-                    intValues.Add(intValue);
+                int tempInt = BitConverter.ToInt32(SerialDataIn.ToArray(), 0);
+                base.UpdateValue(tempInt, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
             }
             else if (DataType == typeof(float))
             {
-                floatValue = BitConverter.ToSingle(SerialDataIn.ToArray(), 0);
-                if (logDataFlag)
-                    floatValues.Add(floatValue);
+                float tempFloat = BitConverter.ToSingle(SerialDataIn.ToArray(), 0);
+                base.UpdateValue(tempFloat, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
             }
             else if (DataType == typeof(double))
             {
-                setdoubleValue = BitConverter.ToDouble(SerialDataIn.ToArray(), 0);
-                if (logDataFlag)
-                    doubleValues.Add(setdoubleValue);
+                double tempDouble = BitConverter.ToDouble(SerialDataIn.ToArray(), 0);
+                base.UpdateValue(tempDouble, logDataFlag, (RxTime - cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
             }
             else
                 throw new Exception("Attempted to update (from serial data) an Un-Supported Value Node Data Type");
-
-            if (logDataFlag)
-                latchTimes.Add((RxTime-cyclicCommsSysLink.TimeAtStartLogging).TotalSeconds);
 
         }
 
