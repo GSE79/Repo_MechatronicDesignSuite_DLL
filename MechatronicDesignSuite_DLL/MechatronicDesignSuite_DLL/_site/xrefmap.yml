@@ -868,6 +868,12 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.ReadSerialData
   nameWithType: imsCyclicPacketCommSystem.ReadSerialData
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.resetLoggingClock
+  name: resetLoggingClock
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_resetLoggingClock
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.resetLoggingClock
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.resetLoggingClock
+  nameWithType: imsCyclicPacketCommSystem.resetLoggingClock
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer
   name: RxPacketBuffer
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_RxPacketBuffer
@@ -2581,12 +2587,12 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.toNameString
   nameWithType: imsValueNode.toNameString
-- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToPlotDouble(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks)
-  name: ToPlotDouble(GUIValueLinks)
-  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ToPlotDouble_MechatronicDesignSuite_DLL_BaseTypes_GUIValueLinks_
-  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToPlotDouble(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks)
-  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToPlotDouble(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks)
-  nameWithType: imsValueNode.ToPlotDouble(GUIValueLinks)
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToPlotDouble(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks,System.Int32)
+  name: ToPlotDouble(GUIValueLinks, Int32)
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ToPlotDouble_MechatronicDesignSuite_DLL_BaseTypes_GUIValueLinks_System_Int32_
+  commentId: M:MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToPlotDouble(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks,System.Int32)
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToPlotDouble(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks, System.Int32)
+  nameWithType: imsValueNode.ToPlotDouble(GUIValueLinks, Int32)
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.ToPlotDouble*
   name: ToPlotDouble
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsValueNode.html#MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_ToPlotDouble_

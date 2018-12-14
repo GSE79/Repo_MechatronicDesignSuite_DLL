@@ -246,7 +246,7 @@ namespace MechatronicDesignSuite_DLL
                     if (firstIndex > -1)
                         for (int i = firstIndex; i < plotParamReference[curveIndex].getLength(); i++)
                         {
-                            curve.AddPoint(plotParamReference[curveIndex].LatchTimes[i], plotParamReference[curveIndex].ToPlotDouble((GUIValueLinks)curve.Tag));
+                            curve.AddPoint(plotParamReference[curveIndex].LatchTimes[i], plotParamReference[curveIndex].ToPlotDouble((GUIValueLinks)curve.Tag, i));
                             onePointAdded = true;
                         }
 

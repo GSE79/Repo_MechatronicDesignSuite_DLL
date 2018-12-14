@@ -89,18 +89,19 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
                 if(value && !LogData)
                 {
-                    if (RxPacketTimes.Count == 0)
+                    if (resetLoggingClock)
                         timeAtStartLogging = DateTime.Now;
+                    resetLoggingClock = false;
                 }
 
                 LogData = value; }
             get { return LogData; } }
-
+        protected bool resetLoggingClock = true;
         protected bool ClearLoggedData = false;
         [Category("Cyclic Packet Comms System "), Description("trigger to clear all logged data from RAM buffers")]
         public bool getClearLoggedData { get { return ClearLoggedData; } }
         [Category("Cyclic Packet Comms System "), Description("trigger to clear all logged data from RAM buffers")]
-        public bool setClearLoggedData { set { ClearLoggedData = value; } get { return ClearLoggedData; } }
+        public bool setClearLoggedData { set { resetLoggingClock = true; ClearLoggedData = value; } get { return ClearLoggedData; } }
 
         protected float SimulatedInput4Bytes = 0x0;
         [Category("Cyclic Packet Comms System "), Description("4 Byte input (simulated data) to the read() function")]
@@ -150,6 +151,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 for(ClearPckIdx = 0; ClearPckIdx<StaticSPDPackets.Count; ClearPckIdx++)
                 {
                     StaticSPDPackets[ClearPckIdx].ClearLoggedValues();
+                }
+                for(ClearPckIdx = 0; ClearPckIdx<LinkedValueNodes.Count; ClearPckIdx++)
+                {
+                    LinkedValueNodes[ClearPckIdx].clearValues();
                 }
                 ClearLoggedData = false;
             }

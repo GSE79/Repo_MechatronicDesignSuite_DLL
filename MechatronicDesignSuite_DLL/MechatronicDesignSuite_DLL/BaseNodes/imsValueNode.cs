@@ -547,46 +547,46 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             }
             return 0;
         }
-        public double ToPlotDouble(GUIValueLinks LinkIn)
+        public double ToPlotDouble(GUIValueLinks LinkIn, int indexi)
         {
             if (DataType == typeof(byte))
             {
-                return (((double)byteValue * LinkIn.scalar));
+                return (((double)byteValues[indexi] * LinkIn.scalar));
             }
 
             else if (DataType == typeof(char))
             {
-                return (((double)charValue * LinkIn.scalar));
+                return (((double)charValues[indexi] * LinkIn.scalar));
             }
 
             else if (DataType == typeof(ushort))
             {
-                return (((double)ushortValue * LinkIn.scalar));
+                return (((double)ushortValues[indexi] * LinkIn.scalar));
             }
 
             else if (DataType == typeof(short))
             {
-                return (((double)shortValue * LinkIn.scalar));
+                return (((double)shortValues[indexi] * LinkIn.scalar));
             }
 
             else if (DataType == typeof(uint))
             {
-                return (((double)uintValue * LinkIn.scalar));
+                return (((double)uintValues[indexi] * LinkIn.scalar));
             }
 
             else if (DataType == typeof(int))
             {
-                return (((double)intValue * LinkIn.scalar));
+                return (((double)intValues[indexi] * LinkIn.scalar));
             }
 
             else if (DataType == typeof(float))
             {
-                return (((double)floatValue * LinkIn.scalar));
+                return (((double)floatValues[indexi] * LinkIn.scalar));
             }
 
             else if (DataType == typeof(double))
             {
-                return ((setdoubleValue * LinkIn.scalar));
+                return ((setdoubleValues[indexi] * LinkIn.scalar));
             }
             return 0;
         }
