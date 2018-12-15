@@ -414,7 +414,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
                     return string.Concat("0b", (Convert.ToString((byte)(LinkIn.scalar * byteValue), 2)).PadLeft(8, '0'));
                 else
-                    return ((byte)(byteValue * LinkIn.scalar)).ToString(LinkIn.formatstring);
+                    return ((byteValue * LinkIn.scalar)).ToString(LinkIn.formatstring);
             }
                 
             else if (DataType == typeof(char))
@@ -436,7 +436,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                     else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
                         return string.Concat("0b", (Convert.ToString(((char)(charValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
                     else
-                        return ((char)(charValue * LinkIn.scalar)).ToString();
+                        return ((charValue * LinkIn.scalar)).ToString();
                 }
                 
             }
@@ -448,7 +448,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
                     return string.Concat("0b", (Convert.ToString(((ushort)(ushortValue*LinkIn.scalar)), 2)).PadLeft(8, '0'));
                 else
-                    return ((ushort)(ushortValue * LinkIn.scalar)).ToString(LinkIn.formatstring);
+                    return ((ushortValue * LinkIn.scalar)).ToString(LinkIn.formatstring);
             }
                 
             else if (DataType == typeof(short))
@@ -494,11 +494,11 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             else if (DataType == typeof(double))
             {
                 if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
-                    return (setdoubleValue * LinkIn.scalar).ToString();//"0x" + (LinkIn.scalar * doubleValue).ToString("X2");
+                    return (doubleValue * LinkIn.scalar).ToString();//"0x" + (LinkIn.scalar * doubleValue).ToString("X2");
                 else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
-                    return (setdoubleValue * LinkIn.scalar).ToString();//string.Concat("0b", (Convert.ToString(((doubleValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                    return (doubleValue * LinkIn.scalar).ToString();//string.Concat("0b", (Convert.ToString(((doubleValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
                 else
-                    return (setdoubleValue * LinkIn.scalar).ToString();
+                    return (doubleValue * LinkIn.scalar).ToString();
             }
                 
 
