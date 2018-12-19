@@ -18,6 +18,7 @@ namespace MechatronicDesignSuite_DLL
     [TypeConverter(typeof(SPpacketConverter))]
     public class SerialParameterPacket : IDisposable
     {
+        protected int MaxPacketPayLoadSize = 60;
         public string PackDescription { set; get; } = "New Serial Packet";
         public int PackID { set; get; }
         public bool HoldParsing = false;
@@ -40,10 +41,20 @@ namespace MechatronicDesignSuite_DLL
         }
         public void AddSPD2Packet(imsSerialParamData spdIn)
         {
-            PacketSPDs.Add(spdIn);
             int PackDOff = 0;
             foreach (imsSerialParamData SPD in PacketSPDs)
                 SPD.AccumulatePackDataOffset(ref PackDOff);
+
+            if (PackDOff + spdIn.getDataSize > MaxPacketPayLoadSize)
+                throw new Exception("Add Parameter to Packet Failed: Parameter would cause packet to exceed maximum size.");
+            else
+            {
+                PacketSPDs.Add(spdIn);
+
+                PackDOff = 0;
+                foreach (imsSerialParamData SPD in PacketSPDs)
+                    SPD.AccumulatePackDataOffset(ref PackDOff);
+            }
         }
         public void ClearLoggedValues()
         {

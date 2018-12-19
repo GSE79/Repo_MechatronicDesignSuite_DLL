@@ -4252,6 +4252,12 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.SerialParameterPacket.HoldParsing
   fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.HoldParsing
   nameWithType: SerialParameterPacket.HoldParsing
+- uid: MechatronicDesignSuite_DLL.SerialParameterPacket.MaxPacketPayLoadSize
+  name: MaxPacketPayLoadSize
+  href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket_MaxPacketPayLoadSize
+  commentId: F:MechatronicDesignSuite_DLL.SerialParameterPacket.MaxPacketPayLoadSize
+  fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.MaxPacketPayLoadSize
+  nameWithType: SerialParameterPacket.MaxPacketPayLoadSize
 - uid: MechatronicDesignSuite_DLL.SerialParameterPacket.PackDescription
   name: PackDescription
   href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket_PackDescription

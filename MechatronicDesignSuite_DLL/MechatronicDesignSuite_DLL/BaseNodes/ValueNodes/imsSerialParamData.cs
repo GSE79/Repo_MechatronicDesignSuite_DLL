@@ -61,7 +61,12 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
             SerialDataIn.Clear();
             for (ByteIdx = PacketDataOffset; ByteIdx < PacketDataOffset + DataSize; ByteIdx++)
-                SerialDataIn.Add(PacketSerialDataIn[ByteIdx]);
+            {
+                if (ByteIdx < PacketSerialDataIn.Length)
+                    SerialDataIn.Add(PacketSerialDataIn[ByteIdx]);
+                else
+                    throw new Exception("Failed to Update Value from Serial Data: Data Size Exceeds Serial Data Length");
+            }
 
             updateFromSerialData(LogDataFlag, RxTime);
             newData = true;
