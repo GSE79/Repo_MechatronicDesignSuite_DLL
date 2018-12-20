@@ -12,6 +12,7 @@ namespace MechatronicDesignSuite_DLL
 {
     public partial class imsExceptionViewer : Form, ImsBaseForm
     {
+        public bool runInvisible { set; get; } = false;
         public PCExeSys pCExeSysLink
         {
             set

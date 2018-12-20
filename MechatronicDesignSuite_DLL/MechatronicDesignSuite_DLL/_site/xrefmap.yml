@@ -3066,6 +3066,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.ImsBaseForm.pCExeSysLink
   nameWithType: ImsBaseForm.pCExeSysLink
+- uid: MechatronicDesignSuite_DLL.ImsBaseForm.runInvisible
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.ImsBaseForm.html#MechatronicDesignSuite_DLL_ImsBaseForm_runInvisible
+  commentId: P:MechatronicDesignSuite_DLL.ImsBaseForm.runInvisible
+  fullName: MechatronicDesignSuite_DLL.ImsBaseForm.runInvisible
+  nameWithType: ImsBaseForm.runInvisible
+- uid: MechatronicDesignSuite_DLL.ImsBaseForm.runInvisible*
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.ImsBaseForm.html#MechatronicDesignSuite_DLL_ImsBaseForm_runInvisible_
+  commentId: Overload:MechatronicDesignSuite_DLL.ImsBaseForm.runInvisible
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.ImsBaseForm.runInvisible
+  nameWithType: ImsBaseForm.runInvisible
 - uid: MechatronicDesignSuite_DLL.imsException
   name: imsException
   href: api/MechatronicDesignSuite_DLL.imsException.html
@@ -3219,6 +3232,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.imsExceptionViewer.pCExeSysLink
   nameWithType: imsExceptionViewer.pCExeSysLink
+- uid: MechatronicDesignSuite_DLL.imsExceptionViewer.runInvisible
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.imsExceptionViewer.html#MechatronicDesignSuite_DLL_imsExceptionViewer_runInvisible
+  commentId: P:MechatronicDesignSuite_DLL.imsExceptionViewer.runInvisible
+  fullName: MechatronicDesignSuite_DLL.imsExceptionViewer.runInvisible
+  nameWithType: imsExceptionViewer.runInvisible
+- uid: MechatronicDesignSuite_DLL.imsExceptionViewer.runInvisible*
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.imsExceptionViewer.html#MechatronicDesignSuite_DLL_imsExceptionViewer_runInvisible_
+  commentId: Overload:MechatronicDesignSuite_DLL.imsExceptionViewer.runInvisible
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.imsExceptionViewer.runInvisible
+  nameWithType: imsExceptionViewer.runInvisible
 - uid: MechatronicDesignSuite_DLL.imsPlotPane
   name: imsPlotPane
   href: api/MechatronicDesignSuite_DLL.imsPlotPane.html
@@ -3354,6 +3380,19 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.imsPlotPane.plotWindow
   fullName: MechatronicDesignSuite_DLL.imsPlotPane.plotWindow
   nameWithType: imsPlotPane.plotWindow
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.runInvisible
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_runInvisible
+  commentId: P:MechatronicDesignSuite_DLL.imsPlotPane.runInvisible
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.runInvisible
+  nameWithType: imsPlotPane.runInvisible
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.runInvisible*
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_runInvisible_
+  commentId: Overload:MechatronicDesignSuite_DLL.imsPlotPane.runInvisible
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.runInvisible
+  nameWithType: imsPlotPane.runInvisible
 - uid: MechatronicDesignSuite_DLL.imsPlotPane.ZedgraphControl1
   name: ZedgraphControl1
   href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_ZedgraphControl1
@@ -3436,6 +3475,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.imsProjectExplorer.pCExeSysLink
   nameWithType: imsProjectExplorer.pCExeSysLink
+- uid: MechatronicDesignSuite_DLL.imsProjectExplorer.runInvisible
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.imsProjectExplorer.html#MechatronicDesignSuite_DLL_imsProjectExplorer_runInvisible
+  commentId: P:MechatronicDesignSuite_DLL.imsProjectExplorer.runInvisible
+  fullName: MechatronicDesignSuite_DLL.imsProjectExplorer.runInvisible
+  nameWithType: imsProjectExplorer.runInvisible
+- uid: MechatronicDesignSuite_DLL.imsProjectExplorer.runInvisible*
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.imsProjectExplorer.html#MechatronicDesignSuite_DLL_imsProjectExplorer_runInvisible_
+  commentId: Overload:MechatronicDesignSuite_DLL.imsProjectExplorer.runInvisible
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.imsProjectExplorer.runInvisible
+  nameWithType: imsProjectExplorer.runInvisible
 - uid: MechatronicDesignSuite_DLL.imsProjectExplorer.saveToolStripMenuItem
   name: saveToolStripMenuItem
   href: api/MechatronicDesignSuite_DLL.imsProjectExplorer.html#MechatronicDesignSuite_DLL_imsProjectExplorer_saveToolStripMenuItem
@@ -3513,6 +3565,19 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.pCExeSysLink
   nameWithType: MechatronicDesignSuiteForm.pCExeSysLink
+- uid: MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.runInvisible
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.html#MechatronicDesignSuite_DLL_MechatronicDesignSuiteForm_runInvisible
+  commentId: P:MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.runInvisible
+  fullName: MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.runInvisible
+  nameWithType: MechatronicDesignSuiteForm.runInvisible
+- uid: MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.runInvisible*
+  name: runInvisible
+  href: api/MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.html#MechatronicDesignSuite_DLL_MechatronicDesignSuiteForm_runInvisible_
+  commentId: Overload:MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.runInvisible
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.runInvisible
+  nameWithType: MechatronicDesignSuiteForm.runInvisible
 - uid: MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.StaticExeModule
   name: StaticExeModule
   href: api/MechatronicDesignSuite_DLL.MechatronicDesignSuiteForm.html#MechatronicDesignSuite_DLL_MechatronicDesignSuiteForm_StaticExeModule

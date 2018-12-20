@@ -161,7 +161,6 @@ namespace MechatronicDesignSuite_DLL
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "imsPlotPane";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.Text = "Form2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.imsPlotPane_FormClosing);
             this.splitContainer2.Panel1.ResumeLayout(false);

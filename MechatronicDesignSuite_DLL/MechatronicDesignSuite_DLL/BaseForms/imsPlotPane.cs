@@ -31,6 +31,7 @@ namespace MechatronicDesignSuite_DLL
             get { return pcexesys; }
         }
         PCExeSys pcexesys;
+        public bool runInvisible { set; get; } = false;
 
         public List<imsValueNode> getPlotParamRefs {get{ return plotParamReference; } }
         List<imsValueNode> plotParamReference = new List<imsValueNode>();
@@ -69,6 +70,8 @@ namespace MechatronicDesignSuite_DLL
 
             this.splitContainer2.Parent = plotTabPage;
             this.splitContainer2.Visible = true;
+
+
             Text = "Plot Pane";
             ZedgraphControl1.GraphPane.Title.IsVisible = false;
 
@@ -83,7 +86,9 @@ namespace MechatronicDesignSuite_DLL
             ZedgraphControl1.GraphPane.Y2Axis.Title.Text = "Y2 Axis";
             ZedgraphControl1.GraphPane.Y2Axis.MajorGrid.IsVisible = false;
             ZedgraphControl1.GraphPane.Y2Axis.MinorGrid.IsVisible = false;
-            this.Visible = false;
+
+            
+            
         }
 
         private void ZedgraphControl1_DragEnter(object sender, DragEventArgs e)

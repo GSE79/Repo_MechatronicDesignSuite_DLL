@@ -21,6 +21,7 @@ namespace MechatronicDesignSuite_DLL
     /// </summary>
     public partial class MechatronicDesignSuiteForm : Form, ImsBaseForm
     {
+        public bool runInvisible { set; get; } = false;
         public PCExeSys pCExeSysLink
         {
             set

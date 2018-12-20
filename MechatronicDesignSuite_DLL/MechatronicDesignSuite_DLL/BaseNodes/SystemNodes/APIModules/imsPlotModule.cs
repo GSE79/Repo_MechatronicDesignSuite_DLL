@@ -23,11 +23,22 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         uint mainLoopModuloCounter = 0;
         public override void MainLoop()
         {
-            if(mainLoopModuloCounter++ % plotUpdateModulo == 0)
+            
+            if (mainLoopModuloCounter++ % plotUpdateModulo == 0)
             {
                 foreach (ImsBaseForm imsBF in sysModForms)
                 {
                     ((imsPlotPane)(imsBF)).plotValues();
+                    if (((imsPlotPane)(imsBF)).runInvisible)
+                    {
+                        if(((imsPlotPane)(imsBF)).Visible)
+                        {
+                            ((imsPlotPane)(imsBF)).Visible = false;
+                            ((imsPlotPane)(imsBF)).ShowInTaskbar = false;
+                            ((imsPlotPane)(imsBF)).Hide();
+                        }
+                        
+                    }
                 }
             }
 

@@ -9,5 +9,6 @@ namespace MechatronicDesignSuite_DLL
     public interface ImsBaseForm
     {
         PCExeSys pCExeSysLink { set; get; }
+        bool runInvisible { set; get; }
     }
 }
