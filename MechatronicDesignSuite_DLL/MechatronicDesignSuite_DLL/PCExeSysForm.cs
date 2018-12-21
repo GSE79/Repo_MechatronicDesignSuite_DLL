@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using MechatronicDesignSuite_DLL.BaseNodes;
+using MechatronicDesignSuite_DLL.BaseTypes;
 
 /// <summary>
 /// The MechatronicDesignSuite Library is compiled to a DLL and ..
@@ -21,6 +22,7 @@ namespace MechatronicDesignSuite_DLL
     /// </summary>
     public partial class MechatronicDesignSuiteForm : Form, ImsBaseForm
     {
+        public FormConfigurationOptions FormConfOps;
         public bool runInvisible { set; get; } = false;
         public PCExeSys pCExeSysLink
         {
@@ -50,8 +52,19 @@ namespace MechatronicDesignSuite_DLL
         {
             InitializeComponent();            
         }
+        public MechatronicDesignSuiteForm(FormConfigurationOptions confops)
+        {
+            InitializeComponent();
+            FormConfOps = confops;
+        }
 
         
 
+    }
+
+    public class FormConfigurationOptions
+    {
+        public string FormText = "PC Execution System Form";
+        public string OptionString = "";
     }
 }
