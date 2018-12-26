@@ -15,6 +15,7 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using MechatronicDesignSuite_DLL.BaseTypes;
 
+
 namespace MechatronicDesignSuite_DLL.BaseNodes
 {
     /// <summary>
@@ -362,7 +363,8 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         
         public void addStaticGUILink2SPD(Control GUIFieldIn, string unitsstringin, float scalarin, string formatstringin, bool readOnlyIn)
         {
-            StaticGUILinks.Add(new GUIValueLinks(this, GUIFieldIn, unitsstringin, scalarin, formatstringin, readOnlyIn));
+            if(StaticGUILinks.FindIndex(x=>x.StaticLinkedGUIField== GUIFieldIn) <0)
+                StaticGUILinks.Add(new GUIValueLinks(this, GUIFieldIn, unitsstringin, scalarin, formatstringin, readOnlyIn));
         }        
         public void clearStaticGUILinks()
         {

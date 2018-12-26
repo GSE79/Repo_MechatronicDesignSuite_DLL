@@ -19,14 +19,16 @@ namespace MechatronicDesignSuite_DLL
     public class SerialParameterPacket : IDisposable
     {
         protected int MaxPacketPayLoadSize = 60;
+        protected imsCyclicPacketCommSystem LinkedCommSystem;
         public string PackDescription { set; get; } = "New Serial Packet";
         public int PackID { set; get; }
         public bool HoldParsing = false;
         public List<imsSerialParamData> PacketSPDs { get; } = new List<imsSerialParamData>();
-        public SerialParameterPacket(string PacketDescription, int PacketIDin, List<imsBaseNode> globalNodeListIn)
+        public SerialParameterPacket(imsCyclicPacketCommSystem CommSys, string PacketDescription, int PacketIDin, List<imsBaseNode> globalNodeListIn)
         {
             PackID = PacketIDin;
             PackDescription = PacketDescription;
+            LinkedCommSystem = CommSys;
         }
         public void ParsePacket(byte [] PacketSerialDataIn, bool LogDataFlag, DateTime RxTime)
         {
@@ -50,7 +52,7 @@ namespace MechatronicDesignSuite_DLL
             else
             {
                 PacketSPDs.Add(spdIn);
-
+                spdIn.setcyclicCommSysLink = LinkedCommSystem;
                 PackDOff = 0;
                 foreach (imsSerialParamData SPD in PacketSPDs)
                     SPD.AccumulatePackDataOffset(ref PackDOff);
@@ -60,6 +62,12 @@ namespace MechatronicDesignSuite_DLL
         {
             foreach (imsSerialParamData SPD in PacketSPDs)
                 SPD.clearValues();
+        }
+
+        public void LinkSPDs2CommSystem(imsCyclicPacketCommSystem Sys2Link)
+        {
+            foreach (imsSerialParamData SPD in PacketSPDs)
+                SPD.setcyclicCommSysLink = Sys2Link;
         }
 
         #region iDisposable Interface Requirements

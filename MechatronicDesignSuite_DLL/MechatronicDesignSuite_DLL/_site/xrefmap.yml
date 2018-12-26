@@ -10633,15 +10633,15 @@ references:
   commentId: T:MechatronicDesignSuite_DLL.SerialParameterPacket
   fullName: MechatronicDesignSuite_DLL.SerialParameterPacket
   nameWithType: SerialParameterPacket
-- uid: MechatronicDesignSuite_DLL.SerialParameterPacket.#ctor(System.String,System.Int32,System.Collections.Generic.List{MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode})
-  name: SerialParameterPacket(String, Int32, List<imsBaseNode>)
-  href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket__ctor_System_String_System_Int32_System_Collections_Generic_List_MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode__
-  commentId: M:MechatronicDesignSuite_DLL.SerialParameterPacket.#ctor(System.String,System.Int32,System.Collections.Generic.List{MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode})
-  name.vb: SerialParameterPacket(String, Int32, List(Of imsBaseNode))
-  fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.SerialParameterPacket(System.String, System.Int32, System.Collections.Generic.List<MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode>)
-  fullName.vb: MechatronicDesignSuite_DLL.SerialParameterPacket.SerialParameterPacket(System.String, System.Int32, System.Collections.Generic.List(Of MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode))
-  nameWithType: SerialParameterPacket.SerialParameterPacket(String, Int32, List<imsBaseNode>)
-  nameWithType.vb: SerialParameterPacket.SerialParameterPacket(String, Int32, List(Of imsBaseNode))
+- uid: MechatronicDesignSuite_DLL.SerialParameterPacket.#ctor(MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem,System.String,System.Int32,System.Collections.Generic.List{MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode})
+  name: SerialParameterPacket(imsCyclicPacketCommSystem, String, Int32, List<imsBaseNode>)
+  href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket__ctor_MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_System_String_System_Int32_System_Collections_Generic_List_MechatronicDesignSuite_DLL_BaseNodes_imsBaseNode__
+  commentId: M:MechatronicDesignSuite_DLL.SerialParameterPacket.#ctor(MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem,System.String,System.Int32,System.Collections.Generic.List{MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode})
+  name.vb: SerialParameterPacket(imsCyclicPacketCommSystem, String, Int32, List(Of imsBaseNode))
+  fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.SerialParameterPacket(MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem, System.String, System.Int32, System.Collections.Generic.List<MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode>)
+  fullName.vb: MechatronicDesignSuite_DLL.SerialParameterPacket.SerialParameterPacket(MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem, System.String, System.Int32, System.Collections.Generic.List(Of MechatronicDesignSuite_DLL.BaseNodes.imsBaseNode))
+  nameWithType: SerialParameterPacket.SerialParameterPacket(imsCyclicPacketCommSystem, String, Int32, List<imsBaseNode>)
+  nameWithType.vb: SerialParameterPacket.SerialParameterPacket(imsCyclicPacketCommSystem, String, Int32, List(Of imsBaseNode))
 - uid: MechatronicDesignSuite_DLL.SerialParameterPacket.#ctor*
   name: SerialParameterPacket
   href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket__ctor_
@@ -10713,6 +10713,25 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.SerialParameterPacket.HoldParsing
   fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.HoldParsing
   nameWithType: SerialParameterPacket.HoldParsing
+- uid: MechatronicDesignSuite_DLL.SerialParameterPacket.LinkedCommSystem
+  name: LinkedCommSystem
+  href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket_LinkedCommSystem
+  commentId: F:MechatronicDesignSuite_DLL.SerialParameterPacket.LinkedCommSystem
+  fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.LinkedCommSystem
+  nameWithType: SerialParameterPacket.LinkedCommSystem
+- uid: MechatronicDesignSuite_DLL.SerialParameterPacket.LinkSPDs2CommSystem(MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem)
+  name: LinkSPDs2CommSystem(imsCyclicPacketCommSystem)
+  href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket_LinkSPDs2CommSystem_MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_
+  commentId: M:MechatronicDesignSuite_DLL.SerialParameterPacket.LinkSPDs2CommSystem(MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem)
+  fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.LinkSPDs2CommSystem(MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem)
+  nameWithType: SerialParameterPacket.LinkSPDs2CommSystem(imsCyclicPacketCommSystem)
+- uid: MechatronicDesignSuite_DLL.SerialParameterPacket.LinkSPDs2CommSystem*
+  name: LinkSPDs2CommSystem
+  href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket_LinkSPDs2CommSystem_
+  commentId: Overload:MechatronicDesignSuite_DLL.SerialParameterPacket.LinkSPDs2CommSystem
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.SerialParameterPacket.LinkSPDs2CommSystem
+  nameWithType: SerialParameterPacket.LinkSPDs2CommSystem
 - uid: MechatronicDesignSuite_DLL.SerialParameterPacket.MaxPacketPayLoadSize
   name: MaxPacketPayLoadSize
   href: api/MechatronicDesignSuite_DLL.SerialParameterPacket.html#MechatronicDesignSuite_DLL_SerialParameterPacket_MaxPacketPayLoadSize

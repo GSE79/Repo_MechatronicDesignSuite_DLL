@@ -39,7 +39,7 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
                 ((TextBox)(GUIFieldIn)).KeyPress += new KeyPressEventHandler(textbox_Keypress);
                 ((TextBox)(GUIFieldIn)).ReadOnly = readOnlyIn;
 
-                if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && (GUIFieldIn.Dock == DockStyle.Fill|| GUIFieldIn.Dock == DockStyle.Bottom))
+                if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && (GUIFieldIn.Dock == DockStyle.Fill || GUIFieldIn.Dock == DockStyle.Bottom))
                 {
                     ((GroupBox)(GUIFieldIn.Parent)).Text = vNodeLink.getNodeName + " " + unitsstringin;
                     ((GroupBox)(GUIFieldIn.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
@@ -92,7 +92,7 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
                 StaticLinkedGUIField.Parent.Padding = new Padding(5, 2, 5, 2);
                 StaticLinkedGUIField.Text = vNodeLink.toNameString(this);// + this.units;
                 StaticLinkedGUIField.Parent.Font = new Font("Microsoft Sans Serif", 10, FontStyle.Regular);
-                
+
                 StaticLinkedGUIField.Dock = DockStyle.Bottom;
 
                 StaticLinkedGUIField.Parent.Visible = true;
@@ -108,6 +108,8 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
                 ((GroupBox)(StaticLinkedGUIField.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
                 ((GroupBox)(StaticLinkedGUIField.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
             }
+            else
+                throw new Exception("Attempted to link "+vNodeLink.getNodeName+" to the unsupported control "+GUIFieldIn.ToString());
         }
         public void textbox_Keypress(object sender, KeyPressEventArgs e)
         {

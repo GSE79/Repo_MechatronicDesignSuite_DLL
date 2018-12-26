@@ -297,7 +297,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         }
         public SerialParameterPacket AddNewStaticPacket(string PacketNameString, byte PacketIDbyte, List<imsBaseNode> globalNodeListLinkIn)
         {
-            StaticSPDPackets.Add(new SerialParameterPacket(PacketNameString, PacketIDbyte, globalNodeListLinkIn));
+            StaticSPDPackets.Add(new SerialParameterPacket(this, PacketNameString, PacketIDbyte, globalNodeListLinkIn));
 
             return StaticSPDPackets[StaticSPDPackets.Count - 1];
         }
@@ -334,14 +334,16 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                     {
                         tempSPD.setcyclicCommSysLink = this;
                         tempSPD.setTxPacket(packIDin);
+                        return tempSPD;
                     }
-                    return tempSPD;
+                    else
+                        throw new Exception("Failed to find matching SPD: "+SPDName);
                 }
                 else
-                    return null;              
+                    throw new Exception("Failed to find matching SPD: No Matching Packet ID");              
             }
             else
-                return null;
+                throw new Exception("Failed to find matching SPD: No Packets Defined");
         }
         public imsValueNode getLinkedvNode(string vNodeName, Type DataTypeIn, int arrayLenIn)
         {
