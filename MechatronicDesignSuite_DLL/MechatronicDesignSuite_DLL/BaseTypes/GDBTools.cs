@@ -30,50 +30,7 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
         public TreeNode elfNode, SMNode;
     }
 
-    ////////////////////////////////////////////////
-    // Class - *.zip archive content status booleans
-    public class ArchiveContentsStatus
-    {
-        public bool hasProgDir = false, hasMasterDir = false, hasSlaveDir = false, hasBLEDir = false;
-        public bool hasMasterElf = false, hasSlaveElf = false, hasBLEElf = false;
-        public bool hasMasterCYACD = false, hasSlaveCYACD = false, hasBLECYACD = false;
-        public bool hasGUIREMOTE = false;
-
-        // Parsed Version Information
-        public List<byte> GuiRemoteVersionBytes = new List<byte>(4);
-        public string versionMasterArchive = "";
-        public string versionSlaveArchive = "";
-        public string versionBLEArchive = "";
-
-        public string STDOutString = "";
-        public string STDErrString = "";
-
-
-
-        // Function to Parse Version Information from .rodata section of .elf file
-        public string ParseVersionfromElfNm()
-        {
-            string versionString = "";
-
-            int index2EngVer = 0;
-            int index2End = 0;
-
-            index2EngVer = STDOutString.IndexOf("Eng Ver");
-
-            if (index2EngVer > 0)
-            {
-                versionString = STDOutString.Substring(index2EngVer + 8, 15);
-
-                index2End = versionString.IndexOf("\r\n");
-
-                versionString = versionString.Substring(0, index2End);
-            }
-
-
-            return versionString;
-        }
-    }
-
+    
     ///////////////////////////////////////////////
     // Class - GDBParser
     public class GDBParser
