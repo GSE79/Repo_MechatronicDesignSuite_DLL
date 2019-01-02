@@ -8292,127 +8292,6 @@ references:
   commentId: N:MechatronicDesignSuite_DLL.BaseTypes
   fullName: MechatronicDesignSuite_DLL.BaseTypes
   nameWithType: MechatronicDesignSuite_DLL.BaseTypes
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus
-  name: ArchiveContentsStatus
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html
-  commentId: T:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus
-  nameWithType: ArchiveContentsStatus
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.GuiRemoteVersionBytes
-  name: GuiRemoteVersionBytes
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_GuiRemoteVersionBytes
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.GuiRemoteVersionBytes
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.GuiRemoteVersionBytes
-  nameWithType: ArchiveContentsStatus.GuiRemoteVersionBytes
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLECYACD
-  name: hasBLECYACD
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasBLECYACD
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLECYACD
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLECYACD
-  nameWithType: ArchiveContentsStatus.hasBLECYACD
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLEDir
-  name: hasBLEDir
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasBLEDir
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLEDir
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLEDir
-  nameWithType: ArchiveContentsStatus.hasBLEDir
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLEElf
-  name: hasBLEElf
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasBLEElf
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLEElf
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasBLEElf
-  nameWithType: ArchiveContentsStatus.hasBLEElf
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasGUIREMOTE
-  name: hasGUIREMOTE
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasGUIREMOTE
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasGUIREMOTE
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasGUIREMOTE
-  nameWithType: ArchiveContentsStatus.hasGUIREMOTE
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterCYACD
-  name: hasMasterCYACD
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasMasterCYACD
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterCYACD
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterCYACD
-  nameWithType: ArchiveContentsStatus.hasMasterCYACD
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterDir
-  name: hasMasterDir
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasMasterDir
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterDir
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterDir
-  nameWithType: ArchiveContentsStatus.hasMasterDir
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterElf
-  name: hasMasterElf
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasMasterElf
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterElf
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasMasterElf
-  nameWithType: ArchiveContentsStatus.hasMasterElf
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasProgDir
-  name: hasProgDir
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasProgDir
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasProgDir
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasProgDir
-  nameWithType: ArchiveContentsStatus.hasProgDir
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveCYACD
-  name: hasSlaveCYACD
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasSlaveCYACD
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveCYACD
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveCYACD
-  nameWithType: ArchiveContentsStatus.hasSlaveCYACD
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveDir
-  name: hasSlaveDir
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasSlaveDir
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveDir
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveDir
-  nameWithType: ArchiveContentsStatus.hasSlaveDir
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveElf
-  name: hasSlaveElf
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_hasSlaveElf
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveElf
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.hasSlaveElf
-  nameWithType: ArchiveContentsStatus.hasSlaveElf
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.ParseVersionfromElfNm
-  name: ParseVersionfromElfNm()
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_ParseVersionfromElfNm
-  commentId: M:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.ParseVersionfromElfNm
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.ParseVersionfromElfNm()
-  nameWithType: ArchiveContentsStatus.ParseVersionfromElfNm()
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.ParseVersionfromElfNm*
-  name: ParseVersionfromElfNm
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_ParseVersionfromElfNm_
-  commentId: Overload:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.ParseVersionfromElfNm
-  isSpec: "True"
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.ParseVersionfromElfNm
-  nameWithType: ArchiveContentsStatus.ParseVersionfromElfNm
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.STDErrString
-  name: STDErrString
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_STDErrString
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.STDErrString
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.STDErrString
-  nameWithType: ArchiveContentsStatus.STDErrString
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.STDOutString
-  name: STDOutString
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_STDOutString
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.STDOutString
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.STDOutString
-  nameWithType: ArchiveContentsStatus.STDOutString
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionBLEArchive
-  name: versionBLEArchive
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_versionBLEArchive
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionBLEArchive
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionBLEArchive
-  nameWithType: ArchiveContentsStatus.versionBLEArchive
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionMasterArchive
-  name: versionMasterArchive
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_versionMasterArchive
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionMasterArchive
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionMasterArchive
-  nameWithType: ArchiveContentsStatus.versionMasterArchive
-- uid: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionSlaveArchive
-  name: versionSlaveArchive
-  href: api/MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.html#MechatronicDesignSuite_DLL_BaseTypes_ArchiveContentsStatus_versionSlaveArchive
-  commentId: F:MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionSlaveArchive
-  fullName: MechatronicDesignSuite_DLL.BaseTypes.ArchiveContentsStatus.versionSlaveArchive
-  nameWithType: ArchiveContentsStatus.versionSlaveArchive
 - uid: MechatronicDesignSuite_DLL.BaseTypes.DwarfTypeNodeDataClass
   name: DwarfTypeNodeDataClass
   href: api/MechatronicDesignSuite_DLL.BaseTypes.DwarfTypeNodeDataClass.html
@@ -9693,19 +9572,32 @@ references:
   isSpec: "True"
   fullName: MechatronicDesignSuite_DLL.imsPlotPane.Dispose
   nameWithType: imsPlotPane.Dispose
-- uid: MechatronicDesignSuite_DLL.imsPlotPane.DropParam(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks,System.Int32)
-  name: DropParam(GUIValueLinks, Int32)
-  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_DropParam_MechatronicDesignSuite_DLL_BaseTypes_GUIValueLinks_System_Int32_
-  commentId: M:MechatronicDesignSuite_DLL.imsPlotPane.DropParam(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks,System.Int32)
-  fullName: MechatronicDesignSuite_DLL.imsPlotPane.DropParam(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks, System.Int32)
-  nameWithType: imsPlotPane.DropParam(GUIValueLinks, Int32)
-- uid: MechatronicDesignSuite_DLL.imsPlotPane.DropParam*
-  name: DropParam
-  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_DropParam_
-  commentId: Overload:MechatronicDesignSuite_DLL.imsPlotPane.DropParam
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.DropGUIVLink(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks,System.Int32)
+  name: DropGUIVLink(GUIValueLinks, Int32)
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_DropGUIVLink_MechatronicDesignSuite_DLL_BaseTypes_GUIValueLinks_System_Int32_
+  commentId: M:MechatronicDesignSuite_DLL.imsPlotPane.DropGUIVLink(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks,System.Int32)
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.DropGUIVLink(MechatronicDesignSuite_DLL.BaseTypes.GUIValueLinks, System.Int32)
+  nameWithType: imsPlotPane.DropGUIVLink(GUIValueLinks, Int32)
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.DropGUIVLink*
+  name: DropGUIVLink
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_DropGUIVLink_
+  commentId: Overload:MechatronicDesignSuite_DLL.imsPlotPane.DropGUIVLink
   isSpec: "True"
-  fullName: MechatronicDesignSuite_DLL.imsPlotPane.DropParam
-  nameWithType: imsPlotPane.DropParam
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.DropGUIVLink
+  nameWithType: imsPlotPane.DropGUIVLink
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.DropVNode(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode,System.Int32)
+  name: DropVNode(imsValueNode, Int32)
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_DropVNode_MechatronicDesignSuite_DLL_BaseNodes_imsValueNode_System_Int32_
+  commentId: M:MechatronicDesignSuite_DLL.imsPlotPane.DropVNode(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode,System.Int32)
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.DropVNode(MechatronicDesignSuite_DLL.BaseNodes.imsValueNode, System.Int32)
+  nameWithType: imsPlotPane.DropVNode(imsValueNode, Int32)
+- uid: MechatronicDesignSuite_DLL.imsPlotPane.DropVNode*
+  name: DropVNode
+  href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_DropVNode_
+  commentId: Overload:MechatronicDesignSuite_DLL.imsPlotPane.DropVNode
+  isSpec: "True"
+  fullName: MechatronicDesignSuite_DLL.imsPlotPane.DropVNode
+  nameWithType: imsPlotPane.DropVNode
 - uid: MechatronicDesignSuite_DLL.imsPlotPane.getBytes
   name: getBytes()
   href: api/MechatronicDesignSuite_DLL.imsPlotPane.html#MechatronicDesignSuite_DLL_imsPlotPane_getBytes

@@ -95,8 +95,25 @@ namespace MechatronicDesignSuite_DLL
         {
             e.Effect = DragDropEffects.Link;
         }
-        public void DropParam(GUIValueLinks GUIVlinkIN, int axisSelect)
+        public void DropVNode(imsValueNode vNodeIn, int axisSelectIn)
         {
+            GUIValueLinks plotLink = new GUIValueLinks(vNodeIn, null, "", 1.0f, "", true);
+            DropGUIVLink(plotLink, axisSelectIn);
+        }
+        public void DropGUIVLink(GUIValueLinks GUIVlinkIN, int axisSelect)
+        {
+            // Initialize some temporary variables
+            string NodeName = "";
+            int totalCount = 0;
+            Color[] plotColors = { Color.Red, Color.Blue, Color.Black, Color.Brown, Color.DarkCyan, Color.LimeGreen, Color.Purple, Color.Green, Color.HotPink, Color.ForestGreen };
+
+            NodeName = GUIVlinkIN.vNodeLink.getNodeName;
+
+
+            //if(treeView1.Nodes.Count < 1)
+            //    treeView1.Nodes.Add()
+
+
             // show initial setting for plot window
             if (treeView1.Nodes[0].Nodes.Count > 0)
             {
@@ -106,22 +123,13 @@ namespace MechatronicDesignSuite_DLL
             {
                 treeView1.Nodes[0].Nodes.Add(plotWindow.ToString());
             }
-            
-
-
-            // Initialize some temporary variables
-            string NodeName = "";
-            int totalCount = 0;
-            Color[] plotColors = { Color.Red, Color.Blue, Color.Black, Color.Brown, Color.DarkCyan, Color.LimeGreen, Color.Purple, Color.Green, Color.HotPink, Color.ForestGreen };
-
-            NodeName = GUIVlinkIN.vNodeLink.getNodeName;
 
             // Capture total count of nodes in tree
             totalCount = treeView1.Nodes[1].Nodes.Count + treeView1.Nodes[2].Nodes.Count;
 
-            // Limit the total count to 0-8, Limit one of each name key, to prevent duplicates, no exact name matches!!
+            // Limit the total count, Limit one of each name key, to prevent duplicates, no exact name matches!!
             // Otherwise, process the drop...
-            if (!treeView1.Nodes[axisSelect].Nodes.ContainsKey(NodeName) && totalCount < 9)
+            if (!treeView1.Nodes[axisSelect].Nodes.ContainsKey(NodeName) && totalCount < plotColors.Length)
             {
                 // Add a node to the treeview with our temp nodename
                 treeView1.Nodes[axisSelect].Nodes.Add(new TreeNode(NodeName));
@@ -171,6 +179,8 @@ namespace MechatronicDesignSuite_DLL
             // Set Legend visible and expand the treeview
             ZedgraphControl1.GraphPane.Legend.IsVisible = true;
             treeView1.ExpandAll();
+
+            
         }
         public void ZedgraphControl1_DragDrop(object sender, DragEventArgs e)
         {
@@ -196,7 +206,7 @@ namespace MechatronicDesignSuite_DLL
             if(((GUIValueLinks)e.Data.GetData(typeof(GUIValueLinks))) != null)
             {
                 GUIVLinkDropped = ((GUIValueLinks)e.Data.GetData(typeof(GUIValueLinks)));
-                DropParam(GUIVLinkDropped, axisSelect);
+                DropGUIVLink(GUIVLinkDropped, axisSelect);
             }
 
             ZedgraphControl1.Refresh();
@@ -301,7 +311,11 @@ namespace MechatronicDesignSuite_DLL
 
             plotParamReference.Clear();//.Remove(((SerialParameterData)(((CurveItem)treeView1.SelectedNode.Tag).Tag)));
             ZedgraphControl1.GraphPane.CurveList.Clear();//.Remove(((CurveItem)treeView1.SelectedNode.Tag));
-            treeView1.Nodes.Clear(); // Remove(treeView1.SelectedNode);
+
+            if (treeView1.Nodes.Count > 2)
+                treeView1.Nodes[2].Nodes.Clear();
+            if (treeView1.Nodes.Count > 1)
+                treeView1.Nodes[1].Nodes.Clear();
 
             treeView1.ExpandAll();
 
@@ -310,10 +324,6 @@ namespace MechatronicDesignSuite_DLL
             ZedgraphControl1.Refresh();
 
         }
-
-
-
-      
 
         private void PlotPropsTreeView_MouseClick(object sender, MouseEventArgs e)
         {
@@ -388,7 +398,6 @@ namespace MechatronicDesignSuite_DLL
         {
 
         }
-
         
         private void treeView1_BeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
         {

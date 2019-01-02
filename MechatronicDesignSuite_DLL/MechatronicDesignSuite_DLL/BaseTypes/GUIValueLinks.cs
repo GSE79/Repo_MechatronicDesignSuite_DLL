@@ -30,7 +30,11 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
             formatstring = formatstringin;
             readOnly = readOnlyIn;
 
-            if (typeof(TextBox).IsInstanceOfType(GUIFieldIn))
+            if(GUIFieldIn==null)
+            {
+
+            }
+            else if (typeof(TextBox).IsInstanceOfType(GUIFieldIn))
             {
                 ((TextBox)(GUIFieldIn)).Text = vNodeLink.toNameString(this);
                 //StaticLinkedGUIField.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_MouseDown);

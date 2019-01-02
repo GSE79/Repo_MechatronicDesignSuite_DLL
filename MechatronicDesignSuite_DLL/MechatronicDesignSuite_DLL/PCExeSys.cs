@@ -516,15 +516,24 @@ namespace MechatronicDesignSuite_DLL
                 else
                     ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "CallbackFunction";
 
-                LinkedMDSForm.BeginInvoke(new Action(() => {
-                    DialogResult dsults =  MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception", MessageBoxButtons.OKCancel);
-                    if(dsults == DialogResult.OK)
+                if(LinkedMDSForm!=null)
+                {
+                    if(LinkedMDSForm.Created)
                     {
-                        if (EntryPoint == MainLoop && !EnableMainLoop)
-                            EnableMainLoop = true;
+                        LinkedMDSForm.BeginInvoke(new Action(() =>
+                        {
+                            DialogResult dsults = MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception", MessageBoxButtons.OKCancel);
+                            if (dsults == DialogResult.OK)
+                            {
+                                if (EntryPoint == MainLoop && !EnableMainLoop)
+                                    EnableMainLoop = true;
 
+                            }
+                        }));
                     }
-                }));
+                }
+
+
             }
         }
         #endregion
