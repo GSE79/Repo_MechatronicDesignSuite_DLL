@@ -6484,6 +6484,12 @@ references:
   commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.resetLoggingClock
   fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.resetLoggingClock
   nameWithType: imsCyclicPacketCommSystem.resetLoggingClock
+- uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxLatchTimeHistory
+  name: RxLatchTimeHistory
+  href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_RxLatchTimeHistory
+  commentId: F:MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxLatchTimeHistory
+  fullName: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxLatchTimeHistory
+  nameWithType: imsCyclicPacketCommSystem.RxLatchTimeHistory
 - uid: MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.RxPacketBuffer
   name: RxPacketBuffer
   href: api/MechatronicDesignSuite_DLL.BaseNodes.imsCyclicPacketCommSystem.html#MechatronicDesignSuite_DLL_BaseNodes_imsCyclicPacketCommSystem_RxPacketBuffer
@@ -13370,6 +13376,12 @@ references:
   isSpec: "True"
   fullName: ZedGraph.CurveItem.DrawLegendKey
   nameWithType: CurveItem.DrawLegendKey
+- uid: ZedGraph.CurveItem.ExportDTColIndex
+  name: ExportDTColIndex
+  href: api/ZedGraph.CurveItem.html#ZedGraph_CurveItem_ExportDTColIndex
+  commentId: F:ZedGraph.CurveItem.ExportDTColIndex
+  fullName: ZedGraph.CurveItem.ExportDTColIndex
+  nameWithType: CurveItem.ExportDTColIndex
 - uid: ZedGraph.CurveItem.GetBarWidth(ZedGraph.GraphPane)
   name: GetBarWidth(GraphPane)
   href: api/ZedGraph.CurveItem.html#ZedGraph_CurveItem_GetBarWidth_ZedGraph_GraphPane_

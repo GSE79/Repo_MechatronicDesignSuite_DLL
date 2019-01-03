@@ -68,6 +68,8 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         [Category("Cyclic Packet Comms System "), Description("The Dynamic Data Buffer consumed by the write() function")]
         public List<byte[]> setTxPacketQueue { get { return TxPacketQueue; } set { TxPacketQueue = value; } }
 
+        public List<Double> RxLatchTimeHistory = new List<Double>();
+
         protected int CommLoopCounter = 0;
         [Category("Cyclic Packet Comms System "), Description("Running Counter of Communication Loop Iterations while Device Connected")]
         public int getCommLoopCounter { get { return CommLoopCounter; }  }
@@ -188,6 +190,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
                         // ***needs to work with variable header data sizes*** //
                         tempBytes.RemoveRange(0, 4);
+
+                        if(LogData)
+                            RxLatchTimeHistory.Add((RxPacketTimes[RxPckIndx] - TimeAtStartLogging).TotalSeconds);
 
                         // header should be stripped, spd data only, no header bytes
                         StaticSPDPackets[ParsePckIndx].ParsePacket(tempBytes.ToArray(), LogData, RxPacketTimes[RxPckIndx]);
