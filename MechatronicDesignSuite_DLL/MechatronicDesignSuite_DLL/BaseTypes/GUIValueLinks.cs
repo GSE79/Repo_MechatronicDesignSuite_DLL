@@ -283,11 +283,13 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
         public void getValuefromTextbox(TextBox tbIn)
         {
             float tempFloat;
+            float tempScalar = 1.0f/scalar;
+            
 
             if (vNodeLink.getDataType == typeof(byte))
             {
                 if (float.TryParse(tbIn.Text, out tempFloat))
-                    vNodeLink.setbyteValue = (byte)(tempFloat / scalar);
+                    vNodeLink.setbyteValue = (byte)(tempFloat * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(char))
             {
@@ -301,41 +303,41 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
                 {
                     char tempChar;
                     if (char.TryParse(tbIn.Text, out tempChar))
-                        vNodeLink.setcharValue = (char)(tempChar / scalar);
+                        vNodeLink.setcharValue = (char)(tempChar * tempScalar);
                     else if (float.TryParse(tbIn.Text, out tempFloat))
-                        vNodeLink.setcharValue = (char)(tempFloat / scalar);
+                        vNodeLink.setcharValue = (char)(tempFloat * tempScalar);
                 }
             }
             else if (vNodeLink.getDataType == typeof(ushort))
             {
                 if (float.TryParse(tbIn.Text, out tempFloat))
-                    vNodeLink.setushortValue = (ushort)(tempFloat / scalar);
+                    vNodeLink.setushortValue = (ushort)(tempFloat * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(short))
             {
                 if (float.TryParse(tbIn.Text, out tempFloat))
-                    vNodeLink.setshortValue = (short)(tempFloat / scalar);
+                    vNodeLink.setshortValue = (short)(tempFloat * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(uint))
             {
                 if (float.TryParse(tbIn.Text, out tempFloat))
-                    vNodeLink.setuintValue = (uint)(tempFloat / scalar);
+                    vNodeLink.setuintValue = (uint)(tempFloat * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(int))
             {
                 if (float.TryParse(tbIn.Text, out tempFloat))
-                    vNodeLink.setintValue = (int)(tempFloat / scalar);
+                    vNodeLink.setintValue = (int)(tempFloat * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(float))
             {
                 if (float.TryParse(tbIn.Text, out tempFloat))
-                    vNodeLink.setfloatValue = (tempFloat / scalar);
+                    vNodeLink.setfloatValue = (tempFloat * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(double))
             {
                 double tempDouble;
                 if (double.TryParse(tbIn.Text, out tempDouble))
-                    vNodeLink.setdoubleValue = (tempDouble / scalar);
+                    vNodeLink.setdoubleValue = (tempDouble * tempScalar);
             }
 
             if (typeof(imsSerialParamData).IsInstanceOfType(vNodeLink))
@@ -347,38 +349,39 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
         public void getValuefromComboBox(ComboBox cbIn)
         {
             float tempFloat;
+            float tempScalar = 1.0f / scalar;
 
             if (vNodeLink.getDataType == typeof(byte))
             {
-                vNodeLink.setbyteValue = (byte)(cbIn.SelectedIndex / scalar);
+                vNodeLink.setbyteValue = (byte)(cbIn.SelectedIndex * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(char))
             {
-                vNodeLink.setcharValue = (char)(cbIn.SelectedIndex / scalar);
+                vNodeLink.setcharValue = (char)(cbIn.SelectedIndex * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(ushort))
             {
-                vNodeLink.setushortValue = (ushort)(cbIn.SelectedIndex / scalar);
+                vNodeLink.setushortValue = (ushort)(cbIn.SelectedIndex * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(short))
             {
-                vNodeLink.setshortValue = (short)(cbIn.SelectedIndex / scalar);
+                vNodeLink.setshortValue = (short)(cbIn.SelectedIndex * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(uint))
             {
-                vNodeLink.setuintValue = (uint)(cbIn.SelectedIndex / scalar);
+                vNodeLink.setuintValue = (uint)(cbIn.SelectedIndex * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(int))
             {
-                vNodeLink.setintValue = (int)(cbIn.SelectedIndex / scalar);
+                vNodeLink.setintValue = (int)(cbIn.SelectedIndex * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(float))
             {
-                vNodeLink.setfloatValue = (cbIn.SelectedIndex / scalar);
+                vNodeLink.setfloatValue = (cbIn.SelectedIndex * tempScalar);
             }
             else if (vNodeLink.getDataType == typeof(double))
             {
-                vNodeLink.setdoubleValue = (cbIn.SelectedIndex / scalar);
+                vNodeLink.setdoubleValue = (cbIn.SelectedIndex * tempScalar);
             }
 
             if (typeof(imsSerialParamData).IsInstanceOfType(vNodeLink))
