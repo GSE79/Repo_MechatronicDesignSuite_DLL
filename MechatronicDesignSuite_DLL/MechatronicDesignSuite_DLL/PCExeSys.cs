@@ -536,6 +536,33 @@ namespace MechatronicDesignSuite_DLL
 
             }
         }
+        public void CallEventHandlerFunction(Func<object, EventArgs, int> EntryPoint , object sender, EventArgs e)
+        {
+            try
+            {
+                EntryPoint(sender, e);
+            }
+            catch (Exception caughtExcpIn)
+            {
+                ExceptionLog.Add(new imsException());
+                ExceptionLog[ExceptionLog.Count - 1].thisException = caughtExcpIn;
+                ExceptionLog[ExceptionLog.Count - 1].ThreadIDString = "EventHandler";
+                
+                if (LinkedMDSForm != null)
+                {
+                    if (LinkedMDSForm.Created)
+                    {
+                        LinkedMDSForm.BeginInvoke(new Action(() =>
+                        {
+                            DialogResult dsults = MessageBox.Show(LinkedMDSForm, ExceptionLog[ExceptionLog.Count - 1].ToString(), "Caught an Exception", MessageBoxButtons.OKCancel);
+                            
+                        }));
+                    }
+                }
+
+
+            }
+        }
         #endregion
 
         public void AddDlltoProject(Assembly ModuleAssembly)
@@ -972,7 +999,6 @@ namespace MechatronicDesignSuite_DLL
             }
             return crc;
         }
-
         public byte[] ComputeChecksumBytes(byte[] bytes)
         {
             ushort crc = ComputeChecksum(bytes);

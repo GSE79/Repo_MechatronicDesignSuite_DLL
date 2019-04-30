@@ -115,6 +115,100 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
             else
                 throw new Exception("Attempted to link "+vNodeLink.getNodeName+" to the unsupported control "+GUIFieldIn.ToString());
         }
+        public GUIValueLinks(imsValueNode vNodeLinkIn, Control GUIFieldIn)
+        {
+            StaticLinkedGUIField = GUIFieldIn;
+            vNodeLink = vNodeLinkIn;
+            UnitsString = "";
+            scalar = 1.0f;
+            formatstring = "";
+            readOnly = true;
+
+            if (GUIFieldIn == null)
+            {
+
+            }
+            else if (typeof(TextBox).IsInstanceOfType(GUIFieldIn))
+            {
+                ((TextBox)(GUIFieldIn)).Text = vNodeLink.toNameString(this);
+                //StaticLinkedGUIField.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_MouseDown);
+                StaticLinkedGUIField.Enter += new EventHandler(textBox_Enter);
+                StaticLinkedGUIField.Leave += new EventHandler(textbox_Leave);
+                ((TextBox)(GUIFieldIn)).KeyPress += new KeyPressEventHandler(textbox_Keypress);
+                ((TextBox)(GUIFieldIn)).ReadOnly = readOnly;
+
+                if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && (GUIFieldIn.Dock == DockStyle.Fill || GUIFieldIn.Dock == DockStyle.Bottom))
+                {
+                    ((GroupBox)(GUIFieldIn.Parent)).Text = vNodeLink.getNodeName + " " + UnitsString;
+                    ((GroupBox)(GUIFieldIn.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
+                    ((GroupBox)(GUIFieldIn.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
+
+                }
+            }
+            else if (typeof(System.Windows.Forms.Label).IsInstanceOfType(GUIFieldIn))
+            {
+                ((System.Windows.Forms.Label)(GUIFieldIn)).Text = vNodeLink.getNodeName + " " + UnitsString;
+
+                if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && GUIFieldIn.Dock == DockStyle.Fill)
+                {
+                    ((GroupBox)(GUIFieldIn.Parent)).Text = vNodeLink.getNodeName + " " + UnitsString;
+                    ((GroupBox)(GUIFieldIn.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
+                    ((GroupBox)(GUIFieldIn.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
+
+                }
+
+            }
+            else if (typeof(ComboBox).IsInstanceOfType(GUIFieldIn))
+            {
+                ((ComboBox)(GUIFieldIn)).Text = vNodeLink.getNodeName + " " + UnitsString;
+                //StaticLinkedGUIField.MouseDown += new System.Windows.Forms.MouseEventHandler(this.textBox_MouseDown);
+                StaticLinkedGUIField.Enter += new EventHandler(textBox_Enter);
+                StaticLinkedGUIField.Leave += new EventHandler(textbox_Leave);
+                ((ComboBox)(GUIFieldIn)).KeyPress += new KeyPressEventHandler(comboBox_KeyPress);
+                ((ComboBox)(GUIFieldIn)).DropDown += new EventHandler(comboBox_DropDown);
+
+                if (typeof(GroupBox).IsInstanceOfType(GUIFieldIn.Parent) && GUIFieldIn.Dock == DockStyle.Fill)
+                {
+                    ((GroupBox)(GUIFieldIn.Parent)).Text = vNodeLink.getNodeName + " " + UnitsString;
+                    ((GroupBox)(GUIFieldIn.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
+                    ((GroupBox)(GUIFieldIn.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
+
+                }
+
+            }
+            else if (typeof(FlowLayoutPanel).IsInstanceOfType(GUIFieldIn))
+            {
+                StaticLinkedGUIField = new Label();
+                StaticLinkedGUIField.Name = "imsTextBox" + vNodeLink.getGlobalNodeID.ToString();
+                StaticLinkedGUIField.Parent = new GroupBox();
+
+                //StaticLinkedGUIField.Font = new Font("Microsoft Sans Serif", 12, FontStyle.Regular);
+                StaticLinkedGUIField.Parent.Height = (int)(StaticLinkedGUIField.Size.Height * 2.0);
+
+
+                StaticLinkedGUIField.Parent.Margin = new Padding(5, 2, 5, 2);
+                StaticLinkedGUIField.Parent.Padding = new Padding(5, 2, 5, 2);
+                StaticLinkedGUIField.Text = vNodeLink.toNameString(this);// + this.units;
+                StaticLinkedGUIField.Parent.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
+
+                StaticLinkedGUIField.Dock = DockStyle.Bottom;
+
+                StaticLinkedGUIField.Parent.Visible = true;
+                StaticLinkedGUIField.KeyPress += new KeyPressEventHandler(textbox_Keypress);
+
+                ((FlowLayoutPanel)(GUIFieldIn)).Controls.Add(StaticLinkedGUIField.Parent);
+
+                StaticLinkedGUIField.Enter += new EventHandler(textBox_Enter);
+                StaticLinkedGUIField.Leave += new EventHandler(textbox_Leave);
+
+                ((GroupBox)(StaticLinkedGUIField.Parent)).Text = vNodeLink.toNameString(this);
+                ((GroupBox)(StaticLinkedGUIField.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
+                ((GroupBox)(StaticLinkedGUIField.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
+            }
+            else
+                throw new Exception("Attempted to link " + vNodeLink.getNodeName + " to the unsupported control " + GUIFieldIn.ToString());
+        }
+
         public void textbox_Keypress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)

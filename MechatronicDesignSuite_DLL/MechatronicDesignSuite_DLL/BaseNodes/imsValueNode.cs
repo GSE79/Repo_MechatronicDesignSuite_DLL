@@ -138,6 +138,34 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         public List<int> setintValues { get { return intValues; } set { intValues = value; } }
 
         /// <summary>
+        /// uintValue
+        /// </summary>
+        protected ulong ulongValue;
+        protected List<ulong> ulongValues;
+        [Category("datatype: ulong"), Description("The .NET ulong representation")]
+        public ulong getulongValue { get { return ulongValue; } }
+        [Category("datatype: ulong"), Description("The .NET ulong representation")]
+        public ulong setulongValue { get { return ulongValue; } set { ulongValue = value; } }
+        [Category("datatype: ulong"), Description("The .NET ulong representation")]
+        public List<ulong> getulongValues { get { return ulongValues; } }
+        [Category("datatype: ulong"), Description("The .NET ulong representation")]
+        public List<ulong> setulongValues { get { return ulongValues; } set { ulongValues = value; } }
+
+        /// <summary>
+        /// longValue
+        /// </summary>
+        protected long longValue;
+        protected List<long> longValues;
+        [Category("datatype: long"), Description("The .NET long representation")]
+        public long getlongValue { get { return longValue; } }
+        [Category("datatype: long"), Description("The .NET long representation")]
+        public long setlongValue { get { return longValue; } set { longValue = value; } }
+        [Category("datatype: long"), Description("The .NET long representation")]
+        public List<long> getlongValues { get { return longValues; } }
+        [Category("datatype: long"), Description("The .NET long representation")]
+        public List<long> setlongValues { get { return longValues; } set { longValues = value; } }
+
+        /// <summary>
         /// floatValue
         /// </summary>
         protected float floatValue;
@@ -213,6 +241,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 uintValues = new List<uint>();
             else if (DataType == typeof(int))
                 intValues = new List<int>();
+            else if (DataType == typeof(ulong))
+                ulongValues = new List<ulong>();
+            else if (DataType == typeof(long))
+                longValues = new List<long>();
             else if (DataType == typeof(float))
                 floatValues = new List<float>();
             else if (DataType == typeof(double))
@@ -252,6 +284,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 uintValues.Clear();
             else if (DataType == typeof(int))
                 intValues.Clear();
+            else if (DataType == typeof(ulong))
+                ulongValues.Clear();
+            else if (DataType == typeof(long))
+                longValues.Clear();
             else if (DataType == typeof(float))
                 floatValues.Clear();
             else if (DataType == typeof(double))
@@ -296,6 +332,14 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             else if (DataType == typeof(int))
             {
                 intValue = (int)newValue;
+            }
+            else if (DataType == typeof(ulong))
+            {
+                ulongValue = (uint)newValue;
+            }
+            else if (DataType == typeof(long))
+            {
+                longValue = (int)newValue;
             }
             else if (DataType == typeof(float))
             {
@@ -347,6 +391,14 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             {
                 intValues.Add(intValue);
             }
+            else if (DataType == typeof(ulong))
+            {
+                ulongValues.Add(ulongValue);
+            }
+            else if (DataType == typeof(long))
+            {
+                longValues.Add(longValue);
+            }
             else if (DataType == typeof(float))
             {
                 floatValues.Add(floatValue);
@@ -365,7 +417,12 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         {
             if(StaticGUILinks.FindIndex(x=>x.StaticLinkedGUIField== GUIFieldIn) <0)
                 StaticGUILinks.Add(new GUIValueLinks(this, GUIFieldIn, unitsstringin, scalarin, formatstringin, readOnlyIn));
-        }        
+        }
+        public void addStaticGUILink2SPD(Control GUIFieldIn)
+        {
+            if (StaticGUILinks.FindIndex(x => x.StaticLinkedGUIField == GUIFieldIn) < 0)
+                StaticGUILinks.Add(new GUIValueLinks(this, GUIFieldIn));
+        }
         public void clearStaticGUILinks()
         {
             StaticGUILinks.Clear();
@@ -482,7 +539,27 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 else
                     return (intValue * LinkIn.scalar).ToString(LinkIn.formatstring);
             }
-                
+
+            else if (DataType == typeof(ulong))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return "0x" + ((ulong)(LinkIn.scalar * ulongValue)).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return "0b??";//string.Concat("0b", (Convert.ToString(((ulong)(ulongValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return (ulongValue * LinkIn.scalar).ToString(LinkIn.formatstring);
+            }
+
+            else if (DataType == typeof(long))
+            {
+                if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
+                    return "0x" + ((long)(LinkIn.scalar * longValue)).ToString("X2");
+                else if (LinkIn.formatstring.Contains("b") || LinkIn.formatstring.Contains("B"))
+                    return string.Concat("0b", (Convert.ToString(((long)(longValue * LinkIn.scalar)), 2)).PadLeft(8, '0'));
+                else
+                    return (longValue * LinkIn.scalar).ToString(LinkIn.formatstring);
+            }
+
             else if (DataType == typeof(float))
             {
                 if (LinkIn.formatstring.Contains("x") || LinkIn.formatstring.Contains("X"))
@@ -538,6 +615,16 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 return ((int)(intValue * LinkIn.scalar));
             }
 
+            else if (DataType == typeof(ulong))
+            {
+                return (int)((ulong)(ulongValue * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(long))
+            {
+                return ((int)(longValue * LinkIn.scalar));
+            }
+
             else if (DataType == typeof(float))
             {
                 return ((int)(floatValue * LinkIn.scalar));
@@ -576,9 +663,19 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 return (((double)uintValues[indexi] * LinkIn.scalar));
             }
 
-            else if (DataType == typeof(int))
+            else if (DataType == typeof(long))
             {
-                return (((double)intValues[indexi] * LinkIn.scalar));
+                return (((double)longValues[indexi] * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(ulong))
+            {
+                return (((double)ulongValues[indexi] * LinkIn.scalar));
+            }
+
+            else if (DataType == typeof(long))
+            {
+                return (((double)longValues[indexi] * LinkIn.scalar));
             }
 
             else if (DataType == typeof(float))

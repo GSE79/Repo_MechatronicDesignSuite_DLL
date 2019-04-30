@@ -108,6 +108,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             ValueIndexList = (List<int>)DeSerializeFormatter.Deserialize(deSerializeFs);
             SubSysIndexList = (List<int>)DeSerializeFormatter.Deserialize(deSerializeFs);
         }
+        
+        
+        
         /// <summary>
         /// writeNode2file()
         /// </summary>
