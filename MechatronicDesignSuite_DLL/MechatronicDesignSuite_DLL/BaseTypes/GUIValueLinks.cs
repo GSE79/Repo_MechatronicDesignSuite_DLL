@@ -186,17 +186,45 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
                 StaticLinkedGUIField.Parent.Height = (int)(StaticLinkedGUIField.Size.Height * 2.0);
 
 
-                StaticLinkedGUIField.Parent.Margin = new Padding(5, 2, 5, 2);
-                StaticLinkedGUIField.Parent.Padding = new Padding(5, 2, 5, 2);
+                //StaticLinkedGUIField.Parent.Margin = new Padding(5, 2, 5, 2);
+               // StaticLinkedGUIField.Parent.Padding = new Padding(5, 2, 5, 2);
                 StaticLinkedGUIField.Text = vNodeLink.toNameString(this);// + this.units;
-                StaticLinkedGUIField.Parent.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
+                //StaticLinkedGUIField.Parent.Font = new Font("Microsoft Sans Serif", 8, FontStyle.Regular);
+                
 
-                StaticLinkedGUIField.Dock = DockStyle.Bottom;
+                //StaticLinkedGUIField.Parent.Dock = DockStyle.Fill;
 
+                StaticLinkedGUIField.Dock = DockStyle.Fill;
+                ((Label)StaticLinkedGUIField).TextAlign = ContentAlignment.MiddleLeft;
                 StaticLinkedGUIField.Parent.Visible = true;
                 StaticLinkedGUIField.KeyPress += new KeyPressEventHandler(textbox_Keypress);
 
                 ((FlowLayoutPanel)(GUIFieldIn)).Controls.Add(StaticLinkedGUIField.Parent);
+
+
+                StaticLinkedGUIField.Enter += new EventHandler(textBox_Enter);
+                StaticLinkedGUIField.Leave += new EventHandler(textbox_Leave);
+
+                ((GroupBox)(StaticLinkedGUIField.Parent)).Text = vNodeLink.toNameString(this);
+                ((GroupBox)(StaticLinkedGUIField.Parent)).MouseDown += new System.Windows.Forms.MouseEventHandler(textBox_MouseDown);
+                ((GroupBox)(StaticLinkedGUIField.Parent)).MouseHover += new System.EventHandler(this.GroupBox_MouseHover);
+            }
+            else if(typeof(TableLayoutPanel).IsInstanceOfType(GUIFieldIn))
+            {
+                //((TableLayoutPanel)(GUIFieldIn)).ColumnCount = 1;
+                //((TableLayoutPanel)(GUIFieldIn)).RowCount = ((TableLayoutPanel)(GUIFieldIn)).Controls.Count+1;
+
+                StaticLinkedGUIField = new Label();
+                StaticLinkedGUIField.Name = "imsTextBox" + vNodeLink.getGlobalNodeID.ToString();
+                StaticLinkedGUIField.Parent = new GroupBox();
+                StaticLinkedGUIField.Parent.Height = (int)(StaticLinkedGUIField.Size.Height * 2.0);
+                StaticLinkedGUIField.Text = vNodeLink.toNameString(this);// + this.units;
+                StaticLinkedGUIField.Dock = DockStyle.Fill;
+                StaticLinkedGUIField.Parent.Dock = DockStyle.Fill;
+                ((Label)StaticLinkedGUIField).TextAlign = ContentAlignment.MiddleLeft;
+                StaticLinkedGUIField.Parent.Visible = true;
+
+                ((TableLayoutPanel)(GUIFieldIn)).Controls.Add(StaticLinkedGUIField.Parent);
 
                 StaticLinkedGUIField.Enter += new EventHandler(textBox_Enter);
                 StaticLinkedGUIField.Leave += new EventHandler(textbox_Leave);
