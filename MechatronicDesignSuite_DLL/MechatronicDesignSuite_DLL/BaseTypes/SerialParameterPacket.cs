@@ -18,12 +18,15 @@ namespace MechatronicDesignSuite_DLL
     [TypeConverter(typeof(SPpacketConverter))]
     public class SerialParameterPacket : IDisposable
     {
-        protected int MaxPacketPayLoadSize = 60;
-        protected imsCyclicPacketCommSystem LinkedCommSystem;
-        public string PackDescription { set; get; } = "New Serial Packet";
-        public int PackID { set; get; }
-        public bool HoldParsing = false;
-        public List<imsSerialParamData> PacketSPDs { get; } = new List<imsSerialParamData>();
+        //Access    //Data Type                 // Variable Name                    // Default Value
+        protected   int                         MaxPacketPayLoadSize =              60;
+        protected   imsCyclicPacketCommSystem   LinkedCommSystem;
+        public      string                      PackDescription { set; get; } =     "New Serial Packet";
+        public      int                         PackID { set; get; }
+        public      bool                        HoldParsing =                       false;
+        public      List<imsSerialParamData>    PacketSPDs { get; } =               new List<imsSerialParamData>();
+        
+
         public SerialParameterPacket(imsCyclicPacketCommSystem CommSys, string PacketDescription, int PacketIDin, List<imsBaseNode> globalNodeListIn)
         {
             PackID = PacketIDin;
@@ -68,6 +71,128 @@ namespace MechatronicDesignSuite_DLL
         {
             foreach (imsSerialParamData SPD in PacketSPDs)
                 SPD.setcyclicCommSysLink = Sys2Link;
+        }
+
+        public string toCPkgFunctionDefinitionString()
+        {
+            string tempText = toCPkgFunctionPrototypeString();
+            tempText = tempText.Replace("XPLAT_DLL_API", "");
+            string startText = tempText.Substring(0, tempText.IndexOf("packetPtr);\n")+("packetPtr)").Length);
+            string endText = tempText.Substring(tempText.IndexOf("packetPtr);\n") + ("packetPtr);\n").Length);
+
+            endText = endText.Substring(0, endText.Length - 2);
+
+            // Package Function Definition
+            startText += "\n{\n";
+            startText += "\t// Initialize pointer to start of packet area in output buffer\n\txplatAPI->Data->outPackBuffPtr = xplatAPI->Data->outputPacket;\n\t// Package bytes and increment pointer\n";
+            int PacketOffset = 0;
+            foreach (imsSerialParamData SPD in PacketSPDs)
+            {
+                if(LinkedCommSystem.SystemIsBigEndian)
+                    startText += SPD.toCPackFuncDefString(ref PacketOffset, "BIG");
+                else
+                    startText += SPD.toCPackFuncDefString(ref PacketOffset, "little");
+            }
+            startText += "}\n";
+
+            // Unpack Function Definition
+            endText += "\n{\n";
+            endText += "\t// Initialize pointer to start of packet area in input buffer\n\txplatAPI->Data->inPackBuffPtr = xplatAPI->Data->inputPacket;\n\t// UnPack bytes and increment pointer\n";
+            endText += "\tswitch(xplatAPI->Data->inputBuffer[HDRPCKOFFSETINDEX])\n\t{\n";
+            PacketOffset = 0;
+            foreach (imsSerialParamData SPD in PacketSPDs)
+            {
+                if (LinkedCommSystem.SystemIsBigEndian)
+                    endText += SPD.toCUnPackFuncDefString(ref PacketOffset, "BIG");
+                else
+                    endText += SPD.toCUnPackFuncDefString(ref PacketOffset, "little");
+            }
+            endText += "\t\tdefault:break;\n\t}\n}\n";
+
+            return startText + endText;
+        }
+        public string toCPacketStructPointersString()
+        {
+            // Add Closing Struct Text
+            string tempString = "";
+            foreach (char thisChar in PackDescription)
+                if (Char.IsLetterOrDigit(thisChar))
+                    tempString += thisChar;
+            if (!Char.IsLetter(tempString[0]))
+                tempString = string.Concat("pck", tempString);
+
+            return tempString + "struct*\t\t"+tempString+"Ptr;\n";
+
+        }
+        public string toCPkgCommDefinitionString(string packUnpackString)
+        {
+            string nameString = "";
+            foreach (char thisChar in PackDescription)
+                if (Char.IsLetterOrDigit(thisChar))
+                    nameString += thisChar;
+            if (!Char.IsLetter(nameString[0]))
+                nameString = string.Concat("pck", nameString);
+
+            string startString = "\t\tcase PckID_" + nameString + ":\t// "+ PackDescription+"\n\t\t{\n\t\t\t";
+            startString += packUnpackString + nameString + "(xplatAPI, xplatAPI->Data->" + nameString +"Ptr);\n";
+            startString += "\t\t\tbreak;\n\t\t}\n";
+            return startString;
+        }
+        public string toCPkgFunctionPrototypeString()
+        {
+            string tempString = "";
+            foreach (char thisChar in PackDescription)
+                if (Char.IsLetterOrDigit(thisChar))
+                    tempString += thisChar;
+            if (!Char.IsLetter(tempString[0]))
+                tempString = string.Concat("pck",tempString);
+
+            string tempText = "//\n// - " + PackDescription + " - //\n// \n";
+            tempText += "XPLAT_DLL_API void package" + tempString + "(xplatAPIstruct* xplatAPI, "+tempString+"struct* packetPtr);\n";
+            tempText += "XPLAT_DLL_API void unpack" + tempString + "(xplatAPIstruct* xplatAPI, " + tempString + "struct* unpacketPtr);\n";
+            return tempText;
+        }
+        public string toCTypeString()
+        {
+            // Loop SPDs in Packet
+            // Add Opening Struct Text
+            string tempText = "//\n// - " + PackDescription + " - //\n// \ntypedef struct\n{\n";
+            int tempInt = 0;
+            int tempIntHold = 0;
+            foreach (imsSerialParamData SPD in PacketSPDs)
+            {
+                string offsetString = "@Packet Offset ";
+                string hexoffString = "( ";
+                string unitsSting = "\""+"units string"+"\"";
+                tempIntHold = tempInt;
+                tempInt += SPD.getDataSize; //if (SPD.getArrayLength > 1) tempInt += (SPD.getArrayLength-1)*SPD.getDataSize;
+
+
+                tempText += SPD.toCTypeString();
+
+                tempText = tempText.Substring(0, tempText.Length - 1);
+
+                offsetString += tempIntHold.ToString();
+                hexoffString += "0x" + tempIntHold.ToString("X2") + " )\n";
+                if (true)
+                    tempText += (" "+ unitsSting+"\t" + offsetString+ "\t "+ hexoffString);
+                else
+                    tempText += string.Format("{0}{1}{2}{3}{4}{5}", "\t", unitsSting, "\t", offsetString, "\t",  hexoffString);
+            }
+
+            // Add Closing Struct Text
+            string tempString = "";
+            foreach (char thisChar in PackDescription)
+                if (Char.IsLetterOrDigit(thisChar))
+                    tempString += thisChar;
+            if (!Char.IsLetter(tempString[0]))
+                tempString = string.Concat("pck", tempString);
+
+            tempText += "}XPLAT_DLL_API " + tempString + "struct;\t// Export - " + PackDescription + " - //\n";
+            tempText += "#define\tPckSize_" + tempString + "\t\t" + tempInt.ToString() + "\t\t// ( 0x" + tempInt.ToString("X2") + " )\n";
+            tempText += "#define\tPckID_" + tempString + "\t\t" + PackID.ToString() + "\t\t// ( 0x" + PackID.ToString("X2") + " )\n";
+
+            return tempText;
         }
 
         #region iDisposable Interface Requirements

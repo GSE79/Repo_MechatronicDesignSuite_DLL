@@ -263,6 +263,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="XPlatSource\XPlat_LIB\xplat_base.c">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\xplat_base.h">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\xplat_class.cpp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\xplat_class.hpp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.pro">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.vcxproj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="api\" />
@@ -273,4 +291,4 @@
 
 </PostBuildEvent>
   </PropertyGroup>
-  </Project>
+</Project>

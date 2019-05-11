@@ -40,9 +40,6 @@ namespace MechatronicDesignSuite_DLL.BaseTypes
             {
                 tempBytes.RemoveRange(trimSize, tempBytes.Count-trimSize);
             }
-            
-            
-
             return tempBytes.ToArray();
         }
         public byte[] HDR2ByteArray(Type HDRDTypeIn)

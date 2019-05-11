@@ -459,6 +459,227 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             
         }
 
+        
+        public virtual string toCPackFuncDefString(ref int PacketOffsetAccumulator, string EndianString)
+        {
+            // Name String
+            string outNamestring = "";
+            foreach (char thisChar in NodeName)
+                if (Char.IsLetterOrDigit(thisChar))
+                    outNamestring += thisChar;
+            // Type String
+            string outtypestring = "";
+            if (DataType == typeof(char))
+                outtypestring = "I8";
+            else if (DataType == typeof(byte))
+                outtypestring = "U8";
+            else if (DataType == typeof(ushort))
+                outtypestring = "U16";
+            else if (DataType == typeof(short))
+                outtypestring = "I16";
+            else if (DataType == typeof(uint))
+                outtypestring = "U32";
+            else if (DataType == typeof(int))
+                outtypestring = "I32";
+            else if (DataType == typeof(ulong))
+                outtypestring = "U64";
+            else if (DataType == typeof(long))
+                outtypestring = "I64";
+            else if (DataType == typeof(float))
+                outtypestring = "float";
+            else if (DataType == typeof(double))
+                outtypestring = "double";
+            else
+                throw new Exception("Attempted to \"c-type string\" an Un-Supported Value Node Data Type");
+
+            // Name String
+            if (!Char.IsLetter(outNamestring[0]))
+                outNamestring = string.Concat(outtypestring.ToLower(), outNamestring);
+
+            // Data Element Size String
+            string DSizeString = "1";
+            if (DataType == typeof(ushort) || DataType == typeof(short))
+                DSizeString = "2";
+            else if (DataType == typeof(uint) || DataType == typeof(int) || DataType == typeof(float))
+                DSizeString = "4";
+            else if (DataType == typeof(ulong) || DataType == typeof(long) || DataType == typeof(double))
+                DSizeString = "8";
+
+            string arrayLooping = "";
+            string numBits = "package";
+            string endiaNess = EndianString;
+            string typeNzeroFunctionEnd = "(xplatAPI->Data->outPackBuffPtr, packetPtr->"+ outNamestring + ");\t";
+            string commentString = "\t// " + NodeName + " \"units\"" + "\t@PacketOffset " + PacketOffsetAccumulator.ToString() + "\t\t(0x" + PacketOffsetAccumulator.ToString("X4") + ")";
+
+            // Looping if array 
+            if (ArrayLength>1)
+            {
+                numBits = "{package";
+                arrayLooping = "for(xplatAPI->outIndex = 0; xplatAPI->outIndex < "+ArrayLength.ToString()+"; xplatAPI->outIndex++)\t"+commentString+"\n\t\t";
+                commentString = "";
+                typeNzeroFunctionEnd = "(xplatAPI->Data->outPackBuffPtr, packetPtr->" + outNamestring + "[xplatAPI->outIndex*" + DSizeString + "]);}     ";
+            }
+
+
+            // Type String
+            if (DataType == typeof(char) || DataType == typeof(byte))
+                numBits += "8";
+            else if (DataType == typeof(ushort) || DataType == typeof(short))
+                numBits += "16";
+            else if (DataType == typeof(uint) || DataType == typeof(int) || DataType == typeof(float))
+                numBits += "32";
+            else if (DataType == typeof(ulong) || DataType == typeof(long) || DataType == typeof(double))
+                numBits += "64";
+
+            // Accumulate Packed Offset
+            PacketOffsetAccumulator += DataSize;
+
+            // Package for Return
+            string outstring = "\t";
+            outstring += arrayLooping + numBits + endiaNess + typeNzeroFunctionEnd + commentString;
+            outstring += "\n";
+            return outstring;
+        }
+        public virtual string toCUnPackFuncDefString(ref int PacketOffsetAccumulator, string EndianString)
+        {
+            // Name String
+            string outNamestring = "";
+            foreach (char thisChar in NodeName)
+                if (Char.IsLetterOrDigit(thisChar))
+                    outNamestring += thisChar;
+
+            // Type String            
+            string outtypestring = "";
+            if (DataType == typeof(char))
+                outtypestring = "I8";
+            else if (DataType == typeof(byte))
+                outtypestring = "U8";
+            else if (DataType == typeof(ushort))
+                outtypestring = "U16";
+            else if (DataType == typeof(short))
+                outtypestring = "I16";
+            else if (DataType == typeof(uint))
+                outtypestring = "U32";
+            else if (DataType == typeof(int))
+                outtypestring = "I32";
+            else if (DataType == typeof(ulong))
+                outtypestring = "U64";
+            else if (DataType == typeof(long))
+                outtypestring = "I64";
+            else if (DataType == typeof(float))
+                outtypestring = "float";
+            else if (DataType == typeof(double))
+                outtypestring = "double";
+            else
+                throw new Exception("Attempted to \"c-type string\" an Un-Supported Value Node Data Type");
+
+            // Name String
+            if (!Char.IsLetter(outNamestring[0]))
+                outNamestring = string.Concat(outtypestring.ToLower(), outNamestring);
+
+            // Data Element Size String
+            string DSizeString = "1";
+            if (DataType == typeof(ushort)|| DataType == typeof(short))
+                DSizeString = "2";
+            else if (DataType == typeof(uint)|| DataType == typeof(int) || DataType == typeof(float))
+                DSizeString = "4";
+            else if (DataType == typeof(ulong)|| DataType == typeof(long) || DataType == typeof(double))
+                DSizeString = "8";
+
+            string arrayLooping = "";
+            string numBits = "\tcase "+ PacketOffsetAccumulator.ToString() + ": unpack";
+            string endiaNess = EndianString;
+            string typeNzeroFunctionEnd = "(xplatAPI->Data->inPackBuffPtr, unpacketPtr->" + outNamestring + ");break;\t";
+            string commentString = "\t// " + NodeName + " \"units\"" + "\t@PacketOffset " + PacketOffsetAccumulator.ToString() + "\t\t(0x" + PacketOffsetAccumulator.ToString("X4") + ")";
+
+            // Looping if array 
+            if (ArrayLength > 1)
+            {
+                numBits = "{unpack";
+                arrayLooping = "for(xplatAPI->inIndex = 0; xplatAPI->inIndex < " + ArrayLength.ToString() + "; xplatAPI->inIndex++)\t" + commentString + "\n\t\t";
+                commentString = "";
+                typeNzeroFunctionEnd = "(xplatAPI->Data->inPackBuffPtr, unpacketPtr->" + outNamestring + "[xplatAPI->inIndex*"+ DSizeString + "]);}break;     ";
+            }
+
+
+            // Type String
+            if (DataType == typeof(char) || DataType == typeof(byte))
+                numBits += "8";
+            else if (DataType == typeof(ushort) || DataType == typeof(short))
+                numBits += "16";
+            else if (DataType == typeof(uint) || DataType == typeof(int) || DataType == typeof(float))
+                numBits += "32";
+            else if (DataType == typeof(ulong) || DataType == typeof(long) || DataType == typeof(double))
+                numBits += "64";
+
+            // Accumulate Packed Offset
+            PacketOffsetAccumulator += DataSize;
+
+            // Package for Return
+            string outstring = "\t";
+            outstring += arrayLooping + numBits + endiaNess + typeNzeroFunctionEnd + commentString;
+            outstring += "\n";
+            return outstring;
+        }
+        public virtual string toCTypeString()
+        {
+            
+            
+            string outCommentstring = "// "+NodeName;
+
+            // Name String
+            string outNamestring = "";
+            foreach (char thisChar in NodeName)
+                if (Char.IsLetterOrDigit(thisChar))
+                    outNamestring += thisChar;
+
+            // Type String
+            string outtypestring = "";
+            if (DataType == typeof(char))
+                outtypestring = "I8";
+            else if (DataType == typeof(byte))
+                outtypestring = "U8";
+            else if (DataType == typeof(ushort))
+                outtypestring = "U16";
+            else if (DataType == typeof(short))
+                outtypestring = "I16";
+            else if (DataType == typeof(uint))
+                outtypestring = "U32";
+            else if (DataType == typeof(int))
+                outtypestring = "I32";
+            else if (DataType == typeof(ulong))
+                outtypestring = "U64";
+            else if (DataType == typeof(long))
+                outtypestring = "I64";
+            else if (DataType == typeof(float))
+                outtypestring = "float";
+            else if (DataType == typeof(double))
+                outtypestring = "double";
+            else
+                throw new Exception("Attempted to \"c-type string\" an Un-Supported Value Node Data Type");
+
+            // Name String with Array Length
+            if (!Char.IsLetter(outNamestring[0]))
+                outNamestring = string.Concat(outtypestring.ToLower(), outNamestring);            
+            if (ArrayLength > 1)
+                outNamestring += "[" + ArrayLength.ToString() + "]";
+            outNamestring += ";";
+
+
+            // Package in Columns for Return
+            if (true)
+            {
+                string outstring = "\t";
+                outstring += outtypestring;                
+                outstring += "\t" + outNamestring;
+                outstring += "\t\t" + outCommentstring  + "\n";
+                return outstring;
+            }
+            else
+            {
+                return string.Format("{0}{1}{2}{3}{4}{5}", "\t", outtypestring,"\t", outNamestring, "\t", outCommentstring);
+            }
+        }
         public string toNameString(GUIValueLinks LinkIn)
         {
             return NodeName + " " + LinkIn.UnitsString;
