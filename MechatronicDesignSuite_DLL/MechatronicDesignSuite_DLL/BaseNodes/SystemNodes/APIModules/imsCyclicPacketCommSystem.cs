@@ -467,7 +467,15 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                         string OutDirString = OutputModuleDir + DirString.Substring(DirString.LastIndexOf("\\"));
                         Directory.CreateDirectory(OutDirString);
                         foreach (string FileString in Directory.EnumerateFiles(DirString))
-                            File.Copy(FileString, Path.Combine(OutDirString, Path.GetFileName(FileString)));                                              
+                            File.Copy(FileString, Path.Combine(OutDirString, Path.GetFileName(FileString)));  
+                        foreach(string SubDirString in Directory.EnumerateDirectories(DirString))
+                            if(SubDirString.Contains("XPlat_LIB.cylib"))
+                            {
+                                string OutSubDirString = OutDirString + "\\XPlat_LIB.cylib\\";// + SubDirString.Substring(DirString.LastIndexOf("\\"));
+                                Directory.CreateDirectory(OutSubDirString);
+                                foreach (string SubFileString in Directory.EnumerateFiles(SubDirString))
+                                    File.Copy(SubFileString, Path.Combine(OutSubDirString, Path.GetFileName(SubFileString)));
+                            }
                     }
 
                     // Open Template Files and Read into RAM
@@ -484,6 +492,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                     File.WriteAllText(OutputFileName_BaseC, BaseCText);
                     File.WriteAllText(OutputFileName_ClassHpp, ClassHppText);
                     File.WriteAllText(OutputFileName_ClassCpp, ClassCppText);
+
+                    System.Threading.Thread.Sleep(2000);
+                    System.Diagnostics.Process.Start("explorer.exe", OutputModuleDir);
                 }
                 else
                 {
@@ -558,6 +569,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                             case 2:     // Comm Function Prototypes
                             {
                                     tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Comm Function Prototypes \n//\n//////////////////////////////////////////////////////////\n";
+
                                     tempText += "XPLAT_DLL_API void processRxPacket(xplatAPIstruct* xplatAPI);\nXPLAT_DLL_API void prepareTxPacket(xplatAPIstruct* xplatAPI);\n";
 
                                     

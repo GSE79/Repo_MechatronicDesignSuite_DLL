@@ -275,6 +275,12 @@
     <None Include="XPlatSource\XPlat_LIB\xplat_class.hpp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.cylib\XPlat_LIB.cyprj">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.cywrk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.pro">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

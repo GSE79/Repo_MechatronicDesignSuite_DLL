@@ -187,8 +187,11 @@ namespace MechatronicDesignSuite_DLL
                     tempString += thisChar;
             if (!Char.IsLetter(tempString[0]))
                 tempString = string.Concat("pck", tempString);
-
+            //tempText += "#ifndef XPLAT_NO_DLL\n";
             tempText += "}XPLAT_DLL_API " + tempString + "struct;\t// Export - " + PackDescription + " - //\n";
+            //tempText += "#else\n";
+            //tempText += "}" + tempString + "struct;\t// - " + PackDescription + " - //\n";
+            //tempText += "#endif\n";
             tempText += "#define\tPckSize_" + tempString + "\t\t" + tempInt.ToString() + "\t\t// ( 0x" + tempInt.ToString("X2") + " )\n";
             tempText += "#define\tPckID_" + tempString + "\t\t" + PackID.ToString() + "\t\t// ( 0x" + PackID.ToString("X2") + " )\n";
 
