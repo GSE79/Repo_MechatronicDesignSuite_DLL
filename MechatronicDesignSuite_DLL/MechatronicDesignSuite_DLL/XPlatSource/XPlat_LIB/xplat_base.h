@@ -28,8 +28,6 @@
     typedef unsigned char       uint8_t;
     typedef char                int8_t;
     #ifdef INT16BITS
-        typedef unsigned short  uint8_t;
-        typedef short           int8_t;
         typedef unsigned int    uint16_t;
         typedef int             int16_t;
         typedef unsigned long   uint32_t;
@@ -51,8 +49,11 @@ typedef uint16_t            U16;
 typedef int16_t             I16;
 typedef uint32_t            U32;
 typedef int32_t             I32;
+
+#ifndef INT16BITS
 typedef uint64_t            U64;
 typedef int64_t             I64;
+#endif
 
 // Auto-Gen::XPLAT_DLL_API_Packets Structures
 

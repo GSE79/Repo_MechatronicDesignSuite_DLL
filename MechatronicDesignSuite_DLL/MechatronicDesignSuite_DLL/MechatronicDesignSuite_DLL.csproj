@@ -260,9 +260,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CyUSB\cyusb.snk" />
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\Makefile">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\Makefile-genesis.properties">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\Package-default.bash">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\configurations.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\Makefile-default.mk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\Makefile-impl.mk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\Makefile-local-default.mk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\Makefile-variables.mk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\private\configurations.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\private\private.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.X\nbproject\project.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="XPlatSource\XPlat_LIB\xplat_base.c">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

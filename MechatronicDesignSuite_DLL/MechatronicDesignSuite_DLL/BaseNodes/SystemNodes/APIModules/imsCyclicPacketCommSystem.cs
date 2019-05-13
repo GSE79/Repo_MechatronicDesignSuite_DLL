@@ -476,6 +476,29 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                                 foreach (string SubFileString in Directory.EnumerateFiles(SubDirString))
                                     File.Copy(SubFileString, Path.Combine(OutSubDirString, Path.GetFileName(SubFileString)));
                             }
+                            else if (SubDirString.Contains("XPlat_LIB.X"))
+                            {
+                                string OutSubDirString = OutDirString + "\\XPlat_LIB.X\\";// + SubDirString.Substring(DirString.LastIndexOf("\\"));
+                                Directory.CreateDirectory(OutSubDirString);
+                                foreach (string SubFileString in Directory.EnumerateFiles(SubDirString))
+                                    File.Copy(SubFileString, Path.Combine(OutSubDirString, Path.GetFileName(SubFileString)));
+                                foreach (string SubXDirString in Directory.EnumerateDirectories(SubDirString))
+                                    if (SubXDirString.Contains("nbproject"))
+                                    {
+                                        string OutNBDirString = OutSubDirString + "\\nbproject\\";// + SubDirString.Substring(DirString.LastIndexOf("\\"));
+                                        Directory.CreateDirectory(OutNBDirString);
+                                        foreach (string SubnbFileString in Directory.EnumerateFiles(SubXDirString))
+                                            File.Copy(SubnbFileString, Path.Combine(OutNBDirString, Path.GetFileName(SubnbFileString)));
+                                        foreach(string privateDirString in Directory.EnumerateDirectories(SubXDirString))
+                                            if(privateDirString.Contains("private"))
+                                            {
+                                                string OutPrivateString = OutNBDirString + "\\private\\";
+                                                Directory.CreateDirectory(OutPrivateString);
+                                                foreach (string privateFileString in Directory.EnumerateDirectories(privateDirString))
+                                                    File.Copy(privateFileString,Path.Combine(OutPrivateString,Path.GetFileName(privateFileString)));
+                                            }
+                                    }
+                            }
                     }
 
                     // Open Template Files and Read into RAM
