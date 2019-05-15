@@ -458,7 +458,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 {
                     // Delete all contents
                     FileNDirTools.RecurrsiveDelete(OutputModuleDir);
-                    System.Threading.Thread.Sleep(500);
+                    //System.Threading.Thread.Sleep(500);
                     Directory.CreateDirectory(OutputModuleDir);
 
                     // Copy Template Files to Output Directory
@@ -516,7 +516,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                     File.WriteAllText(OutputFileName_ClassHpp, ClassHppText);
                     File.WriteAllText(OutputFileName_ClassCpp, ClassCppText);
 
-                    System.Threading.Thread.Sleep(2000);
+                    //System.Threading.Thread.Sleep(2000);
                     System.Diagnostics.Process.Start("explorer.exe", OutputModuleDir);
                 }
                 else
@@ -589,33 +589,33 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
                                     break;
                                 }
-                            case 2:     // Comm Function Prototypes
-                            {
-                                    tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Comm Function Prototypes \n//\n//////////////////////////////////////////////////////////\n";
+                        case 2:     // Comm Function Prototypes
+                        {
+                                tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Comm Function Prototypes \n//\n//////////////////////////////////////////////////////////\n";
 
-                                    tempText += "XPLAT_DLL_API void processRxPacket(xplatAPIstruct* xplatAPI);\nXPLAT_DLL_API void prepareTxPacket(xplatAPIstruct* xplatAPI);\n";
+                                tempText += "XPLAT_DLL_API void processRxPacket(xplatAPI_DATAstruct* xplatAPI_Data);\nXPLAT_DLL_API void prepareTxPacket(xplatAPI_DATAstruct* xplatAPI_Data);\n";
 
                                     
-                                    break;
-                            }
+                                break;
+                        }
                         case 3:     // Package Function Definitions
-                                {
-                                    tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Package Function Definitions \n//\n//////////////////////////////////////////////////////////\n";
-                                    // Loop all Static Packets in Comm System
-                                    foreach (SerialParameterPacket SPDPacket in StaticSPDPackets)
-                                        tempText += SPDPacket.toCPkgFunctionDefinitionString();
-                                    break;
-                                }
+                            {
+                                tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Package Function Definitions \n//\n//////////////////////////////////////////////////////////\n";
+                                // Loop all Static Packets in Comm System
+                                foreach (SerialParameterPacket SPDPacket in StaticSPDPackets)
+                                    tempText += SPDPacket.toCPkgFunctionDefinitionString();
+                                break;
+                            }
                         case 4:     // Comm Function Definitions
                             {
                                     tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Comm Function Definitions \n//\n//////////////////////////////////////////////////////////\n";
-                                    tempText += "void processRxPacket(xplatAPIstruct* xplatAPI)\n{\n\t// Based on bit 0 of the input buffer, switch on packetID\n\tswitch (xplatAPI->Data->inputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets\n";
+                                    tempText += "void processRxPacket(xplatAPI_DATAstruct* xplatAPI_Data)\n{\n\t// Based on byte 0 of the input buffer, switch on packetID\n\tswitch (xplatAPI_Data->inputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets\n";
                                     // Loop all Static Packets in Comm System
                                     foreach (SerialParameterPacket SPDPacket in StaticSPDPackets)
                                         tempText += SPDPacket.toCPkgCommDefinitionString("unpack");
                                     tempText += "\t\tdefault:break;\n\t}\n}\n";
 
-                                    tempText += "void prepareTxPacket(xplatAPIstruct* xplatAPI)\n{\n\t// Based on bit 0 of the output buffer, switch on packetID\n\tswitch (xplatAPI->Data->outputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets";
+                                    tempText += "void prepareTxPacket(xplatAPI_DATAstruct* xplatAPI_Data)\n{\n\t// Based on byte 0 of the output buffer, switch on packetID\n\tswitch (xplatAPI_Data->outputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets\n";
                                     // Loop all Static Packets in Comm System
                                     foreach (SerialParameterPacket SPDPacket in StaticSPDPackets)
                                         tempText += SPDPacket.toCPkgCommDefinitionString("package");

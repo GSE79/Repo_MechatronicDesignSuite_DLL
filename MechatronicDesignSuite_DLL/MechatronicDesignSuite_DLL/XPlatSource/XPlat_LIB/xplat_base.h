@@ -1,5 +1,26 @@
+/* /////////////////////////////////////////////////////////
+*	InMechaSol non-profit license for (re)use.
+*	- This source code is made available as a reference
+*	- This source code does not guarantee an applications
+*		performance nor provide any warranties what so ever
+*	- This source code can be (re)used as long as this
+*		license text remains in place at the top of the file
+*/ /////////////////////////////////////////////////////////
 #ifndef XPLAT_BASE_H
 #define XPLAT_BASE_H
+/* /////////////////////////////////////////////////////////
+*	xplat_base.h 
+*	- Header file to be used in 1 of 2 ways
+*		1) As a source header file
+*		2) As a library reference header file
+#	- xplat features depend on "#define's" for configuration
+*		XPLAT_DLL_LIBRARY: for use in dll export if defined
+*		XPLAT_NO_DLL: to fully exclude all dll import/export
+*		DONTUSE_STDINT: to use xplat types, not stdint.h
+*		INT16BITS: to build for systems with 16 bit integers
+*		
+*/ /////////////////////////////////////////////////////////
+
 
 /* ////////////////////////////////////////////////////////
  * Compiler Constant and Macro Definitions
@@ -87,8 +108,8 @@ typedef struct
     xplatAPI_DATAstruct*    Data;
 
     // Function Pointers
-    void                    (*ProcessRxPacket)();
-    void                    (*PrepareTxPacket)();
+    void                    (*ProcessRxPacket)(xplatAPI_DATAstruct*);
+    void                    (*PrepareTxPacket)(xplatAPI_DATAstruct*);
 
 	// Temp Indecies
 	U32		outIndex;

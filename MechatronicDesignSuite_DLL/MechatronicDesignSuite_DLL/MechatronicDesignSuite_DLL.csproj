@@ -82,6 +82,7 @@
     <Compile Include="BaseTypes\PSoCHID64.cs" />
     <Compile Include="BaseTypes\SerialParameterPacket.cs" />
     <Compile Include="BaseTypes\SerialParameterPacketHeader.cs" />
+    <Compile Include="BaseTypes\XPlatAutoGEN.cs" />
     <Compile Include="CyUSB\CyDefs.cs" />
     <Compile Include="CyUSB\CyEndPoints.cs" />
     <Compile Include="CyUSB\CyFX2Device.cs" />

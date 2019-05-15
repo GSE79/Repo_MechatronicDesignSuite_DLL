@@ -86,14 +86,17 @@ namespace MechatronicDesignSuite_DLL
             startText += "\n{\n";
             startText += "\t// Initialize pointer to start of packet area in output buffer\n\txplatAPI->Data->outPackBuffPtr = xplatAPI->Data->outputPacket;\n\t// Package bytes and increment pointer\n";
             int PacketOffset = 0;
+            XPlatAutoGEN packXPlatAutoGEN = new XPlatAutoGEN(4);
+            XPlatAutoGEN unpackXPlatAutoGEN = new XPlatAutoGEN(4);
             foreach (imsSerialParamData SPD in PacketSPDs)
             {
                 if(LinkedCommSystem.SystemIsBigEndian)
-                    startText += SPD.toCPackFuncDefString(ref PacketOffset, "BIG");
+                    packXPlatAutoGEN.AddLineTokens(SPD.toCPackFuncDefString(ref PacketOffset, "BIG"));
                 else
-                    startText += SPD.toCPackFuncDefString(ref PacketOffset, "little");
+                    packXPlatAutoGEN.AddLineTokens(SPD.toCPackFuncDefString(ref PacketOffset, "little"));
             }
-            startText += "}\n";
+            packXPlatAutoGEN.AlignColumnsInputTokens();
+            startText += packXPlatAutoGEN.ReturnOutputLines() + "}\n";
 
             // Unpack Function Definition
             endText += "\n{\n";
@@ -103,11 +106,12 @@ namespace MechatronicDesignSuite_DLL
             foreach (imsSerialParamData SPD in PacketSPDs)
             {
                 if (LinkedCommSystem.SystemIsBigEndian)
-                    endText += SPD.toCUnPackFuncDefString(ref PacketOffset, "BIG");
+                    unpackXPlatAutoGEN.AddLineTokens(SPD.toCUnPackFuncDefString(ref PacketOffset, "BIG"));
                 else
-                    endText += SPD.toCUnPackFuncDefString(ref PacketOffset, "little");
+                    unpackXPlatAutoGEN.AddLineTokens(SPD.toCUnPackFuncDefString(ref PacketOffset, "little"));
             }
-            endText += "\t\tdefault:break;\n\t}\n}\n";
+            unpackXPlatAutoGEN.AlignColumnsInputTokens();
+            endText += unpackXPlatAutoGEN.ReturnOutputLines() + "\n\t\tdefault:break;\n\t}\n}\n";
 
             return startText + endText;
         }
@@ -158,27 +162,12 @@ namespace MechatronicDesignSuite_DLL
             // Add Opening Struct Text
             string tempText = "//\n// - " + PackDescription + " - //\n// \ntypedef struct\n{\n";
             int tempInt = 0;
-            int tempIntHold = 0;
+            XPlatAutoGEN myXPlatAutoGEN = new XPlatAutoGEN(5);
             foreach (imsSerialParamData SPD in PacketSPDs)
-            {
-                string offsetString = "@Packet Offset ";
-                string hexoffString = "( ";
-                string unitsSting = "\""+"units string"+"\"";
-                tempIntHold = tempInt;
-                tempInt += SPD.getDataSize; //if (SPD.getArrayLength > 1) tempInt += (SPD.getArrayLength-1)*SPD.getDataSize;
-
-
-                tempText += SPD.toCTypeString();
-
-                tempText = tempText.Substring(0, tempText.Length - 1);
-
-                offsetString += tempIntHold.ToString();
-                hexoffString += "0x" + tempIntHold.ToString("X2") + " )\n";
-                if (true)
-                    tempText += (" "+ unitsSting+"\t" + offsetString+ "\t "+ hexoffString);
-                else
-                    tempText += string.Format("{0}{1}{2}{3}{4}{5}", "\t", unitsSting, "\t", offsetString, "\t",  hexoffString);
-            }
+                myXPlatAutoGEN.AddLineTokens(SPD.toCTypeString(ref tempInt));
+            myXPlatAutoGEN.AlignColumnsInputTokens();
+            tempText += myXPlatAutoGEN.ReturnOutputLines();
+                
 
             // Add Closing Struct Text
             string tempString = "";
@@ -187,11 +176,7 @@ namespace MechatronicDesignSuite_DLL
                     tempString += thisChar;
             if (!Char.IsLetter(tempString[0]))
                 tempString = string.Concat("pck", tempString);
-            //tempText += "#ifndef XPLAT_NO_DLL\n";
             tempText += "}XPLAT_DLL_API " + tempString + "struct;\t// Export - " + PackDescription + " - //\n";
-            //tempText += "#else\n";
-            //tempText += "}" + tempString + "struct;\t// - " + PackDescription + " - //\n";
-            //tempText += "#endif\n";
             tempText += "#define\tPckSize_" + tempString + "\t\t" + tempInt.ToString() + "\t\t// ( 0x" + tempInt.ToString("X2") + " )\n";
             tempText += "#define\tPckID_" + tempString + "\t\t" + PackID.ToString() + "\t\t// ( 0x" + PackID.ToString("X2") + " )\n";
 

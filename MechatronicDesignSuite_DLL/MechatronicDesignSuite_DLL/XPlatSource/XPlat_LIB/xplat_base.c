@@ -1,4 +1,24 @@
+/* /////////////////////////////////////////////////////////
+*	InMechaSol non-profit license for (re)use.
+*	- This source code is made available as a reference
+*	- This source code does not guarantee an applications
+*		performance nor provide any warranties what so ever
+*	- This source code can be (re)used as long as this
+*		license text remains in place at the top of the file
+*/ /////////////////////////////////////////////////////////
 #include "xplat_base.h"
+/* /////////////////////////////////////////////////////////
+*	xplat_base.c
+*	- Source file to provide cross platform framework for
+*		packet comm system interoperability
+*	- xplat features depend on "#define's" for configuration
+*		XPLAT_DLL_LIBRARY: for use in dll export if defined
+*		XPLAT_NO_DLL: to fully exclude all dll import/export
+*		DONTUSE_STDINT: to use xplat types, not stdint.h
+*		INT16BITS: to build for systems with 16 bit integers
+*
+*/ /////////////////////////////////////////////////////////
+
 
 //////////////////////////////////////////////////////////////////////
 //

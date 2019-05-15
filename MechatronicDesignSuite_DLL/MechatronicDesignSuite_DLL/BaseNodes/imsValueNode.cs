@@ -460,7 +460,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         }
 
         
-        public virtual string toCPackFuncDefString(ref int PacketOffsetAccumulator, string EndianString)
+        public virtual List<string> toCPackFuncDefString(ref int PacketOffsetAccumulator, string EndianString)
         {
             // Name String
             string outNamestring = "";
@@ -508,16 +508,18 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             string arrayLooping = "";
             string numBits = "package";
             string endiaNess = EndianString;
-            string typeNzeroFunctionEnd = "(xplatAPI->Data->outPackBuffPtr, packetPtr->"+ outNamestring + ");\t";
-            string commentString = "\t// " + NodeName + " \"units\"" + "\t@PacketOffset " + PacketOffsetAccumulator.ToString() + "\t\t(0x" + PacketOffsetAccumulator.ToString("X4") + ")";
+            string typeNzeroFunctionEnd = "(xplatAPI->Data->outPackBuffPtr, packetPtr->"+ outNamestring + ");";
+            string commentString = "// " + NodeName;
+            string offsetString  = "@PacketOffset " + PacketOffsetAccumulator.ToString() + " (0x" + PacketOffsetAccumulator.ToString("X4") + ")";
 
             // Looping if array 
             if (ArrayLength>1)
             {
-                numBits = "{package";
-                arrayLooping = "for(xplatAPI->outIndex = 0; xplatAPI->outIndex < "+ArrayLength.ToString()+"; xplatAPI->outIndex++)\t"+commentString+"\n\t\t";
-                commentString = "";
-                typeNzeroFunctionEnd = "(xplatAPI->Data->outPackBuffPtr, packetPtr->" + outNamestring + "[xplatAPI->outIndex*" + DSizeString + "]);}     ";
+                numBits = "    {package";
+                arrayLooping = "for(xplatAPI->outIndex = 0; xplatAPI->outIndex < "+ArrayLength.ToString()+"; xplatAPI->outIndex++)\n";
+                //commentString = "";
+                //offsetString = "";
+                typeNzeroFunctionEnd = "(xplatAPI->Data->outPackBuffPtr, packetPtr->" + outNamestring + "[xplatAPI->outIndex*" + DSizeString + "]);}    ";
             }
 
 
@@ -535,12 +537,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             PacketOffsetAccumulator += DataSize;
 
             // Package for Return
-            string outstring = "\t";
-            outstring += arrayLooping + numBits + endiaNess + typeNzeroFunctionEnd + commentString;
-            outstring += "\n";
-            return outstring;
+            return new List<string> { arrayLooping+numBits+endiaNess+typeNzeroFunctionEnd, commentString , "\"units\"", offsetString };
         }
-        public virtual string toCUnPackFuncDefString(ref int PacketOffsetAccumulator, string EndianString)
+        public virtual List<string> toCUnPackFuncDefString(ref int PacketOffsetAccumulator, string EndianString)
         {
             // Name String
             string outNamestring = "";
@@ -587,18 +586,23 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                 DSizeString = "8";
 
             string arrayLooping = "";
-            string numBits = "\tcase "+ PacketOffsetAccumulator.ToString() + ": unpack";
+            string numBits = "";// "\tcase "+ PacketOffsetAccumulator.ToString() + ": unpack";
             string endiaNess = EndianString;
-            string typeNzeroFunctionEnd = "(xplatAPI->Data->inPackBuffPtr, unpacketPtr->" + outNamestring + ");break;\t";
-            string commentString = "\t// " + NodeName + " \"units\"" + "\t@PacketOffset " + PacketOffsetAccumulator.ToString() + "\t\t(0x" + PacketOffsetAccumulator.ToString("X4") + ")";
-
+            string typeNzeroFunctionEnd = "(xplatAPI->Data->inPackBuffPtr, unpacketPtr->" + outNamestring + ");break;";
+            string commentString = "// " + NodeName;
+            string offsetString = "@PacketOffset " + PacketOffsetAccumulator.ToString() + "\t\t(0x" + PacketOffsetAccumulator.ToString("X4") + ")";
             // Looping if array 
             if (ArrayLength > 1)
             {
-                numBits = "{unpack";
-                arrayLooping = "for(xplatAPI->inIndex = 0; xplatAPI->inIndex < " + ArrayLength.ToString() + "; xplatAPI->inIndex++)\t" + commentString + "\n\t\t";
-                commentString = "";
-                typeNzeroFunctionEnd = "(xplatAPI->Data->inPackBuffPtr, unpacketPtr->" + outNamestring + "[xplatAPI->inIndex*"+ DSizeString + "]);}break;     ";
+                numBits = "    {unpack";
+                arrayLooping = "\tcase " + PacketOffsetAccumulator.ToString() + ": for(xplatAPI->inIndex = 0; xplatAPI->inIndex < " + ArrayLength.ToString() + "; xplatAPI->inIndex++)\t\n\t\t";
+                //commentString = "";
+                //offsetString = "";
+                typeNzeroFunctionEnd = "(xplatAPI->Data->inPackBuffPtr, unpacketPtr->" + outNamestring + "[xplatAPI->inIndex*"+ DSizeString + "]);}break;    ";
+            }
+            else
+            {
+                numBits = "\tcase " + PacketOffsetAccumulator.ToString() + ": unpack";
             }
 
 
@@ -616,16 +620,21 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             PacketOffsetAccumulator += DataSize;
 
             // Package for Return
-            string outstring = "\t";
-            outstring += arrayLooping + numBits + endiaNess + typeNzeroFunctionEnd + commentString;
-            outstring += "\n";
-            return outstring;
+            return new List<string> { arrayLooping + numBits + endiaNess + typeNzeroFunctionEnd, commentString, "\"units\"", offsetString };
         }
-        public virtual string toCTypeString()
+        public virtual List<string> toCTypeString(ref int PacketOffsetAccumulator)
         {
-            
-            
-            string outCommentstring = "// "+NodeName;
+            List<string> LineTokensOut = new List<string>();
+
+            string offsetString = "\t@Packet Offset ";
+            string hexoffString = "\t( ";
+            string unitsSting = " \"" + "units" + "\" ";
+
+            offsetString += PacketOffsetAccumulator.ToString();
+            hexoffString += "0x" + PacketOffsetAccumulator.ToString("X2") + " )";
+
+            string outCommentstring = "// "+NodeName+"\t";
+            PacketOffsetAccumulator += getDataSize;
 
             // Name String
             string outNamestring = "";
@@ -636,25 +645,25 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             // Type String
             string outtypestring = "";
             if (DataType == typeof(char))
-                outtypestring = "I8";
+                outtypestring += "I8";
             else if (DataType == typeof(byte))
-                outtypestring = "U8";
+                outtypestring += "U8";
             else if (DataType == typeof(ushort))
-                outtypestring = "U16";
+                outtypestring += "U16";
             else if (DataType == typeof(short))
-                outtypestring = "I16";
+                outtypestring += "I16";
             else if (DataType == typeof(uint))
-                outtypestring = "U32";
+                outtypestring += "U32";
             else if (DataType == typeof(int))
-                outtypestring = "I32";
+                outtypestring += "I32";
             else if (DataType == typeof(ulong))
-                outtypestring = "U64";
+                outtypestring += "U64";
             else if (DataType == typeof(long))
-                outtypestring = "I64";
+                outtypestring += "I64";
             else if (DataType == typeof(float))
-                outtypestring = "float";
+                outtypestring += "float";
             else if (DataType == typeof(double))
-                outtypestring = "double";
+                outtypestring += "double";
             else
                 throw new Exception("Attempted to \"c-type string\" an Un-Supported Value Node Data Type");
 
@@ -666,19 +675,14 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             outNamestring += ";";
 
 
-            // Package in Columns for Return
-            if (true)
-            {
-                string outstring = "\t";
-                outstring += outtypestring;                
-                outstring += "\t" + outNamestring;
-                outstring += "\t\t" + outCommentstring  + "\n";
-                return outstring;
-            }
-            else
-            {
-                return string.Format("{0}{1}{2}{3}{4}{5}", "\t", outtypestring,"\t", outNamestring, "\t", outCommentstring);
-            }
+            // Package in Columns for Return            
+            LineTokensOut.Add(outtypestring);
+            LineTokensOut.Add(outNamestring);
+            LineTokensOut.Add(outCommentstring);
+            LineTokensOut.Add(unitsSting);
+            LineTokensOut.Add(offsetString+hexoffString);
+
+            return LineTokensOut;
         }
         public string toNameString(GUIValueLinks LinkIn)
         {

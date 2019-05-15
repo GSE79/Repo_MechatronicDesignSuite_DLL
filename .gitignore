@@ -14,3 +14,4 @@ _site
 /MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/XPlatSource/XPlat_LIB/Makefile
 /MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/XPlatSource/XPlat_LIB/*.Debug
 /MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/XPlatSource/XPlat_LIB/*.Release
+/MechatronicDesignSuite_DLL/MechatronicDesignSuite_DLL/XPlatSource/XPlat_LIB/XPlat_LIB.cylib/*.geades
