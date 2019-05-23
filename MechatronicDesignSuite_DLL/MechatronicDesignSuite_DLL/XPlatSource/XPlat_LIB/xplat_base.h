@@ -27,7 +27,6 @@
  */ ///////////////////////////////////////////////////////
 #define TRUE					1u
 #define FALSE					0u
-#define NULL					0u
 #define PckHDRSize				4
 #define SysBigEndian			TRUE
 #define HDRPCKOFFSETINDEX		3
@@ -97,6 +96,10 @@ typedef struct
 	U8*		outPackBuffPtr;
 	U8*		inPackBuffPtr;
 
+	// Temp Indecies
+	U32		outIndex;
+	U32		inIndex;
+
 	// Auto-Gen::XPLAT_DLL_API_Comm Packet Structure Pointers
 
 }XPLAT_DLL_API xplatAPI_DATAstruct;
@@ -111,9 +114,7 @@ typedef struct
     void                    (*ProcessRxPacket)(xplatAPI_DATAstruct*);
     void                    (*PrepareTxPacket)(xplatAPI_DATAstruct*);
 
-	// Temp Indecies
-	U32		outIndex;
-	U32		inIndex;
+	
 
 
 }XPLAT_DLL_API xplatAPIstruct;

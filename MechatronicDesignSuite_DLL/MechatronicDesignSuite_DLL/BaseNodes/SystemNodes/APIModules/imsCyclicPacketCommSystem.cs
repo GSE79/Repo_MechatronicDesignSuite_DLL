@@ -305,7 +305,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             if (!DeviceConnected)
             {
                 CommLoopCounter = 0;
-                GenerateXPlatSource();
+                GenerateXPlatSource(true);
             }
             
         }
@@ -406,8 +406,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
             TxPacketQueue.Add(tempBuffer.ToArray());
         }
-        public virtual void GenerateXPlatSource()
+        public virtual bool GenerateXPlatSource(bool dontPopUpExplorer)
         {
+            bool didRun = false;
             if(!AutoGen_HasAllFiles && TriggerXPlatAutoGEN)
             {                
                 do
@@ -469,9 +470,9 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                         foreach (string FileString in Directory.EnumerateFiles(DirString))
                             File.Copy(FileString, Path.Combine(OutDirString, Path.GetFileName(FileString)));  
                         foreach(string SubDirString in Directory.EnumerateDirectories(DirString))
-                            if(SubDirString.Contains("XPlat_LIB.cylib"))
+                            if(SubDirString.Contains("libXPlat_LIB.cylib"))
                             {
-                                string OutSubDirString = OutDirString + "\\XPlat_LIB.cylib\\";// + SubDirString.Substring(DirString.LastIndexOf("\\"));
+                                string OutSubDirString = OutDirString + "\\libXPlat_LIB.cylib\\";// + SubDirString.Substring(DirString.LastIndexOf("\\"));
                                 Directory.CreateDirectory(OutSubDirString);
                                 foreach (string SubFileString in Directory.EnumerateFiles(SubDirString))
                                     File.Copy(SubFileString, Path.Combine(OutSubDirString, Path.GetFileName(SubFileString)));
@@ -517,7 +518,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                     File.WriteAllText(OutputFileName_ClassCpp, ClassCppText);
 
                     //System.Threading.Thread.Sleep(2000);
-                    System.Diagnostics.Process.Start("explorer.exe", OutputModuleDir);
+                    if(!dontPopUpExplorer)
+                        System.Diagnostics.Process.Start("explorer.exe", OutputModuleDir);
+
+                    didRun = true;
                 }
                 else
                 {
@@ -541,6 +545,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                     }                    
                 }
             }
+            return didRun;
         }
         protected virtual void AutoGen_FindNProcess()
         {
@@ -612,13 +617,13 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                                     tempText += "void processRxPacket(xplatAPI_DATAstruct* xplatAPI_Data)\n{\n\t// Based on byte 0 of the input buffer, switch on packetID\n\tswitch (xplatAPI_Data->inputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets\n";
                                     // Loop all Static Packets in Comm System
                                     foreach (SerialParameterPacket SPDPacket in StaticSPDPackets)
-                                        tempText += SPDPacket.toCPkgCommDefinitionString("unpack");
+                                        tempText += SPDPacket.toCCommDefinitionString("unpack");
                                     tempText += "\t\tdefault:break;\n\t}\n}\n";
 
                                     tempText += "void prepareTxPacket(xplatAPI_DATAstruct* xplatAPI_Data)\n{\n\t// Based on byte 0 of the output buffer, switch on packetID\n\tswitch (xplatAPI_Data->outputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets\n";
                                     // Loop all Static Packets in Comm System
                                     foreach (SerialParameterPacket SPDPacket in StaticSPDPackets)
-                                        tempText += SPDPacket.toCPkgCommDefinitionString("package");
+                                        tempText += SPDPacket.toCCommDefinitionString("package");
                                     tempText += "\t\tdefault:break;\n\t}\n}\n";
 
                                     break;

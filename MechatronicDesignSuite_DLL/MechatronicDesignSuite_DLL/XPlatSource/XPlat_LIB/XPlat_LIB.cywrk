@@ -7,7 +7,7 @@
 <wrkspc_folders />
 <files />
 <projects>
-<v>.\XPlat_LIB.cylib\XPlat_LIB.cyprj</v>
+<v>.\libXPlat_LIB.cylib\libXPlat_LIB.cyprj</v>
 </projects>
 <workspace_id v="bc36d0f2-e5e6-4a7b-9180-91adfbf7b08f" />
 <WriteAppVersionLastSavedWith v="4.2.0.641" />

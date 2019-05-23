@@ -2,7 +2,7 @@
 
 XPlat_Class::XPlat_Class()
 {
-    initXPlatAPIStruct(&xplatAPI, &Data, NULL, NULL);
+    initXPlatAPIStruct(&xplatAPI, &Data, FALSE, FALSE);
 }
 XPlat_Class::XPlat_Class(U8* inBuff, U8* outBuff)
 {

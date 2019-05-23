@@ -60,6 +60,12 @@
     <Compile Include="BaseForms\imsPlotPane.Designer.cs">
       <DependentUpon>imsPlotPane.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseForms\imsExtAppConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseForms\imsExtAppConsole.Designer.cs">
+      <DependentUpon>imsExtAppConsole.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseForms\imsProjectExplorer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,7 @@
     <Compile Include="BaseNodes\SystemNodes\imsStaticGUIModule.cs" />
     <Compile Include="BaseNodes\imsSysModuleNode.cs" />
     <Compile Include="BaseNodes\imsValueNode.cs" />
+    <Compile Include="BaseTypes\ExtAppWrapper.cs" />
     <Compile Include="BaseTypes\GUIValueLinks.cs" />
     <Compile Include="BaseTypes\GDBTools.cs" />
     <Compile Include="BaseTypes\PSoCHID64.cs" />
@@ -235,6 +242,9 @@
     <EmbeddedResource Include="BaseForms\imsPlotPane.resx">
       <DependentUpon>imsPlotPane.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaseForms\imsExtAppConsole.resx">
+      <DependentUpon>imsExtAppConsole.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BaseForms\imsProjectExplorer.resx">
       <DependentUpon>imsProjectExplorer.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,7 +319,7 @@
     <None Include="XPlatSource\XPlat_LIB\xplat_class.hpp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.cylib\XPlat_LIB.cyprj">
+    <None Include="XPlatSource\XPlat_LIB\libXPlat_LIB.cylib\libXPlat_LIB.cyprj">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.cywrk">
@@ -320,6 +330,7 @@
     </None>
     <None Include="XPlatSource\XPlat_LIB\XPlat_LIB.vcxproj">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>

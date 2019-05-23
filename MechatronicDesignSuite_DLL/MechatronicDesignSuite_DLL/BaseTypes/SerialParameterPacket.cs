@@ -77,14 +77,14 @@ namespace MechatronicDesignSuite_DLL
         {
             string tempText = toCPkgFunctionPrototypeString();
             tempText = tempText.Replace("XPLAT_DLL_API", "");
-            string startText = tempText.Substring(0, tempText.IndexOf("packetPtr);\n")+("packetPtr)").Length);
-            string endText = tempText.Substring(tempText.IndexOf("packetPtr);\n") + ("packetPtr);\n").Length);
+            string startText = tempText.Substring(0, tempText.IndexOf("packStructPtr);\n") +("packStructPtr)").Length);
+            string endText = tempText.Substring(tempText.IndexOf("packStructPtr);\n") + ("packStructPtr);\n").Length);
 
             endText = endText.Substring(0, endText.Length - 2);
 
             // Package Function Definition
             startText += "\n{\n";
-            startText += "\t// Initialize pointer to start of packet area in output buffer\n\txplatAPI->Data->outPackBuffPtr = xplatAPI->Data->outputPacket;\n\t// Package bytes and increment pointer\n";
+            startText += "\t// Initialize pointer to start of packet area in output buffer\n\txplatAPI_Data->outPackBuffPtr = xplatAPI_Data->outputPacket;\n\t// Package bytes and increment pointer\n";
             int PacketOffset = 0;
             XPlatAutoGEN packXPlatAutoGEN = new XPlatAutoGEN(4);
             XPlatAutoGEN unpackXPlatAutoGEN = new XPlatAutoGEN(4);
@@ -100,8 +100,8 @@ namespace MechatronicDesignSuite_DLL
 
             // Unpack Function Definition
             endText += "\n{\n";
-            endText += "\t// Initialize pointer to start of packet area in input buffer\n\txplatAPI->Data->inPackBuffPtr = xplatAPI->Data->inputPacket;\n\t// UnPack bytes and increment pointer\n";
-            endText += "\tswitch(xplatAPI->Data->inputBuffer[HDRPCKOFFSETINDEX])\n\t{\n";
+            endText += "\t// Initialize pointer to start of packet area in input buffer\n\txplatAPI_Data->inPackBuffPtr = xplatAPI_Data->inputPacket;\n\t// UnPack bytes and increment pointer\n";
+            endText += "\tswitch(xplatAPI_Data->inputBuffer[HDRPCKOFFSETINDEX])\n\t{\n";
             PacketOffset = 0;
             foreach (imsSerialParamData SPD in PacketSPDs)
             {
@@ -128,7 +128,7 @@ namespace MechatronicDesignSuite_DLL
             return tempString + "struct*\t\t"+tempString+"Ptr;\n";
 
         }
-        public string toCPkgCommDefinitionString(string packUnpackString)
+        public string toCCommDefinitionString(string packUnpackString)
         {
             string nameString = "";
             foreach (char thisChar in PackDescription)
@@ -138,7 +138,7 @@ namespace MechatronicDesignSuite_DLL
                 nameString = string.Concat("pck", nameString);
 
             string startString = "\t\tcase PckID_" + nameString + ":\t// "+ PackDescription+"\n\t\t{\n\t\t\t";
-            startString += packUnpackString + nameString + "(xplatAPI, xplatAPI->Data->" + nameString +"Ptr);\n";
+            startString += packUnpackString + nameString + "(xplatAPI_Data, xplatAPI_Data->" + nameString +"Ptr);\n";
             startString += "\t\t\tbreak;\n\t\t}\n";
             return startString;
         }
@@ -152,8 +152,8 @@ namespace MechatronicDesignSuite_DLL
                 tempString = string.Concat("pck",tempString);
 
             string tempText = "//\n// - " + PackDescription + " - //\n// \n";
-            tempText += "XPLAT_DLL_API void package" + tempString + "(xplatAPIstruct* xplatAPI, "+tempString+"struct* packetPtr);\n";
-            tempText += "XPLAT_DLL_API void unpack" + tempString + "(xplatAPIstruct* xplatAPI, " + tempString + "struct* unpacketPtr);\n";
+            tempText += "XPLAT_DLL_API void package" + tempString + "(xplatAPI_DATAstruct* xplatAPI_Data, " + tempString+"struct* packStructPtr);\n";
+            tempText += "XPLAT_DLL_API void unpack" + tempString + "(xplatAPI_DATAstruct* xplatAPI_Data, " + tempString + "struct* unpackStructPtr);\n";
             return tempText;
         }
         public string toCTypeString()

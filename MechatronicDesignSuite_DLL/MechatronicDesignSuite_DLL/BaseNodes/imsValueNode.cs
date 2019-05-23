@@ -508,7 +508,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             string arrayLooping = "";
             string numBits = "package";
             string endiaNess = EndianString;
-            string typeNzeroFunctionEnd = "(xplatAPI->Data->outPackBuffPtr, packetPtr->"+ outNamestring + ");";
+            string typeNzeroFunctionEnd = "(xplatAPI_Data->outPackBuffPtr, packStructPtr->" + outNamestring + ");";
             string commentString = "// " + NodeName;
             string offsetString  = "@PacketOffset " + PacketOffsetAccumulator.ToString() + " (0x" + PacketOffsetAccumulator.ToString("X4") + ")";
 
@@ -516,10 +516,10 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             if (ArrayLength>1)
             {
                 numBits = "    {package";
-                arrayLooping = "for(xplatAPI->outIndex = 0; xplatAPI->outIndex < "+ArrayLength.ToString()+"; xplatAPI->outIndex++)\n";
+                arrayLooping = "for(xplatAPI_Data->outIndex = 0; xplatAPI_Data->outIndex < "+ArrayLength.ToString()+"; xplatAPI_Data->outIndex++)\n";
                 //commentString = "";
                 //offsetString = "";
-                typeNzeroFunctionEnd = "(xplatAPI->Data->outPackBuffPtr, packetPtr->" + outNamestring + "[xplatAPI->outIndex*" + DSizeString + "]);}    ";
+                typeNzeroFunctionEnd = "(xplatAPI_Data->outPackBuffPtr, packStructPtr->" + outNamestring + "[xplatAPI_Data->outIndex*" + DSizeString + "]);}    ";
             }
 
 
@@ -588,17 +588,17 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             string arrayLooping = "";
             string numBits = "";// "\tcase "+ PacketOffsetAccumulator.ToString() + ": unpack";
             string endiaNess = EndianString;
-            string typeNzeroFunctionEnd = "(xplatAPI->Data->inPackBuffPtr, unpacketPtr->" + outNamestring + ");break;";
+            string typeNzeroFunctionEnd = "(xplatAPI_Data->inPackBuffPtr, unpackStructPtr->" + outNamestring + ");break;";
             string commentString = "// " + NodeName;
             string offsetString = "@PacketOffset " + PacketOffsetAccumulator.ToString() + "\t\t(0x" + PacketOffsetAccumulator.ToString("X4") + ")";
             // Looping if array 
             if (ArrayLength > 1)
             {
                 numBits = "    {unpack";
-                arrayLooping = "\tcase " + PacketOffsetAccumulator.ToString() + ": for(xplatAPI->inIndex = 0; xplatAPI->inIndex < " + ArrayLength.ToString() + "; xplatAPI->inIndex++)\t\n\t\t";
+                arrayLooping = "\tcase " + PacketOffsetAccumulator.ToString() + ": for(xplatAPI_Data->inIndex = 0; xplatAPI_Data->inIndex < " + ArrayLength.ToString() + "; xplatAPI_Data->inIndex++)\t\n\t\t";
                 //commentString = "";
                 //offsetString = "";
-                typeNzeroFunctionEnd = "(xplatAPI->Data->inPackBuffPtr, unpacketPtr->" + outNamestring + "[xplatAPI->inIndex*"+ DSizeString + "]);}break;    ";
+                typeNzeroFunctionEnd = "(xplatAPI_Data->inPackBuffPtr, unpackStructPtr->" + outNamestring + "[xplatAPI_Data->inIndex*"+ DSizeString + "]);}break;    ";
             }
             else
             {
