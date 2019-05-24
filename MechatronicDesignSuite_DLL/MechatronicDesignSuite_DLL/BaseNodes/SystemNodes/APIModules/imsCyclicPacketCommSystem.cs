@@ -21,37 +21,37 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
     {
         #region System Properties
 
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("Trigger to generate cross platform embedded code for this cyclic packet communication system")]
-        public bool         TriggerXPlatAutoGEN { set; get; } =         false;
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("Indication that all required template files are present")]
-        public bool         AutoGen_HasAllFiles { get; set; } =         false;
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("Number of bytes in the buffers consumed by header bytes")]
-        public int          PacketHeaderSize { get; set; } =            4;
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("Indication of Endian-ness (true for Big endian)")]
-        public bool         SystemIsBigEndian { get; set; } =           true;
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("XPlatSource template directory string")]
-        public string       TemplateDirectory { set; get; } =           Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\");
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("xplat_class.cpp source template file name")]
-        public string       TemplateFileName_ClassCpp { set; get; } =   Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\XPlat_LIB\\xplat_class.cpp");
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("xplat_class.hpp header template file name")]
-        public string       TemplateFileName_ClassHpp { set; get; } =   Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\XPlat_LIB\\xplat_class.hpp");
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("xplat_base.c source template file name")]
-        public string       TemplateFileName_BaseC { set; get; } =      Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\XPlat_LIB\\xplat_base.c");
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("xplat_base.h header template file name")]
-        public string       TemplateFileName_BaseH { set; get; } =      Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\XPlat_LIB\\xplat_base.h");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("Trigger to generate cross platform embedded code for this cyclic packet communication system")]
+        public bool TriggerXPlatAutoGEN { set; get; } = false;
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("Indication that all required template files are present")]
+        public bool AutoGen_HasAllFiles { get; set; } = false;
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("Number of bytes in the buffers consumed by header bytes")]
+        public int PacketHeaderSize { get; set; } = 4;
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("Indication of Endian-ness (true for Big endian)")]
+        public bool SystemIsBigEndian { get; set; } = true;
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("XPlatSource template directory string")]
+        public string TemplateDirectory { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("xplat_class.cpp source template file name")]
+        public string TemplateFileName_ClassCpp { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\XPlat_LIB\\xplat_class.cpp");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("xplat_class.hpp header template file name")]
+        public string TemplateFileName_ClassHpp { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\XPlat_LIB\\xplat_class.hpp");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("xplat_base.c source template file name")]
+        public string TemplateFileName_BaseC { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\XPlat_LIB\\xplat_base.c");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("xplat_base.h header template file name")]
+        public string TemplateFileName_BaseH { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSource\\XPlat_LIB\\xplat_base.h");
 
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("Short name of output library")]
-        public string       OutputModuleName { set; get; } =            "XPlat";
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("Directory of output library")]
-        public string       OutputModuleDir { set; get; } =             Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir");
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("xplat_class.cpp auto-gen output file name")]
-        public string       OutputFileName_ClassCpp { set; get; } =     Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir\\XPlat_LIB\\xplat_class.cpp");
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("xplat_class.hpp auto-gen file name")]
-        public string       OutputFileName_ClassHpp { set; get; } =     Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir\\XPlat_LIB\\xplat_class.hpp");
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("xplat_base.c auto-gen file name")]
-        public string       OutputFileName_BaseC { set; get; } =        Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir\\XPlat_LIB\\xplat_base.c");
-        [Category("Cyclic Packet Comms System - Auto-GEN "),            Description("xplat_base.h auto-gen file name")]
-        public string       OutputFileName_BaseH { set; get; } =        Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir\\XPlat_LIB\\xplat_base.h");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("Short name of output library")]
+        public string OutputModuleName { set; get; } = "XPlat";
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("Directory of output library")]
+        public string OutputModuleDir { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("xplat_class.cpp auto-gen output file name")]
+        public string OutputFileName_ClassCpp { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir\\XPlat_LIB\\xplat_class.cpp");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("xplat_class.hpp auto-gen file name")]
+        public string OutputFileName_ClassHpp { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir\\XPlat_LIB\\xplat_class.hpp");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("xplat_base.c auto-gen file name")]
+        public string OutputFileName_BaseC { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir\\XPlat_LIB\\xplat_base.c");
+        [Category("Cyclic Packet Comms System - Auto-GEN "), Description("xplat_base.h auto-gen file name")]
+        public string OutputFileName_BaseH { set; get; } = Path.Combine(Directory.GetCurrentDirectory(), "XPlatSourceDir\\XPlat_LIB\\xplat_base.h");
 
 
         protected int GUILinkUPdateModulo = 10;
@@ -64,7 +64,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
         protected List<imsValueNode> LinkedValueNodes = new List<imsValueNode>();
         [Category("Cyclic Packet Comms System "), Description("Linked Value Nodes not automatically updated by Comm. System")]
-        public List<imsValueNode> getLinkedValueNodes { get{return LinkedValueNodes; } }
+        public List<imsValueNode> getLinkedValueNodes { get { return LinkedValueNodes; } }
 
 
         protected bool WriteFirst = false;
@@ -97,13 +97,13 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         protected int SleepTime = 1000;
         [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
         public int setSleepTime { set { SleepTime = value; } get { return SleepTime; } }
-        
+
         protected bool LogData = false;
         [Category("Cyclic Packet Comms System "), Description(".NET time (ms) for infinite loop of comms system to sleep ending each iteration")]
         public bool setLogData {
             set {
 
-                if(value && !LogData)
+                if (value && !LogData)
                 {
                     if (resetLoggingClock)
                         timeAtStartLogging = DateTime.Now;
@@ -136,7 +136,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
 
 
 
-        public DateTime TimeAtStartLogging { get {return timeAtStartLogging; } }
+        public DateTime TimeAtStartLogging { get { return timeAtStartLogging; } }
         DateTime timeAtStartLogging;
         #region System Feilds (not exposed to property grid/explorer)
         int RxPckIndx, ParsePckIndx, ClearPckIdx;
@@ -153,7 +153,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         }
         public imsCyclicPacketCommSystem(BinaryFormatter DeSerializeFormatter, FileStream deSerializeFs) : base(DeSerializeFormatter, deSerializeFs)
         {
-            
+
         }
         public imsCyclicPacketCommSystem(PCExeSys PCExeSysIn, List<imsBaseNode> globalNodeListIn) : base(globalNodeListIn)
         {
@@ -167,21 +167,82 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
         /// <summary>
         /// 
         /// </summary>
+        ToolStripDropDownButton XPlatMenuItems = null;
+        private int showXPlatSourceDir(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer.exe", OutputModuleDir);
+            return 0;
+        }
+        private void viewXPlatSourceDirMenuItem_Click(object sender, EventArgs e)
+        {
+            PCExeSysLink.CallEventHandlerFunction(showXPlatSourceDir, sender, e);
+        }
+        private int autoGenXPlatSource(object sender, EventArgs e)
+        {
+            TriggerXPlatAutoGEN = true;
+            //Cursor.Current = Cursors.WaitCursor;
+            return 0;
+        }
+        private void autoGenXPlatSourceMenuItem_Click(object sender, EventArgs e)
+        {
+            PCExeSysLink.CallEventHandlerFunction(autoGenXPlatSource, sender, e);
+        }
         public override void MainLoop()
         {
-            if(ClearLoggedData)
+            if (ClearLoggedData)
             {
-                for(ClearPckIdx = 0; ClearPckIdx<StaticSPDPackets.Count; ClearPckIdx++)
+                for (ClearPckIdx = 0; ClearPckIdx < StaticSPDPackets.Count; ClearPckIdx++)
                 {
                     StaticSPDPackets[ClearPckIdx].ClearLoggedValues();
                 }
-                for(ClearPckIdx = 0; ClearPckIdx<LinkedValueNodes.Count; ClearPckIdx++)
+                for (ClearPckIdx = 0; ClearPckIdx < LinkedValueNodes.Count; ClearPckIdx++)
                 {
                     LinkedValueNodes[ClearPckIdx].clearValues();
                 }
                 ClearLoggedData = false;
             }
-            
+            if (XPlatMenuItems == null) { 
+                if (PCExeSysLink != null) { 
+                    if (PCExeSysLink.LinkedMDSForm != null) { 
+                        if (PCExeSysLink.LinkedMDSForm.FormConfOps != null && PCExeSysLink.LinkedMDSForm.FormConfOps.OptionString.Contains("XPlatAutoGEN")) {
+                            foreach (Control ctr in PCExeSysLink.LinkedMDSForm.Controls)
+                            {
+                                if (ctr.GetType() == typeof(MenuStrip))
+                                {
+                                    PCExeSysLink.LinkedMDSForm.MainMenuStrip = (MenuStrip)ctr;
+                                    XPlatMenuItems = new ToolStripDropDownButton("XPlat Source");
+                                    PCExeSysLink.LinkedMDSForm.MainMenuStrip.Items.Add(XPlatMenuItems);
+                                    XPlatMenuItems.DropDownItems.Add("Auto-Gen XPlat Source", null, autoGenXPlatSourceMenuItem_Click);
+                                    XPlatMenuItems.DropDownItems.Add("View XPlat Source Directory", null, viewXPlatSourceDirMenuItem_Click);
+                                    PCExeSysLink.LinkedMDSForm.MainMenuStrip.Parent = PCExeSysLink.LinkedMDSForm;
+                                    PCExeSysLink.LinkedMDSForm.MainMenuStrip.Visible = true;
+                                    PCExeSysLink.LinkedMDSForm.MainMenuStrip.Show();
+                                }
+                                else if (ctr.GetType() == typeof(ToolStrip))
+                                {
+                                    XPlatMenuItems = new ToolStripDropDownButton("XPlat Source");
+                                    ((ToolStrip)ctr).Items.Add(XPlatMenuItems);
+                                    XPlatMenuItems.DropDownItems.Add("Auto-Gen XPlat Source", null, autoGenXPlatSourceMenuItem_Click);
+                                    XPlatMenuItems.DropDownItems.Add("View XPlat Source Directory", null, viewXPlatSourceDirMenuItem_Click);
+                                    ((ToolStrip)ctr).Parent = PCExeSysLink.LinkedMDSForm;
+                                    ((ToolStrip)ctr).Visible = true;
+                                    ((ToolStrip)ctr).Show();
+                                }
+                            }
+                            if (XPlatMenuItems == null)
+                            {
+                                PCExeSysLink.LinkedMDSForm.MainMenuStrip = new MenuStrip();
+                                PCExeSysLink.LinkedMDSForm.MainMenuStrip.Dock = DockStyle.Top;
+                                XPlatMenuItems = new ToolStripDropDownButton("XPlat Source");
+                                PCExeSysLink.LinkedMDSForm.MainMenuStrip.Items.Add(XPlatMenuItems);
+                                XPlatMenuItems.DropDownItems.Add("Auto-Gen XPlat Source", null, autoGenXPlatSourceMenuItem_Click);
+                                XPlatMenuItems.DropDownItems.Add("View XPlat Source Directory", null, viewXPlatSourceDirMenuItem_Click);
+                                PCExeSysLink.LinkedMDSForm.MainMenuStrip.Parent = PCExeSysLink.LinkedMDSForm;
+                                PCExeSysLink.LinkedMDSForm.MainMenuStrip.Visible = true;
+                                PCExeSysLink.LinkedMDSForm.MainMenuStrip.Show();
+                            }
+                        }}}}
+
 
             if(DeviceConnected && !devConnectedHistory)
             {
@@ -305,7 +366,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             if (!DeviceConnected)
             {
                 CommLoopCounter = 0;
-                GenerateXPlatSource(true);
+                GenerateXPlatSource(false);
             }
             
         }

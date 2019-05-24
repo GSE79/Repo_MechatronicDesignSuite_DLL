@@ -347,6 +347,8 @@ namespace MechatronicDesignSuite_DLL
                 LinkedMDSForm.MainMenuStrip.Visible = true;
                 LinkedMDSForm.MainMenuStrip.Show();
             }
+            
+
         }
 
         private void AnalyzeMainForm(MechatronicDesignSuiteForm MDSFormIn)
@@ -424,6 +426,13 @@ namespace MechatronicDesignSuite_DLL
                 foreach (imsSysModuleNode sysModNode in APISysModules)
                     if(sysModNode.getisInitialized)
                         sysModNode.MainLoop();
+
+                if (LinkedMDSForm.FormConfOps.OptionString.Contains("NO_PCExeSysMenu") && LinkedMDSForm.MainMenuStrip.Items[1].Visible)
+                {
+
+                    LinkedMDSForm.MainMenuStrip.Items[1].Visible = false;
+                    LinkedMDSForm.MainMenuStrip.Items[1].Enabled = false;
+                }
             }
 
             return 0;

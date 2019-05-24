@@ -55,7 +55,7 @@ namespace MechatronicDesignSuite_DLL
         public MechatronicDesignSuiteForm(FormConfigurationOptions confops)
         {
             InitializeComponent();
-            FormConfOps = confops;
+            FormConfOps = confops;     
         }
 
         
