@@ -620,7 +620,7 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
             AutoGen_Keys.Add("XPLAT_CLASS_Comm Method Definitions");                // 6
             AutoGen_Keys.Add("XPLAT_CLASS_PackagePacket Method Prototypes");        // 7
             AutoGen_Keys.Add("XPLAT_CLASS_Comm Method Prototypes");                 // 8
-            AutoGen_Keys.Add("XPLAT_DLL_API_Comm Packet Structure Pointers");       // 9
+            AutoGen_Keys.Add("XPLAT_DLL_API_Comm Packet Structures");               // 9
 
             // Loop all files, process lines, insert new lines according to Auto-Gen::Key
             List<string> FileTexts = new List<string>(4) {BaseHText, BaseCText, ClassHppText, ClassCppText };
@@ -675,11 +675,11 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                         case 4:     // Comm Function Definitions
                             {
                                     tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Comm Function Definitions \n//\n//////////////////////////////////////////////////////////\n";
-                                    tempText += "void processRxPacket(xplatAPI_DATAstruct* xplatAPI_Data)\n{\n\t// Based on byte 0 of the input buffer, switch on packetID\n\tswitch (xplatAPI_Data->inputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets\n";
+                                    tempText += "void processRxPacket(xplatAPI_DATAstruct* xplatAPI_Data)\n{\n\t// If the message type is anything other than readonly,\n\tif (xplatAPI_Data->inputBuffer[MessageTypeByteIndex] != 0u){\n\t// Based on byte 0 of the input buffer, switch on packetID\n\tswitch (xplatAPI_Data->inputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets\n";
                                     // Loop all Static Packets in Comm System
                                     foreach (SerialParameterPacket SPDPacket in StaticSPDPackets)
                                         tempText += SPDPacket.toCCommDefinitionString("unpack");
-                                    tempText += "\t\tdefault:break;\n\t}\n}\n";
+                                    tempText += "\t\tdefault:break;\n\t}}\n\t// Initialize Outpacket ID with ID from Inpacket\n\txplatAPI_Data->outputBuffer[0] = xplatAPI_Data->inputBuffer[0];\n\t// Initialize Outpacket Message Type with Message Type from Inpacket\n\txplatAPI_Data->outputBuffer[MessageTypeByteIndex] = xplatAPI_Data->inputBuffer[MessageTypeByteIndex];\n\t// Initialize Outpacket Data Offset with Data Offset from Inpacket\n\txplatAPI_Data->outputBuffer[HDRPCKOFFSETINDEX] = xplatAPI_Data->inputBuffer[HDRPCKOFFSETINDEX];\n}\n";
 
                                     tempText += "void prepareTxPacket(xplatAPI_DATAstruct* xplatAPI_Data)\n{\n\t// Based on byte 0 of the output buffer, switch on packetID\n\tswitch (xplatAPI_Data->outputBuffer[0])\n\t{\n\t\t// Auto-Gen cases from packets\n";
                                     // Loop all Static Packets in Comm System
@@ -705,12 +705,15 @@ namespace MechatronicDesignSuite_DLL.BaseNodes
                             {
                                 break;
                             }
-                            case 9:// Packet Structure Pointers
+                            case 9:// Packet Structures in SM
                                 {
-                                    tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Structure Pointers \n//\n//////////////////////////////////////////////////////////\n";
+                                    tempText += "//////////////////////////////////////////////////////////\n//\n// Auto-Gen Packet Structures \n//\n//////////////////////////////////////////////////////////\n";
                                     // Loop all Static Packets in Comm System
+                                    XPlatAutoGEN myXPlatAutoGEN = new XPlatAutoGEN(2);
                                     foreach (SerialParameterPacket SPDPacket in StaticSPDPackets)
-                                        tempText += SPDPacket.toCPacketStructPointersString();
+                                        myXPlatAutoGEN.AddLineTokens(SPDPacket.toCPacketStructString());
+                                    myXPlatAutoGEN.AlignColumnsInputTokens();
+                                    tempText += myXPlatAutoGEN.ReturnOutputLines();
                                     break;
                                 }
                         default:

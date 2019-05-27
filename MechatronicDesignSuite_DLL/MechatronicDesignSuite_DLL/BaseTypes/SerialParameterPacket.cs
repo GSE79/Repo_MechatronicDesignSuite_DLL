@@ -115,7 +115,7 @@ namespace MechatronicDesignSuite_DLL
 
             return startText + endText;
         }
-        public string toCPacketStructPointersString()
+        public List<string> toCPacketStructString()
         {
             // Add Closing Struct Text
             string tempString = "";
@@ -125,7 +125,7 @@ namespace MechatronicDesignSuite_DLL
             if (!Char.IsLetter(tempString[0]))
                 tempString = string.Concat("pck", tempString);
 
-            return tempString + "struct*\t\t"+tempString+"Ptr;\n";
+            return new List<string>(2) { tempString + "struct", tempString+";"};
 
         }
         public string toCCommDefinitionString(string packUnpackString)
@@ -138,7 +138,7 @@ namespace MechatronicDesignSuite_DLL
                 nameString = string.Concat("pck", nameString);
 
             string startString = "\t\tcase PckID_" + nameString + ":\t// "+ PackDescription+"\n\t\t{\n\t\t\t";
-            startString += packUnpackString + nameString + "(xplatAPI_Data, xplatAPI_Data->" + nameString +"Ptr);\n";
+            startString += packUnpackString + nameString + "(xplatAPI_Data, &(xplatAPI_Data->SMPtr->" + nameString +"));\n";
             startString += "\t\t\tbreak;\n\t\t}\n";
             return startString;
         }
