@@ -176,7 +176,8 @@ namespace CyUSB
             _path = PInvoke.GetDevicePath(_drvGuid, dev);
             pathDetect = _path;
 
-            if (pathDetect.Contains("&mi_00#") == true || pathDetect.Contains("hid#mshw0030&col01#") == true)
+            if (pathDetect.Contains("&mi_00#") || pathDetect.Contains("hid#mshw0030&col01#") 
+                || pathDetect.Contains("hid#intc816#3&d2322f2&0&0000#") || pathDetect.Contains("hid#vid_8087"))
                 return false;
 
             _hDevice = PInvoke.GetDeviceHandle(_path, false, ref _Access);
